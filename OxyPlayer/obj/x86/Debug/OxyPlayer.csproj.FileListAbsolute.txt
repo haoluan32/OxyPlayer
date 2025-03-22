@@ -1,0 +1,12 @@
+D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Debug\OxyPlayer.Form1.resources
+D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Debug\OxyPlayer.Properties.Resources.resources
+D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Debug\OxyPlayer.csproj.GenerateResource.Cache
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\OxyPlayer.exe
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\OxyPlayer.pdb
+D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Debug\OxyPlayer.exe
+D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Debug\OxyPlayer.pdb
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\Interop.Shell32.dll
+D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Debug\OxyPlayer.csprojResolveAssemblyReference.cache
+D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Debug\Interop.Shell32.dll
+D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Debug\OxyPlayer.csproj.ResolveComReference.cache
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\SupportedFormating.txt
