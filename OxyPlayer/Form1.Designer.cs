@@ -29,15 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("User Music Floder");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("User Music Floder");
             this.button1 = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.TimeTrack = new System.Windows.Forms.TrackBar();
+            this.TimeTrackLine = new System.Windows.Forms.TrackBar();
             this.labeltitle = new System.Windows.Forms.Label();
             this.labelartistalbum = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.TimeTrackTimer = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.TimeTrack)).BeginInit();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.TimeTrackText = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.TimeTrackLine)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -55,21 +57,24 @@
             this.treeView1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.treeView1.Location = new System.Drawing.Point(12, 12);
             this.treeView1.Name = "treeView1";
-            treeNode2.Name = "NodeZ";
-            treeNode2.Text = "User Music Floder";
+            treeNode1.Name = "NodeZ";
+            treeNode1.Text = "User Music Floder";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2});
+            treeNode1});
             this.treeView1.Size = new System.Drawing.Size(514, 221);
             this.treeView1.TabIndex = 3;
             this.treeView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.treeView1_MouseDoubleClick);
             // 
-            // TimeTrack
+            // TimeTrackLine
             // 
-            this.TimeTrack.Location = new System.Drawing.Point(12, 324);
-            this.TimeTrack.Name = "TimeTrack";
-            this.TimeTrack.Size = new System.Drawing.Size(514, 45);
-            this.TimeTrack.TabIndex = 5;
-            this.TimeTrack.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.TimeTrackLine.Location = new System.Drawing.Point(12, 324);
+            this.TimeTrackLine.Name = "TimeTrackLine";
+            this.TimeTrackLine.Size = new System.Drawing.Size(514, 45);
+            this.TimeTrackLine.TabIndex = 5;
+            this.TimeTrackLine.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.TimeTrackLine.ValueChanged += new System.EventHandler(this.TimeTrack_ValueChanged);
+            this.TimeTrackLine.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TimeTrack_MouseDown);
+            this.TimeTrackLine.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TimeTrack_MouseUp);
             // 
             // labeltitle
             // 
@@ -91,35 +96,50 @@
             this.labelartistalbum.TabIndex = 7;
             this.labelartistalbum.Text = "Artist · Album";
             // 
-            // timer1
+            // TimeTrackTimer
             // 
-            this.timer1.Interval = 500;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.TimeTrackTimer.Tick += new System.EventHandler(this.TimeTrackTimer_Tick);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(419, 417);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 12);
+            this.label1.Size = new System.Drawing.Size(113, 12);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Hyd v0.1.25.03.22";
+            this.label1.Text = "Hyd v0.15.25.03.28";
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
+            // TimeTrackText
+            // 
+            this.TimeTrackText.AutoSize = true;
+            this.TimeTrackText.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TimeTrackText.Location = new System.Drawing.Point(443, 357);
+            this.TimeTrackText.Name = "TimeTrackText";
+            this.TimeTrackText.Size = new System.Drawing.Size(83, 17);
+            this.TimeTrackText.TabIndex = 9;
+            this.TimeTrackText.Text = "00:00 / 00:00";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(538, 438);
+            this.Controls.Add(this.TimeTrackText);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelartistalbum);
             this.Controls.Add(this.labeltitle);
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.TimeTrack);
+            this.Controls.Add(this.TimeTrackLine);
             this.Name = "Form1";
             this.Text = "OxyPlayer Hyd";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.TimeTrack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TimeTrackLine)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,11 +149,13 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.TrackBar TimeTrack;
+        private System.Windows.Forms.TrackBar TimeTrackLine;
         private System.Windows.Forms.Label labeltitle;
         private System.Windows.Forms.Label labelartistalbum;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer TimeTrackTimer;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.Label TimeTrackText;
     }
 }
 

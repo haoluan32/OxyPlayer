@@ -19,56 +19,85 @@ namespace OxyPlayer
     public partial class Form1 : Form
     {
         MediaPlayer mp = new MediaPlayer();
+        Musicinfo mi;
+        bool playing = false;
         string[] SupportedFormating;
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-            StreamReader SFsr=new StreamReader("SupportedFormating.txt");
-            SupportedFormating= SFsr.ReadToEnd().Split(',','\r');
-            SFsr.Close();
-            timer1.Start();
-            DirectoryInfo ld=new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic));
-            FileInfo[] ldis = ld.GetFiles();
-            foreach (FileInfo tldi in ldis)
-            {
-                if (Array.IndexOf(SupportedFormating,tldi.Extension)==-1)
-                    continue;
+        { 
+            
 
-                TreeNode ntn = new TreeNode();
-                ntn.Text = tldi.Name;
-                ntn.ToolTipText = tldi.FullName;
-                treeView1.Nodes["NodeZ"].Nodes.Add(ntn);
-            }
+            DrawTreeNode();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            mp.Pause();
+            if (playing)
+                PauseMusic();
+            else
+                PlayMusic();
         }
 
         private void treeView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             mp.Stop();
+            
             try
             {
-                mp.Open(new Uri(treeView1.SelectedNode.ToolTipText));
-                Musicinfo mi = MusicSh.GetMusicInfo(treeView1.SelectedNode.ToolTipText);
-                TimeTrack.Maximum = mi.TimeLength_Second;
-                mp.Play();
+                PlayMusic(treeView1.SelectedNode.ToolTipText);
+                mi = MusicSh.GetMusicInfo(treeView1.SelectedNode.ToolTipText);
+                TimeTrackLine.Maximum = mi.TimeLength_Second;
+                PlayMusic();
                 labeltitle.Text =  mi.Title;
                 labelartistalbum.Text = mi.Artist+" · "+mi.Album;
+                TimeTrackTimer.Start();
             }
             catch { }
             
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        
+
+        #region TimeTrack's Codes
+
+        bool UserChangedValue = false;
+
+        private void TimeTrackTimer_Tick(object sender, EventArgs e)
         {
-            TimeTrack.Value = (int)mp.Position.TotalSeconds;
+            TimeTrackLine.Value = (int)mp.Position.TotalSeconds;
+            UserChangedValue = false;
+            TimeTrackText.Text = string.Format("{0} / {1}", MusicSh.Second2MMSS(mp.Position), MusicSh.Second2MMSS(mi.TimeLength_Second));
         }
+
+        private void TimeTrack_MouseDown(object sender, MouseEventArgs e)
+        {
+            TimeTrackTimer.Stop();
+        }
+
+        private void TimeTrack_ValueChanged(object sender, EventArgs e)
+        {
+            UserChangedValue = true;
+        }
+
+        private void TimeTrack_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (UserChangedValue)
+            {
+                mp.Pause();
+                mp.Position = new TimeSpan(0, 0, TimeTrackLine.Value);
+                mp.Play();
+            }
+            TimeTrackTimer.Start();
+        }
+        #endregion
+
+        
+
+        
     }
 }

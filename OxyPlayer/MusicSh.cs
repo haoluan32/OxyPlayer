@@ -47,7 +47,7 @@ namespace OxyPlayer
             
         }
 
-        static private int HHMMSS2Second(String time)
+        static public int HHMMSS2Second(String time)
         {
             int second = 0;
             string[] TimeSplited = time.Split(':');
@@ -56,6 +56,33 @@ namespace OxyPlayer
             second += int.Parse(TimeSplited[2]);
             return second;
         }
+
+        static public string[] GetSupportedFormating()
+        {
+            StreamReader SFsr = new StreamReader("SupportedFormating.txt");
+            string[] SupportedFormating = SFsr.ReadToEnd().Split(',', '\r');
+            SFsr.Close();
+            return SupportedFormating;
+        }
+        #region Seconds/TimeSpan To MM:SS
+        static public string Second2MMSS(TimeSpan time)
+        {
+            string returning = "";
+            returning += ((int)time.TotalMinutes).ToString("00");
+            returning += ":";
+            returning += (((int)time.TotalSeconds) % 60).ToString("00");
+            return returning;
+        }
+
+        static public string Second2MMSS(int seconds)
+        {
+            string returning = "";
+            returning += ((int)seconds / 60).ToString("00");
+            returning += ":";
+            returning += (seconds % 60).ToString("00");
+            return returning;
+        }
+        #endregion
     }
 }
 

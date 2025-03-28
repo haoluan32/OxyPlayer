@@ -10,3 +10,5 @@ D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Debug\OxyPlayer.csprojResolveAssemblyRef
 D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Debug\Interop.Shell32.dll
 D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Debug\OxyPlayer.csproj.ResolveComReference.cache
 D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\SupportedFormating.txt
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\Songs.sdf
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\OxyPlayer.exe.config
