@@ -23,6 +23,7 @@ namespace OxyPlayer
         public int TimeLength_Second;
         public string Artist;
         public string Album;
+        public Image Cover;
     }
 
     class MusicSh
@@ -31,9 +32,12 @@ namespace OxyPlayer
         {
             Musicinfo mi = new Musicinfo();
             string file = MusicPath;
+
+            #region ShellClass
             ShellClass sh = new ShellClass();
             Folder dir = sh.NameSpace(Path.GetDirectoryName(file));
             FolderItem item = dir.ParseName(Path.GetFileName(file));
+            
             string Length = dir.GetDetailsOf(item, 27); // 获取歌曲时长。
             mi.TimeLength = Length;
             mi.TimeLength_Second = HHMMSS2Second(Length);
@@ -43,6 +47,12 @@ namespace OxyPlayer
                 mi.Title = dir.GetDetailsOf(item, 0);
             mi.Album = dir.GetDetailsOf(item, 14);
             mi.Artist = dir.GetDetailsOf(item, 13);
+            #endregion
+
+            
+
+            
+            
             return mi;
             
         }

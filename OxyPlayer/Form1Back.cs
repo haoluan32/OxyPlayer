@@ -37,16 +37,20 @@ namespace OxyPlayer
         {
             mp.Play();
             playing = true;
+            button1.Text = "∥";
         }
         private void PlayMusic(string url)
         {
             mp.Open(new Uri(url));
             playing = true;
+            button1.Text = "∥";
         }
 
         private void PauseMusic()
         {
-            mp.Stop();
+            mp.Pause();
+            playing = false;
+            button1.Text = "▶";
         }
     }
 }

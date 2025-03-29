@@ -96,6 +96,11 @@ namespace OxyPlayer
         }
         #endregion
 
+        private void VolumeTrackBar_ValueChanged(object sender, EventArgs e)
+        {
+            mp.Volume = VolumeTrackBar.Value/100.0;
+        }
+
         
 
         
