@@ -13,6 +13,9 @@ using System.Runtime;
 using Windows;
 using Microsoft;
 using Shell32;
+using Id3.Frames;
+using Id3;
+using NReco.VideoInfo;
 
 namespace OxyPlayer
 {
@@ -37,7 +40,7 @@ namespace OxyPlayer
             ShellClass sh = new ShellClass();
             Folder dir = sh.NameSpace(Path.GetDirectoryName(file));
             FolderItem item = dir.ParseName(Path.GetFileName(file));
-            
+
             string Length = dir.GetDetailsOf(item, 27); // 获取歌曲时长。
             mi.TimeLength = Length;
             mi.TimeLength_Second = HHMMSS2Second(Length);
@@ -48,8 +51,18 @@ namespace OxyPlayer
             mi.Album = dir.GetDetailsOf(item, 14);
             mi.Artist = dir.GetDetailsOf(item, 13);
             #endregion
-
+            try { 
+            Mp3 music = new Mp3(MusicPath);
+            Id3Tag musictags = music.GetTag(Id3TagFamily.Version2X);
+            MemoryStream RamTempDisk = new MemoryStream();
+            if (musictags.Pictures.Count != 0)
+            {
+                musictags.Pictures[0].SaveImage(RamTempDisk);
+                mi.Cover = Image.FromStream(RamTempDisk);
+            } }
+            catch { }
             
+
 
             
             

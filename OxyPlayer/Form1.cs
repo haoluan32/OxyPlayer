@@ -12,6 +12,7 @@ using System.IO;
 using System.Runtime;
 using Windows;
 using Microsoft;
+using Id3;
 
 
 namespace OxyPlayer
@@ -22,6 +23,8 @@ namespace OxyPlayer
         Musicinfo mi;
         bool playing = false;
         string[] SupportedFormating;
+        TreeNode PlayingTreeNode = new TreeNode();
+
         public Form1()
         {
             InitializeComponent();
@@ -52,9 +55,12 @@ namespace OxyPlayer
                 PlayMusic(treeView1.SelectedNode.ToolTipText);
                 mi = MusicSh.GetMusicInfo(treeView1.SelectedNode.ToolTipText);
                 TimeTrackLine.Maximum = mi.TimeLength_Second;
+                PlayingTreeNode = treeView1.SelectedNode;
+
                 PlayMusic();
                 labeltitle.Text =  mi.Title;
-                labelartistalbum.Text = mi.Artist+" · "+mi.Album;
+                labelartistalbum.Text = mi.Artist + " · " + mi.Album;
+                pictureBox1.Image = mi.Cover;
                 TimeTrackTimer.Start();
             }
             catch { }

@@ -12,3 +12,11 @@ D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Debug\OxyPlayer.csproj.ResolveComReferen
 D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\SupportedFormating.txt
 D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\Songs.sdf
 D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\OxyPlayer.exe.config
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\Id3.Net.dll
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\JetBrains.Annotations.dll
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\System.Runtime.WindowsRuntime.dll
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\Id3.Net.xml
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\JetBrains.Annotations.xml
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\zh-Hans\System.Runtime.WindowsRuntime.resources.dll
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\NReco.VideoInfo.dll
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\NReco.VideoInfo.xml

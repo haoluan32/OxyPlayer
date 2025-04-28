@@ -41,9 +41,11 @@
             this.TimeTrackText = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.VolumeTrackBar = new System.Windows.Forms.TrackBar();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.TimeTrackLine)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VolumeTrackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -85,7 +87,7 @@
             // 
             this.labeltitle.AutoSize = true;
             this.labeltitle.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labeltitle.Location = new System.Drawing.Point(14, 260);
+            this.labeltitle.Location = new System.Drawing.Point(95, 260);
             this.labeltitle.Name = "labeltitle";
             this.labeltitle.Size = new System.Drawing.Size(67, 25);
             this.labeltitle.TabIndex = 6;
@@ -95,7 +97,7 @@
             // 
             this.labelartistalbum.AutoSize = true;
             this.labelartistalbum.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelartistalbum.Location = new System.Drawing.Point(17, 290);
+            this.labelartistalbum.Location = new System.Drawing.Point(98, 290);
             this.labelartistalbum.Name = "labelartistalbum";
             this.labelartistalbum.Size = new System.Drawing.Size(86, 17);
             this.labelartistalbum.TabIndex = 7;
@@ -150,11 +152,21 @@
             this.VolumeTrackBar.Value = 100;
             this.VolumeTrackBar.ValueChanged += new System.EventHandler(this.VolumeTrackBar_ValueChanged);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(12, 239);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(79, 79);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(538, 466);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.TimeTrackText);
             this.Controls.Add(this.label1);
@@ -170,6 +182,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VolumeTrackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,6 +201,7 @@
         private System.Windows.Forms.Label TimeTrackText;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TrackBar VolumeTrackBar;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
