@@ -12,7 +12,7 @@ using System.IO;
 using System.Runtime;
 using Windows;
 using Microsoft;
-using Id3;
+using System.Diagnostics;
 
 
 namespace OxyPlayer
@@ -107,8 +107,18 @@ namespace OxyPlayer
             mp.Volume = VolumeTrackBar.Value/100.0;
         }
 
-        
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            ImageViewer iv = new ImageViewer(mi.Cover);
+            iv.Show();
+        }
 
-        
+        private void musicTagToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process p = new Process();
+            p.StartInfo.FileName = @".\MusicTag\MusicTag.exe";
+            p.StartInfo.Arguments = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
+            p.Start();
+        }
     }
 }

@@ -1,0 +1,8 @@
+[2025-06-09 20:46:44]
+Type: AppDomain.CurrentDomain.UnhandledException, DirectoryNotFoundException
+Message: 未能找到路径“D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\mp3tag\font\fontawesome-webfont.ttf”的一部分。
+StackTrace:    在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   在 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access)
+   在 System.Net.WebClient.DownloadFile(Uri address, String fileName)
+

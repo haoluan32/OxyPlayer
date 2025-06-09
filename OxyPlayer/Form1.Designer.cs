@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("User Music Floder");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("User Music Floder");
             this.button1 = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.TimeTrackLine = new System.Windows.Forms.TrackBar();
@@ -42,16 +42,20 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.VolumeTrackBar = new System.Windows.Forms.TrackBar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.工具TToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.musicTagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.TimeTrackLine)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VolumeTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(44, 354);
+            this.button1.Location = new System.Drawing.Point(44, 378);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(25, 25);
             this.button1.TabIndex = 0;
@@ -62,19 +66,19 @@
             // treeView1
             // 
             this.treeView1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.treeView1.Location = new System.Drawing.Point(12, 12);
+            this.treeView1.Location = new System.Drawing.Point(12, 36);
             this.treeView1.Name = "treeView1";
-            treeNode2.Name = "NodeZ";
-            treeNode2.Text = "User Music Floder";
+            treeNode1.Name = "NodeZ";
+            treeNode1.Text = "User Music Floder";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2});
+            treeNode1});
             this.treeView1.Size = new System.Drawing.Size(514, 221);
             this.treeView1.TabIndex = 3;
             this.treeView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.treeView1_MouseDoubleClick);
             // 
             // TimeTrackLine
             // 
-            this.TimeTrackLine.Location = new System.Drawing.Point(12, 324);
+            this.TimeTrackLine.Location = new System.Drawing.Point(12, 348);
             this.TimeTrackLine.Name = "TimeTrackLine";
             this.TimeTrackLine.Size = new System.Drawing.Size(514, 45);
             this.TimeTrackLine.TabIndex = 5;
@@ -87,7 +91,7 @@
             // 
             this.labeltitle.AutoSize = true;
             this.labeltitle.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labeltitle.Location = new System.Drawing.Point(95, 260);
+            this.labeltitle.Location = new System.Drawing.Point(95, 284);
             this.labeltitle.Name = "labeltitle";
             this.labeltitle.Size = new System.Drawing.Size(67, 25);
             this.labeltitle.TabIndex = 6;
@@ -97,7 +101,7 @@
             // 
             this.labelartistalbum.AutoSize = true;
             this.labelartistalbum.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelartistalbum.Location = new System.Drawing.Point(98, 290);
+            this.labelartistalbum.Location = new System.Drawing.Point(98, 314);
             this.labelartistalbum.Name = "labelartistalbum";
             this.labelartistalbum.Size = new System.Drawing.Size(86, 17);
             this.labelartistalbum.TabIndex = 7;
@@ -110,11 +114,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(413, 445);
+            this.label1.Location = new System.Drawing.Point(413, 469);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 12);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Hyd v0.16.25.03.29";
+            this.label1.Text = "Hyd v0.51.25.06.09";
             // 
             // notifyIcon1
             // 
@@ -125,7 +129,7 @@
             // 
             this.TimeTrackText.AutoSize = true;
             this.TimeTrackText.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TimeTrackText.Location = new System.Drawing.Point(443, 357);
+            this.TimeTrackText.Location = new System.Drawing.Point(443, 381);
             this.TimeTrackText.Name = "TimeTrackText";
             this.TimeTrackText.Size = new System.Drawing.Size(83, 17);
             this.TimeTrackText.TabIndex = 9;
@@ -134,7 +138,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.VolumeTrackBar);
-            this.groupBox1.Location = new System.Drawing.Point(384, 377);
+            this.groupBox1.Location = new System.Drawing.Point(384, 401);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(142, 50);
             this.groupBox1.TabIndex = 10;
@@ -143,7 +147,7 @@
             // 
             // VolumeTrackBar
             // 
-            this.VolumeTrackBar.Location = new System.Drawing.Point(6, 20);
+            this.VolumeTrackBar.Location = new System.Drawing.Point(6, 19);
             this.VolumeTrackBar.Maximum = 100;
             this.VolumeTrackBar.Name = "VolumeTrackBar";
             this.VolumeTrackBar.Size = new System.Drawing.Size(136, 45);
@@ -154,18 +158,44 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 239);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 263);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(79, 79);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.工具TToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(538, 25);
+            this.menuStrip1.TabIndex = 12;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // 工具TToolStripMenuItem
+            // 
+            this.工具TToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.musicTagToolStripMenuItem});
+            this.工具TToolStripMenuItem.Name = "工具TToolStripMenuItem";
+            this.工具TToolStripMenuItem.Size = new System.Drawing.Size(75, 21);
+            this.工具TToolStripMenuItem.Text = "工具（&T）";
+            // 
+            // musicTagToolStripMenuItem
+            // 
+            this.musicTagToolStripMenuItem.Name = "musicTagToolStripMenuItem";
+            this.musicTagToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.musicTagToolStripMenuItem.Text = "&MusicTag";
+            this.musicTagToolStripMenuItem.Click += new System.EventHandler(this.musicTagToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(538, 466);
+            this.ClientSize = new System.Drawing.Size(538, 491);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.TimeTrackText);
@@ -175,6 +205,8 @@
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.TimeTrackLine);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "OxyPlayer Hyd";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -183,6 +215,8 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VolumeTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,6 +236,9 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TrackBar VolumeTrackBar;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 工具TToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem musicTagToolStripMenuItem;
     }
 }
 

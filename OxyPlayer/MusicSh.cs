@@ -13,9 +13,7 @@ using System.Runtime;
 using Windows;
 using Microsoft;
 using Shell32;
-using Id3.Frames;
-using Id3;
-using NReco.VideoInfo;
+using TagLib;
 
 namespace OxyPlayer
 {
@@ -51,15 +49,16 @@ namespace OxyPlayer
             mi.Album = dir.GetDetailsOf(item, 14);
             mi.Artist = dir.GetDetailsOf(item, 13);
             #endregion
-            try { 
-            Mp3 music = new Mp3(MusicPath);
-            Id3Tag musictags = music.GetTag(Id3TagFamily.Version2X);
-            MemoryStream RamTempDisk = new MemoryStream();
-            if (musictags.Pictures.Count != 0)
+            try
             {
-                musictags.Pictures[0].SaveImage(RamTempDisk);
-                mi.Cover = Image.FromStream(RamTempDisk);
-            } }
+                TagLib.File musicf = TagLib.File.Create(MusicPath);
+                if (musicf.Tag.Pictures.Length != 0)
+                {
+                    MemoryStream imageCache = new MemoryStream(musicf.Tag.Pictures[0].Data.Data);
+                    mi.Cover = Image.FromStream(imageCache);
+                    imageCache.Close();
+                }
+            }
             catch { }
             
 
