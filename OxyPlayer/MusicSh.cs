@@ -14,6 +14,7 @@ using Windows;
 using Microsoft;
 using Shell32;
 using TagLib;
+using System.Collections;
 
 namespace OxyPlayer
 {
@@ -25,6 +26,8 @@ namespace OxyPlayer
         public string Artist;
         public string Album;
         public Image Cover;
+        public string lyric;
+        public Dictionary<int, string> lrcsheet;
     }
 
     class MusicSh
@@ -33,6 +36,7 @@ namespace OxyPlayer
         {
             Musicinfo mi = new Musicinfo();
             string file = MusicPath;
+            TagLib.File musicf = TagLib.File.Create(MusicPath);
 
             #region ShellClass
             ShellClass sh = new ShellClass();
@@ -49,9 +53,11 @@ namespace OxyPlayer
             mi.Album = dir.GetDetailsOf(item, 14);
             mi.Artist = dir.GetDetailsOf(item, 13);
             #endregion
+
+            //获取音乐封面
             try
             {
-                TagLib.File musicf = TagLib.File.Create(MusicPath);
+                
                 if (musicf.Tag.Pictures.Length != 0)
                 {
                     MemoryStream imageCache = new MemoryStream(musicf.Tag.Pictures[0].Data.Data);
@@ -60,11 +66,21 @@ namespace OxyPlayer
                 }
             }
             catch { }
-            
+            //获取歌词
+            try
+            {
+                if(musicf.Tag.Lyrics.Length!=0)
+                {
+                    mi.lyric = musicf.Tag.Lyrics;
+                    mi.lrcsheet = lrc2sheet(mi.lyric);
+                }
+
+            }
+            catch { }
 
 
-            
-            
+
+
             return mi;
             
         }
@@ -76,6 +92,14 @@ namespace OxyPlayer
             second += int.Parse(TimeSplited[0])*3600;
             second += int.Parse(TimeSplited[1]) * 60;
             second += int.Parse(TimeSplited[2]);
+            return second;
+        }
+        static public int MMSS2Second(String time)
+        {
+            int second = 0;
+            string[] TimeSplited = time.Split(':');
+            second += int.Parse(TimeSplited[0]) * 60;
+            second += int.Parse(TimeSplited[1]);
             return second;
         }
 
@@ -105,6 +129,27 @@ namespace OxyPlayer
             return returning;
         }
         #endregion
+
+        static public Dictionary<int,string> lrc2sheet(string lrc)
+        {
+            Dictionary<int, string> lrcsheet = new Dictionary<int, string>();
+            string[] lrcel = lrc.Split('\n');
+            foreach(var elrc in lrcel)
+            {
+                int key = MMSS2Second(elrc.Substring(1, 5));
+                string value = elrc.Substring(10);
+                try
+                {
+                    lrcsheet.Add(key, value);
+                }
+                catch(System.ArgumentException)
+                {
+                    lrcsheet[key] += "\n"+value;
+                }
+            }
+
+            return lrcsheet;
+        }
     }
 }
 

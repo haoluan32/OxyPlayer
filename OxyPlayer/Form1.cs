@@ -62,6 +62,7 @@ namespace OxyPlayer
                 labelartistalbum.Text = mi.Artist + " · " + mi.Album;
                 pictureBox1.Image = mi.Cover;
                 TimeTrackTimer.Start();
+                richTextBox1.Text = mi.lyric;
             }
             catch { }
             
@@ -78,6 +79,11 @@ namespace OxyPlayer
             TimeTrackLine.Value = (int)mp.Position.TotalSeconds;
             UserChangedValue = false;
             TimeTrackText.Text = string.Format("{0} / {1}", MusicSh.Second2MMSS(mp.Position), MusicSh.Second2MMSS(mi.TimeLength_Second));
+            try
+            {
+                richTextBox1.Text = mi.lrcsheet[(int)mp.Position.TotalSeconds];
+            }
+            catch { }
         }
 
         private void TimeTrack_MouseDown(object sender, MouseEventArgs e)
