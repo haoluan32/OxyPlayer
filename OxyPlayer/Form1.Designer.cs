@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("User Music Floder");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("User Music Floder");
             this.button1 = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.TimeTrackLine = new System.Windows.Forms.TrackBar();
@@ -71,10 +71,10 @@
             this.treeView1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.treeView1.Location = new System.Drawing.Point(12, 36);
             this.treeView1.Name = "treeView1";
-            treeNode5.Name = "NodeZ";
-            treeNode5.Text = "User Music Floder";
+            treeNode2.Name = "NodeZ";
+            treeNode2.Text = "User Music Floder";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode5});
+            treeNode2});
             this.treeView1.Size = new System.Drawing.Size(514, 221);
             this.treeView1.TabIndex = 3;
             this.treeView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.treeView1_MouseDoubleClick);
@@ -121,7 +121,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 12);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Hyd v0.51.25.06.10";
+            this.label1.Text = "Hyd v0.52.25.06.11";
             // 
             // notifyIcon1
             // 
@@ -206,6 +206,7 @@
             // 
             // richTextBox1
             // 
+            this.richTextBox1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.richTextBox1.Location = new System.Drawing.Point(6, 18);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;

@@ -136,11 +136,21 @@ namespace OxyPlayer
             string[] lrcel = lrc.Split('\n');
             foreach(var elrc in lrcel)
             {
+                try
+                {
+                    int.Parse(elrc.Substring(1, 2));
+                }
+                catch
+                {
+                    continue;
+                }
                 int key = MMSS2Second(elrc.Substring(1, 5));
                 string value = elrc.Substring(10);
                 try
                 {
-                    lrcsheet.Add(key, value);
+                    if(value!="\n"&&value!="")
+                        lrcsheet.Add(key, value);
+
                 }
                 catch(System.ArgumentException)
                 {

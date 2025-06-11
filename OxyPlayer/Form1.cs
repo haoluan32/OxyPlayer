@@ -63,6 +63,7 @@ namespace OxyPlayer
                 pictureBox1.Image = mi.Cover;
                 TimeTrackTimer.Start();
                 richTextBox1.Text = mi.lyric;
+                this.Text = mi.Title+" - OxyPlayer Hyd";
             }
             catch { }
             
