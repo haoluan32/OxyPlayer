@@ -13,6 +13,7 @@ using System.Runtime;
 using Windows;
 using Microsoft;
 using System.Diagnostics;
+using System.Windows.Forms.Integration;
 
 
 namespace OxyPlayer
@@ -36,6 +37,8 @@ namespace OxyPlayer
             
 
             DrawTreeNode();
+            Form2 f = new Form2();
+            f.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -52,14 +55,18 @@ namespace OxyPlayer
             
             try
             {
+                
                 PlayMusic(treeView1.SelectedNode.ToolTipText);
+                PlayMusic();
+
                 mi = MusicSh.GetMusicInfo(treeView1.SelectedNode.ToolTipText);
                 TimeTrackLine.Maximum = mi.TimeLength_Second;
                 PlayingTreeNode = treeView1.SelectedNode;
 
-                PlayMusic();
-                labeltitle.Text =  mi.Title;
-                labelartistalbum.Text = mi.Artist + " · " + mi.Album;
+                
+                labelTitle.Text =  mi.Title;
+                labelArtist.Text = mi.Artist ;
+                labelAlbum.Text = mi.Album;
                 pictureBox1.Image = mi.Cover;
                 TimeTrackTimer.Start();
                 richTextBox1.Text = mi.lyric;
@@ -126,6 +133,13 @@ namespace OxyPlayer
             p.StartInfo.FileName = @".\MusicTag\MusicTag.exe";
             p.StartInfo.Arguments = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
             p.Start();
+        }
+
+        private void klabel_Click(object sender, EventArgs e)
+        {
+            Label l = (Label)sender;
+            Form2 f = new Form2(l.Name.Substring(5), l.Text);
+            f.Show();
         }
     }
 }

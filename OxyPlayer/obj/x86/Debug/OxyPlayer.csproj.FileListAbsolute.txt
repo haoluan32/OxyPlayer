@@ -34,3 +34,8 @@ D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\MusicTag\en\MusicTag.resources.dll
 D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\MusicTag\zh-CHS\MusicTag.resources.dll
 D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\MusicTag\zh-CHT\MusicTag.resources.dll
 D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Debug\OxyPlayer.csprojResolveAssemblyReference.cache
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\LiteDB.dll
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\System.Buffers.dll
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\LiteDB.xml
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\System.Buffers.xml
+D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Debug\OxyPlayer.Form2.resources

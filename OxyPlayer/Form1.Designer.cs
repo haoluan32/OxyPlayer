@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("User Music Floder");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("User Music Floder");
             this.button1 = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.TimeTrackLine = new System.Windows.Forms.TrackBar();
-            this.labeltitle = new System.Windows.Forms.Label();
-            this.labelartistalbum = new System.Windows.Forms.Label();
+            this.labelTitle = new System.Windows.Forms.Label();
+            this.labelArtist = new System.Windows.Forms.Label();
             this.TimeTrackTimer = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
@@ -47,6 +47,7 @@
             this.musicTagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.labelAlbum = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.TimeTrackLine)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VolumeTrackBar)).BeginInit();
@@ -71,10 +72,10 @@
             this.treeView1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.treeView1.Location = new System.Drawing.Point(12, 36);
             this.treeView1.Name = "treeView1";
-            treeNode2.Name = "NodeZ";
-            treeNode2.Text = "User Music Floder";
+            treeNode1.Name = "NodeZ";
+            treeNode1.Text = "User Music Floder";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2});
+            treeNode1});
             this.treeView1.Size = new System.Drawing.Size(514, 221);
             this.treeView1.TabIndex = 3;
             this.treeView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.treeView1_MouseDoubleClick);
@@ -90,25 +91,27 @@
             this.TimeTrackLine.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TimeTrack_MouseDown);
             this.TimeTrackLine.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TimeTrack_MouseUp);
             // 
-            // labeltitle
+            // labelTitle
             // 
-            this.labeltitle.AutoSize = true;
-            this.labeltitle.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labeltitle.Location = new System.Drawing.Point(95, 284);
-            this.labeltitle.Name = "labeltitle";
-            this.labeltitle.Size = new System.Drawing.Size(67, 25);
-            this.labeltitle.TabIndex = 6;
-            this.labeltitle.Text = "Name";
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelTitle.Location = new System.Drawing.Point(97, 274);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(67, 25);
+            this.labelTitle.TabIndex = 6;
+            this.labelTitle.Text = "Name";
+            this.labelTitle.Click += new System.EventHandler(this.klabel_Click);
             // 
-            // labelartistalbum
+            // labelArtist
             // 
-            this.labelartistalbum.AutoSize = true;
-            this.labelartistalbum.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelartistalbum.Location = new System.Drawing.Point(98, 314);
-            this.labelartistalbum.Name = "labelartistalbum";
-            this.labelartistalbum.Size = new System.Drawing.Size(86, 17);
-            this.labelartistalbum.TabIndex = 7;
-            this.labelartistalbum.Text = "Artist · Album";
+            this.labelArtist.AutoSize = true;
+            this.labelArtist.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelArtist.Location = new System.Drawing.Point(99, 299);
+            this.labelArtist.Name = "labelArtist";
+            this.labelArtist.Size = new System.Drawing.Size(38, 17);
+            this.labelArtist.TabIndex = 7;
+            this.labelArtist.Text = "Artist";
+            this.labelArtist.Click += new System.EventHandler(this.klabel_Click);
             // 
             // TimeTrackTimer
             // 
@@ -121,7 +124,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 12);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Hyd v0.52.25.06.11";
+            this.label1.Text = "Hyd v0.55.25.06.12";
             // 
             // notifyIcon1
             // 
@@ -215,6 +218,17 @@
             this.richTextBox1.Text = "";
             this.richTextBox1.WordWrap = false;
             // 
+            // labelAlbum
+            // 
+            this.labelAlbum.AutoSize = true;
+            this.labelAlbum.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelAlbum.Location = new System.Drawing.Point(98, 316);
+            this.labelAlbum.Name = "labelAlbum";
+            this.labelAlbum.Size = new System.Drawing.Size(45, 17);
+            this.labelAlbum.TabIndex = 14;
+            this.labelAlbum.Text = "Album";
+            this.labelAlbum.Click += new System.EventHandler(this.klabel_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -225,12 +239,13 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.TimeTrackText);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.labelartistalbum);
-            this.Controls.Add(this.labeltitle);
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.TimeTrackLine);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.labelAlbum);
+            this.Controls.Add(this.labelArtist);
+            this.Controls.Add(this.labelTitle);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "OxyPlayer Hyd";
@@ -253,8 +268,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.TrackBar TimeTrackLine;
-        private System.Windows.Forms.Label labeltitle;
-        private System.Windows.Forms.Label labelartistalbum;
+        private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.Label labelArtist;
         private System.Windows.Forms.Timer TimeTrackTimer;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
@@ -267,6 +282,7 @@
         private System.Windows.Forms.ToolStripMenuItem musicTagToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label labelAlbum;
     }
 }
 

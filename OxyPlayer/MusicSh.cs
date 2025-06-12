@@ -18,21 +18,18 @@ using System.Collections;
 
 namespace OxyPlayer
 {
-    struct Musicinfo
+    class Musicinfo:Song
     {
-        public string Title;
-        public string TimeLength;
-        public int TimeLength_Second;
-        public string Artist;
-        public string Album;
-        public Image Cover;
-        public string lyric;
-        public Dictionary<int, string> lrcsheet;
+        public string TimeLength{ get; set; }
+        public int TimeLength_Second{ get; set; }
+        public Image Cover{ get; set; }
+        public string lyric{ get; set; }
+        public Dictionary<int, string> lrcsheet{ get; set; }
     }
 
     class MusicSh
     {
-        static public Musicinfo GetMusicInfo(string MusicPath)
+        static public Musicinfo GetMusicInfo(string MusicPath,bool Getlyrics=true)
         {
             Musicinfo mi = new Musicinfo();
             string file = MusicPath;
@@ -67,16 +64,19 @@ namespace OxyPlayer
             }
             catch { }
             //获取歌词
-            try
+            if (Getlyrics)
             {
-                if(musicf.Tag.Lyrics.Length!=0)
+                try
                 {
-                    mi.lyric = musicf.Tag.Lyrics;
-                    mi.lrcsheet = lrc2sheet(mi.lyric);
-                }
+                    if (musicf.Tag.Lyrics.Length != 0)
+                    {
+                        mi.lyric = musicf.Tag.Lyrics;
+                        mi.lrcsheet = lrc2sheet(mi.lyric);
+                    }
 
+                }
+                catch { }
             }
-            catch { }
 
 
 

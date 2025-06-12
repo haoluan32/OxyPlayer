@@ -22,6 +22,7 @@ namespace OxyPlayer
             SupportedFormating = MusicSh.GetSupportedFormating();
             DirectoryInfo ld = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic));
             FileInfo[] ldis = ld.GetFiles();
+            Ldbc.updatadb(ld);
             foreach (FileInfo tldi in ldis)
             {
                 if (Array.IndexOf(SupportedFormating, tldi.Extension) == -1)
