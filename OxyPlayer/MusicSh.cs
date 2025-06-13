@@ -48,7 +48,7 @@ namespace OxyPlayer
             else
                 mi.Title = dir.GetDetailsOf(item, 0);
             mi.Album = dir.GetDetailsOf(item, 14);
-            mi.Artist = dir.GetDetailsOf(item, 13);
+            mi.Artist = dir.GetDetailsOf(item, 13).Split(';');
             #endregion
 
             //获取音乐封面

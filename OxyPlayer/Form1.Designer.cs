@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("User Music Floder");
-            this.button1 = new System.Windows.Forms.Button();
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("User Music Floder");
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.TimeTrackLine = new System.Windows.Forms.TrackBar();
             this.labelTitle = new System.Windows.Forms.Label();
@@ -41,41 +40,36 @@
             this.TimeTrackText = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.VolumeTrackBar = new System.Windows.Forms.TrackBar();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.工具TToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.musicTagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.labelAlbum = new System.Windows.Forms.Label();
+            this.pictureBoxPause = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxBefore = new System.Windows.Forms.PictureBox();
+            this.pictureBoxNext = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.TimeTrackLine)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VolumeTrackBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPause)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBefore)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNext)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(44, 378);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(25, 25);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "▶";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // treeView1
             // 
             this.treeView1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.treeView1.Location = new System.Drawing.Point(12, 36);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "NodeZ";
-            treeNode1.Text = "User Music Floder";
+            treeNode2.Name = "NodeZ";
+            treeNode2.Text = "User Music Floder";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            treeNode2});
             this.treeView1.Size = new System.Drawing.Size(514, 221);
             this.treeView1.TabIndex = 3;
             this.treeView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.treeView1_MouseDoubleClick);
@@ -120,7 +114,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(413, 469);
+            this.label1.Location = new System.Drawing.Point(413, 481);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 12);
             this.label1.TabIndex = 8;
@@ -144,7 +138,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.VolumeTrackBar);
-            this.groupBox1.Location = new System.Drawing.Point(384, 409);
+            this.groupBox1.Location = new System.Drawing.Point(384, 421);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(142, 50);
             this.groupBox1.TabIndex = 10;
@@ -161,16 +155,6 @@
             this.VolumeTrackBar.TickStyle = System.Windows.Forms.TickStyle.None;
             this.VolumeTrackBar.Value = 100;
             this.VolumeTrackBar.ValueChanged += new System.EventHandler(this.VolumeTrackBar_ValueChanged);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 263);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(79, 79);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // menuStrip1
             // 
@@ -200,7 +184,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.richTextBox1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 409);
+            this.groupBox2.Location = new System.Drawing.Point(12, 421);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(366, 72);
             this.groupBox2.TabIndex = 13;
@@ -229,23 +213,67 @@
             this.labelAlbum.Text = "Album";
             this.labelAlbum.Click += new System.EventHandler(this.klabel_Click);
             // 
+            // pictureBoxPause
+            // 
+            this.pictureBoxPause.Image = global::OxyPlayer.Properties.Resources.Play;
+            this.pictureBoxPause.Location = new System.Drawing.Point(118, 381);
+            this.pictureBoxPause.Name = "pictureBoxPause";
+            this.pictureBoxPause.Size = new System.Drawing.Size(25, 25);
+            this.pictureBoxPause.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxPause.TabIndex = 15;
+            this.pictureBoxPause.TabStop = false;
+            this.pictureBoxPause.Click += new System.EventHandler(this.pictureBoxPause_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(12, 263);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(79, 79);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // pictureBoxBefore
+            // 
+            this.pictureBoxBefore.Image = global::OxyPlayer.Properties.Resources.BeforeSong;
+            this.pictureBoxBefore.Location = new System.Drawing.Point(87, 381);
+            this.pictureBoxBefore.Name = "pictureBoxBefore";
+            this.pictureBoxBefore.Size = new System.Drawing.Size(25, 25);
+            this.pictureBoxBefore.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxBefore.TabIndex = 16;
+            this.pictureBoxBefore.TabStop = false;
+            // 
+            // pictureBoxNext
+            // 
+            this.pictureBoxNext.Image = global::OxyPlayer.Properties.Resources.NextSong;
+            this.pictureBoxNext.Location = new System.Drawing.Point(149, 381);
+            this.pictureBoxNext.Name = "pictureBoxNext";
+            this.pictureBoxNext.Size = new System.Drawing.Size(25, 25);
+            this.pictureBoxNext.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxNext.TabIndex = 17;
+            this.pictureBoxNext.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(538, 491);
+            this.ClientSize = new System.Drawing.Size(538, 505);
+            this.Controls.Add(this.pictureBoxNext);
+            this.Controls.Add(this.pictureBoxBefore);
+            this.Controls.Add(this.pictureBoxPause);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.TimeTrackText);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.treeView1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.TimeTrackLine);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.labelAlbum);
             this.Controls.Add(this.labelArtist);
             this.Controls.Add(this.labelTitle);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "OxyPlayer Hyd";
@@ -254,18 +282,19 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VolumeTrackBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPause)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBefore)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNext)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.TrackBar TimeTrackLine;
         private System.Windows.Forms.Label labelTitle;
@@ -283,6 +312,9 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label labelAlbum;
+        private System.Windows.Forms.PictureBox pictureBoxPause;
+        private System.Windows.Forms.PictureBox pictureBoxBefore;
+        private System.Windows.Forms.PictureBox pictureBoxNext;
     }
 }
 

@@ -41,7 +41,7 @@ namespace OxyPlayer
             f.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void pictureBoxPause_Click(object sender, EventArgs e)
         {
             if (playing)
                 PauseMusic();
@@ -65,7 +65,7 @@ namespace OxyPlayer
 
                 
                 labelTitle.Text =  mi.Title;
-                labelArtist.Text = mi.Artist ;
+                labelArtist.Text = mi.Artist;
                 labelAlbum.Text = mi.Album;
                 pictureBox1.Image = mi.Cover;
                 TimeTrackTimer.Start();

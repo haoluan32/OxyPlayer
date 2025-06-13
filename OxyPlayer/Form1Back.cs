@@ -38,20 +38,20 @@ namespace OxyPlayer
         {
             mp.Play();
             playing = true;
-            button1.Text = "∥";
+            pictureBoxPause.Image = OxyPlayer.Properties.Resources.Pause;
         }
         private void PlayMusic(string url)
         {
             mp.Open(new Uri(url));
             playing = true;
-            button1.Text = "∥";
+            pictureBoxPause.Image = OxyPlayer.Properties.Resources.Pause;
         }
 
         private void PauseMusic()
         {
             mp.Pause();
             playing = false;
-            button1.Text = "▶";
+            pictureBoxPause.Image = OxyPlayer.Properties.Resources.Play;
         }
     }
 }

@@ -213,6 +213,10 @@
     <None Include="MusicTag\zh-CHT\MusicTag.resources.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Resources\BeforeSong.png" />
+    <None Include="Resources\NextSong.png" />
+    <None Include="Resources\Pause.png" />
+    <None Include="Resources\Play.png" />
     <Content Include="SupportedFormating.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
