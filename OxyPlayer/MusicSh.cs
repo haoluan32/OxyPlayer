@@ -15,6 +15,7 @@ using Microsoft;
 using Shell32;
 using TagLib;
 using System.Collections;
+using LiteDB;
 
 namespace OxyPlayer
 {
@@ -22,6 +23,7 @@ namespace OxyPlayer
     {
         public string TimeLength{ get; set; }
         public int TimeLength_Second{ get; set; }
+       // public string Artist { get; set; }
         public Image Cover{ get; set; }
         public string lyric{ get; set; }
         public Dictionary<int, string> lrcsheet{ get; set; }
@@ -29,7 +31,7 @@ namespace OxyPlayer
 
     class MusicSh
     {
-        static public Musicinfo GetMusicInfo(string MusicPath,bool Getlyrics=true)
+        static public Musicinfo GetMusicInfo(string MusicPath,bool Getlyrics=true,bool GetId=true)
         {
             Musicinfo mi = new Musicinfo();
             string file = MusicPath;
@@ -48,11 +50,22 @@ namespace OxyPlayer
             else
                 mi.Title = dir.GetDetailsOf(item, 0);
             mi.Album = dir.GetDetailsOf(item, 14);
-            mi.Artist = dir.GetDetailsOf(item, 13).Split(';');
+            mi.Artist = dir.GetDetailsOf(item, 13);
             #endregion
 
-            //获取音乐封面
-            try
+            //获取歌曲id
+            if (GetId)
+            {
+                using (var ldb = new LiteDatabase("songs.db"))
+                {
+                    ILiteCollection<Song> table = ldb.GetCollection<Song>("songs");
+                    IEnumerable<Song> i = table.Find(x => x.Address == MusicPath);
+                    mi.Id = i.ToArray<Song>()[0].Id;
+                }
+            }
+
+                //获取音乐封面
+                try
             {
                 
                 if (musicf.Tag.Pictures.Length != 0)

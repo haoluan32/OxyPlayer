@@ -21,8 +21,9 @@ namespace OxyPlayer
         {
             SupportedFormating = MusicSh.GetSupportedFormating();
             DirectoryInfo ld = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic));
+
             FileInfo[] ldis = ld.GetFiles();
-            Ldbc.updatadb(ld);
+            
             foreach (FileInfo tldi in ldis)
             {
                 if (Array.IndexOf(SupportedFormating, tldi.Extension) == -1)
@@ -33,7 +34,35 @@ namespace OxyPlayer
                 ntn.ToolTipText = tldi.FullName;
                 treeView1.Nodes["NodeZ"].Nodes.Add(ntn);
             }
+            if (OxySettings.Default.FileCount != treeView1.Nodes["NodeZ"].Nodes.Count)
+                Ldbc.updatadb(ld);
         }
+        private void PlaySong(string songad)
+        {
+            mp.Stop();
+
+            try
+            {
+
+                PlayMusic(songad);
+                PlayMusic();
+
+                mi = MusicSh.GetMusicInfo(songad);
+                TimeTrackLine.Maximum = mi.TimeLength_Second;
+                PlayingTreeNode = treeView1.SelectedNode;
+
+
+                labelTitle.Text = mi.Title;
+                labelArtist.Text = mi.Artist;
+                labelAlbum.Text = mi.Album;
+                pictureBox1.Image = mi.Cover;
+                TimeTrackTimer.Start();
+                richTextBox1.Text = mi.lyric;
+                this.Text = mi.Title + " - OxyPlayer Hyd";
+            }
+            catch { }
+        }
+
         private void PlayMusic()
         {
             mp.Play();

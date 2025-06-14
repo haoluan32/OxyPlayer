@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("User Music Floder");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("User Music Floder");
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.TimeTrackLine = new System.Windows.Forms.TrackBar();
             this.labelTitle = new System.Windows.Forms.Label();
@@ -50,6 +50,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBoxBefore = new System.Windows.Forms.PictureBox();
             this.pictureBoxNext = new System.Windows.Forms.PictureBox();
+            this.文件FToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.搜索歌曲SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.更新数据库UToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.TimeTrackLine)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VolumeTrackBar)).BeginInit();
@@ -66,10 +69,10 @@
             this.treeView1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.treeView1.Location = new System.Drawing.Point(12, 36);
             this.treeView1.Name = "treeView1";
-            treeNode2.Name = "NodeZ";
-            treeNode2.Text = "User Music Floder";
+            treeNode6.Name = "NodeZ";
+            treeNode6.Text = "User Music Floder";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2});
+            treeNode6});
             this.treeView1.Size = new System.Drawing.Size(514, 221);
             this.treeView1.TabIndex = 3;
             this.treeView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.treeView1_MouseDoubleClick);
@@ -118,7 +121,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 12);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Hyd v0.55.25.06.12";
+            this.label1.Text = "Hyd v0.90.25.06.14";
             // 
             // notifyIcon1
             // 
@@ -159,6 +162,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.文件FToolStripMenuItem,
             this.工具TToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -243,6 +247,7 @@
             this.pictureBoxBefore.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxBefore.TabIndex = 16;
             this.pictureBoxBefore.TabStop = false;
+            this.pictureBoxBefore.Click += new System.EventHandler(this.pictureBoxBefore_Click);
             // 
             // pictureBoxNext
             // 
@@ -253,6 +258,30 @@
             this.pictureBoxNext.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxNext.TabIndex = 17;
             this.pictureBoxNext.TabStop = false;
+            this.pictureBoxNext.Click += new System.EventHandler(this.pictureBoxNext_Click);
+            // 
+            // 文件FToolStripMenuItem
+            // 
+            this.文件FToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.搜索歌曲SToolStripMenuItem,
+            this.更新数据库UToolStripMenuItem});
+            this.文件FToolStripMenuItem.Name = "文件FToolStripMenuItem";
+            this.文件FToolStripMenuItem.Size = new System.Drawing.Size(74, 21);
+            this.文件FToolStripMenuItem.Text = "文件（&F）";
+            // 
+            // 搜索歌曲SToolStripMenuItem
+            // 
+            this.搜索歌曲SToolStripMenuItem.Name = "搜索歌曲SToolStripMenuItem";
+            this.搜索歌曲SToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.搜索歌曲SToolStripMenuItem.Text = "搜索歌曲（&S）";
+            this.搜索歌曲SToolStripMenuItem.Click += new System.EventHandler(this.搜索歌曲SToolStripMenuItem_Click);
+            // 
+            // 更新数据库UToolStripMenuItem
+            // 
+            this.更新数据库UToolStripMenuItem.Name = "更新数据库UToolStripMenuItem";
+            this.更新数据库UToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.更新数据库UToolStripMenuItem.Text = "更新数据库（&U）";
+            this.更新数据库UToolStripMenuItem.Click += new System.EventHandler(this.更新数据库UToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -315,6 +344,9 @@
         private System.Windows.Forms.PictureBox pictureBoxPause;
         private System.Windows.Forms.PictureBox pictureBoxBefore;
         private System.Windows.Forms.PictureBox pictureBoxNext;
+        private System.Windows.Forms.ToolStripMenuItem 文件FToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 搜索歌曲SToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 更新数据库UToolStripMenuItem;
     }
 }
 

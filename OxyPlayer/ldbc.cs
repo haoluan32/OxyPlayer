@@ -11,6 +11,7 @@ namespace OxyPlayer
 {
     class Song
     {
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Album { get; set; }
         public string Artist { get; set; }
@@ -19,14 +20,16 @@ namespace OxyPlayer
 
     enum DBRow
     {
-        Title,Artist,Album
+        Title,Artist,Album,Id
     }
 
     class Ldbc
     {
         static public void updatadb(DirectoryInfo updir)
         {
+            int id = 1;
             string[] SupportedFormating = MusicSh.GetSupportedFormating();
+            
             using (var ldb = new LiteDatabase("songs.db"))
             { 
                 ILiteCollection<Song> table = ldb.GetCollection<Song>("songs");
@@ -37,16 +40,20 @@ namespace OxyPlayer
                     if (Array.IndexOf(SupportedFormating, afi.Extension) == -1)
                         continue;
 
-                    Musicinfo mi = MusicSh.GetMusicInfo(afi.FullName,false);
+                    Musicinfo mi = MusicSh.GetMusicInfo(afi.FullName,false,false);
                     Song s = new Song
                     {
+                        Id = id,
                         Title = mi.Title,
                         Album = mi.Album,
                         Artist = mi.Artist,
                         Address = afi.FullName
                     };
                     table.Insert(s);
+                    id++;
                 }
+                OxySettings.Default.FileCount = (id - 1);
+                OxySettings.Default.Save();
             }
         }
         static public Song[] searchDB(DBRow row,string key)
@@ -65,6 +72,9 @@ namespace OxyPlayer
                         i = table.Find(x => x.Album.Contains(key));
                         break;
                     case DBRow.Artist:
+                        i = table.Find(x => x.Artist.Contains(key));
+                        break;
+                    case DBRow.Id:
                         i = table.Find(x => x.Artist.Contains(key));
                         break;
                 }

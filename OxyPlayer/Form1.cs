@@ -14,6 +14,7 @@ using Windows;
 using Microsoft;
 using System.Diagnostics;
 using System.Windows.Forms.Integration;
+using LiteDB;
 
 
 namespace OxyPlayer
@@ -29,16 +30,12 @@ namespace OxyPlayer
         public Form1()
         {
             InitializeComponent();
-            
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        { 
-            
-
+        {
             DrawTreeNode();
-            Form2 f = new Form2();
-            f.Show();
         }
 
         private void pictureBoxPause_Click(object sender, EventArgs e)
@@ -51,32 +48,9 @@ namespace OxyPlayer
 
         private void treeView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            mp.Stop();
-            
-            try
-            {
-                
-                PlayMusic(treeView1.SelectedNode.ToolTipText);
-                PlayMusic();
-
-                mi = MusicSh.GetMusicInfo(treeView1.SelectedNode.ToolTipText);
-                TimeTrackLine.Maximum = mi.TimeLength_Second;
-                PlayingTreeNode = treeView1.SelectedNode;
-
-                
-                labelTitle.Text =  mi.Title;
-                labelArtist.Text = mi.Artist;
-                labelAlbum.Text = mi.Album;
-                pictureBox1.Image = mi.Cover;
-                TimeTrackTimer.Start();
-                richTextBox1.Text = mi.lyric;
-                this.Text = mi.Title+" - OxyPlayer Hyd";
-            }
-            catch { }
-            
+            PlaySong(treeView1.SelectedNode.ToolTipText);
         }
 
-        
 
         #region TimeTrack's Codes
 
@@ -102,6 +76,8 @@ namespace OxyPlayer
         private void TimeTrack_ValueChanged(object sender, EventArgs e)
         {
             UserChangedValue = true;
+            if (TimeTrackLine.Value >= TimeTrackLine.Maximum)
+                pictureBoxNext_Click(new object(), new EventArgs());
         }
 
         private void TimeTrack_MouseUp(object sender, MouseEventArgs e)
@@ -118,7 +94,7 @@ namespace OxyPlayer
 
         private void VolumeTrackBar_ValueChanged(object sender, EventArgs e)
         {
-            mp.Volume = VolumeTrackBar.Value/100.0;
+            mp.Volume = VolumeTrackBar.Value / 100.0;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -141,5 +117,53 @@ namespace OxyPlayer
             Form2 f = new Form2(l.Name.Substring(5), l.Text);
             f.Show();
         }
+
+        private void pictureBoxNext_Click(object sender, EventArgs e)
+        {
+            Song nextsong = null;
+            using (var ldb = new LiteDatabase("songs.db"))
+            {
+
+                ILiteCollection<Song> table = ldb.GetCollection<Song>("songs");
+                int dbcount = table.Count();
+                int nextid = mi.Id + 1;
+                if (nextid > dbcount)
+                    nextid = 1;
+                IEnumerable<Song> i = table.Find(x => x.Id == nextid);
+                nextsong = i.ToArray<Song>()[0];
+
+            }
+            PlaySong(nextsong.Address);
+        }
+
+        private void 搜索歌曲SToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 f = new Form2();
+            f.Show();
+        }
+
+        private void 更新数据库UToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Ldbc.updatadb(new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic)));
+        }
+
+        private void pictureBoxBefore_Click(object sender, EventArgs e)
+        {
+            Song beforesong = null;
+            using (var ldb = new LiteDatabase("songs.db"))
+            {
+
+                ILiteCollection<Song> table = ldb.GetCollection<Song>("songs");
+                int dbcount = table.Count();
+                int nextid = mi.Id -1;
+                if (nextid <= 0)
+                    nextid = table.Count();
+                IEnumerable<Song> i = table.Find(x => x.Id == nextid);
+                beforesong = i.ToArray<Song>()[0];
+
+            }
+            PlaySong(beforesong.Address);
+        }
     }
 }
+
