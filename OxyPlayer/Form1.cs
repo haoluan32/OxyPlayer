@@ -145,6 +145,7 @@ namespace OxyPlayer
         private void 更新数据库UToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Ldbc.updatadb(new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic)));
+            MessageBox.Show("更新完成", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void pictureBoxBefore_Click(object sender, EventArgs e)

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("User Music Floder");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("User Music Floder");
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.TimeTrackLine = new System.Windows.Forms.TrackBar();
             this.labelTitle = new System.Windows.Forms.Label();
@@ -41,6 +41,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.VolumeTrackBar = new System.Windows.Forms.TrackBar();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.文件FToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.搜索歌曲SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.更新数据库UToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.工具TToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.musicTagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -50,9 +53,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBoxBefore = new System.Windows.Forms.PictureBox();
             this.pictureBoxNext = new System.Windows.Forms.PictureBox();
-            this.文件FToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.搜索歌曲SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.更新数据库UToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.TimeTrackLine)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VolumeTrackBar)).BeginInit();
@@ -69,10 +69,10 @@
             this.treeView1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.treeView1.Location = new System.Drawing.Point(12, 36);
             this.treeView1.Name = "treeView1";
-            treeNode6.Name = "NodeZ";
-            treeNode6.Text = "User Music Floder";
+            treeNode1.Name = "NodeZ";
+            treeNode1.Text = "User Music Floder";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode6});
+            treeNode1});
             this.treeView1.Size = new System.Drawing.Size(514, 221);
             this.treeView1.TabIndex = 3;
             this.treeView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.treeView1_MouseDoubleClick);
@@ -117,11 +117,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(413, 481);
+            this.label1.Location = new System.Drawing.Point(395, 481);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 12);
+            this.label1.Size = new System.Drawing.Size(131, 12);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Hyd v0.90.25.06.14";
+            this.label1.Text = "Carbon v0.90.25.06.15";
             // 
             // notifyIcon1
             // 
@@ -169,6 +169,29 @@
             this.menuStrip1.Size = new System.Drawing.Size(538, 25);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // 文件FToolStripMenuItem
+            // 
+            this.文件FToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.搜索歌曲SToolStripMenuItem,
+            this.更新数据库UToolStripMenuItem});
+            this.文件FToolStripMenuItem.Name = "文件FToolStripMenuItem";
+            this.文件FToolStripMenuItem.Size = new System.Drawing.Size(74, 21);
+            this.文件FToolStripMenuItem.Text = "文件（&F）";
+            // 
+            // 搜索歌曲SToolStripMenuItem
+            // 
+            this.搜索歌曲SToolStripMenuItem.Name = "搜索歌曲SToolStripMenuItem";
+            this.搜索歌曲SToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.搜索歌曲SToolStripMenuItem.Text = "搜索歌曲（&S）";
+            this.搜索歌曲SToolStripMenuItem.Click += new System.EventHandler(this.搜索歌曲SToolStripMenuItem_Click);
+            // 
+            // 更新数据库UToolStripMenuItem
+            // 
+            this.更新数据库UToolStripMenuItem.Name = "更新数据库UToolStripMenuItem";
+            this.更新数据库UToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.更新数据库UToolStripMenuItem.Text = "更新数据库（&U）";
+            this.更新数据库UToolStripMenuItem.Click += new System.EventHandler(this.更新数据库UToolStripMenuItem_Click);
             // 
             // 工具TToolStripMenuItem
             // 
@@ -260,29 +283,6 @@
             this.pictureBoxNext.TabStop = false;
             this.pictureBoxNext.Click += new System.EventHandler(this.pictureBoxNext_Click);
             // 
-            // 文件FToolStripMenuItem
-            // 
-            this.文件FToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.搜索歌曲SToolStripMenuItem,
-            this.更新数据库UToolStripMenuItem});
-            this.文件FToolStripMenuItem.Name = "文件FToolStripMenuItem";
-            this.文件FToolStripMenuItem.Size = new System.Drawing.Size(74, 21);
-            this.文件FToolStripMenuItem.Text = "文件（&F）";
-            // 
-            // 搜索歌曲SToolStripMenuItem
-            // 
-            this.搜索歌曲SToolStripMenuItem.Name = "搜索歌曲SToolStripMenuItem";
-            this.搜索歌曲SToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.搜索歌曲SToolStripMenuItem.Text = "搜索歌曲（&S）";
-            this.搜索歌曲SToolStripMenuItem.Click += new System.EventHandler(this.搜索歌曲SToolStripMenuItem_Click);
-            // 
-            // 更新数据库UToolStripMenuItem
-            // 
-            this.更新数据库UToolStripMenuItem.Name = "更新数据库UToolStripMenuItem";
-            this.更新数据库UToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.更新数据库UToolStripMenuItem.Text = "更新数据库（&U）";
-            this.更新数据库UToolStripMenuItem.Click += new System.EventHandler(this.更新数据库UToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -295,13 +295,13 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.TimeTrackText);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.TimeTrackLine);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.labelAlbum);
             this.Controls.Add(this.labelArtist);
             this.Controls.Add(this.labelTitle);
+            this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
