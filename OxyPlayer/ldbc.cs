@@ -56,6 +56,7 @@ namespace OxyPlayer
                 OxySettings.Default.Save();
             }
         }
+
         static public Song[] searchDB(DBRow row,string key)
         {
             Song[] re=null;

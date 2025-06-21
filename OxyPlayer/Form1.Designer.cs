@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("User Music Floder");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("User Music Floder");
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.TimeTrackLine = new System.Windows.Forms.TrackBar();
             this.labelTitle = new System.Windows.Forms.Label();
@@ -69,10 +69,10 @@
             this.treeView1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.treeView1.Location = new System.Drawing.Point(12, 36);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "NodeZ";
-            treeNode1.Text = "User Music Floder";
+            treeNode3.Name = "NodeZ";
+            treeNode3.Text = "User Music Floder";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            treeNode3});
             this.treeView1.Size = new System.Drawing.Size(514, 221);
             this.treeView1.TabIndex = 3;
             this.treeView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.treeView1_MouseDoubleClick);
@@ -121,7 +121,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(131, 12);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Carbon v0.90.25.06.15";
+            this.label1.Text = "Oxygen v0.90.25.06.15";
             // 
             // notifyIcon1
             // 
@@ -305,7 +305,7 @@
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "OxyPlayer Hyd";
+            this.Text = "OxyPlayer";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.TimeTrackLine)).EndInit();
             this.groupBox1.ResumeLayout(false);
