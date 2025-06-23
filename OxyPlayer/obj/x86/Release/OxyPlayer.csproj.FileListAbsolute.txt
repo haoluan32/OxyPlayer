@@ -39,3 +39,5 @@ D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.Properties.Resources.r
 D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.csproj.GenerateResource.Cache
 D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.exe
 D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.pdb
+D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.MusicFloderManager.resources
+D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.DoingSth.resources

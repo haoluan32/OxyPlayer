@@ -1,1 +1,1 @@
-﻿.wma,.wav,.mp3,.aac,.mid,.midi,.amr,.awb,.flac,.ogg,.ac3
+﻿.wma,.wav,.mp3,.aac,.mid,.midi,.amr,.awb,.flac,.ogg,.ac3,.m4a,.mp4

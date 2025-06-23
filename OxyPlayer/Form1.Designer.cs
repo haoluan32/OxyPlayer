@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("User Music Floder");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("User Music Floder");
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.TimeTrackLine = new System.Windows.Forms.TrackBar();
             this.labelTitle = new System.Windows.Forms.Label();
@@ -47,7 +47,7 @@
             this.工具TToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.musicTagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.lyricsBox1 = new System.Windows.Forms.RichTextBox();
             this.labelAlbum = new System.Windows.Forms.Label();
             this.pictureBoxPause = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -69,10 +69,10 @@
             this.treeView1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.treeView1.Location = new System.Drawing.Point(12, 36);
             this.treeView1.Name = "treeView1";
-            treeNode3.Name = "NodeZ";
-            treeNode3.Text = "User Music Floder";
+            treeNode1.Name = "NodeZ";
+            treeNode1.Text = "User Music Floder";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3});
+            treeNode1});
             this.treeView1.Size = new System.Drawing.Size(514, 221);
             this.treeView1.TabIndex = 3;
             this.treeView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.treeView1_MouseDoubleClick);
@@ -117,11 +117,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(395, 481);
+            this.label1.Location = new System.Drawing.Point(413, 481);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 12);
+            this.label1.Size = new System.Drawing.Size(113, 12);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Oxygen v0.90.25.06.15";
+            this.label1.Text = "Hyd v0.90.25.06.23";
             // 
             // notifyIcon1
             // 
@@ -210,7 +210,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.richTextBox1);
+            this.groupBox2.Controls.Add(this.lyricsBox1);
             this.groupBox2.Location = new System.Drawing.Point(12, 421);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(366, 72);
@@ -218,16 +218,17 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "歌词";
             // 
-            // richTextBox1
+            // lyricsBox1
             // 
-            this.richTextBox1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.richTextBox1.Location = new System.Drawing.Point(6, 18);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.richTextBox1.Size = new System.Drawing.Size(354, 47);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
-            this.richTextBox1.WordWrap = false;
+            this.lyricsBox1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lyricsBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lyricsBox1.Location = new System.Drawing.Point(6, 18);
+            this.lyricsBox1.Name = "lyricsBox1";
+            this.lyricsBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.lyricsBox1.Size = new System.Drawing.Size(354, 47);
+            this.lyricsBox1.TabIndex = 0;
+            this.lyricsBox1.Text = "";
+            this.lyricsBox1.WordWrap = false;
             // 
             // labelAlbum
             // 
@@ -339,7 +340,7 @@
         private System.Windows.Forms.ToolStripMenuItem 工具TToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem musicTagToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox lyricsBox1;
         private System.Windows.Forms.Label labelAlbum;
         private System.Windows.Forms.PictureBox pictureBoxPause;
         private System.Windows.Forms.PictureBox pictureBoxBefore;

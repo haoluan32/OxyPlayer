@@ -23,7 +23,6 @@ namespace OxyPlayer
     {
         public string TimeLength{ get; set; }
         public int TimeLength_Second{ get; set; }
-       // public string Artist { get; set; }
         public Image Cover{ get; set; }
         public string lyric{ get; set; }
         public Dictionary<int, string> lrcsheet{ get; set; }
@@ -35,7 +34,8 @@ namespace OxyPlayer
         {
             Musicinfo mi = new Musicinfo();
             string file = MusicPath;
-            TagLib.File musicf = TagLib.File.Create(MusicPath);
+            FileInfo fileinfo = new FileInfo(MusicPath);
+
 
             #region ShellClass
             ShellClass sh = new ShellClass();
@@ -51,7 +51,10 @@ namespace OxyPlayer
                 mi.Title = dir.GetDetailsOf(item, 0);
             mi.Album = dir.GetDetailsOf(item, 14);
             mi.Artist = dir.GetDetailsOf(item, 13);
+            
             #endregion
+
+            
 
             //获取歌曲id
             if (GetId)
@@ -64,8 +67,14 @@ namespace OxyPlayer
                 }
             }
 
-                //获取音乐封面
-                try
+            //获取音乐封面
+            if (fileinfo.Extension == ".m4a")
+            {
+                mi.Cover = Properties.Resources.NoCover;
+                goto skip;
+            }
+            TagLib.File musicf = TagLib.File.Create(MusicPath);
+            try
             {
                 
                 if (musicf.Tag.Pictures.Length != 0)
@@ -73,6 +82,10 @@ namespace OxyPlayer
                     MemoryStream imageCache = new MemoryStream(musicf.Tag.Pictures[0].Data.Data);
                     mi.Cover = Image.FromStream(imageCache);
                     imageCache.Close();
+                }
+                else
+                {
+                    mi.Cover = Properties.Resources.NoCover;
                 }
             }
             catch { }
@@ -91,7 +104,7 @@ namespace OxyPlayer
                 catch { }
             }
 
-
+            skip:
 
 
             return mi;

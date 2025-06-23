@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<DOCUMENT Type="Advanced Installer" CreateVersion="19.9" version="19.9" Modules="professional" RootPath="." Language="zh" Id="{1417AA75-CF18-4A6A-BFE6-669BDB011AE2}">
+<DOCUMENT Type="Advanced Installer" CreateVersion="19.9" version="19.9" Modules="enterprise" RootPath="." Language="zh" Id="{1417AA75-CF18-4A6A-BFE6-669BDB011AE2}">
   <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
     <ROW Name="HiddenItems" Value="AppXProductDetailsComponent;AppXDependenciesComponent;AppXAppDetailsComponent;AppXVisualAssetsComponent;AppXCapabilitiesComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent;MsiDriverPackagesComponent;UserAccountsComponent;ScheduledTasksComponent;SqlConnectionComponent;AutorunComponent;FirewallExceptionComponent;GameUxComponent;MsiDirectEditorComponent;SharePointSlnComponent;SilverlightSlnComponent;MultipleInstancesComponent;SccmComponent;ActSyncAppComponent;CPLAppletComponent;FixupComponent;MsiXDiffComponent;MsixManifestEditorComponent"/>
   </COMPONENT>
@@ -19,7 +19,7 @@
     <ROW Property="ProductCode" Value="2052:{949504A9-01CB-4FE8-8465-205BF7E6A9B5} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="OxyPlayer"/>
-    <ROW Property="ProductVersion" Value="0.90.25.0621"/>
+    <ROW Property="ProductVersion" Value="0.90.25.0623"/>
     <ROW Property="RUNAPPLICATION" Value="1" Type="4"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
     <ROW Property="UpgradeCode" Value="{654BFEBE-8026-4C86-A149-2B907445D9FD}"/>
@@ -36,6 +36,7 @@
     <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
     <ROW Directory="DesktopFolder" Directory_Parent="TARGETDIR" DefaultDir="DESKTO~1|DesktopFolder" IsPseudoRoot="1"/>
     <ROW Directory="MusicTag_Dir" Directory_Parent="APPDIR" DefaultDir="MusicTag"/>
+    <ROW Directory="OxyPlayer_Dir" Directory_Parent="SHORTCUTDIR" DefaultDir="OXYPLA~1|OxyPlayer"/>
     <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
     <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
     <ROW Directory="en_Dir" Directory_Parent="MusicTag_Dir" DefaultDir="en"/>
@@ -60,10 +61,10 @@
     <ROW Component="MusicTag.resources.dll_1" ComponentId="{83EE0236-E22D-4992-A574-7AC73A0055DF}" Directory_="zhCHS_Dir" Attributes="0" KeyPath="MusicTag.resources.dll_1"/>
     <ROW Component="MusicTag.resources.dll_2" ComponentId="{3562F001-53D3-4349-B455-DBFDB8D4AA52}" Directory_="zhCHT_Dir" Attributes="0" KeyPath="MusicTag.resources.dll_2"/>
     <ROW Component="Newtonsoft.Json.dll" ComponentId="{17934E86-0BE5-43C7-B133-4ED7F42CBF94}" Directory_="MusicTag_Dir" Attributes="0" KeyPath="Newtonsoft.Json.dll"/>
+    <ROW Component="OxyPlayer" ComponentId="{D6F573AF-1A5B-4C6C-8906-1F3F1385160E}" Directory_="OxyPlayer_Dir" Attributes="0"/>
     <ROW Component="OxyPlayer.exe" ComponentId="{19986613-4FF8-47A6-B329-410576864576}" Directory_="APPDIR" Attributes="0" KeyPath="OxyPlayer.exe"/>
     <ROW Component="OxyPlayer.vshost.exe" ComponentId="{C35B9D63-7E96-4625-97F0-1E8B6BE1FE0F}" Directory_="APPDIR" Attributes="0" KeyPath="OxyPlayer.vshost.exe"/>
     <ROW Component="ProductInformation" ComponentId="{878C6CCB-6635-4609-BA1D-C10B050F3D71}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
-    <ROW Component="SHORTCUTDIR" ComponentId="{1830F666-BB3F-463E-8D17-1353CDD45151}" Directory_="SHORTCUTDIR" Attributes="0"/>
     <ROW Component="SQLite.Interop.dll" ComponentId="{4B77653E-3076-4B69-97A8-37EC6C21DCA8}" Directory_="MusicTag_Dir" Attributes="0" KeyPath="SQLite.Interop.dll"/>
     <ROW Component="System.Buffers.dll" ComponentId="{204C736C-6D98-492C-B3FE-07C41B61D00B}" Directory_="APPDIR" Attributes="0" KeyPath="System.Buffers.dll"/>
     <ROW Component="System.Data.SQLite.dll" ComponentId="{40EEF6F9-04F6-423F-B818-C886BE339C98}" Directory_="MusicTag_Dir" Attributes="0" KeyPath="System.Data.SQLite.dll"/>
@@ -111,6 +112,7 @@
     <ROW File="TagLibSharp.pdb" Component_="TagLibSharp.dll" FileName="TAGLIB~1.PDB|TagLibSharp.pdb" Attributes="0" SourcePath="..\OxyPlayer\bin\Release\TagLibSharp.pdb" SelfReg="false"/>
     <ROW File="TagLibSharp.xml" Component_="LiteDB.xml" FileName="TAGLIB~1.XML|TagLibSharp.xml" Attributes="0" SourcePath="..\OxyPlayer\bin\Release\TagLibSharp.xml" SelfReg="false"/>
     <ROW File="System.Runtime.WindowsRuntime.resources.dll" Component_="System.Runtime.WindowsRuntime.resources.dll" FileName="SYSTEM~1.DLL|System.Runtime.WindowsRuntime.resources.dll" Attributes="0" SourcePath="..\OxyPlayer\bin\Release\zh-Hans\System.Runtime.WindowsRuntime.resources.dll" SelfReg="false"/>
+    <ROW File="OxyPlayer.vshost.exe.manifest" Component_="LiteDB.xml" FileName="OXYPLA~1.MAN|OxyPlayer.vshost.exe.manifest" Attributes="0" SourcePath="..\OxyPlayer\bin\Release\OxyPlayer.vshost.exe.manifest" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.AiPersistentPropComponent">
     <ROW Property="AI_INSTALLPERUSER" Registry="AI_INSTALLPERUSER" HklmSearch="AI_INSTALLPERUSER" HkcuSearch="AI_INSTALLPERUSER_1"/>
@@ -122,7 +124,7 @@
     <ROW Action="AI_DetectSoftware" Sequence="151"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
-    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder="Setup Files" Languages="zh" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" UseLargeSchema="true"/>
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder="Setup Files" PackageFileName="[|ProductName] - [|ProductVersion]" Languages="zh" InstallationType="2" CabsLocation="1" CompressCabs="false" UseLzma="true" LzmaMethod="2" LzmaCompressionLevel="2" PackageType="1" FilesInsideExe="true" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" UseLargeSchema="true" ExeName="[|ProductName] - [|ProductVersion]"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
     <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
@@ -201,7 +203,7 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
     <ROW Directory_="APPDIR" Component_="APPDIR" ManualDelete="true"/>
-    <ROW Directory_="SHORTCUTDIR" Component_="SHORTCUTDIR" ManualDelete="false"/>
+    <ROW Directory_="OxyPlayer_Dir" Component_="OxyPlayer" ManualDelete="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
     <ROW Action="AI_AppSearchEx" Type="1" Source="Prereq.dll" Target="DoAppSearchEx"/>
@@ -258,9 +260,9 @@
     <ROW Feature_="MainFeature" Component_="System.Runtime.WindowsRuntime.dll"/>
     <ROW Feature_="MainFeature" Component_="TagLibSharp.dll"/>
     <ROW Feature_="MainFeature" Component_="System.Runtime.WindowsRuntime.resources.dll"/>
-    <ROW Feature_="MainFeature" Component_="SHORTCUTDIR"/>
     <ROW Feature_="MainFeature" Component_="AI_ExePath"/>
     <ROW Feature_="MainFeature" Component_="AI_INSTALLPERUSER"/>
+    <ROW Feature_="MainFeature" Component_="OxyPlayer"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
     <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
@@ -325,8 +327,8 @@
     <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
-    <ROW Shortcut="MusicTag" Directory_="SHORTCUTDIR" Name="MusicTag" Component_="MusicTag.exe" Target="[#MusicTag.exe]" Description="MusicTag" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="MusicTag_Dir"/>
-    <ROW Shortcut="OxyPlayer" Directory_="SHORTCUTDIR" Name="OXYPLA~1|OxyPlayer" Component_="OxyPlayer.exe" Target="[#OxyPlayer.exe]" Description="OxyPlayer" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+    <ROW Shortcut="MusicTag" Directory_="OxyPlayer_Dir" Name="MusicTag" Component_="MusicTag.exe" Target="[#MusicTag.exe]" Description="MusicTag" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="MusicTag_Dir"/>
+    <ROW Shortcut="OxyPlayer" Directory_="OxyPlayer_Dir" Name="OXYPLA~1|OxyPlayer" Component_="OxyPlayer.exe" Target="[#OxyPlayer.exe]" Description="OxyPlayer" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
     <ROW Shortcut="OxyPlayer_1" Directory_="DesktopFolder" Name="OXYPLA~1|OxyPlayer" Component_="OxyPlayer.exe" Target="[#OxyPlayer.exe]" Description="OxyPlayer" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">

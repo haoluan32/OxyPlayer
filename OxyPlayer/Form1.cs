@@ -48,7 +48,8 @@ namespace OxyPlayer
 
         private void treeView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            PlaySong(treeView1.SelectedNode.ToolTipText);
+            if (treeView1.SelectedNode.ToolTipText != "")
+                PlaySong(treeView1.SelectedNode.ToolTipText);
         }
 
 
@@ -63,7 +64,7 @@ namespace OxyPlayer
             TimeTrackText.Text = string.Format("{0} / {1}", MusicSh.Second2MMSS(mp.Position), MusicSh.Second2MMSS(mi.TimeLength_Second));
             try
             {
-                richTextBox1.Text = mi.lrcsheet[(int)mp.Position.TotalSeconds];
+                lyricsBox1.Text = mi.lrcsheet[(int)mp.Position.TotalSeconds];
             }
             catch { }
         }
@@ -91,6 +92,7 @@ namespace OxyPlayer
             TimeTrackTimer.Start();
         }
         #endregion
+
 
         private void VolumeTrackBar_ValueChanged(object sender, EventArgs e)
         {
@@ -144,7 +146,7 @@ namespace OxyPlayer
 
         private void 更新数据库UToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Ldbc.updatadb(new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic)));
+            Ldbc.updataSongsTable(new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic)));
             MessageBox.Show("更新完成", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 

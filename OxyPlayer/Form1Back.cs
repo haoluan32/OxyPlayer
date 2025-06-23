@@ -35,19 +35,19 @@ namespace OxyPlayer
                 treeView1.Nodes["NodeZ"].Nodes.Add(ntn);
             }
             if (OxySettings.Default.FileCount != treeView1.Nodes["NodeZ"].Nodes.Count)
-                Ldbc.updatadb(ld);
+                Ldbc.updataSongsTable(ld);
         }
         private void PlaySong(string songad)
         {
             mp.Stop();
-
+mi = MusicSh.GetMusicInfo(songad);
             try
             {
 
                 PlayMusic(songad);
                 PlayMusic();
 
-                mi = MusicSh.GetMusicInfo(songad);
+                
                 TimeTrackLine.Maximum = mi.TimeLength_Second;
                 PlayingTreeNode = treeView1.SelectedNode;
 
@@ -57,7 +57,7 @@ namespace OxyPlayer
                 labelAlbum.Text = mi.Album;
                 pictureBox1.Image = mi.Cover;
                 TimeTrackTimer.Start();
-                richTextBox1.Text = mi.lyric;
+                lyricsBox1.Text = mi.lyric;
                 this.Text = mi.Title + " - OxyPlayer Hyd";
             }
             catch { }

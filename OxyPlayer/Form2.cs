@@ -27,18 +27,18 @@ namespace OxyPlayer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DBRow row = DBRow.Title;
+            SongsRow row = SongsRow.Title;
             if (comboBox1.Text == "Title")
             {
-                 row = DBRow.Title;
+                 row = SongsRow.Title;
             }
             if (comboBox1.Text == "Artist")
             {
-                row = DBRow.Artist;
+                row = SongsRow.Artist;
             }
             if (comboBox1.Text == "Album")
             {
-                row = DBRow.Album;
+                row = SongsRow.Album;
             }
             var songs= Ldbc.searchDB(row, textBox1.Text);
            // DataSet ds = new DataSet();
