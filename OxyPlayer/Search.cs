@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace OxyPlayer
 {
-    public partial class Form2 : Form
+    public partial class Search : Form
     {
-        public Form2()
+        public Search()
         {
             InitializeComponent();
             comboBox1.Text = "Title";
         }
-        public Form2(string comboText,string Searchkey)
+        public Search(string comboText,string Searchkey)
         {
             InitializeComponent();
             comboBox1.Text = comboText;

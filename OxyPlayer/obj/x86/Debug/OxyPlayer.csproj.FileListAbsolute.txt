@@ -38,6 +38,8 @@ D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\LiteDB.dll
 D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\System.Buffers.dll
 D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\LiteDB.xml
 D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\System.Buffers.xml
-D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Debug\OxyPlayer.Form2.resources
 D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Debug\OxyPlayer.DoingSth.resources
 D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Debug\OxyPlayer.MusicFloderManager.resources
+D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Debug\OxyPlayer.DesktopLyrics.resources
+D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Debug\OxyPlayer.Search.resources
+D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Debug\OxyPlayer.Setting.resources

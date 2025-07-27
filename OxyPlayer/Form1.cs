@@ -26,6 +26,7 @@ namespace OxyPlayer
         bool playing = false;
         string[] SupportedFormating;
         TreeNode PlayingTreeNode = new TreeNode();
+        DesktopLyrics dl = new DesktopLyrics();
 
         public Form1()
         {
@@ -65,6 +66,7 @@ namespace OxyPlayer
             try
             {
                 lyricsBox1.Text = mi.lrcsheet[(int)mp.Position.TotalSeconds];
+                dl.UpdateLyrics(lyricsBox1.Text);
             }
             catch { }
         }
@@ -116,7 +118,7 @@ namespace OxyPlayer
         private void klabel_Click(object sender, EventArgs e)
         {
             Label l = (Label)sender;
-            Form2 f = new Form2(l.Name.Substring(5), l.Text);
+            Search f = new Search(l.Name.Substring(5), l.Text);
             f.Show();
         }
 
@@ -140,7 +142,7 @@ namespace OxyPlayer
 
         private void 搜索歌曲SToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form2 f = new Form2();
+            Search f = new Search();
             f.Show();
         }
 
@@ -166,6 +168,27 @@ namespace OxyPlayer
 
             }
             PlaySong(beforesong.Address);
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            PlaySong(OxyPlayer.Properties.Settings.Default.SongPath);
+            PauseMusic();
+            
+            dl.Show();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            OxyPlayer.Properties.Settings.Default.SongPath = mp.Source.LocalPath;
+            OxyPlayer.Properties.Settings.Default.Save();
+        }
+
+        private void 设置SToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Setting s = new Setting();
+            s.ShowDialog();
+            dl.ReadStyle();
         }
     }
 }

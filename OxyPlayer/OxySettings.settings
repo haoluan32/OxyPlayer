@@ -5,5 +5,14 @@
     <Setting Name="FileCount" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">-1</Value>
     </Setting>
+    <Setting Name="DesktopLyricsFont" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">宋体, 18pt</Value>
+    </Setting>
+    <Setting Name="DesktopLyricsColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Black</Value>
+    </Setting>
+    <Setting Name="Opacity" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

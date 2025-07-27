@@ -30,6 +30,7 @@ namespace OxyPlayer
 
     class MusicSh
     {
+
         static public Musicinfo GetMusicInfo(string MusicPath,bool Getlyrics=true,bool GetId=true)
         {
             Musicinfo mi = new Musicinfo();

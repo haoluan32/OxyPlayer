@@ -1,6 +1,6 @@
 ﻿namespace OxyPlayer
 {
-    partial class Form2
+    partial class Search
     {
         /// <summary>
         /// Required designer variable.

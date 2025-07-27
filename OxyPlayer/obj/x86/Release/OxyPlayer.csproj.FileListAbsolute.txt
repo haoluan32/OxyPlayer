@@ -33,7 +33,6 @@ D:\vs项目\OxyPlayer\OxyPlayer\bin\Release\zh-Hans\System.Runtime.WindowsRuntim
 D:\vs项目\OxyPlayer\OxyPlayer\bin\Release\Interop.Shell32.dll
 D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.csprojResolveAssemblyReference.cache
 D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.Form1.resources
-D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.Form2.resources
 D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.ImageViewer.resources
 D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.Properties.Resources.resources
 D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.csproj.GenerateResource.Cache
@@ -41,3 +40,6 @@ D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.exe
 D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.pdb
 D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.MusicFloderManager.resources
 D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.DoingSth.resources
+D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.DesktopLyrics.resources
+D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.Search.resources
+D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.Setting.resources

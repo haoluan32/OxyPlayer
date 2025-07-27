@@ -32,5 +32,17 @@ namespace OxyPlayer.Properties {
                 return ((string)(this["SongsConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SongPath {
+            get {
+                return ((string)(this["SongPath"]));
+            }
+            set {
+                this["SongPath"] = value;
+            }
+        }
     }
 }

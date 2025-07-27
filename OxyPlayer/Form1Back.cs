@@ -40,9 +40,10 @@ namespace OxyPlayer
         private void PlaySong(string songad)
         {
             mp.Stop();
-mi = MusicSh.GetMusicInfo(songad);
+            
             try
             {
+                mi = MusicSh.GetMusicInfo(songad);
 
                 PlayMusic(songad);
                 PlayMusic();

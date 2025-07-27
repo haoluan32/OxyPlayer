@@ -34,5 +34,41 @@ namespace OxyPlayer {
                 this["FileCount"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("宋体, 18pt")]
+        public global::System.Drawing.Font DesktopLyricsFont {
+            get {
+                return ((global::System.Drawing.Font)(this["DesktopLyricsFont"]));
+            }
+            set {
+                this["DesktopLyricsFont"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Black")]
+        public global::System.Drawing.Color DesktopLyricsColor {
+            get {
+                return ((global::System.Drawing.Color)(this["DesktopLyricsColor"]));
+            }
+            set {
+                this["DesktopLyricsColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public double Opacity {
+            get {
+                return ((double)(this["Opacity"]));
+            }
+            set {
+                this["Opacity"] = value;
+            }
+        }
     }
 }
