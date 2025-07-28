@@ -38,6 +38,7 @@ namespace OxyPlayer
             richTextBox1.Font = fontDialog1.Font;
             button2.Text = fontDialog1.Font.Name;
             OxySettings.Default.DesktopLyricsFont = fontDialog1.Font;
+            OxySettings.Default.Save();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -51,6 +52,8 @@ namespace OxyPlayer
             button1.BackColor = colorDialog1.Color;
             richTextBox1.ForeColor = colorDialog1.Color;
             OxySettings.Default.DesktopLyricsColor = colorDialog1.Color;
+            OxySettings.Default.Save();
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -66,6 +69,8 @@ namespace OxyPlayer
         private void Setting_FormClosing(object sender, FormClosingEventArgs e)
         {
             OxySettings.Default.Opacity = ((double)numericUpDown1.Value / 100.0);
+            OxySettings.Default.Save();
+
         }
     }
 }

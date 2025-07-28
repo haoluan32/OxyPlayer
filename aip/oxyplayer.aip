@@ -19,7 +19,7 @@
     <ROW Property="ProductCode" Value="2052:{949504A9-01CB-4FE8-8465-205BF7E6A9B5} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="OxyPlayer"/>
-    <ROW Property="ProductVersion" Value="0.90.25.0623"/>
+    <ROW Property="ProductVersion" Value="0.91.25.0728"/>
     <ROW Property="RUNAPPLICATION" Value="1" Type="4"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
     <ROW Property="UpgradeCode" Value="{654BFEBE-8026-4C86-A149-2B907445D9FD}"/>

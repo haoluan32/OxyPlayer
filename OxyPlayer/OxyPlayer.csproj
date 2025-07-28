@@ -25,8 +25,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>728</ApplicationRevision>
+    <ApplicationVersion>0.91.25.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -268,6 +268,10 @@
     <None Include="Resources\Pause.png" />
     <None Include="Resources\Play.png" />
     <None Include="Resources\NoCover.png" />
+    <None Include="Resources\ShowDesktopLyric.png" />
+    <None Include="Resources\ShownDesktopLyric.png" />
+    <None Include="Resources\LockDesktopLyric.png" />
+    <None Include="Resources\UnLockDesktopLyric.png" />
     <Content Include="SupportedFormating.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

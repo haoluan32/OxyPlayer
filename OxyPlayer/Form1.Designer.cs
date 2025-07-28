@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("User Music Floder");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("User Music Floder");
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.TimeTrackLine = new System.Windows.Forms.TrackBar();
             this.labelTitle = new System.Windows.Forms.Label();
@@ -44,27 +44,31 @@
             this.文件FToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.搜索歌曲SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.更新数据库UToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.选项OToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.设置SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.工具TToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.musicTagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lyricsBox1 = new System.Windows.Forms.RichTextBox();
             this.labelAlbum = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.pictureBoxShowDL = new System.Windows.Forms.PictureBox();
             this.pictureBoxNext = new System.Windows.Forms.PictureBox();
             this.pictureBoxBefore = new System.Windows.Forms.PictureBox();
             this.pictureBoxPause = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.选项OToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.设置SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBoxLockDl = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.TimeTrackLine)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VolumeTrackBar)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxShowDL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBefore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPause)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLockDl)).BeginInit();
             this.SuspendLayout();
             // 
             // treeView1
@@ -72,10 +76,10 @@
             this.treeView1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.treeView1.Location = new System.Drawing.Point(12, 36);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "NodeZ";
-            treeNode1.Text = "User Music Floder";
+            treeNode3.Name = "NodeZ";
+            treeNode3.Text = "User Music Floder";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            treeNode3});
             this.treeView1.Size = new System.Drawing.Size(514, 221);
             this.treeView1.TabIndex = 3;
             this.treeView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.treeView1_MouseDoubleClick);
@@ -124,7 +128,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 12);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Hyd v0.91.25.07.27";
+            this.label1.Text = "Hyd v0.91.25.07.28";
             // 
             // notifyIcon1
             // 
@@ -197,6 +201,21 @@
             this.更新数据库UToolStripMenuItem.Text = "更新数据库（&U）";
             this.更新数据库UToolStripMenuItem.Click += new System.EventHandler(this.更新数据库UToolStripMenuItem_Click);
             // 
+            // 选项OToolStripMenuItem
+            // 
+            this.选项OToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.设置SToolStripMenuItem});
+            this.选项OToolStripMenuItem.Name = "选项OToolStripMenuItem";
+            this.选项OToolStripMenuItem.Size = new System.Drawing.Size(78, 21);
+            this.选项OToolStripMenuItem.Text = "选项（&O）";
+            // 
+            // 设置SToolStripMenuItem
+            // 
+            this.设置SToolStripMenuItem.Name = "设置SToolStripMenuItem";
+            this.设置SToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.设置SToolStripMenuItem.Text = "设置（&S）";
+            this.设置SToolStripMenuItem.Click += new System.EventHandler(this.设置SToolStripMenuItem_Click);
+            // 
             // 工具TToolStripMenuItem
             // 
             this.工具TToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -250,6 +269,17 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // pictureBoxShowDL
+            // 
+            this.pictureBoxShowDL.Image = global::OxyPlayer.Properties.Resources.ShowDesktopLyric;
+            this.pictureBoxShowDL.Location = new System.Drawing.Point(228, 381);
+            this.pictureBoxShowDL.Name = "pictureBoxShowDL";
+            this.pictureBoxShowDL.Size = new System.Drawing.Size(25, 25);
+            this.pictureBoxShowDL.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxShowDL.TabIndex = 18;
+            this.pictureBoxShowDL.TabStop = false;
+            this.pictureBoxShowDL.Click += new System.EventHandler(this.pictureBoxShowDL_Click);
+            // 
             // pictureBoxNext
             // 
             this.pictureBoxNext.Image = global::OxyPlayer.Properties.Resources.NextSong;
@@ -293,26 +323,24 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // 选项OToolStripMenuItem
+            // pictureBoxLockDl
             // 
-            this.选项OToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.设置SToolStripMenuItem});
-            this.选项OToolStripMenuItem.Name = "选项OToolStripMenuItem";
-            this.选项OToolStripMenuItem.Size = new System.Drawing.Size(78, 21);
-            this.选项OToolStripMenuItem.Text = "选项（&O）";
-            // 
-            // 设置SToolStripMenuItem
-            // 
-            this.设置SToolStripMenuItem.Name = "设置SToolStripMenuItem";
-            this.设置SToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.设置SToolStripMenuItem.Text = "设置（&S）";
-            this.设置SToolStripMenuItem.Click += new System.EventHandler(this.设置SToolStripMenuItem_Click);
+            this.pictureBoxLockDl.Image = global::OxyPlayer.Properties.Resources.UnLockDesktopLyric;
+            this.pictureBoxLockDl.Location = new System.Drawing.Point(259, 381);
+            this.pictureBoxLockDl.Name = "pictureBoxLockDl";
+            this.pictureBoxLockDl.Size = new System.Drawing.Size(25, 25);
+            this.pictureBoxLockDl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxLockDl.TabIndex = 19;
+            this.pictureBoxLockDl.TabStop = false;
+            this.pictureBoxLockDl.Click += new System.EventHandler(this.pictureBoxLockDl_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(538, 505);
+            this.Controls.Add(this.pictureBoxLockDl);
+            this.Controls.Add(this.pictureBoxShowDL);
             this.Controls.Add(this.pictureBoxNext);
             this.Controls.Add(this.pictureBoxBefore);
             this.Controls.Add(this.pictureBoxPause);
@@ -341,10 +369,12 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxShowDL)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNext)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBefore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPause)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLockDl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -377,6 +407,8 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 选项OToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 设置SToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBoxShowDL;
+        public System.Windows.Forms.PictureBox pictureBoxLockDl;
     }
 }
 

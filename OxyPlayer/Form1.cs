@@ -27,6 +27,25 @@ namespace OxyPlayer
         string[] SupportedFormating;
         TreeNode PlayingTreeNode = new TreeNode();
         DesktopLyrics dl = new DesktopLyrics();
+        bool ShowDl = OxySettings.Default.ShownDesklopLyrics;
+
+        bool ShowDesktopLyric
+        {
+            get { return ShowDl; }
+            set
+            {
+                ShowDl = value;
+                dl.Visible = value;
+                if(value)
+                {
+                    pictureBoxShowDL.Image = OxyPlayer.Properties.Resources.ShownDesktopLyric;
+                }
+                else
+                {
+                    pictureBoxShowDL.Image = OxyPlayer.Properties.Resources.ShowDesktopLyric;
+                }
+            }
+        }
 
         public Form1()
         {
@@ -37,6 +56,7 @@ namespace OxyPlayer
         private void Form1_Load(object sender, EventArgs e)
         {
             DrawTreeNode();
+            
         }
 
         private void pictureBoxPause_Click(object sender, EventArgs e)
@@ -176,6 +196,10 @@ namespace OxyPlayer
             PauseMusic();
             
             dl.Show();
+            ShowDesktopLyric = OxySettings.Default.ShownDesklopLyrics;
+            dl.pictureBox1.Click += pictureBoxBefore_Click;
+            dl.pictureBox2.Click += pictureBoxPause_Click;
+            dl.pictureBox3.Click += pictureBoxNext_Click;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -189,6 +213,17 @@ namespace OxyPlayer
             Setting s = new Setting();
             s.ShowDialog();
             dl.ReadStyle();
+        }
+
+        private void pictureBoxShowDL_Click(object sender, EventArgs e)
+        {
+            ShowDesktopLyric = !ShowDesktopLyric;
+        }
+
+        private void pictureBoxLockDl_Click(object sender, EventArgs e)
+        {
+            dl.LockDesktopLyric = !dl.LockDesktopLyric;
+            pictureBoxLockDl.Image = dl.pictureBox4.Image;
         }
     }
 }

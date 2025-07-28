@@ -73,6 +73,16 @@ namespace OxyPlayer.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap LockDesktopLyric {
+            get {
+                object obj = ResourceManager.GetObject("LockDesktopLyric", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap NextSong {
             get {
                 object obj = ResourceManager.GetObject("NextSong", resourceCulture);
@@ -106,6 +116,36 @@ namespace OxyPlayer.Properties {
         internal static System.Drawing.Bitmap Play {
             get {
                 object obj = ResourceManager.GetObject("Play", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap ShowDesktopLyric {
+            get {
+                object obj = ResourceManager.GetObject("ShowDesktopLyric", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap ShownDesktopLyric {
+            get {
+                object obj = ResourceManager.GetObject("ShownDesktopLyric", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap UnLockDesktopLyric {
+            get {
+                object obj = ResourceManager.GetObject("UnLockDesktopLyric", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

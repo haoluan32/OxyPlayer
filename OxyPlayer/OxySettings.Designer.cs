@@ -70,5 +70,17 @@ namespace OxyPlayer {
                 this["Opacity"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShownDesklopLyrics {
+            get {
+                return ((bool)(this["ShownDesklopLyrics"]));
+            }
+            set {
+                this["ShownDesklopLyrics"] = value;
+            }
+        }
     }
 }

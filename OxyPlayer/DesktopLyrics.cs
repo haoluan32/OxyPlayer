@@ -15,6 +15,26 @@ namespace OxyPlayer
         SmoothLabel label1 = new SmoothLabel();
         Font useFont= new Font("微软雅黑", 18);
         Color useColor = Color.Black;
+        bool locked = false;
+
+        public bool LockDesktopLyric
+        {
+            get { return locked; }
+            set
+            {
+                locked = value;
+                this.FormBorderStyle = FormBorderStyle.None;
+                if(value)
+                {
+                    pictureBox4.Image = OxyPlayer.Properties.Resources.LockDesktopLyric;
+                }
+                else
+                {
+                    pictureBox4.Image = OxyPlayer.Properties.Resources.UnLockDesktopLyric;
+                }
+            }
+        }
+
         public DesktopLyrics()
         {
             InitializeComponent();
@@ -35,6 +55,7 @@ namespace OxyPlayer
 
         private void Label1_MouseEnter(object sender, EventArgs e)
         {
+            if (locked) return;
             this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
         }
 
@@ -48,7 +69,7 @@ namespace OxyPlayer
 
         public void UpdateLyrics(string lyrics)
         {
-            label1.Size=new Size( (int)GetPreciseTextWidth(lyrics+"                              ", useFont)+14,62);
+            label1.Size=new Size( (int)GetPreciseTextWidth(lyrics+"                              ", useFont)+14,159);
             label1.Text = lyrics;
             this.Opacity = OxySettings.Default.Opacity;
         }
@@ -66,12 +87,29 @@ namespace OxyPlayer
 
         private void DesktopLyrics_MouseEnter(object sender, EventArgs e)
         {
-            this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            if (locked) return;
+            this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
         }
 
         private void DesktopLyrics_MouseLeave(object sender, EventArgs e)
         {
+            if (locked) return;
             this.FormBorderStyle = FormBorderStyle.None;
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

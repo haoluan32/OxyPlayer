@@ -69,12 +69,15 @@ namespace OxyPlayer
             mp.Play();
             playing = true;
             pictureBoxPause.Image = OxyPlayer.Properties.Resources.Pause;
+            dl.pictureBox2.Image = OxyPlayer.Properties.Resources.Pause;
         }
         private void PlayMusic(string url)
         {
             mp.Open(new Uri(url));
             playing = true;
             pictureBoxPause.Image = OxyPlayer.Properties.Resources.Pause;
+            dl.pictureBox2.Image = OxyPlayer.Properties.Resources.Pause;
+
         }
 
         private void PauseMusic()
@@ -82,6 +85,8 @@ namespace OxyPlayer
             mp.Pause();
             playing = false;
             pictureBoxPause.Image = OxyPlayer.Properties.Resources.Play;
+            dl.pictureBox2.Image = OxyPlayer.Properties.Resources.Play;
+
         }
     }
 }
