@@ -51,12 +51,16 @@ namespace OxyPlayer
             label1.Location = new Point(12, 9);
             this.Controls.Add(label1);
             label1.MouseEnter += Label1_MouseEnter;
+            this.Location = OxySettings.Default.DesktopLyricsLocation;
+            LockDesktopLyric = OxySettings.Default.LockDesktopLyrics;
+            this.FormBorderStyle = FormBorderStyle.None;
+            ReadStyle();
         }
 
         private void Label1_MouseEnter(object sender, EventArgs e)
         {
             if (locked) return;
-            this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
         }
 
         public void ReadStyle()
@@ -95,6 +99,9 @@ namespace OxyPlayer
         {
             if (locked) return;
             this.FormBorderStyle = FormBorderStyle.None;
+            OxySettings.Default.DesktopLyricsLocation = this.Location;
+            OxySettings.Default.LockDesktopLyrics = locked;
+            OxySettings.Default.Save();
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)

@@ -200,6 +200,7 @@ namespace OxyPlayer
             dl.pictureBox1.Click += pictureBoxBefore_Click;
             dl.pictureBox2.Click += pictureBoxPause_Click;
             dl.pictureBox3.Click += pictureBoxNext_Click;
+            pictureBoxLockDl.Image = dl.pictureBox4.Image;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -218,12 +219,16 @@ namespace OxyPlayer
         private void pictureBoxShowDL_Click(object sender, EventArgs e)
         {
             ShowDesktopLyric = !ShowDesktopLyric;
+            OxySettings.Default.ShownDesklopLyrics = ShowDesktopLyric;
+            OxySettings.Default.Save();
         }
 
         private void pictureBoxLockDl_Click(object sender, EventArgs e)
         {
             dl.LockDesktopLyric = !dl.LockDesktopLyric;
             pictureBoxLockDl.Image = dl.pictureBox4.Image;
+            OxySettings.Default.LockDesktopLyrics = dl.LockDesktopLyric;
+            OxySettings.Default.Save();
         }
     }
 }

@@ -82,5 +82,29 @@ namespace OxyPlayer {
                 this["ShownDesklopLyrics"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool LockDesktopLyrics {
+            get {
+                return ((bool)(this["LockDesktopLyrics"]));
+            }
+            set {
+                this["LockDesktopLyrics"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        public global::System.Drawing.Point DesktopLyricsLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["DesktopLyricsLocation"]));
+            }
+            set {
+                this["DesktopLyricsLocation"] = value;
+            }
+        }
     }
 }

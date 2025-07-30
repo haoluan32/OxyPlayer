@@ -8,29 +8,28 @@
 
 ### 1.1允许的功能
 
-- ✅界面简洁，功能简单，主程序仅32KB大小
+- ✅界面简洁，功能简单，主程序仅70KB大小
 - ✅支持多种格式，包括.mp3,.wma等
 - ✅支持歌曲信息，歌词，封面等标签的读取
-
 - ✅支持歌曲搜索（基于LiteDB）
-
 - ✅内置MusicTag工具
 
 
 ### 1.2缺点
 
-- ❎主流格式中暂不支持.m4a格式（在新的内测版本中已支持）
+- ❎不支持SMTC
 
 
 ## 2.项目结构
 
 ```bash
 ├─.vs 
-├─aip #Advenced Installer生成的文件
+├─aip #Advenced Installer生成的文件(Advenced Installer不再使用)
+├─iss #Inno Setup Script
 ├─OxyPlayer #项目主目录
 │  ├─bin
 │  │  ├─Debug #使用Debug配置生成的输出
-│  │  └─Release	#使用Release配置生成的输出
+│  │  └─Release	#使用Release配置生成的输出(安装程序打包的文件夹)
 └─packages #NuGet生成的文件
     ├─LiteDB.5.0.21
     ├─System.Buffers.4.5.1

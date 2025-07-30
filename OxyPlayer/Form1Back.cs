@@ -59,7 +59,7 @@ namespace OxyPlayer
                 pictureBox1.Image = mi.Cover;
                 TimeTrackTimer.Start();
                 lyricsBox1.Text = mi.lyric;
-                this.Text = mi.Title + " - OxyPlayer Hyd";
+                this.Text = mi.Title + " - OxyPlayer";
             }
             catch { }
         }
