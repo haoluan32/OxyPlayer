@@ -20,10 +20,15 @@ namespace OxyPlayer
         private void DrawTreeNode()
         {
             SupportedFormating = MusicSh.GetSupportedFormating();
-            DirectoryInfo ld = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic));
+            if(OxySettings.Default.MusicFolderPath=="")
+            {
+                OxySettings.Default.MusicFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
+                OxySettings.Default.Save();
+            }
+            DirectoryInfo ld = new DirectoryInfo(OxySettings.Default.MusicFolderPath);
 
             FileInfo[] ldis = ld.GetFiles();
-            
+            treeView1.Nodes["NodeZ"].Nodes.Clear();
             foreach (FileInfo tldi in ldis)
             {
                 if (Array.IndexOf(SupportedFormating, tldi.Extension) == -1)

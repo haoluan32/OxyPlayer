@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Ookii.Dialogs.WinForms;
 
 namespace OxyPlayer
 {
     public partial class Setting : Form
     {
+
+        public delegate void RefreshHandler();
+        public event RefreshHandler Refresh;
         public Setting()
         {
             InitializeComponent();
@@ -72,5 +76,21 @@ namespace OxyPlayer
             OxySettings.Default.Save();
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            VistaFolderBrowserDialog vfbd = new VistaFolderBrowserDialog();
+            vfbd.SelectedPath = OxySettings.Default.MusicFolderPath;
+            vfbd.ShowDialog();
+            if(vfbd.SelectedPath!=OxySettings.Default.MusicFolderPath)
+            {
+                OxySettings.Default.MusicFolderPath = vfbd.SelectedPath;
+                OxySettings.Default.Save();
+                textBox1.Text = OxySettings.Default.MusicFolderPath;
+                Refresh();
+            }
+        }
+
+        
     }
 }

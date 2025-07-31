@@ -65,6 +65,15 @@ begin
       ShellExec('open',
         'https://dotnet.microsoft.com/download/dotnet-framework/net472',
         '', '', SW_SHOW, ewNoWait,ErrorCode);
+    end
+    else
+    begin
+        // Display a message box
+      if SuppressibleTaskDialogMsgBox('Warning', '警告！{#MyAppName} {#MyAppVersion} 需要 .NET Framework 4.7.2 才能正常运行，如果存在安装程序检测错误，请单击"强制安装"按钮来继续安装', mbError, MB_OKCANCEL, ['强制安装（无视.NET环境检测）'], 0, IDOK) = IDOK then
+      begin
+        Result := True; 
+        // user clicked OK
+      end;
     end;
     Result := False;  // 中止安装
   end

@@ -43,3 +43,14 @@ D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Debug\OxyPlayer.MusicFloderManager.resou
 D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Debug\OxyPlayer.DesktopLyrics.resources
 D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Debug\OxyPlayer.Search.resources
 D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Debug\OxyPlayer.Setting.resources
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\LdbStu\LiteDB.Studio.exe
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\Ookii.Dialogs.WinForms.dll
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\System.Memory.dll
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\System.Numerics.Vectors.dll
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\System.Resources.Extensions.dll
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\Ookii.Dialogs.WinForms.pdb
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\System.Memory.xml
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\System.Numerics.Vectors.xml
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\System.Resources.Extensions.xml
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml

@@ -43,3 +43,4 @@ D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.DoingSth.resources
 D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.DesktopLyrics.resources
 D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.Search.resources
 D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.Setting.resources
+D:\vs项目\OxyPlayer\OxyPlayer\bin\Release\LdbStu\LiteDB.Studio.exe

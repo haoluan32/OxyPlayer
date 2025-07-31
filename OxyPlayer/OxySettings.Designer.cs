@@ -106,5 +106,17 @@ namespace OxyPlayer {
                 this["DesktopLyricsLocation"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MusicFolderPath {
+            get {
+                return ((string)(this["MusicFolderPath"]));
+            }
+            set {
+                this["MusicFolderPath"] = value;
+            }
+        }
     }
 }

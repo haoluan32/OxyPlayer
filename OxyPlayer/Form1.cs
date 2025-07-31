@@ -28,6 +28,7 @@ namespace OxyPlayer
         TreeNode PlayingTreeNode = new TreeNode();
         DesktopLyrics dl = new DesktopLyrics();
         bool ShowDl = OxySettings.Default.ShownDesklopLyrics;
+        Setting SettingsDialog = new Setting();
 
         bool ShowDesktopLyric
         {
@@ -211,8 +212,8 @@ namespace OxyPlayer
 
         private void 设置SToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Setting s = new Setting();
-            s.ShowDialog();
+            SettingsDialog.Refresh += DrawTreeNode;
+            SettingsDialog.ShowDialog();
             dl.ReadStyle();
         }
 
