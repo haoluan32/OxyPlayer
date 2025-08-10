@@ -100,9 +100,15 @@ namespace OxyPlayer
                         mi.lyric = musicf.Tag.Lyrics;
                         mi.lrcsheet = lrc2sheet(mi.lyric);
                     }
+                    if (!mi.lrcsheet.ContainsKey(0))
+                    {
+                        mi.lrcsheet.Add(0, $"{mi.Artist} - {mi.Title}\r");
+                    }
 
                 }
+
                 catch { }
+                
             }
 
             skip:
@@ -184,7 +190,7 @@ namespace OxyPlayer
                     lrcsheet[key] += "\n"+value;
                 }
             }
-
+            
             return lrcsheet;
         }
     }

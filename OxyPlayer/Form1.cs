@@ -72,6 +72,7 @@ namespace OxyPlayer
         {
             if (treeView1.SelectedNode.ToolTipText != "")
                 PlaySong(treeView1.SelectedNode.ToolTipText);
+            
         }
 
 
