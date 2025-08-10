@@ -206,7 +206,11 @@ namespace OxyPlayer
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            OxyPlayer.Properties.Settings.Default.SongPath = mp.Source.LocalPath;
+            try
+            {
+                OxyPlayer.Properties.Settings.Default.SongPath = mp.Source.LocalPath;
+            }
+            catch { }
             OxyPlayer.Properties.Settings.Default.Save();
         }
 
