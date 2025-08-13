@@ -9,7 +9,7 @@ using System.IO;
 
 namespace OxyPlayer
 {
-    class Song
+    public class Song
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -86,7 +86,7 @@ namespace OxyPlayer
                         i = table.Find(x => x.Artist.Contains(key));
                         break;
                     case SongsRow.Id:
-                        i = table.Find(x => x.Artist.Contains(key));
+                        i = table.Find(x => x.Id == int.Parse(key));
                         break;
                 }
 

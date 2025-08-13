@@ -141,7 +141,13 @@ namespace OxyPlayer
         {
             Label l = (Label)sender;
             Search f = new Search(l.Name.Substring(5), l.Text);
+            f.ClickResult += F_ClickResult;
             f.Show();
+        }
+
+        private void F_ClickResult(Song a)
+        {
+            PlaySong(a.Address);
         }
 
         private void pictureBoxNext_Click(object sender, EventArgs e)
@@ -165,6 +171,7 @@ namespace OxyPlayer
         private void 搜索歌曲SToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Search f = new Search();
+            f.ClickResult += F_ClickResult;
             f.Show();
         }
 
@@ -235,6 +242,11 @@ namespace OxyPlayer
             pictureBoxLockDl.Image = dl.pictureBox4.Image;
             OxySettings.Default.LockDesktopLyrics = dl.LockDesktopLyric;
             OxySettings.Default.Save();
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
         }
     }
 }

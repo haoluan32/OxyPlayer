@@ -19,7 +19,7 @@ using LiteDB;
 
 namespace OxyPlayer
 {
-    class Musicinfo:Song
+    public class Musicinfo:Song
     {
         public string TimeLength{ get; set; }
         public int TimeLength_Second{ get; set; }

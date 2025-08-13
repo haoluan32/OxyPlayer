@@ -12,6 +12,10 @@ namespace OxyPlayer
 {
     public partial class Search : Form
     {
+        public delegate void ClickResultHandler(Song a);
+        public event ClickResultHandler ClickResult;
+
+        DataTable dt = new DataTable();
         public Search()
         {
             InitializeComponent();
@@ -41,22 +45,45 @@ namespace OxyPlayer
                 row = SongsRow.Album;
             }
             var songs= Ldbc.searchDB(row, textBox1.Text);
-           // DataSet ds = new DataSet();
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Title");
-            dt.Columns.Add("Artist");
-            dt.Columns.Add("Album");
-            dt.Columns.Add("Address");
+            // DataSet ds = new DataSet();
+            dt.Clear();            
             foreach (var esong in songs)
             {
-                dt.Rows.Add(esong.Title,esong.Artist,esong.Album,esong.Address);                               
+                dt.Rows.Add(esong.Id,esong.Title,esong.Artist,esong.Album,esong.Address);                               
             }
             dataGridView1.DataSource = dt;
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            
+            dt.Columns.Add("Id");
+            dt.Columns.Add("Title");
+            dt.Columns.Add("Artist");
+            dt.Columns.Add("Album");
+            dt.Columns.Add("Address");
+        }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            int selrowindex = 0;
+            DataRow selrow = null;
+            try
+            {
+                selrowindex = dataGridView1.SelectedCells[0].RowIndex;
+                selrow = dt.Rows[selrowindex];
+
+            } 
+            catch { }
+            var song = Ldbc.searchDB(SongsRow.Id,(string)selrow[0])[0];
+            ClickResult(song);
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar=='\r')
+            {
+                button1_Click(new object(), new EventArgs());
+            }
         }
     }
 }
