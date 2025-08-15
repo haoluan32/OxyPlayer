@@ -29,6 +29,7 @@ namespace OxyPlayer
         DesktopLyrics dl = new DesktopLyrics();
         bool ShowDl = OxySettings.Default.ShownDesklopLyrics;
         Setting SettingsDialog = new Setting();
+        bool closing = false;
 
         bool ShowDesktopLyric
         {
@@ -206,6 +207,8 @@ namespace OxyPlayer
             
             dl.Show();
             ShowDesktopLyric = OxySettings.Default.ShownDesklopLyrics;
+            ToolStripMenuItemshowdl.Checked = ShowDesktopLyric;
+            ToolStripMenuItemlockdl.Checked = dl.LockDesktopLyric;
             dl.pictureBox1.Click += pictureBoxBefore_Click;
             dl.pictureBox2.Click += pictureBoxPause_Click;
             dl.pictureBox3.Click += pictureBoxNext_Click;
@@ -220,6 +223,11 @@ namespace OxyPlayer
             }
             catch { }
             OxyPlayer.Properties.Settings.Default.Save();
+            if(!closing)
+            {
+                this.Hide();
+                e.Cancel = true;
+            }
         }
 
         private void 设置SToolStripMenuItem_Click(object sender, EventArgs e)
@@ -232,6 +240,7 @@ namespace OxyPlayer
         private void pictureBoxShowDL_Click(object sender, EventArgs e)
         {
             ShowDesktopLyric = !ShowDesktopLyric;
+            ToolStripMenuItemshowdl.Checked = ShowDesktopLyric;
             OxySettings.Default.ShownDesklopLyrics = ShowDesktopLyric;
             OxySettings.Default.Save();
         }
@@ -239,6 +248,7 @@ namespace OxyPlayer
         private void pictureBoxLockDl_Click(object sender, EventArgs e)
         {
             dl.LockDesktopLyric = !dl.LockDesktopLyric;
+            ToolStripMenuItemlockdl.Checked = dl.LockDesktopLyric;
             pictureBoxLockDl.Image = dl.pictureBox4.Image;
             OxySettings.Default.LockDesktopLyrics = dl.LockDesktopLyric;
             OxySettings.Default.Save();
@@ -247,6 +257,17 @@ namespace OxyPlayer
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
 
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+        }
+
+        private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            closing = true;
+            this.Close();
         }
     }
 }
