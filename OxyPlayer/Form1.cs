@@ -15,6 +15,8 @@ using Microsoft;
 using System.Diagnostics;
 using System.Windows.Forms.Integration;
 using LiteDB;
+using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 
 
 namespace OxyPlayer
@@ -30,6 +32,7 @@ namespace OxyPlayer
         bool ShowDl = OxySettings.Default.ShownDesklopLyrics;
         Setting SettingsDialog = new Setting();
         bool closing = false;
+        startup startupdia = new startup();
 
         bool ShowDesktopLyric
         {
@@ -49,9 +52,15 @@ namespace OxyPlayer
             }
         }
 
+
+
         public Form1()
         {
+            if(OxySettings.Default.ShowStartup)
+                startupdia.Show();
+            Delay(50);
             InitializeComponent();
+            
 
         }
 
@@ -213,6 +222,8 @@ namespace OxyPlayer
             dl.pictureBox2.Click += pictureBoxPause_Click;
             dl.pictureBox3.Click += pictureBoxNext_Click;
             pictureBoxLockDl.Image = dl.pictureBox4.Image;
+           // startupdia.Close();
+            startupdia.Dispose();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -268,6 +279,18 @@ namespace OxyPlayer
         {
             closing = true;
             this.Close();
+        }
+
+
+        [DllImport("kernel32.dll")]
+        public static extern uint GetTickCount();
+        static void Delay(uint ms)
+        {
+            uint start = GetTickCount();
+            while (GetTickCount() - start < ms)
+            {
+                System.Windows.Forms.Application.DoEvents();
+            }
         }
     }
 }

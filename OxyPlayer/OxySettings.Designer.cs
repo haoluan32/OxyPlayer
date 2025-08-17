@@ -118,5 +118,17 @@ namespace OxyPlayer {
                 this["MusicFolderPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShowStartup {
+            get {
+                return ((bool)(this["ShowStartup"]));
+            }
+            set {
+                this["ShowStartup"] = value;
+            }
+        }
     }
 }

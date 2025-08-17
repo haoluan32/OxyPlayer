@@ -110,3 +110,4 @@ D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Debug\OxyPlayer.Properties.Resources.r
 D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Debug\OxyPlayer.DoingSth.resources
 D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Debug\OxyPlayer.Setting.resources
 D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Debug\OxyPlayer.csproj.GenerateResource.Cache
+D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Debug\OxyPlayer.startup.resources

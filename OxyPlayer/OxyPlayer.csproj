@@ -176,6 +176,12 @@
     <Compile Include="SmoothLabel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="startup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="startup.Designer.cs">
+      <DependentUpon>startup.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DesktopLyrics.resx">
       <DependentUpon>DesktopLyrics.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Setting.resx">
       <DependentUpon>Setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="startup.resx">
+      <DependentUpon>startup.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="MusicTag\font\fontawesome-webfont.ttf">
@@ -298,6 +307,7 @@
     <None Include="LdbStu\LiteDB.Studio.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Resources\startup.png" />
     <Content Include="SupportedFormating.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
