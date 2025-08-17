@@ -117,4 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label3.Text" xml:space="preserve">
+    <value>LiteDB.5.0.21(MIT)
+System.Numerics.Vectors.4.5.0(MIT)
+Ookii.Dialogs.WinForms.4.0.0(BSD 3-Clause)
+System.Resources.Extensions.6.0.0(MIT)
+System.Buffers.4.5.1(MIT)
+System.Runtime.CompilerServices.Unsafe.4.5.3(MIT)
+System.Memory.4.5.4(MIT)
+TagLibSharp.2.3.0(LGPL v2.1-Only)</value>
+  </data>
 </root>

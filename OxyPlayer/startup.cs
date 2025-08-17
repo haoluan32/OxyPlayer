@@ -16,6 +16,8 @@ namespace OxyPlayer
         {
             InitializeComponent();
             label1.BackColor = Color.Transparent;
+            label2.BackColor = Color.Transparent;
+            label3.BackColor = Color.Transparent;
         }
     }
 }
