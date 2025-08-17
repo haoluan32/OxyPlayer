@@ -15,18 +15,21 @@ namespace OxyPlayer
         public delegate void ClickResultHandler(Song a);
         public event ClickResultHandler ClickResult;
 
+        string searchkey="";
+
         DataTable dt = new DataTable();
         public Search()
         {
             InitializeComponent();
             comboBox1.Text = "Title";
         }
-        public Search(string comboText,string Searchkey)
+        public Search(string comboText,string iSearchkey)
         {
             InitializeComponent();
             comboBox1.Text = comboText;
-            textBox1.Text = Searchkey;
-            button1_Click(new object(), new EventArgs());
+            textBox1.Text = iSearchkey;
+            searchkey = iSearchkey;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -49,7 +52,7 @@ namespace OxyPlayer
             dt.Clear();            
             foreach (var esong in songs)
             {
-                dt.Rows.Add(esong.Id,esong.Title,esong.Artist,esong.Album,esong.Address);                               
+                dt.Rows.Add(esong.Id,esong.Title,esong.Artist,esong.Album,esong.Address);
             }
             dataGridView1.DataSource = dt;
         }
@@ -81,6 +84,14 @@ namespace OxyPlayer
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(e.KeyChar=='\r')
+            {
+                button1_Click(new object(), new EventArgs());
+            }
+        }
+
+        private void Search_Shown(object sender, EventArgs e)
+        {
+            if(searchkey!="")
             {
                 button1_Click(new object(), new EventArgs());
             }
