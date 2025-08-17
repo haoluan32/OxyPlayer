@@ -90,7 +90,6 @@ D:\VS_Project\OxyPlayer\OxyPlayer\bin\Release\TagLibSharp.pdb
 D:\VS_Project\OxyPlayer\OxyPlayer\bin\Release\TagLibSharp.xml
 D:\VS_Project\OxyPlayer\OxyPlayer\bin\Release\zh-Hans\System.Runtime.WindowsRuntime.resources.dll
 D:\VS_Project\OxyPlayer\OxyPlayer\bin\Release\Interop.Shell32.dll
-D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.csprojResolveAssemblyReference.cache
 D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.DesktopLyrics.resources
 D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.Form1.resources
 D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.Search.resources

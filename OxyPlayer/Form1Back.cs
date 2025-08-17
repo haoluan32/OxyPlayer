@@ -39,7 +39,7 @@ namespace OxyPlayer
                 ntn.ToolTipText = tldi.FullName;
                 treeView1.Nodes["NodeZ"].Nodes.Add(ntn);
             }
-            if (OxySettings.Default.FileCount != treeView1.Nodes["NodeZ"].Nodes.Count)
+            if (OxySettings.Default.FileCount != treeView1.Nodes["NodeZ"].Nodes.Count||!File.Exists("songs.db"))
                 Ldbc.updataSongsTable(ld);
         }
         private void PlaySong(string songad)
