@@ -284,7 +284,7 @@ namespace OxyPlayer
 
         [DllImport("kernel32.dll")]
         public static extern uint GetTickCount();
-        static void Delay(uint ms)
+        static public void Delay(uint ms)
         {
             uint start = GetTickCount();
             while (GetTickCount() - start < ms)

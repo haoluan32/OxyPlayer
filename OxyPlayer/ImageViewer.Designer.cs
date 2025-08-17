@@ -79,6 +79,7 @@
             this.MinimizeBox = false;
             this.Name = "ImageViewer";
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ImageViewer";
             this.Load += new System.EventHandler(this.ImageViewer_Load);
             this.SizeChanged += new System.EventHandler(this.ImageViewer_SizeChanged);

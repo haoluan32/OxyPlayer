@@ -52,7 +52,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(188, 60);
             this.label2.TabIndex = 1;
-            this.label2.Text = "OxyPlayer 版本 0.93\r\n在Apache License v2下开源\r\n调用的库(协议):\r\n";
+            this.label2.Text = "OxyPlayer 版本 0.93\r\n在Apache License v2下开源\r\n调用的第三方库(协议):\r\n";
             // 
             // label3
             // 
