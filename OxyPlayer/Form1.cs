@@ -143,7 +143,7 @@ namespace OxyPlayer
         {
             Process p = new Process();
             p.StartInfo.FileName = @".\MusicTag\MusicTag.exe";
-            p.StartInfo.Arguments = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
+            p.StartInfo.Arguments = OxySettings.Default.MusicFolderPath;
             p.Start();
         }
 
