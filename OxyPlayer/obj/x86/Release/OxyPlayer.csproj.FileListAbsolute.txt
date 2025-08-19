@@ -100,3 +100,4 @@ D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.DoingSth.resources
 D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.Setting.resources
 D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.csproj.GenerateResource.Cache
 D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.startup.resources
+D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.csprojResolveAssemblyReference.cache

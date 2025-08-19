@@ -130,5 +130,17 @@ namespace OxyPlayer {
                 this["ShowStartup"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ExitWhenFormClosing {
+            get {
+                return ((bool)(this["ExitWhenFormClosing"]));
+            }
+            set {
+                this["ExitWhenFormClosing"] = value;
+            }
+        }
     }
 }

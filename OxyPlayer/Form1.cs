@@ -234,6 +234,7 @@ namespace OxyPlayer
             }
             catch { }
             OxyPlayer.Properties.Settings.Default.Save();
+            closing = OxySettings.Default.ExitWhenFormClosing;
             if(!closing)
             {
                 this.Hide();
@@ -291,6 +292,12 @@ namespace OxyPlayer
             {
                 System.Windows.Forms.Application.DoEvents();
             }
+        }
+
+        private void 关于AToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            startup sup = new startup(true);
+            sup.Show();
         }
     }
 }

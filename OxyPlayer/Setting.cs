@@ -74,6 +74,7 @@ namespace OxyPlayer
         {
             OxySettings.Default.Opacity = ((double)numericUpDown1.Value / 100.0);
             OxySettings.Default.ShowStartup = checkBox1.Checked;
+            OxySettings.Default.ExitWhenFormClosing = checkBox2.Checked;
             OxySettings.Default.Save();
 
         }
