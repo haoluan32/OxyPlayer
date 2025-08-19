@@ -12,12 +12,28 @@ namespace OxyPlayer
 {
     public partial class startup : Form
     {
-        public startup()
+        bool isAbout = false;
+        public startup(bool IsAbout=false)
         {
             InitializeComponent();
             label1.BackColor = Color.Transparent;
             label2.BackColor = Color.Transparent;
             label3.BackColor = Color.Transparent;
+            label4.BackColor = Color.Transparent;
+            isAbout = IsAbout;
+            label4.Visible = IsAbout;
+            label4.Visible = IsAbout;
+            button1.Visible = IsAbout;
+        }
+
+        private void startup_Shown(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
