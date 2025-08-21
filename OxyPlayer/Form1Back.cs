@@ -65,6 +65,8 @@ namespace OxyPlayer
                 TimeTrackTimer.Start();
                 lyricsBox1.Text = mi.lyric;
                 this.Text = mi.Title + " - OxyPlayer";
+                notifyIcon1.Text = this.Text;
+                nameArtistToolStripMenuItem.Text = $"{mi.Title} - {mi.Artist}";
             }
             catch { }
         }

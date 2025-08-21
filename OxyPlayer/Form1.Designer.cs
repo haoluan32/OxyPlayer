@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("User Music Floder");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("User Music Floder");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.TimeTrackLine = new System.Windows.Forms.TrackBar();
@@ -58,6 +58,8 @@
             this.设置SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.工具TToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.musicTagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.帮助HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.关于AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lyricsBox1 = new System.Windows.Forms.RichTextBox();
             this.labelAlbum = new System.Windows.Forms.Label();
@@ -67,8 +69,7 @@
             this.pictureBoxPause = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBoxLockDl = new System.Windows.Forms.PictureBox();
-            this.帮助HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.关于AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nameArtistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.TimeTrackLine)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -88,10 +89,10 @@
             this.treeView1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.treeView1.Location = new System.Drawing.Point(12, 36);
             this.treeView1.Name = "treeView1";
-            treeNode2.Name = "NodeZ";
-            treeNode2.Text = "User Music Floder";
+            treeNode1.Name = "NodeZ";
+            treeNode1.Text = "User Music Floder";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2});
+            treeNode1});
             this.treeView1.Size = new System.Drawing.Size(514, 221);
             this.treeView1.TabIndex = 3;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -147,13 +148,14 @@
             // 
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Text = "OxyPlayer";
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nameArtistToolStripMenuItem,
             this.上一曲ToolStripMenuItem,
             this.播放ToolStripMenuItem,
             this.下一曲ToolStripMenuItem,
@@ -163,57 +165,57 @@
             this.toolStripSeparator2,
             this.退出ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(149, 148);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(155, 192);
             // 
             // 上一曲ToolStripMenuItem
             // 
             this.上一曲ToolStripMenuItem.Name = "上一曲ToolStripMenuItem";
-            this.上一曲ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.上一曲ToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.上一曲ToolStripMenuItem.Text = "上一曲";
             this.上一曲ToolStripMenuItem.Click += new System.EventHandler(this.pictureBoxBefore_Click);
             // 
             // 播放ToolStripMenuItem
             // 
             this.播放ToolStripMenuItem.Name = "播放ToolStripMenuItem";
-            this.播放ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.播放ToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.播放ToolStripMenuItem.Text = "播放/暂停";
             this.播放ToolStripMenuItem.Click += new System.EventHandler(this.pictureBoxPause_Click);
             // 
             // 下一曲ToolStripMenuItem
             // 
             this.下一曲ToolStripMenuItem.Name = "下一曲ToolStripMenuItem";
-            this.下一曲ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.下一曲ToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.下一曲ToolStripMenuItem.Text = "下一曲";
             this.下一曲ToolStripMenuItem.Click += new System.EventHandler(this.pictureBoxNext_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(145, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(151, 6);
             // 
             // ToolStripMenuItemshowdl
             // 
             this.ToolStripMenuItemshowdl.Name = "ToolStripMenuItemshowdl";
-            this.ToolStripMenuItemshowdl.Size = new System.Drawing.Size(148, 22);
+            this.ToolStripMenuItemshowdl.Size = new System.Drawing.Size(154, 22);
             this.ToolStripMenuItemshowdl.Text = "显示桌面歌词";
             this.ToolStripMenuItemshowdl.Click += new System.EventHandler(this.pictureBoxShowDL_Click);
             // 
             // ToolStripMenuItemlockdl
             // 
             this.ToolStripMenuItemlockdl.Name = "ToolStripMenuItemlockdl";
-            this.ToolStripMenuItemlockdl.Size = new System.Drawing.Size(148, 22);
+            this.ToolStripMenuItemlockdl.Size = new System.Drawing.Size(154, 22);
             this.ToolStripMenuItemlockdl.Text = "锁定桌面歌词";
             this.ToolStripMenuItemlockdl.Click += new System.EventHandler(this.pictureBoxLockDl_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(145, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(151, 6);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.退出ToolStripMenuItem.Text = "退出";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
@@ -310,9 +312,24 @@
             // musicTagToolStripMenuItem
             // 
             this.musicTagToolStripMenuItem.Name = "musicTagToolStripMenuItem";
-            this.musicTagToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.musicTagToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.musicTagToolStripMenuItem.Text = "&MusicTag";
             this.musicTagToolStripMenuItem.Click += new System.EventHandler(this.musicTagToolStripMenuItem_Click);
+            // 
+            // 帮助HToolStripMenuItem
+            // 
+            this.帮助HToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.关于AToolStripMenuItem});
+            this.帮助HToolStripMenuItem.Name = "帮助HToolStripMenuItem";
+            this.帮助HToolStripMenuItem.Size = new System.Drawing.Size(77, 21);
+            this.帮助HToolStripMenuItem.Text = "帮助（&H）";
+            // 
+            // 关于AToolStripMenuItem
+            // 
+            this.关于AToolStripMenuItem.Name = "关于AToolStripMenuItem";
+            this.关于AToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.关于AToolStripMenuItem.Text = "关于（&A）";
+            this.关于AToolStripMenuItem.Click += new System.EventHandler(this.关于AToolStripMenuItem_Click);
             // 
             // groupBox2
             // 
@@ -412,20 +429,12 @@
             this.pictureBoxLockDl.TabStop = false;
             this.pictureBoxLockDl.Click += new System.EventHandler(this.pictureBoxLockDl_Click);
             // 
-            // 帮助HToolStripMenuItem
+            // nameArtistToolStripMenuItem
             // 
-            this.帮助HToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.关于AToolStripMenuItem});
-            this.帮助HToolStripMenuItem.Name = "帮助HToolStripMenuItem";
-            this.帮助HToolStripMenuItem.Size = new System.Drawing.Size(77, 21);
-            this.帮助HToolStripMenuItem.Text = "帮助（&H）";
-            // 
-            // 关于AToolStripMenuItem
-            // 
-            this.关于AToolStripMenuItem.Name = "关于AToolStripMenuItem";
-            this.关于AToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.关于AToolStripMenuItem.Text = "关于（&A）";
-            this.关于AToolStripMenuItem.Click += new System.EventHandler(this.关于AToolStripMenuItem_Click);
+            this.nameArtistToolStripMenuItem.Enabled = false;
+            this.nameArtistToolStripMenuItem.Name = "nameArtistToolStripMenuItem";
+            this.nameArtistToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.nameArtistToolStripMenuItem.Text = "Name - Artist";
             // 
             // Form1
             // 
@@ -514,6 +523,7 @@
         private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 帮助HToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 关于AToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nameArtistToolStripMenuItem;
     }
 }
 
