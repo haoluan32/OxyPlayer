@@ -234,8 +234,8 @@ namespace OxyPlayer
             }
             catch { }
             OxyPlayer.Properties.Settings.Default.Save();
-            closing = OxySettings.Default.ExitWhenFormClosing;
-            if(!closing)
+             
+            if((!closing)&&(!OxySettings.Default.ExitWhenFormClosing))
             {
                 this.Hide();
                 e.Cancel = true;
