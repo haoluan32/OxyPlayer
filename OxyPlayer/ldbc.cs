@@ -97,7 +97,18 @@ namespace OxyPlayer
             return re;
         }
 
-        static public void addMusicFlodersTable(string dir,string name)
+        static public int GetFileCount()
+        {
+            int fileCount = -1;
+            using (var ldb = new LiteDatabase("songs.db"))
+            {
+                ILiteCollection<Song> table = ldb.GetCollection<Song>("songs");
+                fileCount = table.Count();
+            }
+            return fileCount;
+        }
+
+        static public void addMusicFlodersTable(string dir, string name)
         {
             using (var ldb = new LiteDatabase("songs.db"))
             {
