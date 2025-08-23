@@ -44,11 +44,6 @@ D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.DesktopLyrics.resource
 D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.Search.resources
 D:\vs项目\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.Setting.resources
 D:\vs项目\OxyPlayer\OxyPlayer\bin\Release\LdbStu\LiteDB.Studio.exe
-D:\VS_Project\OxyPlayer\OxyPlayer\bin\Release\OxyPlayer.exe.config
-D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Release\Interop.Shell32.dll
-D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.csproj.ResolveComReference.cache
-D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.exe
-D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.pdb
 D:\VS_Project\OxyPlayer\OxyPlayer\bin\Release\LdbStu\LiteDB.Studio.exe
 D:\VS_Project\OxyPlayer\OxyPlayer\bin\Release\SupportedFormating.txt
 D:\VS_Project\OxyPlayer\OxyPlayer\bin\Release\MusicTag\font\fontawesome-webfont.ttf
@@ -68,6 +63,7 @@ D:\VS_Project\OxyPlayer\OxyPlayer\bin\Release\MusicTag\System.ValueTuple.dll
 D:\VS_Project\OxyPlayer\OxyPlayer\bin\Release\MusicTag\en\MusicTag.resources.dll
 D:\VS_Project\OxyPlayer\OxyPlayer\bin\Release\MusicTag\zh-CHS\MusicTag.resources.dll
 D:\VS_Project\OxyPlayer\OxyPlayer\bin\Release\MusicTag\zh-CHT\MusicTag.resources.dll
+D:\VS_Project\OxyPlayer\OxyPlayer\bin\Release\OxyPlayer.exe.config
 D:\VS_Project\OxyPlayer\OxyPlayer\bin\Release\OxyPlayer.exe
 D:\VS_Project\OxyPlayer\OxyPlayer\bin\Release\OxyPlayer.pdb
 D:\VS_Project\OxyPlayer\OxyPlayer\bin\Release\LiteDB.dll
@@ -90,6 +86,8 @@ D:\VS_Project\OxyPlayer\OxyPlayer\bin\Release\TagLibSharp.pdb
 D:\VS_Project\OxyPlayer\OxyPlayer\bin\Release\TagLibSharp.xml
 D:\VS_Project\OxyPlayer\OxyPlayer\bin\Release\zh-Hans\System.Runtime.WindowsRuntime.resources.dll
 D:\VS_Project\OxyPlayer\OxyPlayer\bin\Release\Interop.Shell32.dll
+D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Release\Interop.Shell32.dll
+D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.csproj.ResolveComReference.cache
 D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.DesktopLyrics.resources
 D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.Form1.resources
 D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.Search.resources
@@ -98,5 +96,7 @@ D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.MusicFloderManager.r
 D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.Properties.Resources.resources
 D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.DoingSth.resources
 D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.Setting.resources
-D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.csproj.GenerateResource.Cache
 D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.startup.resources
+D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.csproj.GenerateResource.Cache
+D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.exe
+D:\VS_Project\OxyPlayer\OxyPlayer\obj\x86\Release\OxyPlayer.pdb

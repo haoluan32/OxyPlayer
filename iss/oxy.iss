@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "OxyPlayer"
-#define MyAppVersion "0.95.25.08.17"
+#define MyAppVersion "1.00.25.08.23"
 #define MyAppPublisher "haoluan"
 #define MyAppURL "https://gitee.com/haoluan_bilibili/oxy-player"
 #define MyAppExeName "OxyPlayer.exe"
