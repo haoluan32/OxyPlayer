@@ -222,7 +222,11 @@ namespace OxyPlayer
             dl.pictureBox2.Click += pictureBoxPause_Click;
             dl.pictureBox3.Click += pictureBoxNext_Click;
             pictureBoxLockDl.Image = dl.pictureBox4.Image;
-           // startupdia.Close();
+
+            mp.Volume = OxySettings.Default.Volume;
+            VolumeTrackBar.Value = (int)(mp.Volume * 100);
+
+            startupdia.Close();
             startupdia.Dispose();
         }
 
@@ -233,7 +237,9 @@ namespace OxyPlayer
                 OxyPlayer.Properties.Settings.Default.SongPath = mp.Source.LocalPath;
             }
             catch { }
+            OxySettings.Default.Volume = mp.Volume;
             OxyPlayer.Properties.Settings.Default.Save();
+            OxySettings.Default.Save();
              
             if((!closing)&&(!OxySettings.Default.ExitWhenFormClosing))
             {

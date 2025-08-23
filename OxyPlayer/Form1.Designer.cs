@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("User Music Floder");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("User Music Floder");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.TimeTrackLine = new System.Windows.Forms.TrackBar();
@@ -39,6 +39,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.nameArtistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.上一曲ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.播放ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.下一曲ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,7 +70,6 @@
             this.pictureBoxPause = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBoxLockDl = new System.Windows.Forms.PictureBox();
-            this.nameArtistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.TimeTrackLine)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -89,10 +89,10 @@
             this.treeView1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.treeView1.Location = new System.Drawing.Point(12, 36);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "NodeZ";
-            treeNode1.Text = "User Music Floder";
+            treeNode2.Name = "NodeZ";
+            treeNode2.Text = "User Music Floder";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            treeNode2});
             this.treeView1.Size = new System.Drawing.Size(514, 221);
             this.treeView1.TabIndex = 3;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -165,7 +165,14 @@
             this.toolStripSeparator2,
             this.退出ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(155, 192);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(155, 170);
+            // 
+            // nameArtistToolStripMenuItem
+            // 
+            this.nameArtistToolStripMenuItem.Enabled = false;
+            this.nameArtistToolStripMenuItem.Name = "nameArtistToolStripMenuItem";
+            this.nameArtistToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.nameArtistToolStripMenuItem.Text = "Name - Artist";
             // 
             // 上一曲ToolStripMenuItem
             // 
@@ -428,13 +435,6 @@
             this.pictureBoxLockDl.TabIndex = 19;
             this.pictureBoxLockDl.TabStop = false;
             this.pictureBoxLockDl.Click += new System.EventHandler(this.pictureBoxLockDl_Click);
-            // 
-            // nameArtistToolStripMenuItem
-            // 
-            this.nameArtistToolStripMenuItem.Enabled = false;
-            this.nameArtistToolStripMenuItem.Name = "nameArtistToolStripMenuItem";
-            this.nameArtistToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.nameArtistToolStripMenuItem.Text = "Name - Artist";
             // 
             // Form1
             // 
