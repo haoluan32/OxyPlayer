@@ -123,6 +123,26 @@ namespace OxyPlayer.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap RandomPlay {
+            get {
+                object obj = ResourceManager.GetObject("RandomPlay", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap RandomPlayed {
+            get {
+                object obj = ResourceManager.GetObject("RandomPlayed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap ShowDesktopLyric {
             get {
                 object obj = ResourceManager.GetObject("ShowDesktopLyric", resourceCulture);

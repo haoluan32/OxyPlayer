@@ -13,18 +13,21 @@ namespace OxyPlayer
     public partial class DesktopLyrics : Form
     {
         SmoothLabel label1 = new SmoothLabel();
-        Font useFont= new Font("微软雅黑", 18);
+        Font useFont = new Font("微软雅黑", 18);
         Color useColor = Color.Black;
         bool locked = false;
+        Graphics graph;
+        Pen pen;
 
         public bool LockDesktopLyric
         {
+
             get { return locked; }
             set
             {
                 locked = value;
                 this.FormBorderStyle = FormBorderStyle.None;
-                if(value)
+                if (value)
                 {
                     pictureBox4.Image = OxyPlayer.Properties.Resources.LockDesktopLyric;
                 }
@@ -38,6 +41,8 @@ namespace OxyPlayer
         public DesktopLyrics()
         {
             InitializeComponent();
+            graph = this.CreateGraphics();
+
         }
 
         private void DesktopLyrics_Load(object sender, EventArgs e)
@@ -69,13 +74,17 @@ namespace OxyPlayer
             useColor = OxySettings.Default.DesktopLyricsColor;
             label1.ForeColor = useColor;
             label1.Font = useFont;
+            pen = new Pen(useColor);
+            //label1.Visible = false;
         }
 
         public void UpdateLyrics(string lyrics)
         {
-            label1.Size=new Size( (int)GetPreciseTextWidth(lyrics+"                              ", useFont)+14,159);
+            label1.Size = new Size((int)GetPreciseTextWidth(lyrics + "                              ", useFont) + 14, 159);
             label1.Text = lyrics;
+            //graph.DrawString(lyrics, useFont, pen.Brush, 0, 0);
             this.Opacity = OxySettings.Default.Opacity;
+            timer1.Enabled = this.Visible;
         }
 
         public float GetPreciseTextWidth(string text, Font font)
@@ -117,6 +126,22 @@ namespace OxyPlayer
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Point mousePosition = Cursor.Position;
+            if ((this.Location.X < mousePosition.X) && (this.Location.X + this.Size.Width > mousePosition.X))
+            {
+                if ((this.Location.Y < mousePosition.Y) && (this.Location.Y + this.Size.Height > mousePosition.Y))
+                {
+                    if(this.FormBorderStyle != FormBorderStyle.SizableToolWindow)
+                        DesktopLyrics_MouseEnter(sender, e);
+                    return;
+                }
+            }
+            if(this.FormBorderStyle != FormBorderStyle.None)
+                DesktopLyrics_MouseLeave(sender, e);
         }
     }
 }

@@ -33,6 +33,7 @@ namespace OxyPlayer
         Setting SettingsDialog = new Setting();
         bool closing = false;
         startup startupdia = new startup();
+        bool RandomPlay = OxySettings.Default.RandomPlay;
 
         bool ShowDesktopLyric
         {
@@ -168,9 +169,18 @@ namespace OxyPlayer
 
                 ILiteCollection<Song> table = ldb.GetCollection<Song>("songs");
                 int dbcount = table.Count();
-                int nextid = mi.Id + 1;
-                if (nextid > dbcount)
-                    nextid = 1;
+                int nextid;
+                if (RandomPlay)
+                {
+                    Random r = new Random();
+                    nextid = r.Next(0, dbcount);
+                }
+                else
+                {
+                    nextid = mi.Id + 1;
+                    if (nextid > dbcount)
+                        nextid = 1;
+                }
                 IEnumerable<Song> i = table.Find(x => x.Id == nextid);
                 nextsong = i.ToArray<Song>()[0];
 
@@ -304,6 +314,20 @@ namespace OxyPlayer
         {
             startup sup = new startup(true);
             sup.Show();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            if(RandomPlay==false)
+            {
+                pictureBoxRandomPlay.Image = OxyPlayer.Properties.Resources.RandomPlayed;
+                RandomPlay = true;
+            }
+            else
+            {
+                pictureBoxRandomPlay.Image = OxyPlayer.Properties.Resources.RandomPlay;
+                RandomPlay = false;
+            }
         }
     }
 }

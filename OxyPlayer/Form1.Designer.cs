@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("User Music Floder");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("User Music Floder");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.TimeTrackLine = new System.Windows.Forms.TrackBar();
@@ -64,24 +64,26 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lyricsBox1 = new System.Windows.Forms.RichTextBox();
             this.labelAlbum = new System.Windows.Forms.Label();
+            this.pictureBoxRandomPlay = new System.Windows.Forms.PictureBox();
+            this.pictureBoxLockDl = new System.Windows.Forms.PictureBox();
             this.pictureBoxShowDL = new System.Windows.Forms.PictureBox();
             this.pictureBoxNext = new System.Windows.Forms.PictureBox();
             this.pictureBoxBefore = new System.Windows.Forms.PictureBox();
             this.pictureBoxPause = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxLockDl = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.TimeTrackLine)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VolumeTrackBar)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRandomPlay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLockDl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxShowDL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBefore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPause)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLockDl)).BeginInit();
             this.SuspendLayout();
             // 
             // treeView1
@@ -89,10 +91,10 @@
             this.treeView1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.treeView1.Location = new System.Drawing.Point(12, 36);
             this.treeView1.Name = "treeView1";
-            treeNode3.Name = "NodeZ";
-            treeNode3.Text = "User Music Floder";
+            treeNode1.Name = "NodeZ";
+            treeNode1.Text = "User Music Floder";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3});
+            treeNode1});
             this.treeView1.Size = new System.Drawing.Size(514, 221);
             this.treeView1.TabIndex = 3;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -142,7 +144,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 12);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Carbon 1.00.25.08.23";
+            this.label1.Text = "Carbon 1.00.26.04.25";
             // 
             // notifyIcon1
             // 
@@ -371,6 +373,28 @@
             this.labelAlbum.Text = "Album";
             this.labelAlbum.Click += new System.EventHandler(this.klabel_Click);
             // 
+            // pictureBoxRandomPlay
+            // 
+            this.pictureBoxRandomPlay.Image = global::OxyPlayer.Properties.Resources.RandomPlay;
+            this.pictureBoxRandomPlay.Location = new System.Drawing.Point(56, 381);
+            this.pictureBoxRandomPlay.Name = "pictureBoxRandomPlay";
+            this.pictureBoxRandomPlay.Size = new System.Drawing.Size(25, 25);
+            this.pictureBoxRandomPlay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxRandomPlay.TabIndex = 20;
+            this.pictureBoxRandomPlay.TabStop = false;
+            this.pictureBoxRandomPlay.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // pictureBoxLockDl
+            // 
+            this.pictureBoxLockDl.Image = global::OxyPlayer.Properties.Resources.UnLockDesktopLyric;
+            this.pictureBoxLockDl.Location = new System.Drawing.Point(259, 381);
+            this.pictureBoxLockDl.Name = "pictureBoxLockDl";
+            this.pictureBoxLockDl.Size = new System.Drawing.Size(25, 25);
+            this.pictureBoxLockDl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxLockDl.TabIndex = 19;
+            this.pictureBoxLockDl.TabStop = false;
+            this.pictureBoxLockDl.Click += new System.EventHandler(this.pictureBoxLockDl_Click);
+            // 
             // pictureBoxShowDL
             // 
             this.pictureBoxShowDL.Image = global::OxyPlayer.Properties.Resources.ShowDesktopLyric;
@@ -425,22 +449,12 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // pictureBoxLockDl
-            // 
-            this.pictureBoxLockDl.Image = global::OxyPlayer.Properties.Resources.UnLockDesktopLyric;
-            this.pictureBoxLockDl.Location = new System.Drawing.Point(259, 381);
-            this.pictureBoxLockDl.Name = "pictureBoxLockDl";
-            this.pictureBoxLockDl.Size = new System.Drawing.Size(25, 25);
-            this.pictureBoxLockDl.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxLockDl.TabIndex = 19;
-            this.pictureBoxLockDl.TabStop = false;
-            this.pictureBoxLockDl.Click += new System.EventHandler(this.pictureBoxLockDl_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(538, 505);
+            this.Controls.Add(this.pictureBoxRandomPlay);
             this.Controls.Add(this.pictureBoxLockDl);
             this.Controls.Add(this.pictureBoxShowDL);
             this.Controls.Add(this.pictureBoxNext);
@@ -473,12 +487,13 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRandomPlay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLockDl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxShowDL)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNext)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBefore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPause)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLockDl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -524,6 +539,7 @@
         private System.Windows.Forms.ToolStripMenuItem 帮助HToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 关于AToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nameArtistToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBoxRandomPlay;
     }
 }
 

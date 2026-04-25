@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "OxyPlayer"
-#define MyAppVersion "1.00.25.08.23"
+#define MyAppVersion "1.00.26.04.25"
 #define MyAppPublisher "haoluan"
 #define MyAppURL "https://gitee.com/haoluan_bilibili/oxy-player"
 #define MyAppExeName "OxyPlayer.exe"
@@ -86,7 +86,7 @@ end;
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
-Name: "chinesesimplified"; MessagesFile: "compiler:Languages\Chinese.isl"
+//Name: "chinesesimplified"; MessagesFile: "compiler:Languages\Chinese.isl"
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked

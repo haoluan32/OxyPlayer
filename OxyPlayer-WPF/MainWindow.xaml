@@ -1,0 +1,23 @@
+﻿<Window x:Class="OxyPlayer_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OxyPlayer_WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="703.825">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="77*"/>
+            <ColumnDefinition Width="97*"/>
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="listView" Margin="40,41,70.923,75">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Window>

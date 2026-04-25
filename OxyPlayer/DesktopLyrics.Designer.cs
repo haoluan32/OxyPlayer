@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -95,6 +97,12 @@
             this.panel1.TabIndex = 4;
             this.panel1.Visible = false;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 50;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // DesktopLyrics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -106,7 +114,7 @@
             this.Opacity = 0.7D;
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "DesktopLyrics";
+            this.Text = "\'";
             this.Deactivate += new System.EventHandler(this.DesktopLyrics_MouseLeave);
             this.Load += new System.EventHandler(this.DesktopLyrics_Load);
             this.MouseEnter += new System.EventHandler(this.DesktopLyrics_MouseEnter);
@@ -126,5 +134,6 @@
         public System.Windows.Forms.PictureBox pictureBox2;
         public System.Windows.Forms.PictureBox pictureBox3;
         public System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Timer timer1;
     }
 }

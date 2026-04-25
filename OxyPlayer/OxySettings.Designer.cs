@@ -154,5 +154,17 @@ namespace OxyPlayer {
                 this["Volume"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool RandomPlay {
+            get {
+                return ((bool)(this["RandomPlay"]));
+            }
+            set {
+                this["RandomPlay"] = value;
+            }
+        }
     }
 }

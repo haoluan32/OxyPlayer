@@ -308,6 +308,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Resources\startup.png" />
+    <None Include="Resources\RandomPlay.png" />
+    <None Include="Resources\RandomPlayed.png" />
     <Content Include="SupportedFormating.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
