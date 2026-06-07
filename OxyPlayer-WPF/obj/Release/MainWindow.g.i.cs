@@ -79,6 +79,14 @@ namespace OxyPlayer_WPF {
             switch (connectionId)
             {
             case 1:
+            
+            #line 8 "..\..\MainWindow.xaml"
+            ((OxyPlayer_WPF.MainWindow)(target)).Loaded += new System.Windows.RoutedEventHandler(this.Window_Loaded);
+            
+            #line default
+            #line hidden
+            return;
+            case 2:
             this.listView = ((System.Windows.Controls.ListView)(target));
             return;
             }

@@ -142,5 +142,16 @@ namespace OxyPlayer_WPF
             }
             return list.ToArray();
         }
+
+        static public Song[] getAllMusic()
+        {
+            Song[] songs;
+            using (var ldb = new LiteDatabase("songs.db"))
+            {
+                ILiteCollection<Song> table = ldb.GetCollection<Song>("songs");
+                songs = table.FindAll().ToArray();
+            }
+            return songs;
+        }
     }
 }
