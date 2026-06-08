@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="OxyPlayer" GeneratedClassName="Palette">
+  <Profiles />
+  <Settings>
+    <Setting Name="ActivedColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">80, 160, 255</Value>
+    </Setting>
+    <Setting Name="ControlerBackgroudColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">LightCyan</Value>
+    </Setting>
+    <Setting Name="PlaylistBackgroudColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>

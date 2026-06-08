@@ -60,7 +60,7 @@ namespace OxyPlayer
                     };
                     table.Insert(s);
                     id++;
-                    Form1.Delay(1);
+                    MusicSh.Delay(1);
                 }
                 OxySettings.Default.FileCount = (id - 1);
                 OxySettings.Default.Save();

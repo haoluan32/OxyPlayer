@@ -1,21 +1,22 @@
-﻿using System;
+﻿using LiteDB;
+using Microsoft;
+using Shell32;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Media;
+using System.Runtime;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
-using System.Media;
 using System.Windows.Media;
-using System.IO;
-using System.Runtime;
-using Windows;
-using Microsoft;
-using Shell32;
 using TagLib;
-using System.Collections;
-using LiteDB;
+using Windows;
 
 namespace OxyPlayer
 {
@@ -192,6 +193,17 @@ namespace OxyPlayer
             }
             
             return lrcsheet;
+        }
+
+        [DllImport("kernel32.dll")]
+        public static extern uint GetTickCount();
+        static public void Delay(uint ms)
+        {
+            uint start = GetTickCount();
+            while (GetTickCount() - start < ms)
+            {
+                System.Windows.Forms.Application.DoEvents();
+            }
         }
     }
 }

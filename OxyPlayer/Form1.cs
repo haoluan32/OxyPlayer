@@ -17,6 +17,7 @@ using System.Windows.Forms.Integration;
 using LiteDB;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
+using Sunny.UI;
 
 
 namespace OxyPlayer
@@ -24,6 +25,7 @@ namespace OxyPlayer
     public partial class Form1 : Form
     {
         MediaPlayer mp = new MediaPlayer();
+        MusicPlayer musicplayer = new MusicPlayer();
         Musicinfo mi;
         bool playing = false;
         string[] SupportedFormating;
@@ -299,16 +301,7 @@ namespace OxyPlayer
         }
 
 
-        [DllImport("kernel32.dll")]
-        public static extern uint GetTickCount();
-        static public void Delay(uint ms)
-        {
-            uint start = GetTickCount();
-            while (GetTickCount() - start < ms)
-            {
-                System.Windows.Forms.Application.DoEvents();
-            }
-        }
+       
 
         private void 关于AToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -318,16 +311,7 @@ namespace OxyPlayer
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            if(RandomPlay==false)
-            {
-                pictureBoxRandomPlay.Image = OxyPlayer.Properties.Resources.RandomPlayed;
-                RandomPlay = true;
-            }
-            else
-            {
-                pictureBoxRandomPlay.Image = OxyPlayer.Properties.Resources.RandomPlay;
-                RandomPlay = false;
-            }
+            
         }
     }
 }

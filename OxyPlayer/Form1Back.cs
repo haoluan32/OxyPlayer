@@ -42,6 +42,7 @@ namespace OxyPlayer
             if (Ldbc.GetFileCount() != treeView1.Nodes["NodeZ"].Nodes.Count)
                 Ldbc.updataSongsTable(ld);
         }
+
         private void PlaySong(string songad)
         {
             mp.Stop();
@@ -51,7 +52,6 @@ namespace OxyPlayer
                 mi = MusicSh.GetMusicInfo(songad);
 
                 PlayMusic(songad);
-                PlayMusic();
 
                 
                 TimeTrackLine.Maximum = mi.TimeLength_Second;
@@ -75,15 +75,14 @@ namespace OxyPlayer
         {
             mp.Play();
             playing = true;
-            pictureBoxPause.Image = OxyPlayer.Properties.Resources.Pause;
-            dl.pictureBox2.Image = OxyPlayer.Properties.Resources.Pause;
+            pictureBoxPause.Symbol = 361516;
         }
         private void PlayMusic(string url)
         {
             mp.Open(new Uri(url));
+            mp.Play();
             playing = true;
-            pictureBoxPause.Image = OxyPlayer.Properties.Resources.Pause;
-            dl.pictureBox2.Image = OxyPlayer.Properties.Resources.Pause;
+            pictureBoxPause.Symbol = 361516;
 
         }
 
@@ -91,9 +90,7 @@ namespace OxyPlayer
         {
             mp.Pause();
             playing = false;
-            pictureBoxPause.Image = OxyPlayer.Properties.Resources.Play;
-            dl.pictureBox2.Image = OxyPlayer.Properties.Resources.Play;
-
+            pictureBoxPause.Symbol = 361515;
         }
     }
 }
