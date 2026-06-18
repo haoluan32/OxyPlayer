@@ -3,32 +3,40 @@
   "WorkspaceRootPath": "D:\\VS_Project\\OxyPlayer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|d:\\vs_project\\oxyplayer\\oxyplayer\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|solutionrelative:oxyplayer\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|D:\\VS_Project\\OxyPlayer\\oxyplayer\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|solutionrelative:oxyplayer\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|D:\\VS_Project\\OxyPlayer\\oxyplayer\\form1back.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|solutionrelative:oxyplayer\\form1back.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|d:\\vs_project\\oxyplayer\\oxyplayer\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|solutionrelative:oxyplayer\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|d:\\vs_project\\oxyplayer\\oxyplayer\\matugen_template.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|solutionrelative:oxyplayer\\matugen_template.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|d:\\vs_project\\oxyplayer\\oxyplayer\\setting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|solutionrelative:oxyplayer\\setting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|D:\\VS_Project\\OxyPlayer\\oxyplayer\\musicsh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|solutionrelative:oxyplayer\\musicsh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|d:\\vs_project\\oxyplayer\\oxyplayer\\setting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|solutionrelative:oxyplayer\\setting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|D:\\VS_Project\\OxyPlayer\\oxyplayer\\musicplayer_mediaplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|solutionrelative:oxyplayer\\musicplayer_mediaplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|D:\\VS_Project\\OxyPlayer\\oxyplayer\\ldbc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|solutionrelative:oxyplayer\\ldbc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|D:\\VS_Project\\OxyPlayer\\oxyplayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|solutionrelative:oxyplayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|D:\\VS_Project\\OxyPlayer\\oxyplayer\\smtc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|solutionrelative:oxyplayer\\smtc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|D:\\VS_Project\\OxyPlayer\\oxyplayer\\musicsh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|solutionrelative:oxyplayer\\musicsh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|D:\\VS_Project\\OxyPlayer\\oxyplayer\\musicselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|solutionrelative:oxyplayer\\musicselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}|OxyPlayer\\OxyPlayer.csproj|D:\\VS_Project\\OxyPlayer\\oxyplayer\\desktoplyrics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -58,46 +66,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "matugen_template.json",
-              "DocumentMoniker": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\matugen_template.json",
-              "RelativeDocumentMoniker": "OxyPlayer\\matugen_template.json",
-              "ToolTip": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\matugen_template.json",
-              "RelativeToolTip": "OxyPlayer\\matugen_template.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-06-08T13:23:21.168Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "MusicSh.cs",
-              "DocumentMoniker": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\MusicSh.cs",
-              "RelativeDocumentMoniker": "OxyPlayer\\MusicSh.cs",
-              "ToolTip": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\MusicSh.cs",
-              "RelativeToolTip": "OxyPlayer\\MusicSh.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAAAAwHMAAAAAAAAAAAAAAA==",
+              "Title": "MusicPlayer_MediaPlayer.cs",
+              "DocumentMoniker": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\MusicPlayer_MediaPlayer.cs",
+              "RelativeDocumentMoniker": "OxyPlayer\\MusicPlayer_MediaPlayer.cs",
+              "ToolTip": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\MusicPlayer_MediaPlayer.cs",
+              "RelativeToolTip": "OxyPlayer\\MusicPlayer_MediaPlayer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEUAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-07T13:43:16.621Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainWindow.cs",
-              "DocumentMoniker": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\MainWindow.cs",
-              "RelativeDocumentMoniker": "OxyPlayer\\MainWindow.cs",
-              "ToolTip": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\MainWindow.cs",
-              "RelativeToolTip": "OxyPlayer\\MainWindow.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAqwC0AAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-08T12:24:02.214Z",
+              "WhenOpened": "2026-06-13T13:08:27.33Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "MainWindow.cs",
+              "DocumentMoniker": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\MainWindow.cs",
+              "RelativeDocumentMoniker": "OxyPlayer\\MainWindow.cs",
+              "ToolTip": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\MainWindow.cs",
+              "RelativeToolTip": "OxyPlayer\\MainWindow.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAgwFcAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-13T13:52:15.157Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "MainWindow.cs [\u8BBE\u8BA1]",
               "DocumentMoniker": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\MainWindow.cs",
               "RelativeDocumentMoniker": "OxyPlayer\\MainWindow.cs",
@@ -109,46 +104,83 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Setting.cs",
+              "DocumentMoniker": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\Setting.cs",
+              "RelativeDocumentMoniker": "OxyPlayer\\Setting.cs",
+              "ToolTip": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\Setting.cs",
+              "RelativeToolTip": "OxyPlayer\\Setting.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAkwFUAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-18T12:59:48.865Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Setting.cs [\u8BBE\u8BA1]",
+              "DocumentMoniker": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\Setting.cs",
+              "RelativeDocumentMoniker": "OxyPlayer\\Setting.cs",
+              "ToolTip": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\Setting.cs [\u8BBE\u8BA1]",
+              "RelativeToolTip": "OxyPlayer\\Setting.cs [\u8BBE\u8BA1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-18T12:53:57.689Z",
+              "EditorCaption": " [\u8BBE\u8BA1]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SMTC.cs",
+              "DocumentMoniker": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\SMTC.cs",
+              "RelativeDocumentMoniker": "OxyPlayer\\SMTC.cs",
+              "ToolTip": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\SMTC.cs",
+              "RelativeToolTip": "OxyPlayer\\SMTC.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-13T14:00:06.146Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 5,
               "Title": "ldbc.cs",
               "DocumentMoniker": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\ldbc.cs",
               "RelativeDocumentMoniker": "OxyPlayer\\ldbc.cs",
               "ToolTip": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\ldbc.cs",
               "RelativeToolTip": "OxyPlayer\\ldbc.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAywIwAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-07T13:38:02.835Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Form1Back.cs",
-              "DocumentMoniker": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\Form1Back.cs",
-              "RelativeDocumentMoniker": "OxyPlayer\\Form1Back.cs",
-              "ToolTip": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\Form1Back.cs",
-              "RelativeToolTip": "OxyPlayer\\Form1Back.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvw0AAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-07T13:36:21.744Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\Form1.cs",
-              "RelativeDocumentMoniker": "OxyPlayer\\Form1.cs",
-              "ToolTip": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\Form1.cs",
-              "RelativeToolTip": "OxyPlayer\\Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-07T13:09:12.512Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "MusicSh.cs",
+              "DocumentMoniker": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\MusicSh.cs",
+              "RelativeDocumentMoniker": "OxyPlayer\\MusicSh.cs",
+              "ToolTip": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\MusicSh.cs",
+              "RelativeToolTip": "OxyPlayer\\MusicSh.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAuwIIAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-07T13:43:16.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MusicSelector.cs [\u8BBE\u8BA1]",
+              "DocumentMoniker": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\MusicSelector.cs",
+              "RelativeDocumentMoniker": "OxyPlayer\\MusicSelector.cs",
+              "ToolTip": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\MusicSelector.cs [\u8BBE\u8BA1]",
+              "RelativeToolTip": "OxyPlayer\\MusicSelector.cs [\u8BBE\u8BA1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-13T12:48:02.615Z",
+              "EditorCaption": " [\u8BBE\u8BA1]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "DesktopLyrics.cs",
               "DocumentMoniker": "D:\\VS_Project\\OxyPlayer\\OxyPlayer\\DesktopLyrics.cs",
               "RelativeDocumentMoniker": "OxyPlayer\\DesktopLyrics.cs",

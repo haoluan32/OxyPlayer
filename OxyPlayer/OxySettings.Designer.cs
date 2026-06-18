@@ -166,5 +166,29 @@ namespace OxyPlayer {
                 this["RandomPlay"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Crimson")]
+        public global::System.Drawing.Color MainWindowLyricsColor {
+            get {
+                return ((global::System.Drawing.Color)(this["MainWindowLyricsColor"]));
+            }
+            set {
+                this["MainWindowLyricsColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("微软雅黑, 9pt")]
+        public global::System.Drawing.Font MainWindowsLyricsFont {
+            get {
+                return ((global::System.Drawing.Font)(this["MainWindowsLyricsFont"]));
+            }
+            set {
+                this["MainWindowsLyricsFont"] = value;
+            }
+        }
     }
 }

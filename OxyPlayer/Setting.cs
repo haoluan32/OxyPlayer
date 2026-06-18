@@ -25,10 +25,15 @@ namespace OxyPlayer
         {
             button1.BackColor = OxySettings.Default.DesktopLyricsColor;
             button2.Text = OxySettings.Default.DesktopLyricsFont.Name;
-            colorDialog1.Color = button1.BackColor;
-            fontDialog1.Font = OxySettings.Default.DesktopLyricsFont;
+            
             richTextBox1.ForeColor = colorDialog1.Color;
             richTextBox1.Font = fontDialog1.Font;
+
+            button4.BackColor = OxySettings.Default.MainWindowLyricsColor;
+            button5.Text = OxySettings.Default.MainWindowsLyricsFont.Name;
+            
+            richTextBox2.ForeColor = OxySettings.Default.MainWindowLyricsColor;
+            richTextBox2.Font = OxySettings.Default.MainWindowsLyricsFont;
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -38,6 +43,7 @@ namespace OxyPlayer
 
         private void button2_Click(object sender, EventArgs e)
         {
+            fontDialog1.Font = OxySettings.Default.DesktopLyricsFont;
             fontDialog1.ShowDialog();
             richTextBox1.Font = fontDialog1.Font;
             button2.Text = fontDialog1.Font.Name;
@@ -52,6 +58,7 @@ namespace OxyPlayer
 
         private void button1_Click(object sender, EventArgs e)
         {
+            colorDialog1.Color = button1.BackColor;
             colorDialog1.ShowDialog();
             button1.BackColor = colorDialog1.Color;
             richTextBox1.ForeColor = colorDialog1.Color;
@@ -76,7 +83,7 @@ namespace OxyPlayer
             OxySettings.Default.ShowStartup = checkBox1.Checked;
             OxySettings.Default.ExitWhenFormClosing = checkBox2.Checked;
             OxySettings.Default.Save();
-
+            Refresh();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -89,10 +96,28 @@ namespace OxyPlayer
                 OxySettings.Default.MusicFolderPath = vfbd.SelectedPath;
                 OxySettings.Default.Save();
                 textBox1.Text = OxySettings.Default.MusicFolderPath;
-                Refresh();
+                
             }
         }
 
-        
+        private void button4_Click(object sender, EventArgs e)
+        {
+            colorDialog1.Color = button4.BackColor;
+            colorDialog1.ShowDialog();
+            button4.BackColor = colorDialog1.Color;
+            richTextBox2.ForeColor = colorDialog1.Color;
+            OxySettings.Default.DesktopLyricsColor = colorDialog1.Color;
+            OxySettings.Default.Save();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            fontDialog1.Font = OxySettings.Default.MainWindowsLyricsFont;
+            fontDialog1.ShowDialog();
+            richTextBox2.Font = fontDialog1.Font;
+            button5.Text = fontDialog1.Font.Name;
+            OxySettings.Default.MainWindowsLyricsFont = fontDialog1.Font;
+            OxySettings.Default.Save();
+        }
     }
 }

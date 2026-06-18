@@ -18,13 +18,19 @@ using LiteDB;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using Sunny.UI;
-using Windows.UI;
 
 namespace OxyPlayer
 {
     public partial class MainWindow : Form
     {
         string[] SupportedFormating;
+        MusicPlayer_MediaPlayer musicPlayer = new MusicPlayer_MediaPlayer();
+        Musicinfo nowPlaying_musicinfo;
+
+        Setting setting = new Setting();
+
+        bool inputSearch_Changed = false;
+        int searchDelayCount;
         public MainWindow()
         {
             InitializeComponent();
@@ -32,8 +38,11 @@ namespace OxyPlayer
 
         void rePaintControl()
         {
+            uiScrollingTextLyrics.ForeColor = OxySettings.Default.MainWindowLyricsColor;
+            uiScrollingTextLyrics.Font = OxySettings.Default.MainWindowsLyricsFont;
+
         }
-        private void DrawTreeNode()
+        private void InitTreeNode_DB()
         {
             SupportedFormating = MusicSh.GetSupportedFormating();
             if (OxySettings.Default.MusicFolderPath == "")
@@ -44,19 +53,27 @@ namespace OxyPlayer
             DirectoryInfo ld = new DirectoryInfo(OxySettings.Default.MusicFolderPath);
 
             FileInfo[] ldis = ld.GetFiles();
-            treeView1.Nodes["NodeZ"].Nodes.Clear();
-            foreach (FileInfo tldi in ldis)
-            {
-                if (Array.IndexOf(SupportedFormating, tldi.Extension) == -1)
-                    continue;
 
-                TreeNode ntn = new TreeNode();
-                ntn.Text = tldi.Name;
-                ntn.ToolTipText = tldi.FullName;
-                treeView1.Nodes["NodeZ"].Nodes.Add(ntn);
+            long filecount = 0;
+            foreach (FileInfo tldindex in ldis)
+            {
+                if (Array.IndexOf(SupportedFormating, tldindex.Extension) != -1)
+                    filecount++;  
             }
-            if (Ldbc.GetFileCount() != treeView1.Nodes["NodeZ"].Nodes.Count)
+
+            if (Ldbc.GetItemsCount() != filecount)
                 Ldbc.updataSongsTable(ld);
+
+            treeViewPlaylist.Nodes.Clear();
+            Song[] songTable = Ldbc.GetAllSongsInfo();
+            foreach (Song song in songTable)
+            {
+                TreeNodeWithInfo ntn = new TreeNodeWithInfo();
+                ntn.Text = song.Title + " - " + song.Artist;
+                ntn.SongInfo = song;
+                treeViewPlaylist.Nodes.Add(ntn);
+            }
+            
         }
 
         /*   static public System.Drawing.Color RgbColor2Color(RgbColor rgbColor)
@@ -66,7 +83,156 @@ namespace OxyPlayer
 
         private void MainWindow_Shown(object sender, EventArgs e)
         {
-            DrawTreeNode();
+            TimeTrackTimer.Start();
+            setting.Refresh += rePaintControl;
+            rePaintControl();
+        }
+
+        private void treeView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.playMusic(((TreeNodeWithInfo)treeViewPlaylist.SelectedNode).SongInfo);
+        }
+
+        private void playMusic(Song song)
+        {
+            
+            nowPlaying_musicinfo = MusicSh.GetMusicInfo(song.Address);
+            uiLabelTitle.Text = nowPlaying_musicinfo.Title;
+            uiLabelArtist.Text = nowPlaying_musicinfo.Artist;
+            pictureBoxCover.Image = nowPlaying_musicinfo.Cover;
+            uiTrackBarTimeTrack.Maximum = nowPlaying_musicinfo.TimeLength_Second;
+            musicPlayer.PlayMusic(song);
+            if (musicPlayer.PlayingStatus)
+            {
+                uiSymbolButtonPlay.Symbol = 361516;
+                uiSymbolButtonPlay.SymbolOffset = new Point(2, 2);
+                uiSymbolButtonPlay.SymbolSize = 27;
+            }
+
+            else
+            {
+                uiSymbolButtonPlay.Symbol = 361515;
+                uiSymbolButtonPlay.SymbolOffset = new Point(0, 1);
+                uiSymbolButtonPlay.SymbolSize = 24;
+            }
+        }
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+            InitTreeNode_DB();
+        }
+
+        private void TimeTrackTimer_Tick(object sender, EventArgs e)
+        {
+            uiTrackBarTimeTrack.Value = musicPlayer.Position_Int;
+            if (nowPlaying_musicinfo != null && nowPlaying_musicinfo.lrcsheet != null)
+            {
+                if (nowPlaying_musicinfo.lrcsheet.ContainsKey(musicPlayer.Position_Int))
+                    uiScrollingTextLyrics.Text = nowPlaying_musicinfo.lrcsheet[musicPlayer.Position_Int];
+            }
+
+            if (inputSearch_Changed)
+                searchDelayCount++;
+            if (inputSearch_Changed)
+            {
+                if (inputSearch.Text != "")
+                {
+                    if (searchDelayCount >= 10)
+                    {
+                        inputSearch_Changed = false;
+                        treeViewPlaylist.Nodes.Clear();
+                        Song[] songTable = Ldbc.searchDBMerged(inputSearch.Text);
+                        foreach (Song song in songTable)
+                        {
+                            TreeNodeWithInfo ntn = new TreeNodeWithInfo();
+                            ntn.Text = song.Title + " - " + song.Artist;
+                            ntn.SongInfo = song;
+                            treeViewPlaylist.Nodes.Add(ntn);
+                        }
+                    }
+                }
+                else
+                {
+                    if (searchDelayCount >= 2)
+                    {
+                        inputSearch_Changed = false;
+                        treeViewPlaylist.Nodes.Clear();
+                        Song[] songTable = Ldbc.GetAllSongsInfo();
+                        foreach (Song song in songTable)
+                        {
+                            TreeNodeWithInfo ntn = new TreeNodeWithInfo();
+                            ntn.Text = song.Title + " - " + song.Artist;
+                            ntn.SongInfo = song;
+                            treeViewPlaylist.Nodes.Add(ntn);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void uiSymbolButton1_Click(object sender, EventArgs e)
+        {
+            //pause 361516
+            musicPlayer.SwitchPlayingStatus();
+            if (musicPlayer.PlayingStatus)
+            {
+                uiSymbolButtonPlay.Symbol = 361516;
+                uiSymbolButtonPlay.SymbolOffset = new Point(2,2);
+                uiSymbolButtonPlay.SymbolSize = 27;
+            }
+
+            else
+            {
+                uiSymbolButtonPlay.Symbol = 361515;
+                uiSymbolButtonPlay.SymbolOffset = new Point(0, 1);
+                uiSymbolButtonPlay.SymbolSize = 24;
+            }
+        }
+
+        private void uiSymbolButtonBefore_Click(object sender, EventArgs e)
+        {
+            Song song;
+            try
+            {
+                song = Ldbc.searchDB(SongsRow.Id, (musicPlayer.NowPlaying.Id - 1).ToString())[0];
+                playMusic(song);
+            }
+            catch 
+            {
+                song = Ldbc.searchDB(SongsRow.Id, "1")[0];
+                playMusic(song);
+            }
+        }
+
+        private void uiSymbolButtonNext_Click(object sender, EventArgs e)
+        {
+            Song song;
+            try
+            {
+                song = Ldbc.searchDB(SongsRow.Id, (musicPlayer.NowPlaying.Id + 1).ToString())[0];
+                playMusic(song);
+            }
+            catch
+            {
+                song = Ldbc.searchDB(SongsRow.Id, Ldbc.GetItemsCount().ToString())[0];
+                playMusic(song);
+            }
+        }
+
+        private void inputSearch_TextChanged(object sender, EventArgs e)
+        {
+            inputSearch_Changed = true;
+            searchDelayCount = 0;
+        }
+
+        private void pictureBoxCover_Click(object sender, EventArgs e)
+        {
+            ImageViewer imageViewer = new ImageViewer(pictureBoxCover.Image);
+            imageViewer.Show();
+        }
+
+        private void buttonSettings_Click(object sender, EventArgs e)
+        {
+            setting.ShowDialog();
         }
     }
 }

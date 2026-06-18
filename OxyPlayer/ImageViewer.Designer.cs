@@ -65,7 +65,7 @@
             // saveFileDialog1
             // 
             this.saveFileDialog1.DefaultExt = "png";
-            this.saveFileDialog1.Filter = "Jpg 图片|*.jpg|Bmp 图片|*.bmp|Gif 图片|*.gif|Png 图片|*.png|Wmf 图片|*.wmf";
+            this.saveFileDialog1.Filter = "Jpg 图片|*.jpg|Bmp 图片|*.bmp|Gif 图片|*.gif|Png 图片|*.png|Wmf 图片|*.wmf|任意文件|*.*";
             this.saveFileDialog1.Title = "将图片保存至";
             this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
             // 

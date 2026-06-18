@@ -66,7 +66,7 @@ namespace OxyPlayer
                 OxySettings.Default.Save();
             }
             ds.Close();
-        }
+        }  //更新歌曲信息数据库
 
         static public Song[] searchDB(SongsRow row, string key)
         {
@@ -95,9 +95,30 @@ namespace OxyPlayer
                     re = i.ToArray();
             }
             return re;
-        }
+        }   //在歌曲信息数据库中检索(指定列)
 
-        static public int GetFileCount()
+        static public Song[] searchDBMerged(string key) //在歌曲信息数据库中检索(聚合搜索)
+        {
+            List<Song> re = new List<Song>();
+            using (var ldb = new LiteDatabase("songs.db"))
+            {
+                ILiteCollection<Song> table = ldb.GetCollection<Song>("songs");
+                List<Song> temp = new List<Song>();
+                temp.AddRange(table.Find(x => x.Title.Contains(key)));
+                temp.AddRange(table.Find(x => x.Album.Contains(key)));
+                temp.AddRange(table.Find(x => x.Artist.Contains(key)));
+                foreach (Song song in temp)
+                {
+                    if(re.FindIndex(new Predicate<Song>(x=>x.Id==song.Id))<0)
+                    {
+                        re.Add(song);
+                    }
+                }
+            }
+            return re.ToArray();
+        }   //在歌曲信息数据库中检索
+
+        static public int GetItemsCount()
         {
             int fileCount = -1;
             using (var ldb = new LiteDatabase("songs.db"))
@@ -106,7 +127,18 @@ namespace OxyPlayer
                 fileCount = table.Count();
             }
             return fileCount;
-        }
+        }   //获取歌曲信息数据库条目计数
+
+        static public Song[] GetAllSongsInfo()
+        {
+            Song[] songTable; 
+            using (var ldb = new LiteDatabase("songs.db"))
+            {
+                ILiteCollection<Song> table = ldb.GetCollection<Song>("songs");
+                songTable= table.FindAll().ToArray();
+            }
+            return songTable;
+        }   //获取歌曲信息数据库中全部歌曲信息
 
         static public void addMusicFlodersTable(string dir, string name)
         {

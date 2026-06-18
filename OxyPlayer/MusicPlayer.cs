@@ -10,13 +10,13 @@ using CSCore.SoundOut;
 
 namespace OxyPlayer
 {
-    class MusicPlayer
+    class MusicPlayer_CSCore
     {
         WasapiOut soundOut = new WasapiOut();
 
 
 
-        public MusicPlayer()
+        public MusicPlayer_CSCore()
         {
             
         }

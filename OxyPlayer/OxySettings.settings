@@ -38,5 +38,11 @@
     <Setting Name="RandomPlay" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="MainWindowLyricsColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Crimson</Value>
+    </Setting>
+    <Setting Name="MainWindowsLyricsFont" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">微软雅黑, 9pt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

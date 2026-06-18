@@ -23,6 +23,6 @@ namespace OxyPlayer
 {
     class TreeNodeWithInfo:TreeNode
     {
-        Song SongInfo { get; set; }
+        public Song SongInfo { get; set; }
     }
 }
