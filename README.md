@@ -8,11 +8,10 @@
 
 ### 1.1允许的功能
 
-- ✅界面简洁，功能简单，主程序仅70KB大小
+- ✅界面简洁，功能简单
 - ✅支持多种格式，包括.mp3,.wma等
 - ✅支持歌曲信息，歌词，封面等标签的读取
 - ✅支持歌曲搜索
-- ✅内置MusicTag工具
 
 
 ### 1.2缺点
@@ -45,7 +44,7 @@
 本程序基于Apache License v2开源
 
 ## 5.本程序使用的第三方库/版本/协议：
-'''
+```bash
 LiteDB 5.0.21 MIT
 System.Numerics.Vectors 4.5.0 MIT 
 Ookii.Dialogs.WinForms 4.0.0 BSD 3-Clause 
@@ -54,4 +53,4 @@ System.Buffers 4.5.1 MIT
 System.Runtime.CompilerServices.Unsafe 4.5.3 MIT 
 System.Memory 4.5.4 MIT 
 TagLibSharp 2.3.0 LGPL v2.1-Only
-'''
+```
