@@ -21,18 +21,18 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={autopf}\{#MyAppName}
 UninstallDisplayIcon={app}\{#MyAppExeName}
 DefaultGroupName={#MyAppName}
-LicenseFile=D:\VS_Project\OxyPlayer\LICENSE.rtf
+LicenseFile=.\LICENSE.rtf
 ; Uncomment the following line to run in non administrative install mode (install for current user only).
 ;PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
-OutputDir=D:\iss_Out
+OutputDir=.\Output
 OutputBaseFilename=Oxyplayer
 SolidCompression=yes
 WizardStyle=modern
 
-; 添加.NET Framework 4.7.2检查
+; 添加.NET Framework 4.8检查
 [Code]
-function IsDotNet472OrNewer: Boolean;
+function IsDotNet48OrNewer: Boolean;
 var
   Release: Cardinal;
 begin
@@ -40,8 +40,8 @@ begin
   if RegQueryDWordValue(
        HKLM, 'SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full', 'Release', Release) then
   begin
-    // Release >= 461808 表示 .NET Framework 4.7.2 或更高版本
-    Result := (Release >= 461808);
+    // Release >= 528040 表示 .NET Framework 4.8 或更高版本
+    Result := (Release >= 528040);
   end
   else
   begin
@@ -54,22 +54,22 @@ var
       ErrorCode: Integer;
 begin
   // 检查.NET Framework
-  if not IsDotNet472OrNewer then
+  if not IsDotNet48OrNewer then
   begin
     if MsgBox(
-         '{#MyAppName} {#MyAppVersion} 需要 Microsoft .NET Framework 4.7.2 Runtime 或更高版本。' + #13#10 +
+         '{#MyAppName} {#MyAppVersion} 需要 Microsoft .NET Framework 4.8 Runtime 或更高版本。' + #13#10 +
          '是否立即打开 Microsoft 官网下载页面？',
          mbConfirmation, MB_YESNO) = IDYES then    
     begin
       // 打开.NET Framework下载页面
       ShellExec('open',
-        'https://dotnet.microsoft.com/download/dotnet-framework/net472',
+        'https://dotnet.microsoft.com/download/dotnet-framework/net48',
         '', '', SW_SHOW, ewNoWait,ErrorCode);
     end
     else
     begin
         // Display a message box
-      if SuppressibleTaskDialogMsgBox('Warning', '警告！{#MyAppName} {#MyAppVersion} 需要 .NET Framework 4.7.2 才能正常运行，如果存在安装程序检测错误，请单击"强制安装"按钮来继续安装', mbError, MB_OKCANCEL, ['强制安装（无视.NET环境检测）'], 0, IDOK) = IDOK then
+      if SuppressibleTaskDialogMsgBox('Warning', '警告！{#MyAppName} {#MyAppVersion} 需要 .NET Framework 4.8 才能正常运行，如果存在安装程序检测错误，请单击"强制安装"按钮来继续安装', mbError, MB_OKCANCEL, ['强制安装（无视.NET环境检测）'], 0, IDOK) = IDOK then
       begin
         Result := True; 
         // user clicked OK
@@ -92,8 +92,8 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "D:\VS_Project\OxyPlayer\OxyPlayer\bin\Release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\VS_Project\OxyPlayer\OxyPlayer\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\OxyPlayer\bin\Release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\OxyPlayer\OxyPlayer\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
