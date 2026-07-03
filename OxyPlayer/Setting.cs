@@ -11,14 +11,30 @@ using Ookii.Dialogs.WinForms;
 
 namespace OxyPlayer
 {
+   
+
     public partial class Setting : Form
     {
 
         public delegate void RefreshHandler();
         public event RefreshHandler Refresh;
+
+        bool selectedrefresh=false;
         public Setting()
         {
             InitializeComponent();
+        }
+
+        private void refreshFloderList()
+        {
+            treeView1.Nodes.Clear();
+            foreach (Floder floder in Ldbc.getAllMusicFloders())
+            {
+                TreeNodeWithFloder newNode = new TreeNodeWithFloder();
+                newNode.Floder = floder;
+                newNode.Text = floder.Path;
+                treeView1.Nodes.Add(newNode);
+            }
         }
 
         private void Setting_Load(object sender, EventArgs e)
@@ -34,6 +50,8 @@ namespace OxyPlayer
             
             richTextBox2.ForeColor = OxySettings.Default.MainWindowLyricsColor;
             richTextBox2.Font = OxySettings.Default.MainWindowsLyricsFont;
+
+            refreshFloderList();
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -95,7 +113,6 @@ namespace OxyPlayer
             {
                 OxySettings.Default.MusicFolderPath = vfbd.SelectedPath;
                 OxySettings.Default.Save();
-                textBox1.Text = OxySettings.Default.MusicFolderPath;
                 
             }
         }
@@ -119,5 +136,52 @@ namespace OxyPlayer
             OxySettings.Default.MainWindowsLyricsFont = fontDialog1.Font;
             OxySettings.Default.Save();
         }
+
+        private void transfer1_TransferChanged(object sender, AntdUI.Transfer.TransferEventArgs e)
+        {
+            
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            vistaFolderBrowserDialog1.ShowDialog();
+            textBoxFolderPath.Text = vistaFolderBrowserDialog1.SelectedPath;
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            selectedrefresh = true;
+            checkBoxEnableFloder.Checked = ((TreeNodeWithFloder)treeView1.SelectedNode).Floder.enabled;
+            
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Ldbc.addMusicFlodersTable(textBoxFolderPath.Text);
+            textBoxFolderPath.Text = "";
+            refreshFloderList();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Ldbc.delMusicFlodersTable(((TreeNodeWithFloder)treeView1.SelectedNode).Floder.Path);
+            refreshFloderList();
+        }
+
+        private void checkBoxEnableFloder_CheckedChanged(object sender, EventArgs e)
+        {
+            if (selectedrefresh==false)
+            {
+                Ldbc.setMusicFloderEnable(((TreeNodeWithFloder)treeView1.SelectedNode).Floder.Path, checkBoxEnableFloder.Checked);
+                refreshFloderList();
+            }
+            else
+            { selectedrefresh = false; }
+        }
+    }
+
+    class TreeNodeWithFloder : TreeNode
+    {
+        public Floder Floder { get; set; }
     }
 }

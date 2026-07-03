@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using LiteDB;
 using System.Drawing;
 using System.IO;
+using System.Deployment.Application;
 
 namespace OxyPlayer
 {
@@ -21,8 +22,8 @@ namespace OxyPlayer
     {
         [BsonId]
         public int _id { get; set; }
-        public string Name { get; set; }
         public string Path { get; set; }
+        public bool enabled { get; set; }
     }
 
     enum SongsRow
@@ -32,38 +33,42 @@ namespace OxyPlayer
 
     class Ldbc
     {
-        static public void updataSongsTable(DirectoryInfo updir)
+        static public void updataSongsTable()
         {
             DoingSth ds = new DoingSth("更新数据库", "更新数据库中...");
             ds.Show();
             int id = 1;
             string[] SupportedFormating = MusicSh.GetSupportedFormating();
-
+            Floder[] folders = Ldbc.getAllMusicFloders();
             using (var ldb = new LiteDatabase("songs.db"))
             {
                 ILiteCollection<Song> table = ldb.GetCollection<Song>("songs");
                 table.DeleteAll();
-                FileInfo[] fi = updir.GetFiles();
-                foreach (FileInfo afi in fi)
+                
+                foreach (Floder folder in folders)
                 {
-                    if (Array.IndexOf(SupportedFormating, afi.Extension) == -1)
-                        continue;
-
-                    Musicinfo mi = MusicSh.GetMusicInfo(afi.FullName, false, false);
-                    Song s = new Song
+                    if (folder.enabled == false) { continue; }
+                    DirectoryInfo updir = new DirectoryInfo(folder.Path);
+                    FileInfo[] fi = updir.GetFiles();
+                    foreach (FileInfo afi in fi)
                     {
-                        Id = id,
-                        Title = mi.Title,
-                        Album = mi.Album,
-                        Artist = mi.Artist,
-                        Address = afi.FullName
-                    };
-                    table.Insert(s);
-                    id++;
-                    MusicSh.Delay(1);
+                        if (Array.IndexOf(SupportedFormating, afi.Extension) == -1)
+                            continue;
+
+                        Musicinfo mi = MusicSh.GetMusicInfo(afi.FullName, false, false);
+                        Song s = new Song
+                        {
+                            Id = id,
+                            Title = mi.Title,
+                            Album = mi.Album,
+                            Artist = mi.Artist,
+                            Address = afi.FullName
+                        };
+                        table.Insert(s);
+                        id++;
+                        MusicSh.Delay(1);
+                    }
                 }
-                OxySettings.Default.FileCount = (id - 1);
-                OxySettings.Default.Save();
             }
             ds.Close();
         }  //更新歌曲信息数据库
@@ -140,12 +145,12 @@ namespace OxyPlayer
             return songTable;
         }   //获取歌曲信息数据库中全部歌曲信息
 
-        static public void addMusicFlodersTable(string dir, string name)
+        static public void addMusicFlodersTable(string dir)
         {
             using (var ldb = new LiteDatabase("songs.db"))
             {
                 ILiteCollection<Floder> table = ldb.GetCollection<Floder>("floders");
-                Floder nf = new Floder { Path = dir, Name = name };
+                Floder nf = new Floder { Path = dir, enabled = true };
                 table.Insert(nf);
             }
         }
@@ -159,20 +164,27 @@ namespace OxyPlayer
             }
         }
 
-        static public string[] getAllMusicFloders()
+        static public Floder[] getAllMusicFloders()
         {
-            List<string> list = new List<string>();
+            Floder[] fs=null;
             using (var ldb = new LiteDatabase("songs.db"))
             {
                 ILiteCollection<Floder> table = ldb.GetCollection<Floder>("floders");
-                Floder[] fs = table.FindAll().ToArray();
-                foreach (Floder f in fs)
-                {
-                    list.Add(f.Path);
-                }
-
+                fs = table.FindAll().ToArray();
             }
-            return list.ToArray();
+            return fs;
+        }
+
+        static public void setMusicFloderEnable(string dir,bool enabled)
+        {
+            using (var ldb = new LiteDatabase("songs.db"))
+            {
+                ILiteCollection<Floder> table = ldb.GetCollection<Floder>("floders");
+                Floder floder = table.FindOne(x => x.Path == dir);
+                floder.enabled = enabled;
+                table.Update(floder);
+            }
         }
     }
 }
+

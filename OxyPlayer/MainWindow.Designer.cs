@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("");
             this.panelPlayControl = new System.Windows.Forms.Panel();
             this.uiSymbolButtonLockDesktopLyrics = new Sunny.UI.UISymbolButton();
             this.uiSymbolButtonNext = new Sunny.UI.UISymbolButton();
@@ -49,6 +49,8 @@
             this.inputSearch = new AntdUI.Input();
             this.buttonSettings = new AntdUI.Button();
             this.TimeTrackTimer = new System.Windows.Forms.Timer(this.components);
+            this.buttonRefresh = new AntdUI.Button();
+            this.buttonUpdateDB = new AntdUI.Button();
             this.panelPlayControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
             this.panelList.SuspendLayout();
@@ -166,7 +168,6 @@
             this.uiScrollingTextLyrics.Name = "uiScrollingTextLyrics";
             this.uiScrollingTextLyrics.Size = new System.Drawing.Size(853, 43);
             this.uiScrollingTextLyrics.TabIndex = 3;
-            this.uiScrollingTextLyrics.Text = "123";
             // 
             // uiLabelArtist
             // 
@@ -221,6 +222,8 @@
             this.panelList.Controls.Add(this.treeViewPlaylist);
             this.panelList.Controls.Add(this.inputSearch);
             this.panelList.Controls.Add(this.buttonSettings);
+            this.panelList.Controls.Add(this.buttonRefresh);
+            this.panelList.Controls.Add(this.buttonUpdateDB);
             this.panelList.Location = new System.Drawing.Point(0, 0);
             this.panelList.Name = "panelList";
             this.panelList.Size = new System.Drawing.Size(643, 337);
@@ -242,10 +245,10 @@
             this.treeViewPlaylist.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.treeViewPlaylist.Location = new System.Drawing.Point(12, 37);
             this.treeViewPlaylist.Name = "treeViewPlaylist";
-            treeNode4.Name = "NodeZ";
-            treeNode4.Text = "";
+            treeNode2.Name = "NodeZ";
+            treeNode2.Text = "";
             this.treeViewPlaylist.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4});
+            treeNode2});
             this.treeViewPlaylist.ShowRootLines = false;
             this.treeViewPlaylist.Size = new System.Drawing.Size(619, 276);
             this.treeViewPlaylist.TabIndex = 0;
@@ -254,7 +257,7 @@
             // inputSearch
             // 
             this.inputSearch.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.inputSearch.Location = new System.Drawing.Point(386, 3);
+            this.inputSearch.Location = new System.Drawing.Point(387, 3);
             this.inputSearch.Name = "inputSearch";
             this.inputSearch.PrefixFormat = AntdUI.FormatFlags.Left;
             this.inputSearch.PrefixSvg = "SearchOutlined";
@@ -277,6 +280,26 @@
             // 
             this.TimeTrackTimer.Interval = 50;
             this.TimeTrackTimer.Tick += new System.EventHandler(this.TimeTrackTimer_Tick);
+            // 
+            // buttonRefresh
+            // 
+            this.buttonRefresh.BadgeSvg = "";
+            this.buttonRefresh.IconSvg = "ReloadOutlined";
+            this.buttonRefresh.Location = new System.Drawing.Point(317, 3);
+            this.buttonRefresh.Name = "buttonRefresh";
+            this.buttonRefresh.Size = new System.Drawing.Size(35, 35);
+            this.buttonRefresh.TabIndex = 14;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
+            // 
+            // buttonUpdateDB
+            // 
+            this.buttonUpdateDB.BadgeSvg = "";
+            this.buttonUpdateDB.IconSvg = "DatabaseOutlined";
+            this.buttonUpdateDB.Location = new System.Drawing.Point(282, 3);
+            this.buttonUpdateDB.Name = "buttonUpdateDB";
+            this.buttonUpdateDB.Size = new System.Drawing.Size(35, 35);
+            this.buttonUpdateDB.TabIndex = 15;
+            this.buttonUpdateDB.Click += new System.EventHandler(this.buttonUpdateDB_Click);
             // 
             // MainWindow
             // 
@@ -321,5 +344,7 @@
         private System.Windows.Forms.Timer TimeTrackTimer;
         private Sunny.UI.UIScrollingText uiScrollingTextLyrics;
         private AntdUI.Button buttonSettings;
+        private AntdUI.Button buttonRefresh;
+        private AntdUI.Button buttonUpdateDB;
     }
 }

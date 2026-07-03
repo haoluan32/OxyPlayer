@@ -18,6 +18,7 @@ using LiteDB;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using Sunny.UI;
+using Windows.Media.AppBroadcasting;
 
 namespace OxyPlayer
 {
@@ -45,24 +46,12 @@ namespace OxyPlayer
         private void InitTreeNode_DB()
         {
             SupportedFormating = MusicSh.GetSupportedFormating();
-            if (OxySettings.Default.MusicFolderPath == "")
+            if (Ldbc.getAllMusicFloders().Count()==0)
             {
-                OxySettings.Default.MusicFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
-                OxySettings.Default.Save();
-            }
-            DirectoryInfo ld = new DirectoryInfo(OxySettings.Default.MusicFolderPath);
-
-            FileInfo[] ldis = ld.GetFiles();
-
-            long filecount = 0;
-            foreach (FileInfo tldindex in ldis)
-            {
-                if (Array.IndexOf(SupportedFormating, tldindex.Extension) != -1)
-                    filecount++;  
+                Ldbc.addMusicFlodersTable(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic));
+                Ldbc.updataSongsTable();
             }
 
-            if (Ldbc.GetItemsCount() != filecount)
-                Ldbc.updataSongsTable(ld);
 
             treeViewPlaylist.Nodes.Clear();
             Song[] songTable = Ldbc.GetAllSongsInfo();
@@ -233,6 +222,17 @@ namespace OxyPlayer
         private void buttonSettings_Click(object sender, EventArgs e)
         {
             setting.ShowDialog();
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            InitTreeNode_DB();
+        }
+
+        private void buttonUpdateDB_Click(object sender, EventArgs e)
+        {
+            Ldbc.updataSongsTable();
+            InitTreeNode_DB();
         }
     }
 }
