@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "OxyPlayer"
-#define MyAppVersion "1.00.26.04.25"
+#define MyAppVersion "1.05.26.07.17"
 #define MyAppPublisher "haoluan"
 #define MyAppURL "https://gitee.com/haoluan_bilibili/oxy-player"
 #define MyAppExeName "OxyPlayer.exe"
@@ -93,7 +93,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Files]
 Source: "..\OxyPlayer\bin\Release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\OxyPlayer\OxyPlayer\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\OxyPlayer\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
