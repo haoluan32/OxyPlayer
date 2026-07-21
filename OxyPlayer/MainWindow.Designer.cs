@@ -41,16 +41,17 @@
             this.uiLabelArtist = new Sunny.UI.UILabel();
             this.uiLabelTitle = new Sunny.UI.UILabel();
             this.pictureBoxCover = new System.Windows.Forms.PictureBox();
-            this.uiTrackBarTimeTrack = new Sunny.UI.UITrackBar();
             this.panelDetail = new System.Windows.Forms.Panel();
             this.panelList = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.treeViewPlaylist = new System.Windows.Forms.TreeView();
             this.inputSearch = new AntdUI.Input();
             this.buttonSettings = new AntdUI.Button();
-            this.TimeTrackTimer = new System.Windows.Forms.Timer(this.components);
             this.buttonRefresh = new AntdUI.Button();
             this.buttonUpdateDB = new AntdUI.Button();
+            this.TimeTrackTimer = new System.Windows.Forms.Timer(this.components);
+            this.uiTrackBarTimeTrack = new AntdUI.Slider();
+            this.uiLabel1 = new Sunny.UI.UILabel();
             this.panelPlayControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
             this.panelList.SuspendLayout();
@@ -59,6 +60,7 @@
             // panelPlayControl
             // 
             this.panelPlayControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(189)))), ((int)(((byte)(128)))));
+            this.panelPlayControl.Controls.Add(this.uiTrackBarTimeTrack);
             this.panelPlayControl.Controls.Add(this.uiSymbolButtonLockDesktopLyrics);
             this.panelPlayControl.Controls.Add(this.uiSymbolButtonNext);
             this.panelPlayControl.Controls.Add(this.uiSymbolButtonRandomPlay);
@@ -69,7 +71,7 @@
             this.panelPlayControl.Controls.Add(this.uiLabelArtist);
             this.panelPlayControl.Controls.Add(this.uiLabelTitle);
             this.panelPlayControl.Controls.Add(this.pictureBoxCover);
-            this.panelPlayControl.Controls.Add(this.uiTrackBarTimeTrack);
+            this.panelPlayControl.Controls.Add(this.uiLabel1);
             this.panelPlayControl.Location = new System.Drawing.Point(-4, 326);
             this.panelPlayControl.Name = "panelPlayControl";
             this.panelPlayControl.Size = new System.Drawing.Size(882, 174);
@@ -78,6 +80,7 @@
             // uiSymbolButtonLockDesktopLyrics
             // 
             this.uiSymbolButtonLockDesktopLyrics.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiSymbolButtonLockDesktopLyrics.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(94)))), ((int)(((byte)(145)))));
             this.uiSymbolButtonLockDesktopLyrics.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiSymbolButtonLockDesktopLyrics.Location = new System.Drawing.Point(708, 51);
             this.uiSymbolButtonLockDesktopLyrics.MinimumSize = new System.Drawing.Size(1, 1);
@@ -87,6 +90,7 @@
             this.uiSymbolButtonLockDesktopLyrics.SymbolOffset = new System.Drawing.Point(-1, 1);
             this.uiSymbolButtonLockDesktopLyrics.TabIndex = 12;
             this.uiSymbolButtonLockDesktopLyrics.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiSymbolButtonLockDesktopLyrics.Click += new System.EventHandler(this.uiSymbolButtonLockDesktopLyrics_Click);
             // 
             // uiSymbolButtonNext
             // 
@@ -106,6 +110,8 @@
             // uiSymbolButtonRandomPlay
             // 
             this.uiSymbolButtonRandomPlay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiSymbolButtonRandomPlay.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(94)))), ((int)(((byte)(145)))));
+            this.uiSymbolButtonRandomPlay.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(94)))), ((int)(((byte)(145)))));
             this.uiSymbolButtonRandomPlay.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiSymbolButtonRandomPlay.Location = new System.Drawing.Point(503, 51);
             this.uiSymbolButtonRandomPlay.MinimumSize = new System.Drawing.Size(1, 1);
@@ -116,6 +122,7 @@
             this.uiSymbolButtonRandomPlay.SymbolSize = 28;
             this.uiSymbolButtonRandomPlay.TabIndex = 3;
             this.uiSymbolButtonRandomPlay.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiSymbolButtonRandomPlay.Click += new System.EventHandler(this.uiSymbolButtonRandomPlay_Click);
             // 
             // uiSymbolButtonBefore
             // 
@@ -135,6 +142,7 @@
             // uiSymbolButtonShowDesktopLyrics
             // 
             this.uiSymbolButtonShowDesktopLyrics.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiSymbolButtonShowDesktopLyrics.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(94)))), ((int)(((byte)(145)))));
             this.uiSymbolButtonShowDesktopLyrics.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiSymbolButtonShowDesktopLyrics.Location = new System.Drawing.Point(670, 51);
             this.uiSymbolButtonShowDesktopLyrics.MinimumSize = new System.Drawing.Size(1, 1);
@@ -144,6 +152,7 @@
             this.uiSymbolButtonShowDesktopLyrics.SymbolOffset = new System.Drawing.Point(1, 2);
             this.uiSymbolButtonShowDesktopLyrics.TabIndex = 1;
             this.uiSymbolButtonShowDesktopLyrics.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiSymbolButtonShowDesktopLyrics.Click += new System.EventHandler(this.uiSymbolButtonShowDesktopLyrics_Click);
             // 
             // uiSymbolButtonPlay
             // 
@@ -196,16 +205,6 @@
             this.pictureBoxCover.TabIndex = 6;
             this.pictureBoxCover.TabStop = false;
             this.pictureBoxCover.Click += new System.EventHandler(this.pictureBoxCover_Click);
-            // 
-            // uiTrackBarTimeTrack
-            // 
-            this.uiTrackBarTimeTrack.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(189)))), ((int)(((byte)(128)))));
-            this.uiTrackBarTimeTrack.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiTrackBarTimeTrack.Location = new System.Drawing.Point(131, 87);
-            this.uiTrackBarTimeTrack.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiTrackBarTimeTrack.Name = "uiTrackBarTimeTrack";
-            this.uiTrackBarTimeTrack.Size = new System.Drawing.Size(737, 29);
-            this.uiTrackBarTimeTrack.TabIndex = 5;
             // 
             // panelDetail
             // 
@@ -276,11 +275,6 @@
             this.buttonSettings.TabIndex = 13;
             this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
             // 
-            // TimeTrackTimer
-            // 
-            this.TimeTrackTimer.Interval = 50;
-            this.TimeTrackTimer.Tick += new System.EventHandler(this.TimeTrackTimer_Tick);
-            // 
             // buttonRefresh
             // 
             this.buttonRefresh.BadgeSvg = "";
@@ -300,6 +294,34 @@
             this.buttonUpdateDB.Size = new System.Drawing.Size(35, 35);
             this.buttonUpdateDB.TabIndex = 15;
             this.buttonUpdateDB.Click += new System.EventHandler(this.buttonUpdateDB_Click);
+            // 
+            // TimeTrackTimer
+            // 
+            this.TimeTrackTimer.Interval = 50;
+            this.TimeTrackTimer.Tick += new System.EventHandler(this.TimeTrackTimer_Tick);
+            // 
+            // uiTrackBarTimeTrack
+            // 
+            this.uiTrackBarTimeTrack.ColorScheme = AntdUI.TAMode.Light;
+            this.uiTrackBarTimeTrack.Fill = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.uiTrackBarTimeTrack.Location = new System.Drawing.Point(209, 90);
+            this.uiTrackBarTimeTrack.MaximumSize = new System.Drawing.Size(1000, 1000);
+            this.uiTrackBarTimeTrack.Name = "uiTrackBarTimeTrack";
+            this.uiTrackBarTimeTrack.Size = new System.Drawing.Size(659, 27);
+            this.uiTrackBarTimeTrack.TabIndex = 13;
+            this.uiTrackBarTimeTrack.TrackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.uiTrackBarTimeTrack.MouseDown += new System.Windows.Forms.MouseEventHandler(this.uiTrackBarTimeTrack_MouseDown);
+            this.uiTrackBarTimeTrack.MouseUp += new System.Windows.Forms.MouseEventHandler(this.uiTrackBarTimeTrack_MouseUp);
+            // 
+            // uiLabel1
+            // 
+            this.uiLabel1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.uiLabel1.Location = new System.Drawing.Point(121, 96);
+            this.uiLabel1.Name = "uiLabel1";
+            this.uiLabel1.Size = new System.Drawing.Size(97, 17);
+            this.uiLabel1.TabIndex = 14;
+            this.uiLabel1.Text = "00 : 00/00 : 00";
             // 
             // MainWindow
             // 
@@ -328,7 +350,6 @@
         private System.Windows.Forms.Panel panelPlayControl;
         private System.Windows.Forms.Panel panelDetail;
         private System.Windows.Forms.PictureBox pictureBoxCover;
-        private Sunny.UI.UITrackBar uiTrackBarTimeTrack;
         private Sunny.UI.UISymbolButton uiSymbolButtonNext;
         private Sunny.UI.UISymbolButton uiSymbolButtonRandomPlay;
         private Sunny.UI.UISymbolButton uiSymbolButtonBefore;
@@ -346,5 +367,7 @@
         private AntdUI.Button buttonSettings;
         private AntdUI.Button buttonRefresh;
         private AntdUI.Button buttonUpdateDB;
+        private AntdUI.Slider uiTrackBarTimeTrack;
+        private Sunny.UI.UILabel uiLabel1;
     }
 }

@@ -6,8 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Media;
-using System.Windows.Media;
 using System.IO;
 using System.Runtime;
 using Windows;
@@ -27,11 +25,14 @@ namespace OxyPlayer
         string[] SupportedFormating;
         MusicPlayer_MediaPlayer musicPlayer = new MusicPlayer_MediaPlayer();
         Musicinfo nowPlaying_musicinfo;
+        DesktopLyrics desktopLyrics = new DesktopLyrics();
 
         Setting setting = new Setting();
 
         bool inputSearch_Changed = false;
         int searchDelayCount;
+        bool randomPlayEnabled = false;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -41,7 +42,7 @@ namespace OxyPlayer
         {
             uiScrollingTextLyrics.ForeColor = OxySettings.Default.MainWindowLyricsColor;
             uiScrollingTextLyrics.Font = OxySettings.Default.MainWindowsLyricsFont;
-
+            desktopLyrics.ReadStyle();
         }
         private void InitTreeNode_DB()
         {
@@ -65,11 +66,6 @@ namespace OxyPlayer
             
         }
 
-        /*   static public System.Drawing.Color RgbColor2Color(RgbColor rgbColor)
-           {
-               return System.Drawing.Color.FromArgb(rgbColor.ToArgb());
-           }*/
-
         private void MainWindow_Shown(object sender, EventArgs e)
         {
             TimeTrackTimer.Start();
@@ -89,8 +85,9 @@ namespace OxyPlayer
             uiLabelTitle.Text = nowPlaying_musicinfo.Title;
             uiLabelArtist.Text = nowPlaying_musicinfo.Artist;
             pictureBoxCover.Image = nowPlaying_musicinfo.Cover;
-            uiTrackBarTimeTrack.Maximum = nowPlaying_musicinfo.TimeLength_Second;
+            uiTrackBarTimeTrack.MaxValue = nowPlaying_musicinfo.TimeLength_Second;
             musicPlayer.PlayMusic(song);
+            desktopLyrics.UpdateSong(song);
             if (musicPlayer.PlayingStatus)
             {
                 uiSymbolButtonPlay.Symbol = 361516;
@@ -116,7 +113,10 @@ namespace OxyPlayer
             if (nowPlaying_musicinfo != null && nowPlaying_musicinfo.lrcsheet != null)
             {
                 if (nowPlaying_musicinfo.lrcsheet.ContainsKey(musicPlayer.Position_Int))
+                {
                     uiScrollingTextLyrics.Text = nowPlaying_musicinfo.lrcsheet[musicPlayer.Position_Int];
+                    desktopLyrics.UpdateLyrics(uiScrollingTextLyrics.Text);
+                }
             }
 
             if (inputSearch_Changed)
@@ -197,12 +197,20 @@ namespace OxyPlayer
             Song song;
             try
             {
-                song = Ldbc.searchDB(SongsRow.Id, (musicPlayer.NowPlaying.Id + 1).ToString())[0];
-                playMusic(song);
+                if (randomPlayEnabled)
+                {
+                    song = Ldbc.searchDB(SongsRow.Id, MusicSh.GetRandomNumber(0,Ldbc.GetItemsCount()).ToString())[0];
+                    playMusic(song);
+                }
+                else
+                {
+                    song = Ldbc.searchDB(SongsRow.Id, (musicPlayer.NowPlaying.Id + 1).ToString())[0];
+                    playMusic(song);
+                }
             }
             catch
             {
-                song = Ldbc.searchDB(SongsRow.Id, Ldbc.GetItemsCount().ToString())[0];
+                song = Ldbc.searchDB(SongsRow.Id, "0")[0];
                 playMusic(song);
             }
         }
@@ -233,6 +241,59 @@ namespace OxyPlayer
         {
             Ldbc.updataSongsTable();
             InitTreeNode_DB();
+        }
+
+        private void uiSymbolButtonRandomPlay_Click(object sender, EventArgs e)
+        {
+            if (randomPlayEnabled)
+            {
+                randomPlayEnabled = false;
+                uiSymbolButtonRandomPlay.FillColor = Color.FromArgb(41, 94, 145);
+            }
+            else
+            {
+                randomPlayEnabled = true;
+                uiSymbolButtonRandomPlay.FillColor = Color.FromArgb(80, 160, 255);
+            }
+        }
+
+        private void uiSymbolButtonShowDesktopLyrics_Click(object sender, EventArgs e)
+        {
+            if(desktopLyrics.Visible)
+            {
+                desktopLyrics.Hide();
+                uiSymbolButtonShowDesktopLyrics.FillColor = Color.FromArgb(41, 94, 145);
+            }
+            else
+            {
+                desktopLyrics.Show();
+                uiSymbolButtonShowDesktopLyrics.FillColor = Color.FromArgb(80, 160, 255);
+            }
+        }
+
+        private void uiSymbolButtonLockDesktopLyrics_Click(object sender, EventArgs e)
+        {
+            if (desktopLyrics.LockDesktopLyric)
+            {
+                desktopLyrics.LockDesktopLyric = false;
+                uiSymbolButtonLockDesktopLyrics.FillColor = Color.FromArgb(41, 94, 145);
+            }
+            else
+            {
+                desktopLyrics.LockDesktopLyric = true;
+                uiSymbolButtonLockDesktopLyrics.FillColor = Color.FromArgb(80, 160, 255);
+            }
+        }
+
+        private void uiTrackBarTimeTrack_MouseDown(object sender, MouseEventArgs e)
+        {
+            TimeTrackTimer.Stop();
+        }
+
+        private void uiTrackBarTimeTrack_MouseUp(object sender, MouseEventArgs e)
+        {
+            musicPlayer.Position_Int = uiTrackBarTimeTrack.Value;
+            TimeTrackTimer.Start();
         }
     }
 }

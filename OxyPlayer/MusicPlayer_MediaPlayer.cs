@@ -43,6 +43,10 @@ namespace OxyPlayer
             {
                 return MusicSh.MMSS2Second(MusicSh.Second2MMSS(mediaPlayer.Position));
             }
+            set
+            {
+                mediaPlayer.Position = new TimeSpan(0, 0, value);
+            }
         }
 
         public bool PlayingStatus

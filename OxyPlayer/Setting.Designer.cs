@@ -273,8 +273,8 @@
             // 
             // tabs1
             // 
-            this.tabs1.Controls.Add(this.tabPage3);
             this.tabs1.Controls.Add(this.tabPage1);
+            this.tabs1.Controls.Add(this.tabPage3);
             this.tabs1.Controls.Add(this.tabPage2);
             this.tabs1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabs1.Location = new System.Drawing.Point(2, 2);
@@ -282,7 +282,6 @@
             this.tabs1.Pages.Add(this.tabPage1);
             this.tabs1.Pages.Add(this.tabPage2);
             this.tabs1.Pages.Add(this.tabPage3);
-            this.tabs1.SelectedIndex = 2;
             this.tabs1.Size = new System.Drawing.Size(622, 304);
             this.tabs1.Style = styleLine1;
             this.tabs1.TabIndex = 15;
@@ -297,7 +296,7 @@
             this.tabPage3.Controls.Add(this.textBoxFolderPath);
             this.tabPage3.Controls.Add(this.treeView1);
             this.tabPage3.Controls.Add(this.label5);
-            this.tabPage3.Location = new System.Drawing.Point(0, 30);
+            this.tabPage3.Location = new System.Drawing.Point(-1244, -548);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(622, 274);
             this.tabPage3.TabIndex = 2;
@@ -373,7 +372,7 @@
             this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.Controls.Add(this.checkBox1);
             this.tabPage1.Controls.Add(this.checkBox2);
-            this.tabPage1.Location = new System.Drawing.Point(-1244, -548);
+            this.tabPage1.Location = new System.Drawing.Point(0, 30);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Size = new System.Drawing.Size(622, 274);
             this.tabPage1.TabIndex = 0;
