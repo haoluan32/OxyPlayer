@@ -108,7 +108,7 @@ namespace OxyPlayer
 
                 }
 
-                catch { }
+                catch(Exception ex) { }
                 
             }
 
@@ -204,6 +204,12 @@ namespace OxyPlayer
             {
                 System.Windows.Forms.Application.DoEvents();
             }
+        }
+
+        static public int GetRandomNumber(int min,int max)
+        {
+            Random random = new Random();
+            return random.Next(min, max);
         }
     }
 }
