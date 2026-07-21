@@ -18,6 +18,7 @@ namespace OxyPlayer
         bool locked = false;
         Graphics graph;
         Pen pen;
+        bool mouse_entered = false;
 
         public bool LockDesktopLyric
         {
@@ -25,16 +26,9 @@ namespace OxyPlayer
             get { return locked; }
             set
             {
+                DesktopLyrics_MouseLeave(new object(), new EventArgs());
                 locked = value;
-                this.FormBorderStyle = FormBorderStyle.None;
-                if (value)
-                {
-                    pictureBox4.Image = OxyPlayer.Properties.Resources.LockDesktopLyric;
-                }
-                else
-                {
-                    pictureBox4.Image = OxyPlayer.Properties.Resources.UnLockDesktopLyric;
-                }
+                
             }
         }
 
@@ -53,19 +47,17 @@ namespace OxyPlayer
             TopMost = true;
             BackColor = Color.Empty;
             TransparencyKey = BackColor;
-            label1.Location = new Point(12, 9);
+            label1.Location = new Point(12, 40);
             this.Controls.Add(label1);
             label1.MouseEnter += Label1_MouseEnter;
             this.Location = OxySettings.Default.DesktopLyricsLocation;
             LockDesktopLyric = OxySettings.Default.LockDesktopLyrics;
-            this.FormBorderStyle = FormBorderStyle.None;
             ReadStyle();
         }
 
         private void Label1_MouseEnter(object sender, EventArgs e)
         {
             if (locked) return;
-            this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
         }
 
         public void ReadStyle()
@@ -83,8 +75,13 @@ namespace OxyPlayer
             label1.Size = new Size((int)GetPreciseTextWidth(lyrics + "                              ", useFont) + 14, 159);
             label1.Text = lyrics;
             //graph.DrawString(lyrics, useFont, pen.Brush, 0, 0);
-            this.Opacity = OxySettings.Default.Opacity;
+            //this.Opacity = OxySettings.Default.Opacity;
             timer1.Enabled = this.Visible;
+        }
+
+        public void UpdateSong(Song song)
+        {
+            pageHeader1.Text = $"{song.Title} - {song.Artist}";
         }
 
         public float GetPreciseTextWidth(string text, Font font)
@@ -101,13 +98,13 @@ namespace OxyPlayer
         private void DesktopLyrics_MouseEnter(object sender, EventArgs e)
         {
             if (locked) return;
-            this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            pageHeader1.Visible = true;
         }
 
         private void DesktopLyrics_MouseLeave(object sender, EventArgs e)
         {
             if (locked) return;
-            this.FormBorderStyle = FormBorderStyle.None;
+            pageHeader1.Visible = false;
             OxySettings.Default.DesktopLyricsLocation = this.Location;
             OxySettings.Default.LockDesktopLyrics = locked;
             OxySettings.Default.Save();
@@ -135,12 +132,12 @@ namespace OxyPlayer
             {
                 if ((this.Location.Y < mousePosition.Y) && (this.Location.Y + this.Size.Height > mousePosition.Y))
                 {
-                    if(this.FormBorderStyle != FormBorderStyle.SizableToolWindow)
+                    if(!pageHeader1.Visible)
                         DesktopLyrics_MouseEnter(sender, e);
                     return;
                 }
             }
-            if(this.FormBorderStyle != FormBorderStyle.None)
+           if(pageHeader1.Visible)
                 DesktopLyrics_MouseLeave(sender, e);
         }
     }
