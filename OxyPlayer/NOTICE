@@ -1,0 +1,77 @@
+================================================================================
+本软件（[OxyPayer]）整体基于 GNU General Public License v3.0 授权。
+详细协议条款请参阅随附的 LICENSE 文件。
+================================================================================
+
+【第三方开源组件声明 | Third-Party Open Source Notices】
+
+本软件包含以下第三方开源组件，特此按照各许可证要求作出声明：
+
+--------------------------------------------------------------------------------
+1. AntdUI (Apache License, Version 2.0)
+   项目地址：https://github.com/AntdUI/AntdUI
+   Copyright (c) [2026] AntdUI 贡献者
+
+   根据 Apache License, Version 2.0（以下简称“本许可证”）的要求，特此声明：
+   本软件包含 AntdUI 库。
+   您可以在以下地址获取本许可证的副本：
+   https://www.apache.org/licenses/LICENSE-2.0
+
+   除非适用法律要求或书面同意，否则根据本许可证分发的软件
+   是按“现状”分发的，不附带任何明示或暗示的保证或条件。
+   具体免责条款详见本许可证第 7 条（免责声明）。
+
+--------------------------------------------------------------------------------
+2. CSCore (MIT License)
+   项目地址：https://github.com/filoe/cscore
+   Copyright (c) filoe
+   采用 MIT 许可证授权。
+
+--------------------------------------------------------------------------------
+3. TagLibSharp (GNU Lesser General Public License v2.1)
+   项目地址：https://github.com/mono/taglib-sharp
+   Copyright (c) Mono 项目贡献者
+   采用 LGPL-2.1 许可证授权。
+
+--------------------------------------------------------------------------------
+4. LiteDB (MIT License)
+   项目地址：https://www.litedb.org/
+   Copyright (c) Maurício David
+   采用 MIT 许可证授权。
+
+--------------------------------------------------------------------------------
+5. SunnyUI (GNU General Public License v3.0)
+   项目地址：https://gitee.com/yhuse/SunnyUI
+   Copyright (c) SunnyUI 作者
+   采用 GPL-3.0-only 许可证授权。
+
+--------------------------------------------------------------------------------
+6. SunnyUI.Common (GNU General Public License v3.0)
+   项目地址：https://gitee.com/yhuse/SunnyUI
+   Copyright (c) SunnyUI 作者
+   采用 GPL-3.0-only 许可证授权。
+
+--------------------------------------------------------------------------------
+7. Ookii.Dialogs.WinForms (BSD 3-Clause License)
+   项目地址：https://github.com/ookii-dialogs/ookii-dialogs-winforms
+   Copyright (c) Ookii.org
+   采用 BSD 3-Clause 许可证授权。
+
+--------------------------------------------------------------------------------
+8. ReaLTaiizor (MIT License)
+   项目地址：https://github.com/Taiizor/ReaLTaiizor
+   Copyright (c) Taiizor
+   采用 MIT 许可证授权。
+
+--------------------------------------------------------------------------------
+9. Microsoft 通用开发组件 (MIT / Windows SDK)
+   包含以下组件：
+   - Microsoft.Windows.SDK.Contracts (MIT)
+   - System.Text.Json (MIT)
+   - Microsoft.Extensions.Logging.Abstractions (MIT)
+   - Microsoft.Bcl.HashCode (MIT)
+   - System.ValueTuple (MIT)
+   - Shell32 (COM Interop, Windows SDK 组件)
+
+   Copyright (c) Microsoft Corporation.
+   各自采用 MIT 许可证或 Windows SDK 最终用户许可协议授权。

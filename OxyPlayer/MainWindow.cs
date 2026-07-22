@@ -77,6 +77,8 @@ namespace OxyPlayer
             desktopLyrics.uiSymbolButtonPlay.Click += uiSymbolButton1_Click;
             desktopLyrics.uiSymbolButtonShowDesktopLyrics.Click += uiSymbolButtonShowDesktopLyrics_Click;
             desktopLyrics.uiSymbolButtonLockDesktopLyrics.Click += uiSymbolButtonLockDesktopLyrics_Click;
+
+            labelVersion.Text = $"{AppInfo.Default.VersionFull} ({AppInfo.Default.VersionPrefix})";
         }
 
         private void treeView1_MouseDoubleClick(object sender, MouseEventArgs e)

@@ -41,16 +41,22 @@ namespace OxyPlayer
         {
             button1.BackColor = OxySettings.Default.DesktopLyricsColor;
             button2.Text = OxySettings.Default.DesktopLyricsFont.Name;
-            
+
             richTextBox1.ForeColor = colorDialog1.Color;
             richTextBox1.Font = fontDialog1.Font;
 
             button4.BackColor = OxySettings.Default.MainWindowLyricsColor;
             button5.Text = OxySettings.Default.MainWindowsLyricsFont.Name;
-            
+
             richTextBox2.ForeColor = OxySettings.Default.MainWindowLyricsColor;
             richTextBox2.Font = OxySettings.Default.MainWindowsLyricsFont;
 
+            if (AppInfo.Default.IsTesing)  
+                labelVersion.Text = $"版本 {AppInfo.Default.VersionFull}"; 
+            else
+                labelVersion.Text = $"版本 {AppInfo.Default.Version}";
+
+            labelPreflex.Text = $"发布通道 {AppInfo.Default.VersionPrefix}";
             refreshFloderList();
         }
 
@@ -177,6 +183,18 @@ namespace OxyPlayer
             }
             else
             { selectedrefresh = false; }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            TextViewer tv = new TextViewer("LICENSE");
+            tv.ShowDialog();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            TextViewer tv = new TextViewer("NOTICE");
+            tv.ShowDialog();
         }
     }
 

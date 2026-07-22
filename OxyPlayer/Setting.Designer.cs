@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             AntdUI.Tabs.StyleLine styleLine1 = new AntdUI.Tabs.StyleLine();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Setting));
             this.label1 = new System.Windows.Forms.Label();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.button1 = new System.Windows.Forms.Button();
@@ -50,6 +51,15 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tabs1 = new AntdUI.Tabs();
+            this.tabPage4 = new AntdUI.TabPage();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.labelVersion = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tabPage1 = new AntdUI.TabPage();
+            this.tabPage2 = new AntdUI.TabPage();
             this.tabPage3 = new AntdUI.TabPage();
             this.checkBoxEnableFloder = new System.Windows.Forms.CheckBox();
             this.button7 = new System.Windows.Forms.Button();
@@ -58,19 +68,21 @@
             this.textBoxFolderPath = new System.Windows.Forms.TextBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.label5 = new System.Windows.Forms.Label();
-            this.tabPage1 = new AntdUI.TabPage();
-            this.tabPage2 = new AntdUI.TabPage();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.vistaFolderBrowserDialog1 = new Ookii.Dialogs.WinForms.VistaFolderBrowserDialog();
+            this.labelPreflex = new System.Windows.Forms.Label();
+            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tabs1.SuspendLayout();
-            this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -273,19 +285,120 @@
             // 
             // tabs1
             // 
+            this.tabs1.Controls.Add(this.tabPage4);
             this.tabs1.Controls.Add(this.tabPage1);
-            this.tabs1.Controls.Add(this.tabPage3);
             this.tabs1.Controls.Add(this.tabPage2);
+            this.tabs1.Controls.Add(this.tabPage3);
             this.tabs1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tabs1.Location = new System.Drawing.Point(2, 2);
+            this.tabs1.Location = new System.Drawing.Point(0, 0);
             this.tabs1.Name = "tabs1";
             this.tabs1.Pages.Add(this.tabPage1);
             this.tabs1.Pages.Add(this.tabPage2);
             this.tabs1.Pages.Add(this.tabPage3);
-            this.tabs1.Size = new System.Drawing.Size(622, 304);
+            this.tabs1.Pages.Add(this.tabPage4);
+            this.tabs1.SelectedIndex = 3;
+            this.tabs1.Size = new System.Drawing.Size(622, 402);
             this.tabs1.Style = styleLine1;
             this.tabs1.TabIndex = 15;
             this.tabs1.Text = "tabs1";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.richTextBox4);
+            this.tabPage4.Controls.Add(this.labelPreflex);
+            this.tabPage4.Controls.Add(this.button9);
+            this.tabPage4.Controls.Add(this.button8);
+            this.tabPage4.Controls.Add(this.richTextBox3);
+            this.tabPage4.Controls.Add(this.labelVersion);
+            this.tabPage4.Controls.Add(this.label8);
+            this.tabPage4.Controls.Add(this.pictureBox1);
+            this.tabPage4.Location = new System.Drawing.Point(0, 30);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(622, 372);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "关于";
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(312, 324);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(299, 33);
+            this.button9.TabIndex = 5;
+            this.button9.Text = "查看NOTICE";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(13, 324);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(293, 33);
+            this.button8.TabIndex = 4;
+            this.button8.Text = "查看LICENSE";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // richTextBox3
+            // 
+            this.richTextBox3.BackColor = System.Drawing.Color.White;
+            this.richTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox3.Location = new System.Drawing.Point(12, 106);
+            this.richTextBox3.Name = "richTextBox3";
+            this.richTextBox3.ReadOnly = true;
+            this.richTextBox3.Size = new System.Drawing.Size(599, 212);
+            this.richTextBox3.TabIndex = 3;
+            this.richTextBox3.Text = resources.GetString("richTextBox3.Text");
+            // 
+            // labelVersion
+            // 
+            this.labelVersion.AutoSize = true;
+            this.labelVersion.Font = new System.Drawing.Font("微软雅黑 Light", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelVersion.Location = new System.Drawing.Point(327, 31);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(58, 21);
+            this.labelVersion.TabIndex = 2;
+            this.labelVersion.Text = "版本号";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("微软雅黑 Light", 21.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label8.Location = new System.Drawing.Point(182, 11);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(146, 38);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "OxyPlayer";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::OxyPlayer.Properties.Resources.Logo_L;
+            this.pictureBox1.Location = new System.Drawing.Point(10, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(158, 97);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.checkBox1);
+            this.tabPage1.Controls.Add(this.checkBox2);
+            this.tabPage1.Location = new System.Drawing.Point(-1244, -744);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(622, 372);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "基本设置";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.groupBox3);
+            this.tabPage2.Controls.Add(this.groupBox2);
+            this.tabPage2.Location = new System.Drawing.Point(-1244, -744);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(622, 372);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "个性化";
             // 
             // tabPage3
             // 
@@ -296,16 +409,16 @@
             this.tabPage3.Controls.Add(this.textBoxFolderPath);
             this.tabPage3.Controls.Add(this.treeView1);
             this.tabPage3.Controls.Add(this.label5);
-            this.tabPage3.Location = new System.Drawing.Point(-1244, -548);
+            this.tabPage3.Location = new System.Drawing.Point(-1244, -744);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(622, 274);
+            this.tabPage3.Size = new System.Drawing.Size(622, 372);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "音乐文件夹管理";
             // 
             // checkBoxEnableFloder
             // 
             this.checkBoxEnableFloder.AutoSize = true;
-            this.checkBoxEnableFloder.Location = new System.Drawing.Point(522, 240);
+            this.checkBoxEnableFloder.Location = new System.Drawing.Point(517, 343);
             this.checkBoxEnableFloder.Name = "checkBoxEnableFloder";
             this.checkBoxEnableFloder.Size = new System.Drawing.Size(87, 21);
             this.checkBoxEnableFloder.TabIndex = 5;
@@ -315,7 +428,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(440, 238);
+            this.button7.Location = new System.Drawing.Point(435, 341);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(76, 23);
             this.button7.TabIndex = 4;
@@ -325,7 +438,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(358, 237);
+            this.button6.Location = new System.Drawing.Point(353, 340);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(76, 23);
             this.button6.TabIndex = 3;
@@ -335,7 +448,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(329, 237);
+            this.button3.Location = new System.Drawing.Point(324, 340);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(23, 23);
             this.button3.TabIndex = 2;
@@ -345,7 +458,7 @@
             // 
             // textBoxFolderPath
             // 
-            this.textBoxFolderPath.Location = new System.Drawing.Point(53, 237);
+            this.textBoxFolderPath.Location = new System.Drawing.Point(48, 340);
             this.textBoxFolderPath.Name = "textBoxFolderPath";
             this.textBoxFolderPath.Size = new System.Drawing.Size(270, 23);
             this.textBoxFolderPath.TabIndex = 1;
@@ -354,39 +467,18 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(10, 3);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(599, 223);
+            this.treeView1.Size = new System.Drawing.Size(599, 331);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 240);
+            this.label5.Location = new System.Drawing.Point(7, 343);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(44, 17);
             this.label5.TabIndex = 6;
             this.label5.Text = "路径：";
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.Color.White;
-            this.tabPage1.Controls.Add(this.checkBox1);
-            this.tabPage1.Controls.Add(this.checkBox2);
-            this.tabPage1.Location = new System.Drawing.Point(0, 30);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(622, 274);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "基本设置";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.groupBox3);
-            this.tabPage2.Controls.Add(this.groupBox2);
-            this.tabPage2.Location = new System.Drawing.Point(-1244, -548);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(622, 274);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "个性化";
             // 
             // fontDialog1
             // 
@@ -396,12 +488,33 @@
             // 
             this.vistaFolderBrowserDialog1.RootFolder = System.Environment.SpecialFolder.MyComputer;
             // 
+            // labelPreflex
+            // 
+            this.labelPreflex.AutoSize = true;
+            this.labelPreflex.Font = new System.Drawing.Font("微软雅黑 Light", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelPreflex.Location = new System.Drawing.Point(327, 11);
+            this.labelPreflex.Name = "labelPreflex";
+            this.labelPreflex.Size = new System.Drawing.Size(74, 21);
+            this.labelPreflex.TabIndex = 6;
+            this.labelPreflex.Text = "发布通道";
+            // 
+            // richTextBox4
+            // 
+            this.richTextBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox4.Location = new System.Drawing.Point(189, 55);
+            this.richTextBox4.Name = "richTextBox4";
+            this.richTextBox4.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.richTextBox4.Size = new System.Drawing.Size(407, 45);
+            this.richTextBox4.TabIndex = 7;
+            this.richTextBox4.Text = "https://github.com/haoluan32/OxyPlayer\nhttps://gitee.com/haoluan_bilibili/oxy-pla" +
+    "yer";
+            // 
             // Setting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(623, 305);
+            this.ClientSize = new System.Drawing.Size(623, 399);
             this.Controls.Add(this.tabs1);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -421,11 +534,14 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.tabs1.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -465,5 +581,14 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.FontDialog fontDialog1;
         private Ookii.Dialogs.WinForms.VistaFolderBrowserDialog vistaFolderBrowserDialog1;
+        private AntdUI.TabPage tabPage4;
+        private System.Windows.Forms.Label labelVersion;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Label labelPreflex;
+        private System.Windows.Forms.RichTextBox richTextBox4;
     }
 }

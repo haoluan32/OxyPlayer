@@ -120,6 +120,14 @@
   <metadata name="colorDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 49</value>
   </metadata>
+  <data name="richTextBox3.Text" xml:space="preserve">
+    <value>      本程序不提供任何明示或暗示的担保，包括但不限于适销性或特定用途适用性的担保。使用本程序的所有风险由您自行承担
+      您可以在 GNU 通用公共许可证第 3 版的条款下重新分发、修改本程序
+      关于重新分发、修改本程序，详见 https://www.gnu.org/licenses/
+      如果您无法访问网络，可通过下方的“查看LICENSE”来查看随发行版附带的协议文件
+      如果您需要了解本程序使用的第三方组件，可通过下方的“查看NOTICE”来查看随发行版附带的NOTICE文件
+      本程序可能包含由第三方（非本程序作者）编写的代码。对于该部分代码，其原始作者保留其版权，并仅按其对应的许可证条款提供担保或免责声明</value>
+  </data>
   <metadata name="fontDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>144, 49</value>
   </metadata>

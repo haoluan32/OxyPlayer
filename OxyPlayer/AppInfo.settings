@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="OxyPlayer" GeneratedClassName="AppInfo">
+  <Profiles />
+  <Settings>
+    <Setting Name="VersionFull" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1.20.26.07.22</Value>
+    </Setting>
+    <Setting Name="Version" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1.20</Value>
+    </Setting>
+    <Setting Name="VersionPrefix" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Carbon</Value>
+    </Setting>
+    <Setting Name="IsTesing" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

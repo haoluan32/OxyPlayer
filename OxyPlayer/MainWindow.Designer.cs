@@ -59,13 +59,14 @@
             this.toolStripMenuItemBefore = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemPauseorPlay = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemNext = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.ToolStripMenuItemRandomPlay = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemShowDesktopLyric = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemLockDesktopLyric = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemRandomPlay = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.labelVersion = new System.Windows.Forms.Label();
             this.panelPlayControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
             this.panelList.SuspendLayout();
@@ -255,6 +256,7 @@
             // panelList
             // 
             this.panelList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(232)))), ((int)(((byte)(191)))));
+            this.panelList.Controls.Add(this.labelVersion);
             this.panelList.Controls.Add(this.label1);
             this.panelList.Controls.Add(this.treeViewPlaylist);
             this.panelList.Controls.Add(this.inputSearch);
@@ -360,78 +362,87 @@
             this.toolStripSeparator2,
             this.toolStripMenuItemExit});
             this.contextMenuStripKeep.Name = "contextMenuStrip1";
-            this.contextMenuStripKeep.Size = new System.Drawing.Size(181, 220);
+            this.contextMenuStripKeep.Size = new System.Drawing.Size(149, 198);
             // 
             // toolStripMenuItemPlayingSong
             // 
             this.toolStripMenuItemPlayingSong.Enabled = false;
             this.toolStripMenuItemPlayingSong.Name = "toolStripMenuItemPlayingSong";
-            this.toolStripMenuItemPlayingSong.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemPlayingSong.Size = new System.Drawing.Size(148, 22);
             this.toolStripMenuItemPlayingSong.Text = "未在播放";
             // 
             // toolStripMenuItemBefore
             // 
             this.toolStripMenuItemBefore.Name = "toolStripMenuItemBefore";
-            this.toolStripMenuItemBefore.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemBefore.Size = new System.Drawing.Size(148, 22);
             this.toolStripMenuItemBefore.Text = "上一曲";
             this.toolStripMenuItemBefore.Click += new System.EventHandler(this.uiSymbolButtonBefore_Click);
             // 
             // toolStripMenuItemPauseorPlay
             // 
             this.toolStripMenuItemPauseorPlay.Name = "toolStripMenuItemPauseorPlay";
-            this.toolStripMenuItemPauseorPlay.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemPauseorPlay.Size = new System.Drawing.Size(148, 22);
             this.toolStripMenuItemPauseorPlay.Text = "播放 / 暂停";
             this.toolStripMenuItemPauseorPlay.Click += new System.EventHandler(this.uiSymbolButton1_Click);
             // 
             // toolStripMenuItemNext
             // 
             this.toolStripMenuItemNext.Name = "toolStripMenuItemNext";
-            this.toolStripMenuItemNext.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemNext.Size = new System.Drawing.Size(148, 22);
             this.toolStripMenuItemNext.Text = "下一曲";
             this.toolStripMenuItemNext.Click += new System.EventHandler(this.uiSymbolButtonNext_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(145, 6);
+            // 
+            // ToolStripMenuItemRandomPlay
+            // 
+            this.ToolStripMenuItemRandomPlay.Name = "ToolStripMenuItemRandomPlay";
+            this.ToolStripMenuItemRandomPlay.Size = new System.Drawing.Size(148, 22);
+            this.ToolStripMenuItemRandomPlay.Text = "随机播放";
+            this.ToolStripMenuItemRandomPlay.Click += new System.EventHandler(this.uiSymbolButtonRandomPlay_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(145, 6);
             // 
             // toolStripMenuItemShowDesktopLyric
             // 
             this.toolStripMenuItemShowDesktopLyric.Name = "toolStripMenuItemShowDesktopLyric";
-            this.toolStripMenuItemShowDesktopLyric.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemShowDesktopLyric.Size = new System.Drawing.Size(148, 22);
             this.toolStripMenuItemShowDesktopLyric.Text = "显示桌面歌词";
             this.toolStripMenuItemShowDesktopLyric.Click += new System.EventHandler(this.uiSymbolButtonShowDesktopLyrics_Click);
             // 
             // toolStripMenuItemLockDesktopLyric
             // 
             this.toolStripMenuItemLockDesktopLyric.Name = "toolStripMenuItemLockDesktopLyric";
-            this.toolStripMenuItemLockDesktopLyric.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemLockDesktopLyric.Size = new System.Drawing.Size(148, 22);
             this.toolStripMenuItemLockDesktopLyric.Text = "锁定桌面歌词";
             this.toolStripMenuItemLockDesktopLyric.Click += new System.EventHandler(this.uiSymbolButtonLockDesktopLyrics_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(145, 6);
             // 
             // toolStripMenuItemExit
             // 
             this.toolStripMenuItemExit.Name = "toolStripMenuItemExit";
-            this.toolStripMenuItemExit.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemExit.Size = new System.Drawing.Size(148, 22);
             this.toolStripMenuItemExit.Text = "退出";
             this.toolStripMenuItemExit.Click += new System.EventHandler(this.toolStripMenuItemExit_Click);
             // 
-            // ToolStripMenuItemRandomPlay
+            // labelVersion
             // 
-            this.ToolStripMenuItemRandomPlay.Name = "ToolStripMenuItemRandomPlay";
-            this.ToolStripMenuItemRandomPlay.Size = new System.Drawing.Size(180, 22);
-            this.ToolStripMenuItemRandomPlay.Text = "随机播放";
-            this.ToolStripMenuItemRandomPlay.Click += new System.EventHandler(this.uiSymbolButtonRandomPlay_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            this.labelVersion.AutoSize = true;
+            this.labelVersion.Font = new System.Drawing.Font("微软雅黑", 7.5F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelVersion.Location = new System.Drawing.Point(103, 18);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(0, 16);
+            this.labelVersion.TabIndex = 16;
             // 
             // MainWindow
             // 
@@ -494,5 +505,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemExit;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemRandomPlay;
+        private System.Windows.Forms.Label labelVersion;
     }
 }
