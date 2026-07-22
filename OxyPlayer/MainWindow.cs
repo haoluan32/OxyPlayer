@@ -84,7 +84,7 @@ namespace OxyPlayer
             this.playMusic(((TreeNodeWithInfo)treeViewPlaylist.SelectedNode).SongInfo);
         }
 
-        private void playMusic(Song song)
+        private void playMusic(Song song,bool play=true)
         {
             
             nowPlaying_musicinfo = MusicSh.GetMusicInfo(song.Address);
@@ -92,9 +92,11 @@ namespace OxyPlayer
             uiLabelArtist.Text = nowPlaying_musicinfo.Artist;
             pictureBoxCover.Image = nowPlaying_musicinfo.Cover;
             uiTrackBarTimeTrack.MaxValue = nowPlaying_musicinfo.TimeLength_Second;
+            toolStripMenuItemPlayingSong.Text = $"{nowPlaying_musicinfo.Title} - {nowPlaying_musicinfo.Artist}";
             musicPlayer.LoadMusic(song);
             desktopLyrics.UpdateSong(song);
-            uiSymbolButton1_Click(new object(), new EventArgs());
+            if(play)
+                uiSymbolButton1_Click(new object(), new EventArgs());
         }
         private void MainWindow_Load(object sender, EventArgs e)
         {
@@ -104,6 +106,11 @@ namespace OxyPlayer
         private void TimeTrackTimer_Tick(object sender, EventArgs e)
         {
             uiTrackBarTimeTrack.Value = musicPlayer.Position_Int;
+            try
+            {
+                uiLabelTimeDisplayer.Text = $"{musicPlayer.Position_String} / {MusicSh.Second2MMSS(nowPlaying_musicinfo.TimeLength_Second)}";
+            }
+            catch { }
             if (nowPlaying_musicinfo != null && nowPlaying_musicinfo.lrcsheet != null)
             {
                 if (nowPlaying_musicinfo.lrcsheet.ContainsKey(musicPlayer.Position_Int))
@@ -259,6 +266,7 @@ namespace OxyPlayer
                 uiSymbolButtonRandomPlay.FillColor = Color.FromArgb(80, 160, 255);
                 desktopLyrics.uiSymbolButtonRandomPlay.FillColor = Color.FromArgb(80, 160, 255);
             }
+            ToolStripMenuItemRandomPlay.Checked = randomPlayEnabled;
         }
 
         private void uiSymbolButtonShowDesktopLyrics_Click(object sender, EventArgs e)
@@ -267,12 +275,14 @@ namespace OxyPlayer
             {
                 desktopLyrics.Hide();
                 uiSymbolButtonShowDesktopLyrics.FillColor = Color.FromArgb(41, 94, 145);
+                
             }
             else
             {
                 desktopLyrics.Show();
                 uiSymbolButtonShowDesktopLyrics.FillColor = Color.FromArgb(80, 160, 255);
             }
+            toolStripMenuItemShowDesktopLyric.Checked = desktopLyrics.Visible;
         }
 
         private void uiSymbolButtonLockDesktopLyrics_Click(object sender, EventArgs e)
@@ -287,6 +297,7 @@ namespace OxyPlayer
                 desktopLyrics.LockDesktopLyric = true;
                 uiSymbolButtonLockDesktopLyrics.FillColor = Color.FromArgb(80, 160, 255);
             }
+            toolStripMenuItemLockDesktopLyric.Checked = desktopLyrics.LockDesktopLyric;
         }
 
         private void uiTrackBarTimeTrack_MouseDown(object sender, MouseEventArgs e)
@@ -298,6 +309,20 @@ namespace OxyPlayer
         {
             musicPlayer.Position_Int = uiTrackBarTimeTrack.Value;
             TimeTrackTimer.Start();
+        }
+
+        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason != CloseReason.ApplicationExitCall)
+            {
+                this.Hide();
+                e.Cancel = true;
+            }
+        }
+
+        private void toolStripMenuItemExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

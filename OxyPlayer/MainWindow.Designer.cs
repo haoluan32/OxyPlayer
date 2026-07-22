@@ -30,7 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("");
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.panelPlayControl = new System.Windows.Forms.Panel();
+            this.uiTrackBarTimeTrack = new AntdUI.Slider();
             this.uiSymbolButtonLockDesktopLyrics = new Sunny.UI.UISymbolButton();
             this.uiSymbolButtonNext = new Sunny.UI.UISymbolButton();
             this.uiSymbolButtonRandomPlay = new Sunny.UI.UISymbolButton();
@@ -41,6 +43,7 @@
             this.uiLabelArtist = new Sunny.UI.UILabel();
             this.uiLabelTitle = new Sunny.UI.UILabel();
             this.pictureBoxCover = new System.Windows.Forms.PictureBox();
+            this.uiLabelTimeDisplayer = new Sunny.UI.UILabel();
             this.panelDetail = new System.Windows.Forms.Panel();
             this.panelList = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,12 +53,23 @@
             this.buttonRefresh = new AntdUI.Button();
             this.buttonUpdateDB = new AntdUI.Button();
             this.TimeTrackTimer = new System.Windows.Forms.Timer(this.components);
-            this.uiTrackBarTimeTrack = new AntdUI.Slider();
-            this.uiLabel1 = new Sunny.UI.UILabel();
             this.notifyIconKeep = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuStripKeep = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItemPlayingSong = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemBefore = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemPauseorPlay = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemNext = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItemShowDesktopLyric = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemLockDesktopLyric = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemRandomPlay = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.panelPlayControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
             this.panelList.SuspendLayout();
+            this.contextMenuStripKeep.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelPlayControl
@@ -72,11 +86,24 @@
             this.panelPlayControl.Controls.Add(this.uiLabelArtist);
             this.panelPlayControl.Controls.Add(this.uiLabelTitle);
             this.panelPlayControl.Controls.Add(this.pictureBoxCover);
-            this.panelPlayControl.Controls.Add(this.uiLabel1);
+            this.panelPlayControl.Controls.Add(this.uiLabelTimeDisplayer);
             this.panelPlayControl.Location = new System.Drawing.Point(-4, 326);
             this.panelPlayControl.Name = "panelPlayControl";
             this.panelPlayControl.Size = new System.Drawing.Size(882, 174);
             this.panelPlayControl.TabIndex = 1;
+            // 
+            // uiTrackBarTimeTrack
+            // 
+            this.uiTrackBarTimeTrack.ColorScheme = AntdUI.TAMode.Light;
+            this.uiTrackBarTimeTrack.Fill = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.uiTrackBarTimeTrack.Location = new System.Drawing.Point(209, 90);
+            this.uiTrackBarTimeTrack.MaximumSize = new System.Drawing.Size(1000, 1000);
+            this.uiTrackBarTimeTrack.Name = "uiTrackBarTimeTrack";
+            this.uiTrackBarTimeTrack.Size = new System.Drawing.Size(659, 27);
+            this.uiTrackBarTimeTrack.TabIndex = 13;
+            this.uiTrackBarTimeTrack.TrackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.uiTrackBarTimeTrack.MouseDown += new System.Windows.Forms.MouseEventHandler(this.uiTrackBarTimeTrack_MouseDown);
+            this.uiTrackBarTimeTrack.MouseUp += new System.Windows.Forms.MouseEventHandler(this.uiTrackBarTimeTrack_MouseUp);
             // 
             // uiSymbolButtonLockDesktopLyrics
             // 
@@ -207,6 +234,16 @@
             this.pictureBoxCover.TabStop = false;
             this.pictureBoxCover.Click += new System.EventHandler(this.pictureBoxCover_Click);
             // 
+            // uiLabelTimeDisplayer
+            // 
+            this.uiLabelTimeDisplayer.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiLabelTimeDisplayer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.uiLabelTimeDisplayer.Location = new System.Drawing.Point(128, 95);
+            this.uiLabelTimeDisplayer.Name = "uiLabelTimeDisplayer";
+            this.uiLabelTimeDisplayer.Size = new System.Drawing.Size(87, 17);
+            this.uiLabelTimeDisplayer.TabIndex = 14;
+            this.uiLabelTimeDisplayer.Text = "00:00 / 00:00";
+            // 
             // panelDetail
             // 
             this.panelDetail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(244)))), ((int)(((byte)(180)))));
@@ -301,33 +338,100 @@
             this.TimeTrackTimer.Interval = 50;
             this.TimeTrackTimer.Tick += new System.EventHandler(this.TimeTrackTimer_Tick);
             // 
-            // uiTrackBarTimeTrack
-            // 
-            this.uiTrackBarTimeTrack.ColorScheme = AntdUI.TAMode.Light;
-            this.uiTrackBarTimeTrack.Fill = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.uiTrackBarTimeTrack.Location = new System.Drawing.Point(209, 90);
-            this.uiTrackBarTimeTrack.MaximumSize = new System.Drawing.Size(1000, 1000);
-            this.uiTrackBarTimeTrack.Name = "uiTrackBarTimeTrack";
-            this.uiTrackBarTimeTrack.Size = new System.Drawing.Size(659, 27);
-            this.uiTrackBarTimeTrack.TabIndex = 13;
-            this.uiTrackBarTimeTrack.TrackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.uiTrackBarTimeTrack.MouseDown += new System.Windows.Forms.MouseEventHandler(this.uiTrackBarTimeTrack_MouseDown);
-            this.uiTrackBarTimeTrack.MouseUp += new System.Windows.Forms.MouseEventHandler(this.uiTrackBarTimeTrack_MouseUp);
-            // 
-            // uiLabel1
-            // 
-            this.uiLabel1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.uiLabel1.Location = new System.Drawing.Point(121, 96);
-            this.uiLabel1.Name = "uiLabel1";
-            this.uiLabel1.Size = new System.Drawing.Size(97, 17);
-            this.uiLabel1.TabIndex = 14;
-            this.uiLabel1.Text = "00 : 00/00 : 00";
-            // 
             // notifyIconKeep
             // 
-            this.notifyIconKeep.Text = "notifyIcon1";
+            this.notifyIconKeep.ContextMenuStrip = this.contextMenuStripKeep;
+            this.notifyIconKeep.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconKeep.Icon")));
+            this.notifyIconKeep.Text = "OxyPlayer";
             this.notifyIconKeep.Visible = true;
+            // 
+            // contextMenuStripKeep
+            // 
+            this.contextMenuStripKeep.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemPlayingSong,
+            this.toolStripMenuItemBefore,
+            this.toolStripMenuItemPauseorPlay,
+            this.toolStripMenuItemNext,
+            this.toolStripSeparator3,
+            this.ToolStripMenuItemRandomPlay,
+            this.toolStripSeparator1,
+            this.toolStripMenuItemShowDesktopLyric,
+            this.toolStripMenuItemLockDesktopLyric,
+            this.toolStripSeparator2,
+            this.toolStripMenuItemExit});
+            this.contextMenuStripKeep.Name = "contextMenuStrip1";
+            this.contextMenuStripKeep.Size = new System.Drawing.Size(181, 220);
+            // 
+            // toolStripMenuItemPlayingSong
+            // 
+            this.toolStripMenuItemPlayingSong.Enabled = false;
+            this.toolStripMenuItemPlayingSong.Name = "toolStripMenuItemPlayingSong";
+            this.toolStripMenuItemPlayingSong.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemPlayingSong.Text = "未在播放";
+            // 
+            // toolStripMenuItemBefore
+            // 
+            this.toolStripMenuItemBefore.Name = "toolStripMenuItemBefore";
+            this.toolStripMenuItemBefore.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemBefore.Text = "上一曲";
+            this.toolStripMenuItemBefore.Click += new System.EventHandler(this.uiSymbolButtonBefore_Click);
+            // 
+            // toolStripMenuItemPauseorPlay
+            // 
+            this.toolStripMenuItemPauseorPlay.Name = "toolStripMenuItemPauseorPlay";
+            this.toolStripMenuItemPauseorPlay.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemPauseorPlay.Text = "播放 / 暂停";
+            this.toolStripMenuItemPauseorPlay.Click += new System.EventHandler(this.uiSymbolButton1_Click);
+            // 
+            // toolStripMenuItemNext
+            // 
+            this.toolStripMenuItemNext.Name = "toolStripMenuItemNext";
+            this.toolStripMenuItemNext.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemNext.Text = "下一曲";
+            this.toolStripMenuItemNext.Click += new System.EventHandler(this.uiSymbolButtonNext_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
+            // toolStripMenuItemShowDesktopLyric
+            // 
+            this.toolStripMenuItemShowDesktopLyric.Name = "toolStripMenuItemShowDesktopLyric";
+            this.toolStripMenuItemShowDesktopLyric.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemShowDesktopLyric.Text = "显示桌面歌词";
+            this.toolStripMenuItemShowDesktopLyric.Click += new System.EventHandler(this.uiSymbolButtonShowDesktopLyrics_Click);
+            // 
+            // toolStripMenuItemLockDesktopLyric
+            // 
+            this.toolStripMenuItemLockDesktopLyric.Name = "toolStripMenuItemLockDesktopLyric";
+            this.toolStripMenuItemLockDesktopLyric.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemLockDesktopLyric.Text = "锁定桌面歌词";
+            this.toolStripMenuItemLockDesktopLyric.Click += new System.EventHandler(this.uiSymbolButtonLockDesktopLyrics_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            // 
+            // toolStripMenuItemExit
+            // 
+            this.toolStripMenuItemExit.Name = "toolStripMenuItemExit";
+            this.toolStripMenuItemExit.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemExit.Text = "退出";
+            this.toolStripMenuItemExit.Click += new System.EventHandler(this.toolStripMenuItemExit_Click);
+            // 
+            // ToolStripMenuItemRandomPlay
+            // 
+            this.ToolStripMenuItemRandomPlay.Name = "ToolStripMenuItemRandomPlay";
+            this.ToolStripMenuItemRandomPlay.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemRandomPlay.Text = "随机播放";
+            this.ToolStripMenuItemRandomPlay.Click += new System.EventHandler(this.uiSymbolButtonRandomPlay_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
             // 
             // MainWindow
             // 
@@ -341,12 +445,14 @@
             this.MaximizeBox = false;
             this.Name = "MainWindow";
             this.Text = "MainWindow";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.Shown += new System.EventHandler(this.MainWindow_Shown);
             this.panelPlayControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).EndInit();
             this.panelList.ResumeLayout(false);
             this.panelList.PerformLayout();
+            this.contextMenuStripKeep.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -374,7 +480,19 @@
         private AntdUI.Button buttonRefresh;
         private AntdUI.Button buttonUpdateDB;
         private AntdUI.Slider uiTrackBarTimeTrack;
-        private Sunny.UI.UILabel uiLabel1;
+        private Sunny.UI.UILabel uiLabelTimeDisplayer;
         private System.Windows.Forms.NotifyIcon notifyIconKeep;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripKeep;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPlayingSong;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemBefore;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPauseorPlay;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNext;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemShowDesktopLyric;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLockDesktopLyric;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemExit;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemRandomPlay;
     }
 }
