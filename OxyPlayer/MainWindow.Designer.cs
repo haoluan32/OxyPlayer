@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("");
             this.panelPlayControl = new System.Windows.Forms.Panel();
             this.uiSymbolButtonLockDesktopLyrics = new Sunny.UI.UISymbolButton();
             this.uiSymbolButtonNext = new Sunny.UI.UISymbolButton();
@@ -52,6 +52,7 @@
             this.TimeTrackTimer = new System.Windows.Forms.Timer(this.components);
             this.uiTrackBarTimeTrack = new AntdUI.Slider();
             this.uiLabel1 = new Sunny.UI.UILabel();
+            this.notifyIconKeep = new System.Windows.Forms.NotifyIcon(this.components);
             this.panelPlayControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
             this.panelList.SuspendLayout();
@@ -244,10 +245,10 @@
             this.treeViewPlaylist.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.treeViewPlaylist.Location = new System.Drawing.Point(12, 37);
             this.treeViewPlaylist.Name = "treeViewPlaylist";
-            treeNode2.Name = "NodeZ";
-            treeNode2.Text = "";
+            treeNode1.Name = "NodeZ";
+            treeNode1.Text = "";
             this.treeViewPlaylist.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2});
+            treeNode1});
             this.treeViewPlaylist.ShowRootLines = false;
             this.treeViewPlaylist.Size = new System.Drawing.Size(619, 276);
             this.treeViewPlaylist.TabIndex = 0;
@@ -323,6 +324,11 @@
             this.uiLabel1.TabIndex = 14;
             this.uiLabel1.Text = "00 : 00/00 : 00";
             // 
+            // notifyIconKeep
+            // 
+            this.notifyIconKeep.Text = "notifyIcon1";
+            this.notifyIconKeep.Visible = true;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -369,5 +375,6 @@
         private AntdUI.Button buttonUpdateDB;
         private AntdUI.Slider uiTrackBarTimeTrack;
         private Sunny.UI.UILabel uiLabel1;
+        private System.Windows.Forms.NotifyIcon notifyIconKeep;
     }
 }

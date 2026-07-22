@@ -71,6 +71,12 @@ namespace OxyPlayer
             TimeTrackTimer.Start();
             setting.Refresh += rePaintControl;
             rePaintControl();
+            desktopLyrics.uiSymbolButtonBefore.Click += uiSymbolButtonBefore_Click;
+            desktopLyrics.uiSymbolButtonNext.Click += uiSymbolButtonNext_Click;
+            desktopLyrics.uiSymbolButtonRandomPlay.Click += uiSymbolButtonRandomPlay_Click;
+            desktopLyrics.uiSymbolButtonPlay.Click += uiSymbolButton1_Click;
+            desktopLyrics.uiSymbolButtonShowDesktopLyrics.Click += uiSymbolButtonShowDesktopLyrics_Click;
+            desktopLyrics.uiSymbolButtonLockDesktopLyrics.Click += uiSymbolButtonLockDesktopLyrics_Click;
         }
 
         private void treeView1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -86,21 +92,9 @@ namespace OxyPlayer
             uiLabelArtist.Text = nowPlaying_musicinfo.Artist;
             pictureBoxCover.Image = nowPlaying_musicinfo.Cover;
             uiTrackBarTimeTrack.MaxValue = nowPlaying_musicinfo.TimeLength_Second;
-            musicPlayer.PlayMusic(song);
+            musicPlayer.LoadMusic(song);
             desktopLyrics.UpdateSong(song);
-            if (musicPlayer.PlayingStatus)
-            {
-                uiSymbolButtonPlay.Symbol = 361516;
-                uiSymbolButtonPlay.SymbolOffset = new Point(2, 2);
-                uiSymbolButtonPlay.SymbolSize = 27;
-            }
-
-            else
-            {
-                uiSymbolButtonPlay.Symbol = 361515;
-                uiSymbolButtonPlay.SymbolOffset = new Point(0, 1);
-                uiSymbolButtonPlay.SymbolSize = 24;
-            }
+            uiSymbolButton1_Click(new object(), new EventArgs());
         }
         private void MainWindow_Load(object sender, EventArgs e)
         {
@@ -158,24 +152,7 @@ namespace OxyPlayer
             }
         }
 
-        private void uiSymbolButton1_Click(object sender, EventArgs e)
-        {
-            //pause 361516
-            musicPlayer.SwitchPlayingStatus();
-            if (musicPlayer.PlayingStatus)
-            {
-                uiSymbolButtonPlay.Symbol = 361516;
-                uiSymbolButtonPlay.SymbolOffset = new Point(2,2);
-                uiSymbolButtonPlay.SymbolSize = 27;
-            }
-
-            else
-            {
-                uiSymbolButtonPlay.Symbol = 361515;
-                uiSymbolButtonPlay.SymbolOffset = new Point(0, 1);
-                uiSymbolButtonPlay.SymbolSize = 24;
-            }
-        }
+        
 
         private void uiSymbolButtonBefore_Click(object sender, EventArgs e)
         {
@@ -243,17 +220,44 @@ namespace OxyPlayer
             InitTreeNode_DB();
         }
 
+        private void uiSymbolButton1_Click(object sender, EventArgs e)
+        {
+            //pause 361516
+            musicPlayer.SwitchPlayingStatus();
+            if (musicPlayer.PlayingStatus)
+            {
+                uiSymbolButtonPlay.Symbol = 361516;
+                uiSymbolButtonPlay.SymbolOffset = new Point(2, 2);
+                uiSymbolButtonPlay.SymbolSize = 27;
+                desktopLyrics.uiSymbolButtonPlay.Symbol = 361516;
+                desktopLyrics.uiSymbolButtonPlay.SymbolOffset = new Point(2, 2);
+                desktopLyrics.uiSymbolButtonPlay.SymbolSize = 27;
+            }
+
+            else
+            {
+                uiSymbolButtonPlay.Symbol = 361515;
+                uiSymbolButtonPlay.SymbolOffset = new Point(0, 1);
+                uiSymbolButtonPlay.SymbolSize = 24;
+                desktopLyrics.uiSymbolButtonPlay.Symbol = 361515;
+                desktopLyrics.uiSymbolButtonPlay.SymbolOffset = new Point(0, 1);
+                desktopLyrics.uiSymbolButtonPlay.SymbolSize = 24;
+            }
+        }
+
         private void uiSymbolButtonRandomPlay_Click(object sender, EventArgs e)
         {
             if (randomPlayEnabled)
             {
                 randomPlayEnabled = false;
                 uiSymbolButtonRandomPlay.FillColor = Color.FromArgb(41, 94, 145);
+                desktopLyrics.uiSymbolButtonRandomPlay.FillColor = Color.FromArgb(41, 94, 145);
             }
             else
             {
                 randomPlayEnabled = true;
                 uiSymbolButtonRandomPlay.FillColor = Color.FromArgb(80, 160, 255);
+                desktopLyrics.uiSymbolButtonRandomPlay.FillColor = Color.FromArgb(80, 160, 255);
             }
         }
 

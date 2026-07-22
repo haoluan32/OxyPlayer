@@ -26,9 +26,8 @@ namespace OxyPlayer
             get { return locked; }
             set
             {
-                DesktopLyrics_MouseLeave(new object(), new EventArgs());
                 locked = value;
-                
+                DesktopLyrics_MouseLeave(new object(), new EventArgs());
             }
         }
 
@@ -103,8 +102,8 @@ namespace OxyPlayer
 
         private void DesktopLyrics_MouseLeave(object sender, EventArgs e)
         {
-            if (locked) return;
             pageHeader1.Visible = false;
+            if (locked) return;
             OxySettings.Default.DesktopLyricsLocation = this.Location;
             OxySettings.Default.LockDesktopLyrics = locked;
             OxySettings.Default.Save();
