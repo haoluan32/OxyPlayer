@@ -83,6 +83,17 @@ namespace OxyPlayer
             catch { }
         }
 
+        public void LoadMusic(Song song)
+        {
+            try
+            {
+                mediaPlayer.Open(new Uri(song.Address));
+                __nowPlaying = song;
+                __playing = false;
+            }
+            catch { }
+        }
+
         public void PauseMusic()
         {
             mediaPlayer.Pause();
