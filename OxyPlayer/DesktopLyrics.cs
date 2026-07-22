@@ -28,6 +28,9 @@ namespace OxyPlayer
             {
                 locked = value;
                 DesktopLyrics_MouseLeave(new object(), new EventArgs());
+                OxySettings.Default.DesktopLyricsLocation = this.Location;
+                OxySettings.Default.LockDesktopLyrics = locked;
+                OxySettings.Default.Save();
             }
         }
 
@@ -96,17 +99,14 @@ namespace OxyPlayer
 
         private void DesktopLyrics_MouseEnter(object sender, EventArgs e)
         {
-            if (locked) return;
-            pageHeader1.Visible = true;
+            if (!locked)
+                pageHeader1.Visible = true;
         }
 
         private void DesktopLyrics_MouseLeave(object sender, EventArgs e)
         {
             pageHeader1.Visible = false;
-            if (locked) return;
-            OxySettings.Default.DesktopLyricsLocation = this.Location;
-            OxySettings.Default.LockDesktopLyrics = locked;
-            OxySettings.Default.Save();
+            
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
