@@ -12,7 +12,7 @@ namespace OxyPlayer {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "18.6.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "18.7.0.0")]
     public sealed partial class OxySettings : global::System.Configuration.ApplicationSettingsBase {
         
         private static OxySettings defaultInstance = ((OxySettings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new OxySettings())));
@@ -109,18 +109,6 @@ namespace OxyPlayer {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string MusicFolderPath {
-            get {
-                return ((string)(this["MusicFolderPath"]));
-            }
-            set {
-                this["MusicFolderPath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool ShowStartup {
             get {
@@ -188,6 +176,17 @@ namespace OxyPlayer {
             }
             set {
                 this["MainWindowsLyricsFont"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::OxyPlayer.Song PreviousSong {
+            get {
+                return ((global::OxyPlayer.Song)(this["PreviousSong"]));
+            }
+            set {
+                this["PreviousSong"] = value;
             }
         }
     }

@@ -78,7 +78,19 @@ namespace OxyPlayer
             desktopLyrics.uiSymbolButtonShowDesktopLyrics.Click += uiSymbolButtonShowDesktopLyrics_Click;
             desktopLyrics.uiSymbolButtonLockDesktopLyrics.Click += uiSymbolButtonLockDesktopLyrics_Click;
 
-            if(AppInfo.Default.IsTesing)
+            desktopLyrics.Visible = !OxySettings.Default.ShownDesklopLyrics;
+            uiSymbolButtonShowDesktopLyrics_Click(new object(),new EventArgs());
+
+            desktopLyrics.LockDesktopLyric = !OxySettings.Default.LockDesktopLyrics;
+            uiSymbolButtonLockDesktopLyrics_Click(new object(), new EventArgs());
+
+            randomPlayEnabled = !OxySettings.Default.RandomPlay;
+            uiSymbolButtonRandomPlay_Click(new object(), new EventArgs());
+
+            if(OxySettings.Default.PreviousSong!=null)
+                playMusic(OxySettings.Default.PreviousSong, false);
+
+            if (AppInfo.Default.IsTesing)
                  labelVersion.Text = $"{AppInfo.Default.VersionFull} ({AppInfo.Default.VersionPrefix})";
         }
 
@@ -98,7 +110,9 @@ namespace OxyPlayer
             toolStripMenuItemPlayingSong.Text = $"{nowPlaying_musicinfo.Title} - {nowPlaying_musicinfo.Artist}";
             musicPlayer.LoadMusic(song);
             desktopLyrics.UpdateSong(song);
-            if(play)
+            OxySettings.Default.PreviousSong = song;
+            OxySettings.Default.Save();
+            if (play)
                 uiSymbolButton1_Click(new object(), new EventArgs());
         }
         private void MainWindow_Load(object sender, EventArgs e)
@@ -270,6 +284,8 @@ namespace OxyPlayer
                 desktopLyrics.uiSymbolButtonRandomPlay.FillColor = Color.FromArgb(80, 160, 255);
             }
             ToolStripMenuItemRandomPlay.Checked = randomPlayEnabled;
+            OxySettings.Default.RandomPlay = randomPlayEnabled;
+            OxySettings.Default.Save();
         }
 
         private void uiSymbolButtonShowDesktopLyrics_Click(object sender, EventArgs e)
@@ -286,6 +302,8 @@ namespace OxyPlayer
                 uiSymbolButtonShowDesktopLyrics.FillColor = Color.FromArgb(80, 160, 255);
             }
             toolStripMenuItemShowDesktopLyric.Checked = desktopLyrics.Visible;
+            OxySettings.Default.ShownDesklopLyrics = desktopLyrics.Visible;
+            OxySettings.Default.Save();
         }
 
         private void uiSymbolButtonLockDesktopLyrics_Click(object sender, EventArgs e)
@@ -301,6 +319,7 @@ namespace OxyPlayer
                 uiSymbolButtonLockDesktopLyrics.FillColor = Color.FromArgb(80, 160, 255);
             }
             toolStripMenuItemLockDesktopLyric.Checked = desktopLyrics.LockDesktopLyric;
+            
         }
 
         private void uiTrackBarTimeTrack_MouseDown(object sender, MouseEventArgs e)

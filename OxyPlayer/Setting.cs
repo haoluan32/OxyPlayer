@@ -110,19 +110,6 @@ namespace OxyPlayer
             Refresh();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            VistaFolderBrowserDialog vfbd = new VistaFolderBrowserDialog();
-            vfbd.SelectedPath = OxySettings.Default.MusicFolderPath;
-            vfbd.ShowDialog();
-            if(vfbd.SelectedPath!=OxySettings.Default.MusicFolderPath)
-            {
-                OxySettings.Default.MusicFolderPath = vfbd.SelectedPath;
-                OxySettings.Default.Save();
-                
-            }
-        }
-
         private void button4_Click(object sender, EventArgs e)
         {
             colorDialog1.Color = button4.BackColor;

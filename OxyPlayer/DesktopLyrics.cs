@@ -53,7 +53,6 @@ namespace OxyPlayer
             this.Controls.Add(label1);
             label1.MouseEnter += Label1_MouseEnter;
             this.Location = OxySettings.Default.DesktopLyricsLocation;
-            LockDesktopLyric = OxySettings.Default.LockDesktopLyrics;
             ReadStyle();
         }
 

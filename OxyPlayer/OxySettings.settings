@@ -23,9 +23,6 @@
     <Setting Name="DesktopLyricsLocation" Type="System.Drawing.Point" Scope="User">
       <Value Profile="(Default)">0, 0</Value>
     </Setting>
-    <Setting Name="MusicFolderPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
     <Setting Name="ShowStartup" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
@@ -43,6 +40,9 @@
     </Setting>
     <Setting Name="MainWindowsLyricsFont" Type="System.Drawing.Font" Scope="User">
       <Value Profile="(Default)">微软雅黑, 9pt</Value>
+    </Setting>
+    <Setting Name="PreviousSong" Type="OxyPlayer.Song" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>
