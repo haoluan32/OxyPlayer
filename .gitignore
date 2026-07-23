@@ -57,6 +57,9 @@ $RECYCLE.BIN/
 .AppleDouble
 .LSOverride
 
+# Installer output
+installer/Output/
+
 # Misc
 *.swp
 *~

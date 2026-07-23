@@ -285,18 +285,17 @@
             // 
             // tabs1
             // 
-            this.tabs1.Controls.Add(this.tabPage4);
             this.tabs1.Controls.Add(this.tabPage1);
+            this.tabs1.Controls.Add(this.tabPage4);
             this.tabs1.Controls.Add(this.tabPage2);
             this.tabs1.Controls.Add(this.tabPage3);
-            this.tabs1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tabs1.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabs1.Location = new System.Drawing.Point(0, 0);
             this.tabs1.Name = "tabs1";
             this.tabs1.Pages.Add(this.tabPage1);
             this.tabs1.Pages.Add(this.tabPage2);
             this.tabs1.Pages.Add(this.tabPage3);
             this.tabs1.Pages.Add(this.tabPage4);
-            this.tabs1.SelectedIndex = 3;
             this.tabs1.Size = new System.Drawing.Size(622, 402);
             this.tabs1.Style = styleLine1;
             this.tabs1.TabIndex = 15;
@@ -312,7 +311,7 @@
             this.tabPage4.Controls.Add(this.labelVersion);
             this.tabPage4.Controls.Add(this.label8);
             this.tabPage4.Controls.Add(this.pictureBox1);
-            this.tabPage4.Location = new System.Drawing.Point(0, 30);
+            this.tabPage4.Location = new System.Drawing.Point(-1244, -744);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(622, 372);
             this.tabPage4.TabIndex = 3;
@@ -384,7 +383,7 @@
             this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.Controls.Add(this.checkBox1);
             this.tabPage1.Controls.Add(this.checkBox2);
-            this.tabPage1.Location = new System.Drawing.Point(-1244, -744);
+            this.tabPage1.Location = new System.Drawing.Point(0, 30);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Size = new System.Drawing.Size(622, 372);
             this.tabPage1.TabIndex = 0;

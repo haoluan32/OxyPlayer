@@ -9,10 +9,10 @@
       <Value Profile="(Default)">1.20</Value>
     </Setting>
     <Setting Name="VersionPrefix" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Carbon</Value>
+      <Value Profile="(Default)">Oxygen</Value>
     </Setting>
     <Setting Name="IsTesing" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

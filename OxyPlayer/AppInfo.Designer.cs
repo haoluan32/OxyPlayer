@@ -49,7 +49,7 @@ namespace OxyPlayer {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Carbon")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Oxygen")]
         public string VersionPrefix {
             get {
                 return ((string)(this["VersionPrefix"]));
@@ -61,7 +61,7 @@ namespace OxyPlayer {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool IsTesing {
             get {
                 return ((bool)(this["IsTesing"]));

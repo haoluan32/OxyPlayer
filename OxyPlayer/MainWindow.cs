@@ -78,7 +78,8 @@ namespace OxyPlayer
             desktopLyrics.uiSymbolButtonShowDesktopLyrics.Click += uiSymbolButtonShowDesktopLyrics_Click;
             desktopLyrics.uiSymbolButtonLockDesktopLyrics.Click += uiSymbolButtonLockDesktopLyrics_Click;
 
-            labelVersion.Text = $"{AppInfo.Default.VersionFull} ({AppInfo.Default.VersionPrefix})";
+            if(AppInfo.Default.IsTesing)
+                 labelVersion.Text = $"{AppInfo.Default.VersionFull} ({AppInfo.Default.VersionPrefix})";
         }
 
         private void treeView1_MouseDoubleClick(object sender, MouseEventArgs e)
