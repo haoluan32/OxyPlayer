@@ -137,6 +137,11 @@ namespace OxyPlayer
                 }
             }
 
+            if(uiTrackBarTimeTrack.Value==uiTrackBarTimeTrack.MaxValue)
+            {
+                uiSymbolButtonNext_Click(new object(), new EventArgs());
+            }
+
             if (inputSearch_Changed)
                 searchDelayCount++;
             if (inputSearch_Changed)
