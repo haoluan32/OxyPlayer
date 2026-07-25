@@ -28,6 +28,7 @@ namespace OxyPlayer
         DesktopLyrics desktopLyrics = new DesktopLyrics();
 
         Setting setting = new Setting();
+        SMTC smtc = new SMTC();
 
         bool inputSearch_Changed = false;
         int searchDelayCount;
@@ -110,6 +111,7 @@ namespace OxyPlayer
             toolStripMenuItemPlayingSong.Text = $"{nowPlaying_musicinfo.Title} - {nowPlaying_musicinfo.Artist}";
             musicPlayer.LoadMusic(song);
             desktopLyrics.UpdateSong(song);
+            smtc.UpdateMusicInfo(nowPlaying_musicinfo);
             OxySettings.Default.PreviousSong = song;
             OxySettings.Default.Save();
             if (play)

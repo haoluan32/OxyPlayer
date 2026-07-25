@@ -7,6 +7,7 @@ using System.Media;
 using System.Windows.Media;
 using Windows.Media;
 using Windows.Media.Playback;
+using Windows.Services.Maps;
 
 
 namespace OxyPlayer
@@ -16,6 +17,7 @@ namespace OxyPlayer
         System.Windows.Media.MediaPlayer mediaPlayer = new System.Windows.Media.MediaPlayer();
         private bool __playing = false;
         private Song __nowPlaying;
+        
 
         public MusicPlayer_MediaPlayer()
         {
