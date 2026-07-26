@@ -1,12 +1,13 @@
-﻿using System;
+﻿using LiteDB;
+using System;
 using System.Collections.Generic;
+using System.Deployment.Application;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LiteDB;
-using System.Drawing;
-using System.IO;
-using System.Deployment.Application;
 
 namespace OxyPlayer
 {
@@ -64,7 +65,7 @@ namespace OxyPlayer
                             Artist = mi.Artist,
                             Address = afi.FullName
                         };
-                        table.Insert(s);
+                        table.Insert(s);                            
                         id++;
                         MusicSh.Delay(1);
                     }
