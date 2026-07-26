@@ -7,6 +7,7 @@ using System.Media;
 using System.Windows.Media;
 using Windows.Media;
 using Windows.Media.Playback;
+using Windows.Services.Maps;
 
 
 namespace OxyPlayer
@@ -16,9 +17,25 @@ namespace OxyPlayer
         System.Windows.Media.MediaPlayer mediaPlayer = new System.Windows.Media.MediaPlayer();
         private bool __playing = false;
         private Song __nowPlaying;
+        SMTC smtc = new SMTC();
+
+        private bool playing
+        {
+            get { return __playing; }
+            set
+            {
+                __playing = value;
+                smtc.Playing = value;
+            }
+        }
 
         public MusicPlayer_MediaPlayer()
         {
+        }
+
+        public SMTC SMTCObj
+        {
+            get { return smtc; }
         }
 
         public System.Windows.Media.MediaPlayer MediaPlayer 
@@ -68,7 +85,7 @@ namespace OxyPlayer
         public void PlayMusic()
         {
             mediaPlayer.Play();
-            __playing = true;
+            playing = true;
         }
 
         public void PlayMusic(Song song)
@@ -78,7 +95,7 @@ namespace OxyPlayer
                 mediaPlayer.Open(new Uri(song.Address));
                 mediaPlayer.Play();
                 __nowPlaying = song;
-                __playing = true;
+                playing = true;
             }
             catch { }
         }
@@ -89,7 +106,7 @@ namespace OxyPlayer
             {
                 mediaPlayer.Open(new Uri(song.Address));
                 __nowPlaying = song;
-                __playing = false;
+                playing = false;
             }
             catch { }
         }
@@ -97,15 +114,20 @@ namespace OxyPlayer
         public void PauseMusic()
         {
             mediaPlayer.Pause();
-            __playing = false;
+            playing = false;
         }
 
         public void SwitchPlayingStatus()
         {
-            if (__playing)
+            if (playing)
                 this.PauseMusic();
             else
                 this.PlayMusic();
+        }
+
+        public void UpdateSMTC(Musicinfo musicinfo)
+        {
+            smtc.UpdateMusicInfo(musicinfo);
         }
     }
 }

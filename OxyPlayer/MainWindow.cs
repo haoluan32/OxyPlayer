@@ -1,22 +1,24 @@
-﻿using System;
+﻿using LiteDB;
+using Microsoft;
+using Sunny.UI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.IO;
-using System.Runtime;
-using Windows;
-using Microsoft;
 using System.Diagnostics;
-using System.Windows.Forms.Integration;
-using LiteDB;
-using System.Threading.Tasks;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Runtime;
 using System.Runtime.InteropServices;
-using Sunny.UI;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Windows.Forms.Integration;
+using Windows;
+using Windows.Media;
 using Windows.Media.AppBroadcasting;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace OxyPlayer
 {
@@ -28,6 +30,7 @@ namespace OxyPlayer
         DesktopLyrics desktopLyrics = new DesktopLyrics();
 
         Setting setting = new Setting();
+        
 
         bool inputSearch_Changed = false;
         int searchDelayCount;
@@ -110,6 +113,7 @@ namespace OxyPlayer
             toolStripMenuItemPlayingSong.Text = $"{nowPlaying_musicinfo.Title} - {nowPlaying_musicinfo.Artist}";
             musicPlayer.LoadMusic(song);
             desktopLyrics.UpdateSong(song);
+            musicPlayer.SMTCObj.UpdateMusicInfo(nowPlaying_musicinfo);
             OxySettings.Default.PreviousSong = song;
             OxySettings.Default.Save();
             if (play)
@@ -135,6 +139,27 @@ namespace OxyPlayer
                     uiScrollingTextLyrics.Text = nowPlaying_musicinfo.lrcsheet[musicPlayer.Position_Int];
                     desktopLyrics.UpdateLyrics(uiScrollingTextLyrics.Text);
                 }
+            }
+
+
+            if(musicPlayer.SMTCObj.Pressed!=255)
+            {
+                switch ((SystemMediaTransportControlsButton)musicPlayer.SMTCObj.Pressed)
+                {
+                    case SystemMediaTransportControlsButton.Play:
+                        uiSymbolButton1_Click(new object(), new EventArgs());
+                        break;
+                    case SystemMediaTransportControlsButton.Pause:
+                        uiSymbolButton1_Click(new object(), new EventArgs());
+                        break;
+                    case SystemMediaTransportControlsButton.Next:
+                        uiSymbolButtonNext_Click(new object(), new EventArgs());
+                        break;
+                    case SystemMediaTransportControlsButton.Previous:
+                        uiSymbolButtonBefore_Click(new object(), new EventArgs());
+                        break;
+                }
+                musicPlayer.SMTCObj.Pressed = 255;
             }
 
             if(uiTrackBarTimeTrack.Value==uiTrackBarTimeTrack.MaxValue)
@@ -205,7 +230,7 @@ namespace OxyPlayer
             {
                 if (randomPlayEnabled)
                 {
-                    song = Ldbc.searchDB(SongsRow.Id, MusicSh.GetRandomNumber(0,Ldbc.GetItemsCount()).ToString())[0];
+                    song = Ldbc.searchDB(SongsRow.Id, MusicSh.GetRandomNumber(1,Ldbc.GetItemsCount()).ToString())[0];
                     playMusic(song);
                 }
                 else
@@ -216,7 +241,7 @@ namespace OxyPlayer
             }
             catch
             {
-                song = Ldbc.searchDB(SongsRow.Id, "0")[0];
+                song = Ldbc.searchDB(SongsRow.Id, "1")[0];
                 playMusic(song);
             }
         }
@@ -349,7 +374,7 @@ namespace OxyPlayer
 
         private void toolStripMenuItemExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            System.Windows.Forms.Application.Exit();
         }
     }
 }
