@@ -355,6 +355,7 @@
             this.notifyIconKeep.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconKeep.Icon")));
             this.notifyIconKeep.Text = "OxyPlayer";
             this.notifyIconKeep.Visible = true;
+            this.notifyIconKeep.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIconKeep_MouseDoubleClick);
             // 
             // contextMenuStripKeep
             // 

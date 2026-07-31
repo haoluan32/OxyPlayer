@@ -18,7 +18,6 @@ using System.Windows.Forms.Integration;
 using Windows;
 using Windows.Media;
 using Windows.Media.AppBroadcasting;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace OxyPlayer
 {
@@ -90,7 +89,7 @@ namespace OxyPlayer
             randomPlayEnabled = !OxySettings.Default.RandomPlay;
             uiSymbolButtonRandomPlay_Click(new object(), new EventArgs());
 
-            if(OxySettings.Default.PreviousSong!=null)
+            if(OxySettings.Default.PreviousSong!=null&&File.Exists(OxySettings.Default.PreviousSong.Address))
                 playMusic(OxySettings.Default.PreviousSong, false);
 
             if (AppInfo.Default.IsTesing)
@@ -375,6 +374,11 @@ namespace OxyPlayer
         private void toolStripMenuItemExit_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
+        }
+
+        private void notifyIconKeep_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
         }
     }
 }
