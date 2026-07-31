@@ -150,6 +150,7 @@
     <Compile Include="TextViewer.Designer.cs">
       <DependentUpon>TextViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Toolkit.cs" />
     <Compile Include="TreeNodeWithInfo.cs" />
     <EmbeddedResource Include="TextViewer.resx">
       <DependentUpon>TextViewer.cs</DependentUpon>
