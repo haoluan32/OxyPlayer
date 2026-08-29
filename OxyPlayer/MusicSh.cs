@@ -26,7 +26,7 @@ namespace OxyPlayer
         public int TimeLength_Second{ get; set; }
         public Image Cover{ get; set; }
         public string lyric{ get; set; }
-        public Dictionary<int, string> lrcsheet{ get; set; }
+        public Dictionary<float, string> lrcsheet{ get; set; }
     }
 
     class MusicSh
