@@ -15,6 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.Integration;
+using TagLib.Matroska;
 using Windows;
 using Windows.Media;
 using Windows.Media.AppBroadcasting;
@@ -49,12 +50,12 @@ namespace OxyPlayer
         private void InitTreeNode_DB()
         {
             SupportedFormating = MusicSh.GetSupportedFormating();
-            if (Ldbc.getAllMusicFloders().Count()==0)
+
+            if (Ldbc.getAllMusicFloders().Count() == 0)
             {
                 Ldbc.addMusicFlodersTable(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic));
                 Ldbc.updataSongsTable();
             }
-
 
             treeViewPlaylist.Nodes.Clear();
             Song[] songTable = Ldbc.GetAllSongsInfo();
@@ -65,7 +66,7 @@ namespace OxyPlayer
                 ntn.SongInfo = song;
                 treeViewPlaylist.Nodes.Add(ntn);
             }
-            
+
         }
 
         private void MainWindow_Shown(object sender, EventArgs e)
@@ -89,7 +90,7 @@ namespace OxyPlayer
             randomPlayEnabled = !OxySettings.Default.RandomPlay;
             uiSymbolButtonRandomPlay_Click(new object(), new EventArgs());
 
-            if(OxySettings.Default.PreviousSong!=null&&File.Exists(OxySettings.Default.PreviousSong.Address))
+            if(OxySettings.Default.PreviousSong!=null&&System.IO.File.Exists(OxySettings.Default.PreviousSong.Address))
                 playMusic(OxySettings.Default.PreviousSong, false);
 
             if (AppInfo.Default.IsTesing)
@@ -133,11 +134,14 @@ namespace OxyPlayer
             catch { }
             if (nowPlaying_musicinfo != null && nowPlaying_musicinfo.lrcsheet != null)
             {
-                if (nowPlaying_musicinfo.lrcsheet.ContainsKey(musicPlayer.Position_Int))
+                var candidates = nowPlaying_musicinfo.lrcsheet.Keys.Where(k => k < musicPlayer.Position_Float);
+                if (candidates.Any())
                 {
-                    uiScrollingTextLyrics.Text = nowPlaying_musicinfo.lrcsheet[musicPlayer.Position_Int];
+                    var closestKey = candidates.Max(); // 小于 Position 的最大键
+                    uiScrollingTextLyrics.Text = nowPlaying_musicinfo.lrcsheet[closestKey];
                     desktopLyrics.UpdateLyrics(uiScrollingTextLyrics.Text);
                 }
+                
             }
 
 

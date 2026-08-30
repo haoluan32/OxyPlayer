@@ -332,6 +332,9 @@
     <PackageReference Include="AntdUI">
       <Version>2.4.1</Version>
     </PackageReference>
+    <PackageReference Include="Appleneko2001.LrcParser">
+      <Version>1.0.4</Version>
+    </PackageReference>
     <PackageReference Include="CSCore">
       <Version>1.2.1.2</Version>
     </PackageReference>

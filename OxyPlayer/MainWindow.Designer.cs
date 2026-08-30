@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.panelPlayControl = new System.Windows.Forms.Panel();
             this.uiTrackBarTimeTrack = new AntdUI.Slider();
@@ -293,10 +293,10 @@
             this.treeViewPlaylist.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.treeViewPlaylist.Location = new System.Drawing.Point(12, 37);
             this.treeViewPlaylist.Name = "treeViewPlaylist";
-            treeNode1.Name = "NodeZ";
-            treeNode1.Text = "";
+            treeNode3.Name = "NodeZ";
+            treeNode3.Text = "";
             this.treeViewPlaylist.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            treeNode3});
             this.treeViewPlaylist.ShowRootLines = false;
             this.treeViewPlaylist.Size = new System.Drawing.Size(619, 276);
             this.treeViewPlaylist.TabIndex = 0;
@@ -346,7 +346,7 @@
             // 
             // TimeTrackTimer
             // 
-            this.TimeTrackTimer.Interval = 50;
+            this.TimeTrackTimer.Interval = 25;
             this.TimeTrackTimer.Tick += new System.EventHandler(this.TimeTrackTimer_Tick);
             // 
             // notifyIconKeep

@@ -46,6 +46,22 @@ namespace OxyPlayer
             }
         }
 
+        public TimeSpan Position
+        {
+            get
+            {
+                return mediaPlayer.Position;
+            }
+        }
+
+        public float Position_Float
+        {
+            get
+            {
+                return MusicSh.timestamp2float(mediaPlayer.Position);
+            }
+        }
+
         public string Position_String
         {
             get

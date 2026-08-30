@@ -5,13 +5,6 @@ VisualStudioVersion = 18.7.11919.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OxyPlayer", "OxyPlayer\OxyPlayer.csproj", "{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegDecoder", "FFmpegDecoder\FFmpegDecoder.csproj", "{1A4B73DB-5080-4943-9420-A8C2E9102AB6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegDecoderConsole", "FFmpegDecoderConsole\FFmpegDecoderConsole.csproj", "{EB8133D2-984D-443A-A643-444484E68238}"
-	ProjectSection(ProjectDependencies) = postProject
-		{1A4B73DB-5080-4943-9420-A8C2E9102AB6} = {1A4B73DB-5080-4943-9420-A8C2E9102AB6}
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决方案项", "{5890A559-5668-4124-9858-E2A65530985E}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
@@ -37,30 +30,6 @@ Global
 		{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}.Release|x64.Build.0 = Release|x64
 		{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}.Release|x86.ActiveCfg = Release|x86
 		{3D794D07-2B4C-4BF4-A8F9-2940281EFBA8}.Release|x86.Build.0 = Release|x86
-		{1A4B73DB-5080-4943-9420-A8C2E9102AB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1A4B73DB-5080-4943-9420-A8C2E9102AB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1A4B73DB-5080-4943-9420-A8C2E9102AB6}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{1A4B73DB-5080-4943-9420-A8C2E9102AB6}.Debug|x64.Build.0 = Debug|Any CPU
-		{1A4B73DB-5080-4943-9420-A8C2E9102AB6}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{1A4B73DB-5080-4943-9420-A8C2E9102AB6}.Debug|x86.Build.0 = Debug|Any CPU
-		{1A4B73DB-5080-4943-9420-A8C2E9102AB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1A4B73DB-5080-4943-9420-A8C2E9102AB6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1A4B73DB-5080-4943-9420-A8C2E9102AB6}.Release|x64.ActiveCfg = Release|Any CPU
-		{1A4B73DB-5080-4943-9420-A8C2E9102AB6}.Release|x64.Build.0 = Release|Any CPU
-		{1A4B73DB-5080-4943-9420-A8C2E9102AB6}.Release|x86.ActiveCfg = Release|Any CPU
-		{1A4B73DB-5080-4943-9420-A8C2E9102AB6}.Release|x86.Build.0 = Release|Any CPU
-		{EB8133D2-984D-443A-A643-444484E68238}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EB8133D2-984D-443A-A643-444484E68238}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EB8133D2-984D-443A-A643-444484E68238}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{EB8133D2-984D-443A-A643-444484E68238}.Debug|x64.Build.0 = Debug|Any CPU
-		{EB8133D2-984D-443A-A643-444484E68238}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{EB8133D2-984D-443A-A643-444484E68238}.Debug|x86.Build.0 = Debug|Any CPU
-		{EB8133D2-984D-443A-A643-444484E68238}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EB8133D2-984D-443A-A643-444484E68238}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EB8133D2-984D-443A-A643-444484E68238}.Release|x64.ActiveCfg = Release|Any CPU
-		{EB8133D2-984D-443A-A643-444484E68238}.Release|x64.Build.0 = Release|Any CPU
-		{EB8133D2-984D-443A-A643-444484E68238}.Release|x86.ActiveCfg = Release|Any CPU
-		{EB8133D2-984D-443A-A643-444484E68238}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

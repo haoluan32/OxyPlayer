@@ -17,6 +17,7 @@ using System.Windows.Forms;
 using System.Windows.Media;
 using TagLib;
 using Windows;
+using Opportunity.LrcParser;
 
 namespace OxyPlayer
 {
@@ -154,6 +155,13 @@ namespace OxyPlayer
             return returning;
         }
 
+        static public float timestamp2float(TimeSpan time)
+        {
+            float returning = 0.00F;
+            returning = (float)time.TotalSeconds;
+            return returning;
+        }
+
         static public string Second2MMSS(int seconds)
         {
             string returning = "";
@@ -164,31 +172,25 @@ namespace OxyPlayer
         }
         #endregion
 
-        static public Dictionary<int,string> lrc2sheet(string lrc)
+        static public Dictionary<float,string> lrc2sheet(string lrc)
         {
-            Dictionary<int, string> lrcsheet = new Dictionary<int, string>();
+            Dictionary<float, string> lrcsheet = new Dictionary<float, string>();
+            var parseResult= Lyrics.Parse<Line>(lrc);
             string[] lrcel = lrc.Split('\n');
-            foreach(var elrc in lrcel)
+            foreach(var elrc in parseResult.Lyrics.Lines)
             {
-                try
-                {
-                    int.Parse(elrc.Substring(1, 2));
-                }
-                catch
-                {
-                    continue;
-                }
-                int key = MMSS2Second(elrc.Substring(1, 5));
-                string value = elrc.Substring(10);
-                try
-                {
-                    if(value!="\n"&&value!="")
-                        lrcsheet.Add(key, value);
+                float time = timestamp2float(elrc.Timestamp);
+                string lyric = elrc.Content;
 
-                }
-                catch(System.ArgumentException)
+                if (lyric == "") { continue; }
+
+                if (lrcsheet.ContainsKey(time))
                 {
-                    lrcsheet[key] += "\n"+value;
+                    lrcsheet[time] += "\n" + lyric;
+                }
+                else
+                {
+                    lrcsheet.Add(time, lyric);
                 }
             }
             
