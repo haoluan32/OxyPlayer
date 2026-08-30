@@ -16,14 +16,16 @@
 - ✅支持多种格式，包括.mp3,.wma等
 - ✅支持歌曲信息，歌词，封面等标签的读取
 - ✅支持歌曲搜索
+- ✅支持SMTC
 
 
-### 1.2 暂不支持的功能
+### 1.2 计划中的功能
 
-- ❎不支持SMTC
 
 
 ## 2.快速上手
+
+> 你可能需要在开始前安装 .NET Framework 4.8 Runtime（或其他兼容的版本）
 
 - 你可以直接从 [Release](https://github.com/haoluan32/OxyPlayer/releases) 中下载最新的安装包
   （如果Github无法访问你可以在[Gitee](https://gitee.com/haoluan_bilibili/oxy-player/releases)中下载）
@@ -63,10 +65,11 @@ msbuild
 - 音频引擎：System.Windows.Media.MediaPlayer
 - 元数据读取：TagLibSharp
 - 数据库：LiteDB
+- 歌词格式化: Appleneko2001.LrcParser
 
 ## 5.开源协议
 
 本程序是自由软件，遵循 **GNU General Public License v3.0**（GPLv3）发布。
 
 ## 6.本程序使用的第三方库/版本/协议：
-详见“[NOTICE](./NOTICE.txt)”
+详见“[NOTICE](./NOTICE)”

@@ -75,3 +75,18 @@
 
    Copyright (c) Microsoft Corporation.
    各自采用 MIT 许可证或 Windows SDK 最终用户许可协议授权。
+
+--------------------------------------------------------------------------------
+10. LrcParser (Apache License, Version 2.0)
+    项目地址：https://github.com/appleneko2001/LrcParser
+    （原始项目：https://github.com/OpportunityLiu/LrcParser）
+    Copyright (c) LrcParser 贡献者
+
+    根据 Apache License, Version 2.0（以下简称“本许可证”）的要求，特此声明：
+    本软件包含 LrcParser 库。
+    您可以在以下地址获取本许可证的副本：
+    https://www.apache.org/licenses/LICENSE-2.0
+
+    除非适用法律要求或书面同意，否则根据本许可证分发的软件
+    是按“现状”分发的，不附带任何明示或暗示的保证或条件。
+    具体免责条款详见本许可证第 7 条（免责声明）。
