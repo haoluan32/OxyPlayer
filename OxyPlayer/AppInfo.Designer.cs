@@ -25,7 +25,7 @@ namespace OxyPlayer {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.20.26.07.22")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.22.26.08.30")]
         public string VersionFull {
             get {
                 return ((string)(this["VersionFull"]));
@@ -37,7 +37,7 @@ namespace OxyPlayer {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.20")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.22")]
         public string Version {
             get {
                 return ((string)(this["Version"]));

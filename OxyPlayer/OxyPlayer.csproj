@@ -247,9 +247,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="matugen_template.json" />
-    <None Include="NOTICE">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="NOTICE" />
     <None Include="OxySettings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>OxySettings.Designer.cs</LastGenOutput>
