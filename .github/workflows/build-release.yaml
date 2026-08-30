@@ -1,0 +1,178 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'Oxy*'
+      - 'Oxygen*'
+      - 'Carbon*'
+      - 'v*'
+
+env:
+  CONFIGURATION: Release
+  PLATFORM: x86
+  SOL_PATH: OxyPlayer.sln
+  ISS_PATH: installer\oxy.iss
+
+jobs:
+  build-and-release:
+    name: Build x86 Release and create installer
+    runs-on: windows-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # ===== 统一版本处理步骤 =====
+      - name: Update version from tag
+        shell: pwsh
+        id: version
+        run: |
+          $tag = $env:GITHUB_REF_NAME
+          Write-Host "Processing tag: $tag"
+
+          # 1. 提取前缀
+          $prefixPattern = '^(Oxy|Oxygen|Carbon|v)'
+          if ($tag -match $prefixPattern) {
+            $prefix = $Matches[1]
+            $versionPart = $tag -replace $prefixPattern, ''
+          } else {
+            Write-Error "Tag '$tag' does not start with Oxy/Oxygen/Carbon/v"
+            exit 1
+          }
+
+          # 2. 提取简单数字版本（如 1.22）
+          if ($versionPart -match '^(\d+\.\d+)') {
+            $simpleVersion = $Matches[1]
+          } else {
+            Write-Error "Cannot extract numeric version from '$versionPart'"
+            exit 1
+          }
+
+          # 3. 生成日期（yy.MM.dd 格式）
+          $date = (Get-Date -Format "yy.MM.dd")
+          $versionFull = "$simpleVersion.$date"
+
+          # 4. 根据前缀决定各字段
+          if ($prefix -eq "Carbon") {
+            # Carbon：完整版本用于 Version，安装包显示，Release 标题
+            $appVersion = $versionFull                     # 用于 AppInfo.Version
+            $issVersionString = "$versionFull $prefix"     # 用于 ISS 的 MyAppVersion
+            $releaseVersionString = "$versionFull $prefix" # 用于 Release 标题（不含“v ”）
+            $isTesting = "True"
+          } else {
+            # Oxygen / Oxy / v：简单版本用于 Version，安装包显示，Release 标题
+            $appVersion = $simpleVersion
+            $issVersionString = "$simpleVersion $prefix"
+            $releaseVersionString = "$simpleVersion $prefix"
+            $isTesting = "False"
+          }
+
+          # Release 标题：统一加 “v ” 前缀
+          $releaseTitle = "v $releaseVersionString"
+
+          Write-Host "Prefix: $prefix"
+          Write-Host "SimpleVersion: $simpleVersion"
+          Write-Host "Date: $date"
+          Write-Host "VersionFull (内部): $versionFull"
+          Write-Host "AppVersion (Version字段): $appVersion"
+          Write-Host "ISS MyAppVersion: $issVersionString"
+          Write-Host "Release Title: $releaseTitle"
+          Write-Host "IsTesing: $isTesting"
+
+          # 输出变量供后续步骤使用
+          Write-Output "prefix=$prefix" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+          Write-Output "simpleVersion=$simpleVersion" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+          Write-Output "versionFull=$versionFull" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+          Write-Output "appVersion=$appVersion" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+          Write-Output "issVersionString=$issVersionString" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+          Write-Output "releaseTitle=$releaseTitle" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+          Write-Output "isTesting=$isTesting" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+
+          # ----- 5. 更新 AppInfo.settings -----
+          $settingsPath = "OxyPlayer\AppInfo.settings"
+          if (Test-Path $settingsPath) {
+            [xml]$xml = Get-Content -Path $settingsPath -Encoding UTF8
+            # 更新 Version
+            $node = $xml.SettingsFile.Settings.Setting | Where-Object { $_.Name -eq "Version" }
+            if ($node) { $node.Value = $appVersion }
+            # 更新 VersionPrefix
+            $node = $xml.SettingsFile.Settings.Setting | Where-Object { $_.Name -eq "VersionPrefix" }
+            if ($node) { $node.Value = $prefix }
+            # 更新 VersionFull
+            $node = $xml.SettingsFile.Settings.Setting | Where-Object { $_.Name -eq "VersionFull" }
+            if ($node) { $node.Value = $versionFull }
+            # 更新 IsTesing（注意拼写）
+            $node = $xml.SettingsFile.Settings.Setting | Where-Object { $_.Name -eq "IsTesing" }
+            if ($node) { $node.Value = $isTesting }
+            $xml.Save($settingsPath)
+            Write-Host "Updated AppInfo.settings"
+          } else {
+            Write-Warning "AppInfo.settings not found at $settingsPath"
+          }
+
+          # ----- 6. 更新 Inno Setup 脚本中的 MyAppVersion -----
+          $issPath = $env:ISS_PATH
+          if (Test-Path $issPath) {
+            $content = Get-Content -Path $issPath -Raw -Encoding UTF8
+            $newDefine = "#define MyAppVersion `"$issVersionString`""
+            if ($content -match '(?m)^\s*#define\s+MyAppVersion\s+".*?"') {
+              $content = $content -replace '(?m)^\s*#define\s+MyAppVersion\s+".*?"', $newDefine
+            } else {
+              $content = "$newDefine`n$content"
+            }
+            [System.IO.File]::WriteAllText($issPath, $content, [System.Text.UTF8Encoding]::new($false))
+            Write-Host "Updated ISS MyAppVersion to $issVersionString"
+          } else {
+            Write-Warning "ISS file not found at $issPath"
+          }
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v2
+
+      - name: Restore NuGet packages
+        run: nuget restore $env:SOL_PATH
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Build solution (Release | x86)
+        run: >
+          msbuild $env:SOL_PATH
+          /m
+          /p:Configuration=$env:CONFIGURATION
+          /p:Platform=$env:PLATFORM
+          /p:RestorePackages=true
+          /p:BuildProjectReferences=true
+
+      - name: Setup Inno Setup
+        shell: pwsh
+        run: |
+          choco install innosetup --yes --no-progress
+
+      - name: Compile Inno Setup installer
+        shell: pwsh
+        run: |
+          $iscc = Get-ChildItem "C:\Program Files (x86)\Inno Setup*\ISCC.exe" -ErrorAction Stop |
+                  Select-Object -First 1
+          & $iscc.FullName $env:ISS_PATH
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Locate installer output
+        id: installer
+        shell: pwsh
+        run: |
+          $file = Get-ChildItem "installer\Output\*.exe" -ErrorAction Stop |
+                  Select-Object -First 1
+          Write-Output "path=$($file.FullName)" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: ${{ steps.version.outputs.releaseTitle }}   # 使用带 v 前缀的标题
+          files: |
+            ${{ steps.installer.outputs.path }}
+          generate_release_notes: true
