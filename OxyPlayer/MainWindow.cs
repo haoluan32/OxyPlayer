@@ -109,6 +109,7 @@ namespace OxyPlayer
             uiLabelTitle.Text = nowPlaying_musicinfo.Title;
             uiLabelArtist.Text = nowPlaying_musicinfo.Artist;
             pictureBoxCover.Image = nowPlaying_musicinfo.Cover;
+            uiTrackBarTimeTrack.Value = 0;
             uiTrackBarTimeTrack.MaxValue = nowPlaying_musicinfo.TimeLength_Second;
             toolStripMenuItemPlayingSong.Text = $"{nowPlaying_musicinfo.Title} - {nowPlaying_musicinfo.Artist}";
             musicPlayer.LoadMusic(song);
