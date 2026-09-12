@@ -97,16 +97,16 @@ jobs:
             [xml]$xml = Get-Content -Path $settingsPath -Encoding UTF8
             # 更新 Version
             $node = $xml.SettingsFile.Settings.Setting | Where-Object { $_.Name -eq "Version" }
-            if ($node) { $node.Value = $appVersion }
+            if ($node) { $node.Value.InnerText = $appVersion }
             # 更新 VersionPrefix
             $node = $xml.SettingsFile.Settings.Setting | Where-Object { $_.Name -eq "VersionPrefix" }
-            if ($node) { $node.Value = $prefix }
+            if ($node) { $node.Value.InnerText = $prefix }
             # 更新 VersionFull
             $node = $xml.SettingsFile.Settings.Setting | Where-Object { $_.Name -eq "VersionFull" }
-            if ($node) { $node.Value = $versionFull }
+            if ($node) { $node.Value.InnerText = $versionFull }
             # 更新 IsTesing（注意拼写）
             $node = $xml.SettingsFile.Settings.Setting | Where-Object { $_.Name -eq "IsTesing" }
-            if ($node) { $node.Value = $isTesting }
+            if ($node) { $node.Value.InnerText = $isTesting }
             $xml.Save($settingsPath)
             Write-Host "Updated AppInfo.settings"
           } else {
