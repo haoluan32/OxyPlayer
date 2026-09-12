@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.panelPlayControl = new System.Windows.Forms.Panel();
             this.uiTrackBarTimeTrack = new AntdUI.Slider();
@@ -67,6 +67,7 @@
             this.toolStripMenuItemLockDesktopLyric = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.spinDBIndexing = new AntdUI.Spin();
             this.panelPlayControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCover)).BeginInit();
             this.panelList.SuspendLayout();
@@ -256,6 +257,7 @@
             // panelList
             // 
             this.panelList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(232)))), ((int)(((byte)(191)))));
+            this.panelList.Controls.Add(this.spinDBIndexing);
             this.panelList.Controls.Add(this.labelVersion);
             this.panelList.Controls.Add(this.label1);
             this.panelList.Controls.Add(this.treeViewPlaylist);
@@ -293,10 +295,10 @@
             this.treeViewPlaylist.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.treeViewPlaylist.Location = new System.Drawing.Point(12, 37);
             this.treeViewPlaylist.Name = "treeViewPlaylist";
-            treeNode3.Name = "NodeZ";
-            treeNode3.Text = "";
+            treeNode2.Name = "NodeZ";
+            treeNode2.Text = "";
             this.treeViewPlaylist.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3});
+            treeNode2});
             this.treeViewPlaylist.ShowRootLines = false;
             this.treeViewPlaylist.Size = new System.Drawing.Size(619, 276);
             this.treeViewPlaylist.TabIndex = 0;
@@ -445,6 +447,17 @@
             this.toolStripMenuItemExit.Text = "退出";
             this.toolStripMenuItemExit.Click += new System.EventHandler(this.toolStripMenuItemExit_Click);
             // 
+            // spinDBIndexing
+            // 
+            this.spinDBIndexing.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.spinDBIndexing.Location = new System.Drawing.Point(11, 35);
+            this.spinDBIndexing.Name = "spinDBIndexing";
+            this.spinDBIndexing.Size = new System.Drawing.Size(620, 278);
+            this.spinDBIndexing.TabIndex = 17;
+            this.spinDBIndexing.Text = "更新数据库中";
+            this.spinDBIndexing.UseWaitCursor = true;
+            this.spinDBIndexing.Visible = false;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -507,5 +520,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemRandomPlay;
         private System.Windows.Forms.Label labelVersion;
+        private AntdUI.Spin spinDBIndexing;
     }
 }

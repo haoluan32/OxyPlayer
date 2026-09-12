@@ -12,6 +12,7 @@ using System.Linq;
 using System.Runtime;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.Integration;
@@ -47,15 +48,19 @@ namespace OxyPlayer
             uiScrollingTextLyrics.Font = OxySettings.Default.MainWindowsLyricsFont;
             desktopLyrics.ReadStyle();
         }
-        private void InitTreeNode_DB()
-        {
-            SupportedFormating = MusicSh.GetSupportedFormating();
 
+        private async Task DBEmptyCheck_Update()
+        {
             if (Ldbc.getAllMusicFloders().Count() == 0)
             {
                 Ldbc.addMusicFlodersTable(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic));
-                Ldbc.updataSongsTable();
+                await Ldbc.UpdateSongsTableAsync();
+                
             }
+        }
+        private void InitTreeNode_DB()
+        {
+            SupportedFormating = MusicSh.GetSupportedFormating();
 
             treeViewPlaylist.Nodes.Clear();
             Song[] songTable = Ldbc.GetAllSongsInfo();
@@ -69,8 +74,13 @@ namespace OxyPlayer
 
         }
 
-        private void MainWindow_Shown(object sender, EventArgs e)
+        private async void MainWindow_Shown(object sender, EventArgs e)
         {
+            spinDBIndexing.Visible = true;
+            await DBEmptyCheck_Update();
+            InitTreeNode_DB();
+            spinDBIndexing.Visible = false;
+
             TimeTrackTimer.Start();
             setting.Refresh += rePaintControl;
             rePaintControl();
@@ -122,7 +132,7 @@ namespace OxyPlayer
         }
         private void MainWindow_Load(object sender, EventArgs e)
         {
-            InitTreeNode_DB();
+           
         }
 
         private void TimeTrackTimer_Tick(object sender, EventArgs e)
@@ -177,7 +187,7 @@ namespace OxyPlayer
             {
                 if (inputSearch.Text != "")
                 {
-                    if (searchDelayCount >= 10)
+                    if (searchDelayCount >= 1)
                     {
                         inputSearch_Changed = false;
                         treeViewPlaylist.Nodes.Clear();
@@ -272,10 +282,12 @@ namespace OxyPlayer
             InitTreeNode_DB();
         }
 
-        private void buttonUpdateDB_Click(object sender, EventArgs e)
+        private async void buttonUpdateDB_Click(object sender, EventArgs e)
         {
-            Ldbc.updataSongsTable();
+            spinDBIndexing.Visible = true;
+            await Ldbc.UpdateSongsTableAsync();
             InitTreeNode_DB();
+            spinDBIndexing.Visible = false;
         }
 
         private void uiSymbolButton1_Click(object sender, EventArgs e)
