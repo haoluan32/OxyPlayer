@@ -36,8 +36,6 @@ namespace OxyPlayer
     {
         static public void updataSongsTable()
         {
-            DoingSth ds = new DoingSth("更新数据库", "更新数据库中...");
-            ds.Show();
             int id = 1;
             string[] SupportedFormating = MusicSh.GetSupportedFormating();
             Floder[] folders = Ldbc.getAllMusicFloders();
@@ -56,22 +54,13 @@ namespace OxyPlayer
                         if (Array.IndexOf(SupportedFormating, afi.Extension) == -1)
                             continue;
 
-                        Musicinfo mi = MusicSh.GetMusicInfo(afi.FullName, false, false);
-                        Song s = new Song
-                        {
-                            Id = id,
-                            Title = mi.Title,
-                            Album = mi.Album,
-                            Artist = mi.Artist,
-                            Address = afi.FullName
-                        };
-                        table.Insert(s);                            
+                        Song song = MusicSh.GetSongInfo(afi.FullName);
+                        song.Id = id;                   
+                        table.Insert(song);                            
                         id++;
-                        MusicSh.Delay(1);
                     }
                 }
             }
-            ds.Close();
         }  //更新歌曲信息数据库
 
         static public Song[] searchDB(SongsRow row, string key)

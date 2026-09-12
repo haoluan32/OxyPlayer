@@ -119,6 +119,29 @@ namespace OxyPlayer
             return mi;
             
         }
+        static public Song GetSongInfo(string MusicPath)
+        {
+            Song song = new Song() ;
+
+            string file = MusicPath;
+            FileInfo fileinfo = new FileInfo(MusicPath);
+
+            song.Address = MusicPath;
+
+            #region ShellClass
+            ShellClass sh = new ShellClass();
+            Folder dir = sh.NameSpace(Path.GetDirectoryName(file));
+            FolderItem item = dir.ParseName(Path.GetFileName(file));
+
+            if (dir.GetDetailsOf(item, 21) != "")
+                song.Title = dir.GetDetailsOf(item, 21);
+            else
+                song.Title = dir.GetDetailsOf(item, 0);
+            song.Album = dir.GetDetailsOf(item, 14);
+            song.Artist = dir.GetDetailsOf(item, 13);
+            #endregion
+            return song;
+        }
 
         static public int HHMMSS2Second(String time)
         {
