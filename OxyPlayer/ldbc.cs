@@ -7,6 +7,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace OxyPlayer
@@ -34,7 +35,7 @@ namespace OxyPlayer
 
     class Ldbc
     {
-        static public void updataSongsTable()
+        static public void updataSongsTable()//更新歌曲信息数据库
         {
             int id = 1;
             string[] SupportedFormating = MusicSh.GetSupportedFormating();
@@ -61,7 +62,71 @@ namespace OxyPlayer
                     }
                 }
             }
-        }  //更新歌曲信息数据库
+        }
+
+        #region update_Async
+        public static Task UpdateSongsTableAsync(CancellationToken ct = default)
+        {
+            var tcs = new TaskCompletionSource<object>();
+
+            // 创建并启动一个 STA 线程
+            var thread = new Thread(() =>
+            {
+                try
+                {
+                    // 在这里执行你的同步逻辑，其中包含 Shell32 调用
+                    DoUpdateSongsTable(ct);
+                    tcs.SetResult(null);
+                }
+                catch (OperationCanceledException)
+                {
+                    tcs.SetCanceled();
+                }
+                catch (Exception ex)
+                {
+                    tcs.SetException(ex);
+                }
+            });
+
+            thread.SetApartmentState(ApartmentState.STA); // 关键：设置为 STA
+            thread.IsBackground = true; // 设为后台线程，不阻止程序退出
+            thread.Start();
+
+            return tcs.Task;
+        }
+
+        private static void DoUpdateSongsTable(CancellationToken ct)
+        {
+            int id = 1;
+            string[] supportedFormating = MusicSh.GetSupportedFormating();
+            Floder[] folders = Ldbc.getAllMusicFloders();
+
+            using (var ldb = new LiteDatabase("songs.db"))
+            {
+                ILiteCollection<Song> table = ldb.GetCollection<Song>("songs");
+                table.DeleteAll();
+
+                foreach (Floder folder in folders)
+                {
+                    ct.ThrowIfCancellationRequested();
+                    if (!folder.enabled) continue;
+
+                    var updir = new DirectoryInfo(folder.Path);
+                    foreach (FileInfo afi in updir.EnumerateFiles())
+                    {
+                        ct.ThrowIfCancellationRequested();
+                        if (Array.IndexOf(supportedFormating, afi.Extension) == -1)
+                            continue;
+
+                        Song song = MusicSh.GetSongInfo(afi.FullName); // 此处包含 Shell32 调用
+                        song.Id = id;
+                        table.Insert(song);
+                        id++;
+                    }
+                }
+            }
+        }
+        #endregion
 
         static public Song[] searchDB(SongsRow row, string key)
         {

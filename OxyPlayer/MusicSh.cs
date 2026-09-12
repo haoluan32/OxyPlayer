@@ -109,7 +109,7 @@ namespace OxyPlayer
 
                 }
 
-                catch(Exception ex) { }
+                catch { }
                 
             }
 

@@ -18,7 +18,6 @@ namespace OxyPlayer
         bool locked = false;
         Graphics graph;
         Pen pen;
-        bool mouse_entered = false;
 
         public bool LockDesktopLyric
         {
