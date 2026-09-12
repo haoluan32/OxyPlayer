@@ -187,7 +187,7 @@ namespace OxyPlayer
             {
                 if (inputSearch.Text != "")
                 {
-                    if (searchDelayCount >= 10)
+                    if (searchDelayCount >= 1)
                     {
                         inputSearch_Changed = false;
                         treeViewPlaylist.Nodes.Clear();
