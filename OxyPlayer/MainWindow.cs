@@ -279,7 +279,6 @@ namespace OxyPlayer
 
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
-            Ldbc.updataSongsTable();
             InitTreeNode_DB();
         }
 

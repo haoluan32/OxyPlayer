@@ -45,7 +45,6 @@ namespace OxyPlayer
             using (var ldb = new LiteDatabase("songs.db"))
             {
                 ILiteCollection<Song> table = ldb.GetCollection<Song>("songs");
-                //table.DeleteAll();
                 List<string> addresses = new List<string>();
                 Song[] songTable = table.FindAll().ToArray();
 
@@ -123,14 +122,23 @@ namespace OxyPlayer
 
         private static void DoUpdateSongsTable(CancellationToken ct)
         {
-            int id = 1;
             string[] supportedFormating = MusicSh.GetSupportedFormating();
             Floder[] folders = Ldbc.getAllMusicFloders();
 
             using (var ldb = new LiteDatabase("songs.db"))
             {
                 ILiteCollection<Song> table = ldb.GetCollection<Song>("songs");
-                table.DeleteAll();
+                List<string> addresses = new List<string>();
+                Song[] songTable = table.FindAll().ToArray();
+
+                // 先将所有已有记录标记为不存在
+                foreach (var song in songTable)
+                {
+                    ct.ThrowIfCancellationRequested();
+                    song.Exist = false;
+                    addresses.Add(song.Address);
+                    table.Update(song);
+                }
 
                 foreach (Floder folder in folders)
                 {
@@ -144,11 +152,35 @@ namespace OxyPlayer
                         if (Array.IndexOf(supportedFormating, afi.Extension) == -1)
                             continue;
 
+                        if (addresses.IndexOf(afi.FullName) > -1)
+                        {
+                            Song s = table.FindOne(x => x.Address == afi.FullName);
+                            if (s != null)
+                            {
+                                s.Exist = true;
+                                table.Update(s);
+                            }
+                            continue;
+                        }
+
                         Song song = MusicSh.GetSongInfo(afi.FullName); // 此处包含 Shell32 调用
-                        song.Number = id;
+                        song.Exist = true;
                         table.Insert(song);
-                        id++;
                     }
+                }
+
+                // 删除磁盘上已不存在的记录
+                table.DeleteMany(x => x.Exist == false);
+
+                // 重新编号
+                songTable = table.FindAll().ToArray();
+                int id = 1;
+                foreach (var song in songTable)
+                {
+                    ct.ThrowIfCancellationRequested();
+                    song.Number = id;
+                    table.Update(song);
+                    id++;
                 }
             }
         }
