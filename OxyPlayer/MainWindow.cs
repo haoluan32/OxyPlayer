@@ -227,7 +227,7 @@ namespace OxyPlayer
             Song song;
             try
             {
-                song = Ldbc.searchDB(SongsRow.Id, (musicPlayer.NowPlaying.Id - 1).ToString())[0];
+                song = Ldbc.searchDB(SongsRow.Id, (musicPlayer.NowPlaying.Number - 1).ToString())[0];
                 playMusic(song);
             }
             catch 
@@ -249,7 +249,7 @@ namespace OxyPlayer
                 }
                 else
                 {
-                    song = Ldbc.searchDB(SongsRow.Id, (musicPlayer.NowPlaying.Id + 1).ToString())[0];
+                    song = Ldbc.searchDB(SongsRow.Id, (musicPlayer.NowPlaying.Number + 1).ToString())[0];
                     playMusic(song);
                 }
             }
@@ -279,6 +279,7 @@ namespace OxyPlayer
 
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
+            Ldbc.updataSongsTable();
             InitTreeNode_DB();
         }
 
