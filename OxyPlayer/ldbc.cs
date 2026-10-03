@@ -22,8 +22,7 @@ namespace OxyPlayer
     }
     class Floder
     {
-        [BsonId]
-        public int _id { get; set; }
+     
         public string Path { get; set; }
         public bool enabled { get; set; }
     }
@@ -215,7 +214,8 @@ namespace OxyPlayer
             using (var ldb = new LiteDatabase("songs.db"))
             {
                 ILiteCollection<Floder> table = ldb.GetCollection<Floder>("floders");
-                table.Delete(table.FindOne(x => x.Path == dir)._id);
+                //table.Delete(table.FindOne(x => x.Path == dir)._id);
+                table.DeleteMany(x => x.Path == dir);
             }
         }
 
