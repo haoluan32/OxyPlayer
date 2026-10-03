@@ -51,6 +51,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tabs1 = new AntdUI.Tabs();
+            this.tabPage1 = new AntdUI.TabPage();
+            this.checkBoxUpdateOnStartup = new System.Windows.Forms.CheckBox();
+            this.tabPage2 = new AntdUI.TabPage();
             this.tabPage3 = new AntdUI.TabPage();
             this.checkBoxEnableFloder = new System.Windows.Forms.CheckBox();
             this.button7 = new System.Windows.Forms.Button();
@@ -59,8 +62,6 @@
             this.textBoxFolderPath = new System.Windows.Forms.TextBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.label5 = new System.Windows.Forms.Label();
-            this.tabPage2 = new AntdUI.TabPage();
-            this.tabPage1 = new AntdUI.TabPage();
             this.tabPage4 = new AntdUI.TabPage();
             this.richTextBox4 = new System.Windows.Forms.RichTextBox();
             this.labelPreflex = new System.Windows.Forms.Label();
@@ -78,9 +79,9 @@
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tabs1.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -286,8 +287,8 @@
             // tabs1
             // 
             this.tabs1.Controls.Add(this.tabPage1);
-            this.tabs1.Controls.Add(this.tabPage3);
             this.tabs1.Controls.Add(this.tabPage2);
+            this.tabs1.Controls.Add(this.tabPage3);
             this.tabs1.Controls.Add(this.tabPage4);
             this.tabs1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabs1.Location = new System.Drawing.Point(0, 0);
@@ -300,6 +301,38 @@
             this.tabs1.Style = styleLine1;
             this.tabs1.TabIndex = 15;
             this.tabs1.Text = "tabs1";
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.checkBoxUpdateOnStartup);
+            this.tabPage1.Controls.Add(this.checkBox1);
+            this.tabPage1.Controls.Add(this.checkBox2);
+            this.tabPage1.Location = new System.Drawing.Point(0, 30);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(622, 372);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "基本设置";
+            // 
+            // checkBoxUpdateOnStartup
+            // 
+            this.checkBoxUpdateOnStartup.AutoSize = true;
+            this.checkBoxUpdateOnStartup.Location = new System.Drawing.Point(17, 69);
+            this.checkBoxUpdateOnStartup.Name = "checkBoxUpdateOnStartup";
+            this.checkBoxUpdateOnStartup.Size = new System.Drawing.Size(147, 21);
+            this.checkBoxUpdateOnStartup.TabIndex = 14;
+            this.checkBoxUpdateOnStartup.Text = "启动时强制更新数据库";
+            this.checkBoxUpdateOnStartup.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.groupBox3);
+            this.tabPage2.Controls.Add(this.groupBox2);
+            this.tabPage2.Location = new System.Drawing.Point(-1244, -744);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(622, 372);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "个性化";
             // 
             // tabPage3
             // 
@@ -380,27 +413,6 @@
             this.label5.Size = new System.Drawing.Size(44, 17);
             this.label5.TabIndex = 6;
             this.label5.Text = "路径：";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.groupBox3);
-            this.tabPage2.Controls.Add(this.groupBox2);
-            this.tabPage2.Location = new System.Drawing.Point(-1244, -744);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(622, 372);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "个性化";
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.Color.White;
-            this.tabPage1.Controls.Add(this.checkBox1);
-            this.tabPage1.Controls.Add(this.checkBox2);
-            this.tabPage1.Location = new System.Drawing.Point(0, 30);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(622, 372);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "基本设置";
             // 
             // tabPage4
             // 
@@ -533,11 +545,11 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.tabs1.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -589,5 +601,6 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Label labelPreflex;
         private System.Windows.Forms.RichTextBox richTextBox4;
+        private System.Windows.Forms.CheckBox checkBoxUpdateOnStartup;
     }
 }

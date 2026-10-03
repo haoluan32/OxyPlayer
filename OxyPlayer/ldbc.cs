@@ -14,16 +14,18 @@ namespace OxyPlayer
 {
     public class Song
     {
-        public int Id { get; set; }
+        [BsonId]
+        public int _id { get; set; }
+        public int Number { get; set; }
         public string Title { get; set; }
         public string Album { get; set; }
         public string Artist { get; set; }
         public string Address { get; set; }
+        public bool Exist { get; set; }
     }
     class Floder
     {
-        [BsonId]
-        public int _id { get; set; }
+     
         public string Path { get; set; }
         public bool enabled { get; set; }
     }
@@ -37,14 +39,22 @@ namespace OxyPlayer
     {
         static public void updataSongsTable()//更新歌曲信息数据库
         {
-            int id = 1;
+            
             string[] SupportedFormating = MusicSh.GetSupportedFormating();
             Floder[] folders = Ldbc.getAllMusicFloders();
             using (var ldb = new LiteDatabase("songs.db"))
             {
                 ILiteCollection<Song> table = ldb.GetCollection<Song>("songs");
-                table.DeleteAll();
-                
+                List<string> addresses = new List<string>();
+                Song[] songTable = table.FindAll().ToArray();
+
+                foreach (var song in songTable)
+                {
+                    song.Exist = false;
+                    addresses.Add(song.Address);
+                    table.Update(song);
+                    
+                }
                 foreach (Floder folder in folders)
                 {
                     if (folder.enabled == false) { continue; }
@@ -54,12 +64,27 @@ namespace OxyPlayer
                     {
                         if (Array.IndexOf(SupportedFormating, afi.Extension) == -1)
                             continue;
+                        if (addresses.IndexOf(afi.FullName) > -1)
+                        {
+                            Song s = table.FindOne(x => x.Address == afi.FullName);
+                            s.Exist = true;
+                            table.Update(s);
+                            continue;
+                        }
 
                         Song song = MusicSh.GetSongInfo(afi.FullName);
-                        song.Id = id;                   
+                        song.Exist = true;
                         table.Insert(song);                            
-                        id++;
                     }
+                }            
+                table.DeleteMany(x => x.Exist == false);
+                songTable = table.FindAll().ToArray();
+                int id = 1;
+                foreach (var song in songTable)
+                {
+                    song.Number = id;
+                    table.Update(song);
+                    id++;
                 }
             }
         }
@@ -97,14 +122,23 @@ namespace OxyPlayer
 
         private static void DoUpdateSongsTable(CancellationToken ct)
         {
-            int id = 1;
             string[] supportedFormating = MusicSh.GetSupportedFormating();
             Floder[] folders = Ldbc.getAllMusicFloders();
 
             using (var ldb = new LiteDatabase("songs.db"))
             {
                 ILiteCollection<Song> table = ldb.GetCollection<Song>("songs");
-                table.DeleteAll();
+                List<string> addresses = new List<string>();
+                Song[] songTable = table.FindAll().ToArray();
+
+                // 先将所有已有记录标记为不存在
+                foreach (var song in songTable)
+                {
+                    ct.ThrowIfCancellationRequested();
+                    song.Exist = false;
+                    addresses.Add(song.Address);
+                    table.Update(song);
+                }
 
                 foreach (Floder folder in folders)
                 {
@@ -118,11 +152,35 @@ namespace OxyPlayer
                         if (Array.IndexOf(supportedFormating, afi.Extension) == -1)
                             continue;
 
+                        if (addresses.IndexOf(afi.FullName) > -1)
+                        {
+                            Song s = table.FindOne(x => x.Address == afi.FullName);
+                            if (s != null)
+                            {
+                                s.Exist = true;
+                                table.Update(s);
+                            }
+                            continue;
+                        }
+
                         Song song = MusicSh.GetSongInfo(afi.FullName); // 此处包含 Shell32 调用
-                        song.Id = id;
+                        song.Exist = true;
                         table.Insert(song);
-                        id++;
                     }
+                }
+
+                // 删除磁盘上已不存在的记录
+                table.DeleteMany(x => x.Exist == false);
+
+                // 重新编号
+                songTable = table.FindAll().ToArray();
+                int id = 1;
+                foreach (var song in songTable)
+                {
+                    ct.ThrowIfCancellationRequested();
+                    song.Number = id;
+                    table.Update(song);
+                    id++;
                 }
             }
         }
@@ -147,7 +205,7 @@ namespace OxyPlayer
                         i = table.Find(x => x.Artist.Contains(key));
                         break;
                     case SongsRow.Id:
-                        i = table.Find(x => x.Id == int.Parse(key));
+                        i = table.Find(x => x.Number == int.Parse(key));
                         break;
                 }
 
@@ -169,7 +227,7 @@ namespace OxyPlayer
                 temp.AddRange(table.Find(x => x.Artist.Contains(key)));
                 foreach (Song song in temp)
                 {
-                    if(re.FindIndex(new Predicate<Song>(x=>x.Id==song.Id))<0)
+                    if(re.FindIndex(new Predicate<Song>(x=>x.Number==song.Number))<0)
                     {
                         re.Add(song);
                     }
@@ -215,7 +273,7 @@ namespace OxyPlayer
             using (var ldb = new LiteDatabase("songs.db"))
             {
                 ILiteCollection<Floder> table = ldb.GetCollection<Floder>("floders");
-                table.Delete(table.FindOne(x => x.Path == dir)._id);
+                table.DeleteMany(x => x.Path == dir);
             }
         }
 

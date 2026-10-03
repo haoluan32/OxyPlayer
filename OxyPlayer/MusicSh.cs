@@ -66,7 +66,7 @@ namespace OxyPlayer
                 {
                     ILiteCollection<Song> table = ldb.GetCollection<Song>("songs");
                     IEnumerable<Song> i = table.Find(x => x.Address == MusicPath);
-                    mi.Id = i.ToArray<Song>()[0].Id;
+                    mi.Number = i.ToArray<Song>()[0].Number;
                 }
             }
 

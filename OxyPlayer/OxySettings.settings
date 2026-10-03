@@ -44,5 +44,8 @@
     <Setting Name="PreviousSong" Type="OxyPlayer.Song" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="UpdateOnStartup" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
