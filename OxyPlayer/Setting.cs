@@ -51,6 +51,8 @@ namespace OxyPlayer
             richTextBox2.ForeColor = OxySettings.Default.MainWindowLyricsColor;
             richTextBox2.Font = OxySettings.Default.MainWindowsLyricsFont;
 
+            checkBoxUpdateOnStartup.Checked = OxySettings.Default.UpdateOnStartup;
+
             if (AppInfo.Default.IsTesing)  
                 labelVersion.Text = $"版本 {AppInfo.Default.VersionFull}"; 
             else
@@ -106,6 +108,7 @@ namespace OxyPlayer
             OxySettings.Default.Opacity = ((double)numericUpDown1.Value / 100.0);
             OxySettings.Default.ShowStartup = checkBox1.Checked;
             OxySettings.Default.ExitWhenFormClosing = checkBox2.Checked;
+            OxySettings.Default.UpdateOnStartup = checkBoxUpdateOnStartup.Checked;
             OxySettings.Default.Save();
             Refresh();
         }

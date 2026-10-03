@@ -51,7 +51,7 @@ namespace OxyPlayer
 
         private async Task DBEmptyCheck_Update()
         {
-            if (Ldbc.getAllMusicFloders().Count() == 0)
+            if (Ldbc.getAllMusicFloders().Count() == 0||OxySettings.Default.UpdateOnStartup)
             {
                 Ldbc.addMusicFlodersTable(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic));
                 await Ldbc.UpdateSongsTableAsync();
@@ -76,10 +76,6 @@ namespace OxyPlayer
 
         private async void MainWindow_Shown(object sender, EventArgs e)
         {
-            spinDBIndexing.Visible = true;
-            await DBEmptyCheck_Update();
-            InitTreeNode_DB();
-            spinDBIndexing.Visible = false;
 
             TimeTrackTimer.Start();
             setting.Refresh += rePaintControl;
@@ -100,7 +96,12 @@ namespace OxyPlayer
             randomPlayEnabled = !OxySettings.Default.RandomPlay;
             uiSymbolButtonRandomPlay_Click(new object(), new EventArgs());
 
-            if(OxySettings.Default.PreviousSong!=null&&System.IO.File.Exists(OxySettings.Default.PreviousSong.Address))
+            spinDBIndexing.Visible = true;
+            await DBEmptyCheck_Update();
+            InitTreeNode_DB();
+            spinDBIndexing.Visible = false;
+
+            if (OxySettings.Default.PreviousSong!=null&&System.IO.File.Exists(OxySettings.Default.PreviousSong.Address))
                 playMusic(OxySettings.Default.PreviousSong, false);
 
             if (AppInfo.Default.IsTesing)

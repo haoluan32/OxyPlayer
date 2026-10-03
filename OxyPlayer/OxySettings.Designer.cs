@@ -189,5 +189,17 @@ namespace OxyPlayer {
                 this["PreviousSong"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UpdateOnStartup {
+            get {
+                return ((bool)(this["UpdateOnStartup"]));
+            }
+            set {
+                this["UpdateOnStartup"] = value;
+            }
+        }
     }
 }
