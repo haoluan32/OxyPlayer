@@ -205,6 +205,18 @@ namespace OxyPlayer
         }
         #endregion
 
+        static public void DeleteSongsTable()
+        {
+            WaitForUnlock();
+            DBLock = true;
+            using (var ldb = new LiteDatabase("songs.db"))
+            {
+                ILiteCollection<Song> table = ldb.GetCollection<Song>("songs");
+                table.DeleteAll();
+            }
+            DBLock = false;
+        }
+
         static public Song[] searchDB(SongsRow row, string key)
         {
             Song[] re = null;
