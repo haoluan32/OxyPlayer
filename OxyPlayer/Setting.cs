@@ -186,6 +186,7 @@ namespace OxyPlayer
             TextViewer tv = new TextViewer("NOTICE");
             tv.ShowDialog();
         }
+
     }
 
     class TreeNodeWithFloder : TreeNode
