@@ -1,13 +1,14 @@
-﻿using System;
+﻿using Ookii.Dialogs.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Ookii.Dialogs.WinForms;
 
 namespace OxyPlayer
 {
@@ -60,6 +61,13 @@ namespace OxyPlayer
 
             labelPreflex.Text = $"发布通道 {AppInfo.Default.VersionPrefix}";
             refreshFloderList();
+            refreshDBStatus();
+            
+        }
+
+        private void refreshDBStatus()
+        {
+            richTextBoxDBStatus.Text = $"音乐数据表条目数：{Ldbc.GetItemsCount()}\r\n文件夹数据表条目数：{Ldbc.getAllMusicFloders().Count()}";
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -185,6 +193,34 @@ namespace OxyPlayer
         {
             TextViewer tv = new TextViewer("NOTICE");
             tv.ShowDialog();
+        }
+
+        private void buttonRebuildSongTable_Click(object sender, EventArgs e)
+        {
+            Ldbc.DeleteSongsTable();
+            Ldbc.updataSongsTable();
+        }
+
+        private void buttonDeleteDB_Click(object sender, EventArgs e)
+        {
+            System.IO.File.Delete("songs.db");
+            Application.Restart();
+        }
+
+        private void buttonStartLdbStu_Click(object sender, EventArgs e)
+        {
+            using (Process p = new Process())
+            {
+                p.StartInfo.FileName = @".\LdbStu\LiteDB.Studio.exe";
+                p.StartInfo.Arguments = "songs.db";
+                p.Start();
+                p.WaitForExit();
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            refreshDBStatus();
         }
     }
 

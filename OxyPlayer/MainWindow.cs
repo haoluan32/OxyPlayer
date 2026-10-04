@@ -51,11 +51,14 @@ namespace OxyPlayer
 
         private async Task DBEmptyCheck_Update()
         {
-            if (Ldbc.getAllMusicFloders().Count() == 0||OxySettings.Default.UpdateOnStartup)
+            if (Ldbc.getAllMusicFloders().Count() == 0)
             {
                 Ldbc.addMusicFlodersTable(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic));
+                await Ldbc.UpdateSongsTableAsync(); 
+            }
+            if (OxySettings.Default.UpdateOnStartup)
+            {
                 await Ldbc.UpdateSongsTableAsync();
-                
             }
         }
         private void InitTreeNode_DB()

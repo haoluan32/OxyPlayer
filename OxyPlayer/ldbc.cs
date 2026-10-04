@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -37,11 +38,20 @@ namespace OxyPlayer
 
     class Ldbc
     {
+
+        static private bool DBLock = false;
+        static private void WaitForUnlock()
+        {
+            while (DBLock)
+                Delay(25);
+        }
         static public void updataSongsTable()//更新歌曲信息数据库
         {
             
             string[] SupportedFormating = MusicSh.GetSupportedFormating();
             Floder[] folders = Ldbc.getAllMusicFloders();
+            WaitForUnlock();
+            DBLock = true;
             using (var ldb = new LiteDatabase("songs.db"))
             {
                 ILiteCollection<Song> table = ldb.GetCollection<Song>("songs");
@@ -87,6 +97,7 @@ namespace OxyPlayer
                     id++;
                 }
             }
+            DBLock = false;
         }
 
         #region update_Async
@@ -125,6 +136,13 @@ namespace OxyPlayer
             string[] supportedFormating = MusicSh.GetSupportedFormating();
             Floder[] folders = Ldbc.getAllMusicFloders();
 
+            while (DBLock)
+            {
+                ct.ThrowIfCancellationRequested();
+                Delay(25);
+            }
+
+            DBLock = true;
             using (var ldb = new LiteDatabase("songs.db"))
             {
                 ILiteCollection<Song> table = ldb.GetCollection<Song>("songs");
@@ -183,12 +201,27 @@ namespace OxyPlayer
                     id++;
                 }
             }
+            DBLock = false;
         }
         #endregion
+
+        static public void DeleteSongsTable()
+        {
+            WaitForUnlock();
+            DBLock = true;
+            using (var ldb = new LiteDatabase("songs.db"))
+            {
+                ILiteCollection<Song> table = ldb.GetCollection<Song>("songs");
+                table.DeleteAll();
+            }
+            DBLock = false;
+        }
 
         static public Song[] searchDB(SongsRow row, string key)
         {
             Song[] re = null;
+            WaitForUnlock();
+            DBLock = true;
             using (var ldb = new LiteDatabase("songs.db"))
             {
                 ILiteCollection<Song> table = ldb.GetCollection<Song>("songs");
@@ -212,12 +245,15 @@ namespace OxyPlayer
                 if (i != null)
                     re = i.ToArray();
             }
+            DBLock=false;
             return re;
         }   //在歌曲信息数据库中检索(指定列)
 
         static public Song[] searchDBMerged(string key) //在歌曲信息数据库中检索(聚合搜索)
         {
             List<Song> re = new List<Song>();
+            WaitForUnlock();
+            DBLock = true;
             using (var ldb = new LiteDatabase("songs.db"))
             {
                 ILiteCollection<Song> table = ldb.GetCollection<Song>("songs");
@@ -233,69 +269,99 @@ namespace OxyPlayer
                     }
                 }
             }
+            DBLock = false;
             return re.ToArray();
         }   //在歌曲信息数据库中检索
 
         static public int GetItemsCount()
         {
             int fileCount = -1;
+            WaitForUnlock();
+            DBLock=true;
             using (var ldb = new LiteDatabase("songs.db"))
             {
                 ILiteCollection<Song> table = ldb.GetCollection<Song>("songs");
                 fileCount = table.Count();
             }
+            DBLock=false;
             return fileCount;
         }   //获取歌曲信息数据库条目计数
 
         static public Song[] GetAllSongsInfo()
         {
-            Song[] songTable; 
+            Song[] songTable;
+            WaitForUnlock();
+            DBLock = true;
             using (var ldb = new LiteDatabase("songs.db"))
             {
                 ILiteCollection<Song> table = ldb.GetCollection<Song>("songs");
                 songTable= table.FindAll().ToArray();
             }
+            DBLock = false;
             return songTable;
         }   //获取歌曲信息数据库中全部歌曲信息
 
         static public void addMusicFlodersTable(string dir)
         {
+            WaitForUnlock();
+            DBLock = true;
             using (var ldb = new LiteDatabase("songs.db"))
             {
                 ILiteCollection<Floder> table = ldb.GetCollection<Floder>("floders");
                 Floder nf = new Floder { Path = dir, enabled = true };
                 table.Insert(nf);
             }
+            DBLock=false;
         }
 
         static public void delMusicFlodersTable(string dir)
         {
+            WaitForUnlock();
+            DBLock = true;
             using (var ldb = new LiteDatabase("songs.db"))
             {
                 ILiteCollection<Floder> table = ldb.GetCollection<Floder>("floders");
                 table.DeleteMany(x => x.Path == dir);
             }
+            DBLock = false;
         }
 
         static public Floder[] getAllMusicFloders()
         {
             Floder[] fs=null;
+            WaitForUnlock();
+            DBLock = true;
             using (var ldb = new LiteDatabase("songs.db"))
             {
                 ILiteCollection<Floder> table = ldb.GetCollection<Floder>("floders");
                 fs = table.FindAll().ToArray();
             }
+            DBLock = false;
             return fs;
         }
 
         static public void setMusicFloderEnable(string dir,bool enabled)
         {
+            WaitForUnlock();
+            DBLock = true;
             using (var ldb = new LiteDatabase("songs.db"))
             {
                 ILiteCollection<Floder> table = ldb.GetCollection<Floder>("floders");
                 Floder floder = table.FindOne(x => x.Path == dir);
                 floder.enabled = enabled;
                 table.Update(floder);
+            }
+            DBLock = false;
+        }
+
+        [DllImport("kernel32.dll")]
+        public static extern uint GetTickCount();
+        static private void Delay(uint ms)
+        {
+            uint start = GetTickCount();
+            while (GetTickCount() - start < ms)
+            {
+                System.Windows.Forms.Application.DoEvents();
             }
         }
     }
