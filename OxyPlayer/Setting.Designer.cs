@@ -52,17 +52,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.tabs1 = new AntdUI.Tabs();
             this.tabPage5 = new AntdUI.TabPage();
-            this.richTextBox6 = new System.Windows.Forms.RichTextBox();
-            this.tabPage4 = new AntdUI.TabPage();
-            this.richTextBox5 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
-            this.labelPreflex = new System.Windows.Forms.Label();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
-            this.labelVersion = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buttonStartLdbStu = new System.Windows.Forms.Button();
+            this.buttonDeleteDB = new System.Windows.Forms.Button();
+            this.richTextBoxDBStatus = new System.Windows.Forms.RichTextBox();
             this.tabPage1 = new AntdUI.TabPage();
             this.checkBoxUpdateOnStartup = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new AntdUI.TabPage();
@@ -74,10 +66,23 @@
             this.textBoxFolderPath = new System.Windows.Forms.TextBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.label5 = new System.Windows.Forms.Label();
+            this.tabPage4 = new AntdUI.TabPage();
+            this.richTextBox5 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
+            this.labelPreflex = new System.Windows.Forms.Label();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.labelVersion = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.vistaFolderBrowserDialog1 = new Ookii.Dialogs.WinForms.VistaFolderBrowserDialog();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.buttonRebuildSongTable = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.buttonRefreshDBStatus = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -85,11 +90,11 @@
             this.groupBox4.SuspendLayout();
             this.tabs1.SuspendLayout();
             this.tabPage5.SuspendLayout();
-            this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -292,10 +297,10 @@
             // 
             // tabs1
             // 
-            this.tabs1.Controls.Add(this.tabPage5);
             this.tabs1.Controls.Add(this.tabPage1);
-            this.tabs1.Controls.Add(this.tabPage2);
+            this.tabs1.Controls.Add(this.tabPage5);
             this.tabs1.Controls.Add(this.tabPage3);
+            this.tabs1.Controls.Add(this.tabPage2);
             this.tabs1.Controls.Add(this.tabPage4);
             this.tabs1.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabs1.Location = new System.Drawing.Point(0, 0);
@@ -305,7 +310,6 @@
             this.tabs1.Pages.Add(this.tabPage3);
             this.tabs1.Pages.Add(this.tabPage5);
             this.tabs1.Pages.Add(this.tabPage4);
-            this.tabs1.SelectedIndex = 3;
             this.tabs1.Size = new System.Drawing.Size(622, 402);
             this.tabs1.Style = styleLine1;
             this.tabs1.TabIndex = 15;
@@ -313,26 +317,163 @@
             // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.button11);
-            this.tabPage5.Controls.Add(this.button10);
-            this.tabPage5.Controls.Add(this.richTextBox6);
-            this.tabPage5.Location = new System.Drawing.Point(0, 30);
+            this.tabPage5.Controls.Add(this.buttonRefreshDBStatus);
+            this.tabPage5.Controls.Add(this.buttonRebuildSongTable);
+            this.tabPage5.Controls.Add(this.buttonStartLdbStu);
+            this.tabPage5.Controls.Add(this.buttonDeleteDB);
+            this.tabPage5.Controls.Add(this.richTextBoxDBStatus);
+            this.tabPage5.Controls.Add(this.label9);
+            this.tabPage5.Controls.Add(this.label11);
+            this.tabPage5.Controls.Add(this.label10);
+            this.tabPage5.Location = new System.Drawing.Point(-1244, -744);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Size = new System.Drawing.Size(622, 372);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "数据库状态";
             // 
-            // richTextBox6
+            // buttonStartLdbStu
             // 
-            this.richTextBox6.BackColor = System.Drawing.Color.White;
-            this.richTextBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.richTextBox6.Location = new System.Drawing.Point(12, 40);
-            this.richTextBox6.Name = "richTextBox6";
-            this.richTextBox6.ReadOnly = true;
-            this.richTextBox6.Size = new System.Drawing.Size(344, 54);
-            this.richTextBox6.TabIndex = 4;
-            this.richTextBox6.Text = "音乐数据表条目数：\n文件夹数据表条目数：";
+            this.buttonStartLdbStu.Location = new System.Drawing.Point(12, 192);
+            this.buttonStartLdbStu.Name = "buttonStartLdbStu";
+            this.buttonStartLdbStu.Size = new System.Drawing.Size(127, 23);
+            this.buttonStartLdbStu.TabIndex = 6;
+            this.buttonStartLdbStu.Text = "启动LiteDB.Studio";
+            this.buttonStartLdbStu.UseVisualStyleBackColor = true;
+            this.buttonStartLdbStu.Click += new System.EventHandler(this.buttonStartLdbStu_Click);
+            // 
+            // buttonDeleteDB
+            // 
+            this.buttonDeleteDB.Location = new System.Drawing.Point(12, 163);
+            this.buttonDeleteDB.Name = "buttonDeleteDB";
+            this.buttonDeleteDB.Size = new System.Drawing.Size(127, 23);
+            this.buttonDeleteDB.TabIndex = 5;
+            this.buttonDeleteDB.Text = "删除数据库";
+            this.buttonDeleteDB.UseVisualStyleBackColor = true;
+            this.buttonDeleteDB.Click += new System.EventHandler(this.buttonDeleteDB_Click);
+            // 
+            // richTextBoxDBStatus
+            // 
+            this.richTextBoxDBStatus.BackColor = System.Drawing.Color.White;
+            this.richTextBoxDBStatus.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBoxDBStatus.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.richTextBoxDBStatus.Location = new System.Drawing.Point(12, 26);
+            this.richTextBoxDBStatus.Name = "richTextBoxDBStatus";
+            this.richTextBoxDBStatus.ReadOnly = true;
+            this.richTextBoxDBStatus.Size = new System.Drawing.Size(344, 54);
+            this.richTextBoxDBStatus.TabIndex = 4;
+            this.richTextBoxDBStatus.Text = "音乐数据表条目数：\n文件夹数据表条目数：";
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.checkBoxUpdateOnStartup);
+            this.tabPage1.Controls.Add(this.checkBox1);
+            this.tabPage1.Controls.Add(this.checkBox2);
+            this.tabPage1.Location = new System.Drawing.Point(0, 30);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(622, 372);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "基本设置";
+            // 
+            // checkBoxUpdateOnStartup
+            // 
+            this.checkBoxUpdateOnStartup.AutoSize = true;
+            this.checkBoxUpdateOnStartup.Location = new System.Drawing.Point(17, 69);
+            this.checkBoxUpdateOnStartup.Name = "checkBoxUpdateOnStartup";
+            this.checkBoxUpdateOnStartup.Size = new System.Drawing.Size(147, 21);
+            this.checkBoxUpdateOnStartup.TabIndex = 14;
+            this.checkBoxUpdateOnStartup.Text = "启动时强制更新数据库";
+            this.checkBoxUpdateOnStartup.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.groupBox3);
+            this.tabPage2.Controls.Add(this.groupBox2);
+            this.tabPage2.Location = new System.Drawing.Point(-1244, -744);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(622, 372);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "个性化";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.checkBoxEnableFloder);
+            this.tabPage3.Controls.Add(this.button7);
+            this.tabPage3.Controls.Add(this.button6);
+            this.tabPage3.Controls.Add(this.button3);
+            this.tabPage3.Controls.Add(this.textBoxFolderPath);
+            this.tabPage3.Controls.Add(this.treeView1);
+            this.tabPage3.Controls.Add(this.label5);
+            this.tabPage3.Location = new System.Drawing.Point(-1244, -744);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(622, 372);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "音乐文件夹管理";
+            // 
+            // checkBoxEnableFloder
+            // 
+            this.checkBoxEnableFloder.AutoSize = true;
+            this.checkBoxEnableFloder.Location = new System.Drawing.Point(517, 343);
+            this.checkBoxEnableFloder.Name = "checkBoxEnableFloder";
+            this.checkBoxEnableFloder.Size = new System.Drawing.Size(87, 21);
+            this.checkBoxEnableFloder.TabIndex = 5;
+            this.checkBoxEnableFloder.Text = "启用选中的";
+            this.checkBoxEnableFloder.UseVisualStyleBackColor = true;
+            this.checkBoxEnableFloder.CheckedChanged += new System.EventHandler(this.checkBoxEnableFloder_CheckedChanged);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(435, 341);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(76, 23);
+            this.button7.TabIndex = 4;
+            this.button7.Text = "删除(&D)";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(353, 340);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(76, 23);
+            this.button6.TabIndex = 3;
+            this.button6.Text = "添加(&A)";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(324, 340);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(23, 23);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "..";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            // 
+            // textBoxFolderPath
+            // 
+            this.textBoxFolderPath.Location = new System.Drawing.Point(48, 340);
+            this.textBoxFolderPath.Name = "textBoxFolderPath";
+            this.textBoxFolderPath.Size = new System.Drawing.Size(270, 23);
+            this.textBoxFolderPath.TabIndex = 1;
+            // 
+            // treeView1
+            // 
+            this.treeView1.Location = new System.Drawing.Point(10, 3);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(599, 331);
+            this.treeView1.TabIndex = 0;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 343);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 17);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "路径：";
             // 
             // tabPage4
             // 
@@ -444,118 +585,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.Color.White;
-            this.tabPage1.Controls.Add(this.checkBoxUpdateOnStartup);
-            this.tabPage1.Controls.Add(this.checkBox1);
-            this.tabPage1.Controls.Add(this.checkBox2);
-            this.tabPage1.Location = new System.Drawing.Point(-1244, -744);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(622, 372);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "基本设置";
-            // 
-            // checkBoxUpdateOnStartup
-            // 
-            this.checkBoxUpdateOnStartup.AutoSize = true;
-            this.checkBoxUpdateOnStartup.Location = new System.Drawing.Point(17, 69);
-            this.checkBoxUpdateOnStartup.Name = "checkBoxUpdateOnStartup";
-            this.checkBoxUpdateOnStartup.Size = new System.Drawing.Size(147, 21);
-            this.checkBoxUpdateOnStartup.TabIndex = 14;
-            this.checkBoxUpdateOnStartup.Text = "启动时强制更新数据库";
-            this.checkBoxUpdateOnStartup.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.groupBox3);
-            this.tabPage2.Controls.Add(this.groupBox2);
-            this.tabPage2.Location = new System.Drawing.Point(-1244, -744);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(622, 372);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "个性化";
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.checkBoxEnableFloder);
-            this.tabPage3.Controls.Add(this.button7);
-            this.tabPage3.Controls.Add(this.button6);
-            this.tabPage3.Controls.Add(this.button3);
-            this.tabPage3.Controls.Add(this.textBoxFolderPath);
-            this.tabPage3.Controls.Add(this.treeView1);
-            this.tabPage3.Controls.Add(this.label5);
-            this.tabPage3.Location = new System.Drawing.Point(-1244, -744);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(622, 372);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "音乐文件夹管理";
-            // 
-            // checkBoxEnableFloder
-            // 
-            this.checkBoxEnableFloder.AutoSize = true;
-            this.checkBoxEnableFloder.Location = new System.Drawing.Point(517, 343);
-            this.checkBoxEnableFloder.Name = "checkBoxEnableFloder";
-            this.checkBoxEnableFloder.Size = new System.Drawing.Size(87, 21);
-            this.checkBoxEnableFloder.TabIndex = 5;
-            this.checkBoxEnableFloder.Text = "启用选中的";
-            this.checkBoxEnableFloder.UseVisualStyleBackColor = true;
-            this.checkBoxEnableFloder.CheckedChanged += new System.EventHandler(this.checkBoxEnableFloder_CheckedChanged);
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(435, 341);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(76, 23);
-            this.button7.TabIndex = 4;
-            this.button7.Text = "删除(&D)";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(353, 340);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(76, 23);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "添加(&A)";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(324, 340);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(23, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "..";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
-            // 
-            // textBoxFolderPath
-            // 
-            this.textBoxFolderPath.Location = new System.Drawing.Point(48, 340);
-            this.textBoxFolderPath.Name = "textBoxFolderPath";
-            this.textBoxFolderPath.Size = new System.Drawing.Size(270, 23);
-            this.textBoxFolderPath.TabIndex = 1;
-            // 
-            // treeView1
-            // 
-            this.treeView1.Location = new System.Drawing.Point(10, 3);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(599, 331);
-            this.treeView1.TabIndex = 0;
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 343);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 17);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "路径：";
-            // 
             // fontDialog1
             // 
             this.fontDialog1.Apply += new System.EventHandler(this.fontDialog1_Apply);
@@ -564,23 +593,52 @@
             // 
             this.vistaFolderBrowserDialog1.RootFolder = System.Environment.SpecialFolder.MyComputer;
             // 
-            // button10
+            // buttonRebuildSongTable
             // 
-            this.button10.Location = new System.Drawing.Point(12, 163);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(127, 23);
-            this.button10.TabIndex = 5;
-            this.button10.Text = "启动LiteDB.Studio";
-            this.button10.UseVisualStyleBackColor = true;
+            this.buttonRebuildSongTable.Location = new System.Drawing.Point(12, 134);
+            this.buttonRebuildSongTable.Name = "buttonRebuildSongTable";
+            this.buttonRebuildSongTable.Size = new System.Drawing.Size(127, 23);
+            this.buttonRebuildSongTable.TabIndex = 7;
+            this.buttonRebuildSongTable.Text = "重建音乐数据表";
+            this.buttonRebuildSongTable.UseVisualStyleBackColor = true;
+            this.buttonRebuildSongTable.Click += new System.EventHandler(this.buttonRebuildSongTable_Click);
             // 
-            // button11
+            // label9
             // 
-            this.button11.Location = new System.Drawing.Point(12, 192);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(127, 23);
-            this.button11.TabIndex = 6;
-            this.button11.Text = "启动LiteDB.Studio";
-            this.button11.UseVisualStyleBackColor = true;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(137, 137);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(248, 17);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "（期间程序会卡死，完成后请点击刷新按钮）";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(137, 166);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(284, 17);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "（会丢失音乐文件夹相关数据，使用后请重启程序）";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(137, 195);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(373, 17);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "（仅供调试使用，LiteDB.Studio连接后程序数据库功能会出现问题）";
+            // 
+            // buttonRefreshDBStatus
+            // 
+            this.buttonRefreshDBStatus.Location = new System.Drawing.Point(12, 105);
+            this.buttonRefreshDBStatus.Name = "buttonRefreshDBStatus";
+            this.buttonRefreshDBStatus.Size = new System.Drawing.Size(127, 23);
+            this.buttonRefreshDBStatus.TabIndex = 11;
+            this.buttonRefreshDBStatus.Text = "刷新数据库状态";
+            this.buttonRefreshDBStatus.UseVisualStyleBackColor = true;
+            this.buttonRefreshDBStatus.Click += new System.EventHandler(this.button10_Click);
             // 
             // Setting
             // 
@@ -608,14 +666,15 @@
             this.groupBox4.ResumeLayout(false);
             this.tabs1.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabPage5.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -666,9 +725,14 @@
         private System.Windows.Forms.RichTextBox richTextBox4;
         private System.Windows.Forms.CheckBox checkBoxUpdateOnStartup;
         private AntdUI.TabPage tabPage5;
-        private System.Windows.Forms.RichTextBox richTextBox6;
+        private System.Windows.Forms.RichTextBox richTextBoxDBStatus;
         private System.Windows.Forms.RichTextBox richTextBox5;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button buttonStartLdbStu;
+        private System.Windows.Forms.Button buttonDeleteDB;
+        private System.Windows.Forms.Button buttonRebuildSongTable;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button buttonRefreshDBStatus;
     }
 }
