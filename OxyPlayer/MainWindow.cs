@@ -81,7 +81,7 @@ namespace OxyPlayer
         {
 
             TimeTrackTimer.Start();
-            setting.Refresh += rePaintControl;
+            setting.RefreshTheme += rePaintControl;
             rePaintControl();
             desktopLyrics.uiSymbolButtonBefore.Click += uiSymbolButtonBefore_Click;
             desktopLyrics.uiSymbolButtonNext.Click += uiSymbolButtonNext_Click;

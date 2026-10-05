@@ -18,7 +18,7 @@ namespace OxyPlayer
     {
 
         public delegate void RefreshHandler();
-        public event RefreshHandler Refresh;
+        public event RefreshHandler RefreshTheme;
 
         bool selectedrefresh=false;
         public Setting()
@@ -118,7 +118,7 @@ namespace OxyPlayer
             OxySettings.Default.ExitWhenFormClosing = checkBox2.Checked;
             OxySettings.Default.UpdateOnStartup = checkBoxUpdateOnStartup.Checked;
             OxySettings.Default.Save();
-            Refresh();
+            RefreshTheme();
         }
 
         private void button4_Click(object sender, EventArgs e)

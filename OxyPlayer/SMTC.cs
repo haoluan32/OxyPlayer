@@ -59,7 +59,7 @@ namespace OxyPlayer
             get { return __smtc; }
         }
 
-        public async Task UpdateMusicInfo(Musicinfo musicinfo)
+        public void UpdateMusicInfo(Musicinfo musicinfo)
         {
             var updater = __smtc.DisplayUpdater;
             InMemoryRandomAccessStream accessStream = new InMemoryRandomAccessStream();
