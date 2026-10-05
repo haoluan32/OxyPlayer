@@ -66,6 +66,7 @@ namespace OxyPlayer
             useColor = OxySettings.Default.DesktopLyricsColor;
             label1.ForeColor = useColor;
             label1.Font = useFont;
+            this.Opacity = OxySettings.Default.Opacity;
             pen = new Pen(useColor);
             //label1.Visible = false;
         }

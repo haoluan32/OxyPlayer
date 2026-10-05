@@ -54,6 +54,8 @@ namespace OxyPlayer
 
             checkBoxUpdateOnStartup.Checked = OxySettings.Default.UpdateOnStartup;
 
+            numericUpDown1.Value = OxySettings.Default.Opacity * 100;
+
             if (AppInfo.Default.IsTesing)  
                 labelVersion.Text = $"版本 {AppInfo.Default.VersionFull}"; 
             else
