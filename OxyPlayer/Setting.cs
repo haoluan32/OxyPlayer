@@ -43,8 +43,8 @@ namespace OxyPlayer
             button1.BackColor = OxySettings.Default.DesktopLyricsColor;
             button2.Text = OxySettings.Default.DesktopLyricsFont.Name;
 
-            richTextBox1.ForeColor = colorDialog1.Color;
-            richTextBox1.Font = fontDialog1.Font;
+            richTextBox1.ForeColor = OxySettings.Default.DesktopLyricsColor;
+            richTextBox1.Font = OxySettings.Default.DesktopLyricsFont;
 
             button4.BackColor = OxySettings.Default.MainWindowLyricsColor;
             button5.Text = OxySettings.Default.MainWindowsLyricsFont.Name;
@@ -53,6 +53,8 @@ namespace OxyPlayer
             richTextBox2.Font = OxySettings.Default.MainWindowsLyricsFont;
 
             checkBoxUpdateOnStartup.Checked = OxySettings.Default.UpdateOnStartup;
+
+            numericUpDown1.Value = OxySettings.Default.Opacity * 100;
 
             if (AppInfo.Default.IsTesing)  
                 labelVersion.Text = $"版本 {AppInfo.Default.VersionFull}"; 
@@ -127,7 +129,7 @@ namespace OxyPlayer
             colorDialog1.ShowDialog();
             button4.BackColor = colorDialog1.Color;
             richTextBox2.ForeColor = colorDialog1.Color;
-            OxySettings.Default.DesktopLyricsColor = colorDialog1.Color;
+            OxySettings.Default.MainWindowLyricsColor = colorDialog1.Color;
             OxySettings.Default.Save();
         }
 
