@@ -242,8 +242,12 @@ namespace OxyPlayer
                         break;
                 }
 
-                if (i != null)
-                    re = i.ToArray();
+                var sortedSongs = i
+                                  .OrderBy(s => s.Title, StringComparer.CurrentCultureIgnoreCase)
+                                  .ToList();
+
+                if (sortedSongs != null)
+                    re = sortedSongs.ToArray();
             }
             DBLock=false;
             return re;
@@ -270,7 +274,12 @@ namespace OxyPlayer
                 }
             }
             DBLock = false;
-            return re.ToArray();
+
+            var sortedSongs = re
+                                 .OrderBy(s => s.Title, StringComparer.CurrentCultureIgnoreCase)
+                                 .ToList();
+
+            return sortedSongs.ToArray();
         }   //在歌曲信息数据库中检索
 
         static public int GetItemsCount()
@@ -295,9 +304,13 @@ namespace OxyPlayer
             using (var ldb = new LiteDatabase("songs.db"))
             {
                 ILiteCollection<Song> table = ldb.GetCollection<Song>("songs");
-                songTable= table.FindAll().ToArray();
+                songTable= table.FindAll()
+                                 .OrderBy(s => s.Title, StringComparer.CurrentCultureIgnoreCase)
+                                 .ToArray(); 
             }
             DBLock = false;
+
+
             return songTable;
         }   //获取歌曲信息数据库中全部歌曲信息
 
