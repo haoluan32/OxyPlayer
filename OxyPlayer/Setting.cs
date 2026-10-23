@@ -12,15 +12,13 @@ using System.Windows.Forms;
 
 namespace OxyPlayer
 {
-   
-
     public partial class Setting : Form
     {
-
         public delegate void RefreshHandler();
         public event RefreshHandler RefreshTheme;
 
-        bool selectedrefresh=false;
+        bool selectedrefresh = false;
+
         public Setting()
         {
             InitializeComponent();
@@ -28,188 +26,178 @@ namespace OxyPlayer
 
         private void refreshFloderList()
         {
-            treeView1.Nodes.Clear();
+            tvMusicFolders.Nodes.Clear();
             foreach (Floder floder in Ldbc.getAllMusicFloders())
             {
                 TreeNodeWithFloder newNode = new TreeNodeWithFloder();
                 newNode.Floder = floder;
                 newNode.Text = floder.Path;
-                treeView1.Nodes.Add(newNode);
+                tvMusicFolders.Nodes.Add(newNode);
             }
         }
 
         private void Setting_Load(object sender, EventArgs e)
         {
-            button1.BackColor = OxySettings.Default.DesktopLyricsColor;
-            button2.Text = OxySettings.Default.DesktopLyricsFont.Name;
+            btnDesktopLyricsColor.BackColor = OxySettings.Default.DesktopLyricsColor;
+            btnDesktopLyricsFont.Text = OxySettings.Default.DesktopLyricsFont.Name;
 
-            richTextBox1.ForeColor = OxySettings.Default.DesktopLyricsColor;
-            richTextBox1.Font = OxySettings.Default.DesktopLyricsFont;
+            rtbDesktopLyricsPreview.ForeColor = OxySettings.Default.DesktopLyricsColor;
+            rtbDesktopLyricsPreview.Font = OxySettings.Default.DesktopLyricsFont;
 
-            button4.BackColor = OxySettings.Default.MainWindowLyricsColor;
-            button5.Text = OxySettings.Default.MainWindowsLyricsFont.Name;
+            btnMainWindowLyricsColor.BackColor = OxySettings.Default.MainWindowLyricsColor;
+            btnMainWindowLyricsFont.Text = OxySettings.Default.MainWindowsLyricsFont.Name;
 
-            richTextBox2.ForeColor = OxySettings.Default.MainWindowLyricsColor;
-            richTextBox2.Font = OxySettings.Default.MainWindowsLyricsFont;
+            rtbMainWindowLyricsPreview.ForeColor = OxySettings.Default.MainWindowLyricsColor;
+            rtbMainWindowLyricsPreview.Font = OxySettings.Default.MainWindowsLyricsFont;
 
-            checkBoxUpdateOnStartup.Checked = OxySettings.Default.UpdateOnStartup;
+            chkUpdateOnStartup.Checked = OxySettings.Default.UpdateOnStartup;
 
-            numericUpDown1.Value = (decimal)(OxySettings.Default.Opacity * 100);
+            nudDesktopLyricsOpacity.Value = (decimal)(OxySettings.Default.Opacity * 100);
 
-            if (AppInfo.Default.IsTesing)  
-                labelVersion.Text = $"版本 {AppInfo.Default.VersionFull}"; 
+            if (AppInfo.Default.IsTesing)
+                lblVersion.Text = $"版本 {AppInfo.Default.VersionFull}";
             else
-                labelVersion.Text = $"版本 {AppInfo.Default.Version}";
+                lblVersion.Text = $"版本 {AppInfo.Default.Version}";
 
-            labelPreflex.Text = $"发布通道 {AppInfo.Default.VersionPrefix}";
+            lblReleaseChannel.Text = $"发布通道 {AppInfo.Default.VersionPrefix}";
             refreshFloderList();
             refreshDBStatus();
-            
         }
 
         private void refreshDBStatus()
         {
-            richTextBoxDBStatus.Text = $"音乐数据表条目数：{Ldbc.GetItemsCount()}\r\n文件夹数据表条目数：{Ldbc.getAllMusicFloders().Count()}";
+            rtbDBStatus.Text = $"音乐数据表条目数：{Ldbc.GetItemsCount()}\r\n文件夹数据表条目数：{Ldbc.getAllMusicFloders().Count()}";
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void gbDesktopLyricsPreview_Enter(object sender, EventArgs e)
         {
-
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnDesktopLyricsFont_Click(object sender, EventArgs e)
         {
-            fontDialog1.Font = OxySettings.Default.DesktopLyricsFont;
-            fontDialog1.ShowDialog();
-            richTextBox1.Font = fontDialog1.Font;
-            button2.Text = fontDialog1.Font.Name;
-            OxySettings.Default.DesktopLyricsFont = fontDialog1.Font;
+            dlgFont.Font = OxySettings.Default.DesktopLyricsFont;
+            dlgFont.ShowDialog();
+            rtbDesktopLyricsPreview.Font = dlgFont.Font;
+            btnDesktopLyricsFont.Text = dlgFont.Font.Name;
+            OxySettings.Default.DesktopLyricsFont = dlgFont.Font;
             OxySettings.Default.Save();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void lblDesktopLyricsFont_Click(object sender, EventArgs e)
         {
-            
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnDesktopLyricsColor_Click(object sender, EventArgs e)
         {
-            colorDialog1.Color = button1.BackColor;
-            colorDialog1.ShowDialog();
-            button1.BackColor = colorDialog1.Color;
-            richTextBox1.ForeColor = colorDialog1.Color;
-            OxySettings.Default.DesktopLyricsColor = colorDialog1.Color;
+            dlgColor.Color = btnDesktopLyricsColor.BackColor;
+            dlgColor.ShowDialog();
+            btnDesktopLyricsColor.BackColor = dlgColor.Color;
+            rtbDesktopLyricsPreview.ForeColor = dlgColor.Color;
+            OxySettings.Default.DesktopLyricsColor = dlgColor.Color;
             OxySettings.Default.Save();
-
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void lblDesktopLyricsColor_Click(object sender, EventArgs e)
         {
-
         }
 
-        private void fontDialog1_Apply(object sender, EventArgs e)
+        private void dlgFont_Apply(object sender, EventArgs e)
         {
-            
         }
 
         private void Setting_FormClosing(object sender, FormClosingEventArgs e)
         {
-            OxySettings.Default.Opacity = ((double)numericUpDown1.Value / 100.0);
-            OxySettings.Default.ShowStartup = checkBox1.Checked;
-            OxySettings.Default.ExitWhenFormClosing = checkBox2.Checked;
-            OxySettings.Default.UpdateOnStartup = checkBoxUpdateOnStartup.Checked;
+            OxySettings.Default.Opacity = ((double)nudDesktopLyricsOpacity.Value / 100.0);
+            OxySettings.Default.ShowStartup = chkShowStartupScreen.Checked;
+            OxySettings.Default.ExitWhenFormClosing = chkExitOnClose.Checked;
+            OxySettings.Default.UpdateOnStartup = chkUpdateOnStartup.Checked;
             OxySettings.Default.Save();
             RefreshTheme();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btnMainWindowLyricsColor_Click(object sender, EventArgs e)
         {
-            colorDialog1.Color = button4.BackColor;
-            colorDialog1.ShowDialog();
-            button4.BackColor = colorDialog1.Color;
-            richTextBox2.ForeColor = colorDialog1.Color;
-            OxySettings.Default.MainWindowLyricsColor = colorDialog1.Color;
+            dlgColor.Color = btnMainWindowLyricsColor.BackColor;
+            dlgColor.ShowDialog();
+            btnMainWindowLyricsColor.BackColor = dlgColor.Color;
+            rtbMainWindowLyricsPreview.ForeColor = dlgColor.Color;
+            OxySettings.Default.MainWindowLyricsColor = dlgColor.Color;
             OxySettings.Default.Save();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void btnMainWindowLyricsFont_Click(object sender, EventArgs e)
         {
-            fontDialog1.Font = OxySettings.Default.MainWindowsLyricsFont;
-            fontDialog1.ShowDialog();
-            richTextBox2.Font = fontDialog1.Font;
-            button5.Text = fontDialog1.Font.Name;
-            OxySettings.Default.MainWindowsLyricsFont = fontDialog1.Font;
+            dlgFont.Font = OxySettings.Default.MainWindowsLyricsFont;
+            dlgFont.ShowDialog();
+            rtbMainWindowLyricsPreview.Font = dlgFont.Font;
+            btnMainWindowLyricsFont.Text = dlgFont.Font.Name;
+            OxySettings.Default.MainWindowsLyricsFont = dlgFont.Font;
             OxySettings.Default.Save();
         }
 
-        private void transfer1_TransferChanged(object sender, AntdUI.Transfer.TransferEventArgs e)
+        private void btnBrowseFolder_Click(object sender, EventArgs e)
         {
-            
+            dlgFolderBrowser.ShowDialog();
+            txtFolderPath.Text = dlgFolderBrowser.SelectedPath;
         }
 
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-            vistaFolderBrowserDialog1.ShowDialog();
-            textBoxFolderPath.Text = vistaFolderBrowserDialog1.SelectedPath;
-        }
-
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        private void tvMusicFolders_AfterSelect(object sender, TreeViewEventArgs e)
         {
             selectedrefresh = true;
-            checkBoxEnableFloder.Checked = ((TreeNodeWithFloder)treeView1.SelectedNode).Floder.enabled;
-            
+            chkEnableSelectedFolder.Checked = ((TreeNodeWithFloder)tvMusicFolders.SelectedNode).Floder.enabled;
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void btnAddFolder_Click(object sender, EventArgs e)
         {
-            Ldbc.addMusicFlodersTable(textBoxFolderPath.Text);
-            textBoxFolderPath.Text = "";
+            Ldbc.addMusicFlodersTable(txtFolderPath.Text);
+            txtFolderPath.Text = "";
             refreshFloderList();
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void btnDeleteFolder_Click(object sender, EventArgs e)
         {
-            Ldbc.delMusicFlodersTable(((TreeNodeWithFloder)treeView1.SelectedNode).Floder.Path);
+            Ldbc.delMusicFlodersTable(((TreeNodeWithFloder)tvMusicFolders.SelectedNode).Floder.Path);
             refreshFloderList();
         }
 
-        private void checkBoxEnableFloder_CheckedChanged(object sender, EventArgs e)
+        private void chkEnableSelectedFolder_CheckedChanged(object sender, EventArgs e)
         {
-            if (selectedrefresh==false)
+            if (selectedrefresh == false)
             {
-                Ldbc.setMusicFloderEnable(((TreeNodeWithFloder)treeView1.SelectedNode).Floder.Path, checkBoxEnableFloder.Checked);
+                Ldbc.setMusicFloderEnable(((TreeNodeWithFloder)tvMusicFolders.SelectedNode).Floder.Path, chkEnableSelectedFolder.Checked);
                 refreshFloderList();
             }
             else
-            { selectedrefresh = false; }
+            {
+                selectedrefresh = false;
+            }
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void btnViewLicense_Click(object sender, EventArgs e)
         {
             TextViewer tv = new TextViewer("LICENSE");
             tv.ShowDialog();
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void btnViewNotice_Click(object sender, EventArgs e)
         {
             TextViewer tv = new TextViewer("NOTICE");
             tv.ShowDialog();
         }
 
-        private void buttonRebuildSongTable_Click(object sender, EventArgs e)
+        private void btnRebuildSongTable_Click(object sender, EventArgs e)
         {
             Ldbc.DeleteSongsTable();
             Ldbc.updataSongsTable();
         }
 
-        private void buttonDeleteDB_Click(object sender, EventArgs e)
+        private void btnDeleteDatabase_Click(object sender, EventArgs e)
         {
             System.IO.File.Delete("songs.db");
             Application.Restart();
         }
 
-        private void buttonStartLdbStu_Click(object sender, EventArgs e)
+        private void btnStartLiteDBStudio_Click(object sender, EventArgs e)
         {
             using (Process p = new Process())
             {
@@ -220,7 +208,7 @@ namespace OxyPlayer
             }
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        private void btnRefreshDBStatus_Click(object sender, EventArgs e)
         {
             refreshDBStatus();
         }
