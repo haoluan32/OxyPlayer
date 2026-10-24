@@ -78,6 +78,9 @@
     <LangVersion>7.3</LangVersion>
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Logo_L.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -287,6 +290,7 @@
     <None Include="Resources\RandomPlayed.png" />
     <None Include="Resources\ShowDesktopLyric-white.png" />
     <None Include="Resources\Logo_L.png" />
+    <Content Include="Logo_L.ico" />
     <Content Include="SupportedFormating.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
