@@ -138,6 +138,7 @@
     </Compile>
     <Compile Include="ldbc.cs" />
     <Compile Include="SMTC.cs" />
+    <Compile Include="SortKind.cs" />
     <Compile Include="TextViewer.cs">
       <SubType>Form</SubType>
     </Compile>

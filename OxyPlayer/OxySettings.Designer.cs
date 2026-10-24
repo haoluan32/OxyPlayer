@@ -201,5 +201,17 @@ namespace OxyPlayer {
                 this["UpdateOnStartup"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ListSortKind {
+            get {
+                return ((int)(this["ListSortKind"]));
+            }
+            set {
+                this["ListSortKind"] = value;
+            }
+        }
     }
 }

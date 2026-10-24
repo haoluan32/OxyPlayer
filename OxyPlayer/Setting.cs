@@ -54,6 +54,8 @@ namespace OxyPlayer
 
             nudDesktopLyricsOpacity.Value = (decimal)(OxySettings.Default.Opacity * 100);
 
+            cbSortKind.SelectedIndex = OxySettings.Default.ListSortKind;
+
             if (AppInfo.Default.IsTesing)
                 lblVersion.Text = $"版本 {AppInfo.Default.VersionFull}";
             else
@@ -111,7 +113,9 @@ namespace OxyPlayer
             OxySettings.Default.ShowStartup = chkShowStartupScreen.Checked;
             OxySettings.Default.ExitWhenFormClosing = chkExitOnClose.Checked;
             OxySettings.Default.UpdateOnStartup = chkUpdateOnStartup.Checked;
+            OxySettings.Default.ListSortKind = cbSortKind.SelectedIndex;
             OxySettings.Default.Save();
+            Ldbc.ListSortkind = (SortKind)OxySettings.Default.ListSortKind;
             RefreshTheme();
         }
 

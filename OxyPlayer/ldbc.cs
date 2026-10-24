@@ -40,6 +40,27 @@ namespace OxyPlayer
     {
 
         static private bool DBLock = false;
+
+        static private SortKind sortkind = SortKind.Title;
+
+        static public SortKind ListSortkind
+        {
+            get
+            {
+                return sortkind;
+            }
+
+            set
+            {
+                if (value == SortKind.Title)
+                    selector = s => s.Title;
+
+                if (value == SortKind.Artist)
+                    selector = s => s.Artist;
+            }
+        }
+
+        static Func<Song, string> selector = s => s.Title;
         static private void WaitForUnlock()
         {
             while (DBLock)
@@ -242,8 +263,12 @@ namespace OxyPlayer
                         break;
                 }
 
-                if (i != null)
-                    re = i.ToArray();
+                var sortedSongs = i
+                                  .OrderBy(selector, StringComparer.CurrentCultureIgnoreCase)
+                                  .ToList();
+
+                if (sortedSongs != null)
+                    re = sortedSongs.ToArray();
             }
             DBLock=false;
             return re;
@@ -270,7 +295,12 @@ namespace OxyPlayer
                 }
             }
             DBLock = false;
-            return re.ToArray();
+
+            var sortedSongs = re
+                                 .OrderBy(selector, StringComparer.CurrentCultureIgnoreCase)
+                                 .ToList();
+
+            return sortedSongs.ToArray();
         }   //在歌曲信息数据库中检索
 
         static public int GetItemsCount()
@@ -295,9 +325,13 @@ namespace OxyPlayer
             using (var ldb = new LiteDatabase("songs.db"))
             {
                 ILiteCollection<Song> table = ldb.GetCollection<Song>("songs");
-                songTable= table.FindAll().ToArray();
+                songTable= table.FindAll()
+                                 .OrderBy(selector, StringComparer.CurrentCultureIgnoreCase)
+                                 .ToArray(); 
             }
             DBLock = false;
+
+
             return songTable;
         }   //获取歌曲信息数据库中全部歌曲信息
 

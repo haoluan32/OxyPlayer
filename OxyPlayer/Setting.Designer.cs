@@ -36,22 +36,26 @@
             this.lblDesktopLyricsFont = new System.Windows.Forms.Label();
             this.btnDesktopLyricsFont = new System.Windows.Forms.Button();
             this.gbDesktopLyricsSettings = new System.Windows.Forms.GroupBox();
-            this.rtbDesktopLyricsPreview = new System.Windows.Forms.RichTextBox();
-            this.lblDesktopLyricsOpacity = new System.Windows.Forms.Label();
-            this.nudDesktopLyricsOpacity = new System.Windows.Forms.NumericUpDown();
             this.lblOpacityPercent = new System.Windows.Forms.Label();
+            this.gbDesktopLyricsPreview = new System.Windows.Forms.GroupBox();
+            this.rtbDesktopLyricsPreview = new System.Windows.Forms.RichTextBox();
+            this.nudDesktopLyricsOpacity = new System.Windows.Forms.NumericUpDown();
+            this.lblDesktopLyricsOpacity = new System.Windows.Forms.Label();
             this.gbMainWindowLyricsSettings = new System.Windows.Forms.GroupBox();
-            this.chkShowStartupScreen = new System.Windows.Forms.CheckBox();
-            this.chkExitOnClose = new System.Windows.Forms.CheckBox();
-            this.gbMainWindowLyricsPreview = new System.Windows.Forms.GroupBox();
             this.btnMainWindowLyricsColor = new System.Windows.Forms.Button();
             this.btnMainWindowLyricsFont = new System.Windows.Forms.Button();
+            this.gbMainWindowLyricsPreview = new System.Windows.Forms.GroupBox();
+            this.rtbMainWindowLyricsPreview = new System.Windows.Forms.RichTextBox();
             this.lblMainWindowLyricsColor = new System.Windows.Forms.Label();
             this.lblMainWindowLyricsFont = new System.Windows.Forms.Label();
+            this.chkShowStartupScreen = new System.Windows.Forms.CheckBox();
+            this.chkExitOnClose = new System.Windows.Forms.CheckBox();
             this.tabsMain = new AntdUI.Tabs();
+            this.tpPersonalization = new AntdUI.TabPage();
+            this.cbSortKind = new System.Windows.Forms.ComboBox();
+            this.lblSortKind = new System.Windows.Forms.Label();
             this.tpBasicSettings = new AntdUI.TabPage();
             this.chkUpdateOnStartup = new System.Windows.Forms.CheckBox();
-            this.tpPersonalization = new AntdUI.TabPage();
             this.tpMusicFolderManagement = new AntdUI.TabPage();
             this.chkEnableSelectedFolder = new System.Windows.Forms.CheckBox();
             this.btnDeleteFolder = new System.Windows.Forms.Button();
@@ -81,16 +85,14 @@
             this.pbAppLogo = new System.Windows.Forms.PictureBox();
             this.dlgFont = new System.Windows.Forms.FontDialog();
             this.dlgFolderBrowser = new Ookii.Dialogs.WinForms.VistaFolderBrowserDialog();
-            this.gbDesktopLyricsPreview = new System.Windows.Forms.GroupBox();
-            this.rtbMainWindowLyricsPreview = new System.Windows.Forms.RichTextBox();
+            this.gbDesktopLyricsSettings.SuspendLayout();
             this.gbDesktopLyricsPreview.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudDesktopLyricsOpacity)).BeginInit();
-            this.gbDesktopLyricsSettings.SuspendLayout();
             this.gbMainWindowLyricsSettings.SuspendLayout();
             this.gbMainWindowLyricsPreview.SuspendLayout();
             this.tabsMain.SuspendLayout();
-            this.tpBasicSettings.SuspendLayout();
             this.tpPersonalization.SuspendLayout();
+            this.tpBasicSettings.SuspendLayout();
             this.tpMusicFolderManagement.SuspendLayout();
             this.tpDatabaseStatus.SuspendLayout();
             this.tpAbout.SuspendLayout();
@@ -137,10 +139,36 @@
             this.btnDesktopLyricsFont.UseVisualStyleBackColor = true;
             this.btnDesktopLyricsFont.Click += new System.EventHandler(this.btnDesktopLyricsFont_Click);
             // 
+            // gbDesktopLyricsSettings
+            // 
+            this.gbDesktopLyricsSettings.Controls.Add(this.btnDesktopLyricsColor);
+            this.gbDesktopLyricsSettings.Controls.Add(this.btnDesktopLyricsFont);
+            this.gbDesktopLyricsSettings.Controls.Add(this.lblOpacityPercent);
+            this.gbDesktopLyricsSettings.Controls.Add(this.gbDesktopLyricsPreview);
+            this.gbDesktopLyricsSettings.Controls.Add(this.nudDesktopLyricsOpacity);
+            this.gbDesktopLyricsSettings.Controls.Add(this.lblDesktopLyricsOpacity);
+            this.gbDesktopLyricsSettings.Controls.Add(this.lblDesktopLyricsColor);
+            this.gbDesktopLyricsSettings.Controls.Add(this.lblDesktopLyricsFont);
+            this.gbDesktopLyricsSettings.Location = new System.Drawing.Point(314, 3);
+            this.gbDesktopLyricsSettings.Name = "gbDesktopLyricsSettings";
+            this.gbDesktopLyricsSettings.Size = new System.Drawing.Size(300, 268);
+            this.gbDesktopLyricsSettings.TabIndex = 11;
+            this.gbDesktopLyricsSettings.TabStop = false;
+            this.gbDesktopLyricsSettings.Text = "桌面歌词设定";
+            // 
+            // lblOpacityPercent
+            // 
+            this.lblOpacityPercent.AutoSize = true;
+            this.lblOpacityPercent.Location = new System.Drawing.Point(269, 94);
+            this.lblOpacityPercent.Name = "lblOpacityPercent";
+            this.lblOpacityPercent.Size = new System.Drawing.Size(19, 17);
+            this.lblOpacityPercent.TabIndex = 7;
+            this.lblOpacityPercent.Text = "%";
+            // 
             // gbDesktopLyricsPreview
             // 
             this.gbDesktopLyricsPreview.Controls.Add(this.rtbDesktopLyricsPreview);
-            this.gbDesktopLyricsPreview.Location = new System.Drawing.Point(6, 114);
+            this.gbDesktopLyricsPreview.Location = new System.Drawing.Point(6, 120);
             this.gbDesktopLyricsPreview.Name = "gbDesktopLyricsPreview";
             this.gbDesktopLyricsPreview.Size = new System.Drawing.Size(286, 144);
             this.gbDesktopLyricsPreview.TabIndex = 4;
@@ -157,15 +185,6 @@
             this.rtbDesktopLyricsPreview.Text = "演示 演示 Demo デモ\n歌词 歌詞 Lyric 歌詞\n这是一句预览歌词\n這是一句預覽歌词\nThis is a preview lyric\nこれはプレビューの歌" +
     "詞です";
             // 
-            // lblDesktopLyricsOpacity
-            // 
-            this.lblDesktopLyricsOpacity.AutoSize = true;
-            this.lblDesktopLyricsOpacity.Location = new System.Drawing.Point(6, 94);
-            this.lblDesktopLyricsOpacity.Name = "lblDesktopLyricsOpacity";
-            this.lblDesktopLyricsOpacity.Size = new System.Drawing.Size(116, 17);
-            this.lblDesktopLyricsOpacity.TabIndex = 5;
-            this.lblDesktopLyricsOpacity.Text = "桌面歌词不透明度：";
-            // 
             // nudDesktopLyricsOpacity
             // 
             this.nudDesktopLyricsOpacity.Location = new System.Drawing.Point(120, 91);
@@ -178,51 +197,14 @@
             0,
             0});
             // 
-            // lblOpacityPercent
+            // lblDesktopLyricsOpacity
             // 
-            this.lblOpacityPercent.AutoSize = true;
-            this.lblOpacityPercent.Location = new System.Drawing.Point(269, 94);
-            this.lblOpacityPercent.Name = "lblOpacityPercent";
-            this.lblOpacityPercent.Size = new System.Drawing.Size(19, 17);
-            this.lblOpacityPercent.TabIndex = 7;
-            this.lblOpacityPercent.Text = "%";
-            // 
-            // gbDesktopLyricsSettings
-            // 
-            this.gbDesktopLyricsSettings.Controls.Add(this.btnDesktopLyricsColor);
-            this.gbDesktopLyricsSettings.Controls.Add(this.btnDesktopLyricsFont);
-            this.gbDesktopLyricsSettings.Controls.Add(this.lblOpacityPercent);
-            this.gbDesktopLyricsSettings.Controls.Add(this.gbDesktopLyricsPreview);
-            this.gbDesktopLyricsSettings.Controls.Add(this.nudDesktopLyricsOpacity);
-            this.gbDesktopLyricsSettings.Controls.Add(this.lblDesktopLyricsOpacity);
-            this.gbDesktopLyricsSettings.Controls.Add(this.lblDesktopLyricsColor);
-            this.gbDesktopLyricsSettings.Controls.Add(this.lblDesktopLyricsFont);
-            this.gbDesktopLyricsSettings.Location = new System.Drawing.Point(314, 3);
-            this.gbDesktopLyricsSettings.Name = "gbDesktopLyricsSettings";
-            this.gbDesktopLyricsSettings.Size = new System.Drawing.Size(300, 264);
-            this.gbDesktopLyricsSettings.TabIndex = 11;
-            this.gbDesktopLyricsSettings.TabStop = false;
-            this.gbDesktopLyricsSettings.Text = "桌面歌词设定";
-            // 
-            // chkShowStartupScreen
-            // 
-            this.chkShowStartupScreen.AutoSize = true;
-            this.chkShowStartupScreen.Location = new System.Drawing.Point(17, 15);
-            this.chkShowStartupScreen.Name = "chkShowStartupScreen";
-            this.chkShowStartupScreen.Size = new System.Drawing.Size(135, 21);
-            this.chkShowStartupScreen.TabIndex = 12;
-            this.chkShowStartupScreen.Text = "启动时显示加载界面";
-            this.chkShowStartupScreen.UseVisualStyleBackColor = true;
-            // 
-            // chkExitOnClose
-            // 
-            this.chkExitOnClose.AutoSize = true;
-            this.chkExitOnClose.Location = new System.Drawing.Point(17, 42);
-            this.chkExitOnClose.Name = "chkExitOnClose";
-            this.chkExitOnClose.Size = new System.Drawing.Size(111, 21);
-            this.chkExitOnClose.TabIndex = 13;
-            this.chkExitOnClose.Text = "关闭时直接退出";
-            this.chkExitOnClose.UseVisualStyleBackColor = true;
+            this.lblDesktopLyricsOpacity.AutoSize = true;
+            this.lblDesktopLyricsOpacity.Location = new System.Drawing.Point(6, 94);
+            this.lblDesktopLyricsOpacity.Name = "lblDesktopLyricsOpacity";
+            this.lblDesktopLyricsOpacity.Size = new System.Drawing.Size(116, 17);
+            this.lblDesktopLyricsOpacity.TabIndex = 5;
+            this.lblDesktopLyricsOpacity.Text = "桌面歌词不透明度：";
             // 
             // gbMainWindowLyricsSettings
             // 
@@ -274,8 +256,8 @@
             this.rtbMainWindowLyricsPreview.Name = "rtbMainWindowLyricsPreview";
             this.rtbMainWindowLyricsPreview.Size = new System.Drawing.Size(274, 116);
             this.rtbMainWindowLyricsPreview.TabIndex = 1;
-            this.rtbMainWindowLyricsPreview.Text = "演示 演示 Demo デモ\n歌词 歌詞 Lyric 歌詞\n这是一句预览歌词\n這是一句預覽歌词\nThis is a preview lyric\n这是プレビューの歌" +
-    "詞です";
+            this.rtbMainWindowLyricsPreview.Text = "演示 演示 Demo デモ\n歌词 歌詞 Lyric 歌詞\n这是一句预览歌词\n這是一句預覽歌词\nThis is a preview lyric\n这是プレビューの歌詞" +
+    "です";
             // 
             // lblMainWindowLyricsColor
             // 
@@ -295,10 +277,30 @@
             this.lblMainWindowLyricsFont.TabIndex = 7;
             this.lblMainWindowLyricsFont.Text = "界面歌词字体：";
             // 
+            // chkShowStartupScreen
+            // 
+            this.chkShowStartupScreen.AutoSize = true;
+            this.chkShowStartupScreen.Location = new System.Drawing.Point(17, 15);
+            this.chkShowStartupScreen.Name = "chkShowStartupScreen";
+            this.chkShowStartupScreen.Size = new System.Drawing.Size(135, 21);
+            this.chkShowStartupScreen.TabIndex = 12;
+            this.chkShowStartupScreen.Text = "启动时显示加载界面";
+            this.chkShowStartupScreen.UseVisualStyleBackColor = true;
+            // 
+            // chkExitOnClose
+            // 
+            this.chkExitOnClose.AutoSize = true;
+            this.chkExitOnClose.Location = new System.Drawing.Point(17, 42);
+            this.chkExitOnClose.Name = "chkExitOnClose";
+            this.chkExitOnClose.Size = new System.Drawing.Size(111, 21);
+            this.chkExitOnClose.TabIndex = 13;
+            this.chkExitOnClose.Text = "关闭时直接退出";
+            this.chkExitOnClose.UseVisualStyleBackColor = true;
+            // 
             // tabsMain
             // 
-            this.tabsMain.Controls.Add(this.tpBasicSettings);
             this.tabsMain.Controls.Add(this.tpPersonalization);
+            this.tabsMain.Controls.Add(this.tpBasicSettings);
             this.tabsMain.Controls.Add(this.tpMusicFolderManagement);
             this.tabsMain.Controls.Add(this.tpDatabaseStatus);
             this.tabsMain.Controls.Add(this.tpAbout);
@@ -310,10 +312,44 @@
             this.tabsMain.Pages.Add(this.tpMusicFolderManagement);
             this.tabsMain.Pages.Add(this.tpDatabaseStatus);
             this.tabsMain.Pages.Add(this.tpAbout);
+            this.tabsMain.SelectedIndex = 1;
             this.tabsMain.Size = new System.Drawing.Size(622, 402);
             this.tabsMain.Style = styleLine1;
             this.tabsMain.TabIndex = 15;
             this.tabsMain.Text = "tabsMain";
+            // 
+            // tpPersonalization
+            // 
+            this.tpPersonalization.Controls.Add(this.cbSortKind);
+            this.tpPersonalization.Controls.Add(this.lblSortKind);
+            this.tpPersonalization.Controls.Add(this.gbMainWindowLyricsSettings);
+            this.tpPersonalization.Controls.Add(this.gbDesktopLyricsSettings);
+            this.tpPersonalization.Location = new System.Drawing.Point(0, 30);
+            this.tpPersonalization.Name = "tpPersonalization";
+            this.tpPersonalization.Size = new System.Drawing.Size(622, 372);
+            this.tpPersonalization.TabIndex = 1;
+            this.tpPersonalization.Text = "个性化";
+            // 
+            // cbSortKind
+            // 
+            this.cbSortKind.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSortKind.FormattingEnabled = true;
+            this.cbSortKind.Items.AddRange(new object[] {
+            "歌名",
+            "艺术家"});
+            this.cbSortKind.Location = new System.Drawing.Point(125, 246);
+            this.cbSortKind.Name = "cbSortKind";
+            this.cbSortKind.Size = new System.Drawing.Size(183, 25);
+            this.cbSortKind.TabIndex = 15;
+            // 
+            // lblSortKind
+            // 
+            this.lblSortKind.AutoSize = true;
+            this.lblSortKind.Location = new System.Drawing.Point(7, 250);
+            this.lblSortKind.Name = "lblSortKind";
+            this.lblSortKind.Size = new System.Drawing.Size(128, 17);
+            this.lblSortKind.TabIndex = 8;
+            this.lblSortKind.Text = "主界面歌单排序依据：";
             // 
             // tpBasicSettings
             // 
@@ -321,7 +357,7 @@
             this.tpBasicSettings.Controls.Add(this.chkUpdateOnStartup);
             this.tpBasicSettings.Controls.Add(this.chkShowStartupScreen);
             this.tpBasicSettings.Controls.Add(this.chkExitOnClose);
-            this.tpBasicSettings.Location = new System.Drawing.Point(0, 30);
+            this.tpBasicSettings.Location = new System.Drawing.Point(-1244, -744);
             this.tpBasicSettings.Name = "tpBasicSettings";
             this.tpBasicSettings.Size = new System.Drawing.Size(622, 372);
             this.tpBasicSettings.TabIndex = 0;
@@ -336,16 +372,6 @@
             this.chkUpdateOnStartup.TabIndex = 14;
             this.chkUpdateOnStartup.Text = "启动时强制更新数据库";
             this.chkUpdateOnStartup.UseVisualStyleBackColor = true;
-            // 
-            // tpPersonalization
-            // 
-            this.tpPersonalization.Controls.Add(this.gbMainWindowLyricsSettings);
-            this.tpPersonalization.Controls.Add(this.gbDesktopLyricsSettings);
-            this.tpPersonalization.Location = new System.Drawing.Point(-1244, -744);
-            this.tpPersonalization.Name = "tpPersonalization";
-            this.tpPersonalization.Size = new System.Drawing.Size(622, 372);
-            this.tpPersonalization.TabIndex = 1;
-            this.tpPersonalization.Text = "个性化";
             // 
             // tpMusicFolderManagement
             // 
@@ -548,7 +574,7 @@
             this.rtbNotice.ReadOnly = true;
             this.rtbNotice.Size = new System.Drawing.Size(599, 212);
             this.rtbNotice.TabIndex = 8;
-            this.rtbNotice.Text = resources.GetString("richTextBox5.Text");
+            this.rtbNotice.Text = resources.GetString("rtbNotice.Text");
             // 
             // rtbLinks
             // 
@@ -600,7 +626,7 @@
             this.rtbLicense.ReadOnly = true;
             this.rtbLicense.Size = new System.Drawing.Size(599, 212);
             this.rtbLicense.TabIndex = 3;
-            this.rtbLicense.Text = resources.GetString("richTextBox3.Text");
+            this.rtbLicense.Text = resources.GetString("rtbLicense.Text");
             // 
             // lblVersion
             // 
@@ -657,17 +683,18 @@
             this.Text = "设置";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Setting_FormClosing);
             this.Load += new System.EventHandler(this.Setting_Load);
-            this.gbDesktopLyricsPreview.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nudDesktopLyricsOpacity)).EndInit();
             this.gbDesktopLyricsSettings.ResumeLayout(false);
             this.gbDesktopLyricsSettings.PerformLayout();
+            this.gbDesktopLyricsPreview.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nudDesktopLyricsOpacity)).EndInit();
             this.gbMainWindowLyricsSettings.ResumeLayout(false);
             this.gbMainWindowLyricsSettings.PerformLayout();
             this.gbMainWindowLyricsPreview.ResumeLayout(false);
             this.tabsMain.ResumeLayout(false);
+            this.tpPersonalization.ResumeLayout(false);
+            this.tpPersonalization.PerformLayout();
             this.tpBasicSettings.ResumeLayout(false);
             this.tpBasicSettings.PerformLayout();
-            this.tpPersonalization.ResumeLayout(false);
             this.tpMusicFolderManagement.ResumeLayout(false);
             this.tpMusicFolderManagement.PerformLayout();
             this.tpDatabaseStatus.ResumeLayout(false);
@@ -734,5 +761,7 @@
         private System.Windows.Forms.Label lblLiteDBStudioNote;
         private System.Windows.Forms.Label lblDeleteDBNote;
         private System.Windows.Forms.Button btnRefreshDBStatus;
+        private System.Windows.Forms.Label lblSortKind;
+        private System.Windows.Forms.ComboBox cbSortKind;
     }
 }
