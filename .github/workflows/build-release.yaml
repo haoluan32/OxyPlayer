@@ -57,32 +57,28 @@ jobs:
 
           # 4. 根据前缀决定各字段
           if ($prefix -eq "Carbon") {
-            # Carbon：完整版本用于 Version，安装包显示，Release 标题
-            $appVersion = $versionFull                     # 用于 AppInfo.Version
-            $issVersionString = "$versionFull $prefix"     # 用于 ISS 的 MyAppVersion
-            $releaseVersionString = "$versionFull $prefix" # 用于 Release 标题（不含“v ”）
+            $appVersion = $versionFull
+            $issVersionString = "$versionFull $prefix"
+            $releaseVersionString = "$versionFull $prefix"
             $isTesting = "True"
           } else {
-            # Oxygen / Oxy / v：简单版本用于 Version，安装包显示，Release 标题
             $appVersion = $simpleVersion
             $issVersionString = "$simpleVersion $prefix"
             $releaseVersionString = "$simpleVersion $prefix"
             $isTesting = "False"
           }
 
-          # Release 标题：统一加 “v ” 前缀
           $releaseTitle = "v $releaseVersionString"
 
           Write-Host "Prefix: $prefix"
           Write-Host "SimpleVersion: $simpleVersion"
           Write-Host "Date: $date"
-          Write-Host "VersionFull (内部): $versionFull"
-          Write-Host "AppVersion (Version字段): $appVersion"
+          Write-Host "VersionFull (internal): $versionFull"
+          Write-Host "AppVersion (Version field): $appVersion"
           Write-Host "ISS MyAppVersion: $issVersionString"
           Write-Host "Release Title: $releaseTitle"
-          Write-Host "IsTesing: $isTesting"
+          Write-Host "IsTesting: $isTesting"
 
-          # 输出变量供后续步骤使用
           Write-Output "prefix=$prefix" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
           Write-Output "simpleVersion=$simpleVersion" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
           Write-Output "versionFull=$versionFull" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
@@ -91,29 +87,87 @@ jobs:
           Write-Output "releaseTitle=$releaseTitle" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
           Write-Output "isTesting=$isTesting" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
 
+          # 统一的“设置名 -> 新值”映射，三处文件共用
+          $settingValues = [ordered]@{
+            "VersionFull"   = $versionFull
+            "Version"       = $appVersion
+            "VersionPrefix" = $prefix
+            "IsTesing"      = $isTesting
+          }
+
           # ----- 5. 更新 AppInfo.settings -----
           $settingsPath = "OxyPlayer\AppInfo.settings"
           if (Test-Path $settingsPath) {
             [xml]$xml = Get-Content -Path $settingsPath -Encoding UTF8
-            # 更新 Version
-            $node = $xml.SettingsFile.Settings.Setting | Where-Object { $_.Name -eq "Version" }
-            if ($node) { $node.Value.InnerText = $appVersion }
-            # 更新 VersionPrefix
-            $node = $xml.SettingsFile.Settings.Setting | Where-Object { $_.Name -eq "VersionPrefix" }
-            if ($node) { $node.Value.InnerText = $prefix }
-            # 更新 VersionFull
-            $node = $xml.SettingsFile.Settings.Setting | Where-Object { $_.Name -eq "VersionFull" }
-            if ($node) { $node.Value.InnerText = $versionFull }
-            # 更新 IsTesing（注意拼写）
-            $node = $xml.SettingsFile.Settings.Setting | Where-Object { $_.Name -eq "IsTesing" }
-            if ($node) { $node.Value.InnerText = $isTesting }
+            foreach ($name in $settingValues.Keys) {
+              $node = $xml.SettingsFile.Settings.Setting | Where-Object { $_.Name -eq $name }
+              if ($node) { $node.Value.InnerText = $settingValues[$name] }
+              else { Write-Warning "AppInfo.settings: setting '$name' not found" }
+            }
             $xml.Save($settingsPath)
             Write-Host "Updated AppInfo.settings"
           } else {
-            Write-Warning "AppInfo.settings not found at $settingsPath"
+            Write-Error "AppInfo.settings not found at $settingsPath"
+            exit 1
           }
 
-          # ----- 6. 更新 Inno Setup 脚本中的 MyAppVersion -----
+          # ----- 6. 更新 AppInfo.Designer.cs 的 DefaultSettingValueAttribute -----
+          # 命令行 msbuild 不会运行 SettingsSingleFileGenerator，
+          # 必须手动同步 Designer.cs 里的默认值，否则 exe.config 仍是旧值。
+          $designerPath = "OxyPlayer\AppInfo.Designer.cs"
+          if (Test-Path $designerPath) {
+            $content = [System.IO.File]::ReadAllText($designerPath)
+            $changed = $false
+            foreach ($name in $settingValues.Keys) {
+              $value = $settingValues[$name]
+              # 例：[...DefaultSettingValueAttribute("1.22.26.08.30")]
+              #     public string VersionFull {
+              $pattern = '(DefaultSettingValue(?:Attribute)?\(")[^"]*("\)\]\s*public\s+\w+\s+' + [regex]::Escape($name) + '\b)'
+              $replacement = '${1}' + $value.Replace('$','$$') + '${2}'
+              $newContent = [regex]::Replace($content, $pattern, $replacement)
+              if ($newContent -ne $content) {
+                $content = $newContent
+                $changed = $true
+                Write-Host "AppInfo.Designer.cs: '$name' -> '$value'"
+              } else {
+                Write-Warning "AppInfo.Designer.cs: DefaultSettingValue for '$name' not matched"
+              }
+            }
+            if ($changed) {
+              [System.IO.File]::WriteAllText($designerPath, $content, [System.Text.UTF8Encoding]::new($false))
+              Write-Host "Updated AppInfo.Designer.cs"
+            }
+          } else {
+            Write-Error "AppInfo.Designer.cs not found at $designerPath"
+            exit 1
+          }
+
+          # ----- 7. 更新 app.config 的 <userSettings> -----
+          # app.config 会被 MSBuild 复制成 OxyPlayer.exe.config，
+          # User Scope 设置首次运行时从这里取默认值。
+          $appConfigPath = "OxyPlayer\app.config"
+          if (Test-Path $appConfigPath) {
+            $content = [System.IO.File]::ReadAllText($appConfigPath)
+            foreach ($name in $settingValues.Keys) {
+              $value = $settingValues[$name]
+              # 例：<setting name="VersionFull" serializeAs="String"><value>...</value></setting>
+              $pattern = '(<setting\s+name="' + [regex]::Escape($name) + '"[^>]*>\s*<value>)[^<]*(</value>)'
+              $replacement = '${1}' + $value.Replace('$','$$') + '${2}'
+              $newContent = [regex]::Replace($content, $pattern, $replacement)
+              if ($newContent -ne $content) {
+                $content = $newContent
+                Write-Host "app.config: '$name' -> '$value'"
+              } else {
+                Write-Warning "app.config: setting '$name' not matched"
+              }
+            }
+            [System.IO.File]::WriteAllText($appConfigPath, $content, [System.Text.UTF8Encoding]::new($false))
+            Write-Host "Updated app.config"
+          } else {
+            Write-Warning "app.config not found at $appConfigPath (exe.config will not be generated)"
+          }
+
+          # ----- 8. 更新 Inno Setup 脚本中的 MyAppVersion -----
           $issPath = $env:ISS_PATH
           if (Test-Path $issPath) {
             $content = Get-Content -Path $issPath -Raw -Encoding UTF8
