@@ -98,7 +98,6 @@ Source: "..\OxyPlayer\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion rec
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
-Name: "{group}\MusicTag"; Filename: "{app}\MusicTag\MusicTag.exe"
 Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
 
 [Run]
