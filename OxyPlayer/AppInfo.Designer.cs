@@ -23,51 +23,39 @@ namespace OxyPlayer {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1.22.26.08.30")]
         public string VersionFull {
             get {
                 return ((string)(this["VersionFull"]));
             }
-            set {
-                this["VersionFull"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1.22")]
         public string Version {
             get {
                 return ((string)(this["Version"]));
             }
-            set {
-                this["Version"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Oxygen")]
         public string VersionPrefix {
             get {
                 return ((string)(this["VersionPrefix"]));
             }
-            set {
-                this["VersionPrefix"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool IsTesing {
             get {
                 return ((bool)(this["IsTesing"]));
-            }
-            set {
-                this["IsTesing"] = value;
             }
         }
     }
