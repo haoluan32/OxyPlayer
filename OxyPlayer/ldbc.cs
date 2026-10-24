@@ -40,6 +40,27 @@ namespace OxyPlayer
     {
 
         static private bool DBLock = false;
+
+        static private SortKind sortkind = SortKind.Title;
+
+        static public SortKind ListSortkind
+        {
+            get
+            {
+                return sortkind;
+            }
+
+            set
+            {
+                if (value == SortKind.Title)
+                    selector = s => s.Title;
+
+                if (value == SortKind.Artist)
+                    selector = s => s.Artist;
+            }
+        }
+
+        static Func<Song, string> selector = s => s.Title;
         static private void WaitForUnlock()
         {
             while (DBLock)
@@ -243,7 +264,7 @@ namespace OxyPlayer
                 }
 
                 var sortedSongs = i
-                                  .OrderBy(s => s.Title, StringComparer.CurrentCultureIgnoreCase)
+                                  .OrderBy(selector, StringComparer.CurrentCultureIgnoreCase)
                                   .ToList();
 
                 if (sortedSongs != null)
@@ -276,7 +297,7 @@ namespace OxyPlayer
             DBLock = false;
 
             var sortedSongs = re
-                                 .OrderBy(s => s.Title, StringComparer.CurrentCultureIgnoreCase)
+                                 .OrderBy(selector, StringComparer.CurrentCultureIgnoreCase)
                                  .ToList();
 
             return sortedSongs.ToArray();
@@ -305,7 +326,7 @@ namespace OxyPlayer
             {
                 ILiteCollection<Song> table = ldb.GetCollection<Song>("songs");
                 songTable= table.FindAll()
-                                 .OrderBy(s => s.Title, StringComparer.CurrentCultureIgnoreCase)
+                                 .OrderBy(selector, StringComparer.CurrentCultureIgnoreCase)
                                  .ToArray(); 
             }
             DBLock = false;
